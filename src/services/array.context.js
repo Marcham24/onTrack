@@ -16,9 +16,9 @@ export const SessionContextProvider = ({ children }) => {
           setIsLoading(false);
           setSessions(results);
         })
-        .catch((err) => {
+        .catch((error) => {
           setIsLoading(false);
-          setError(err);
+          setError(error);
         });
     }, 2000);
   };
