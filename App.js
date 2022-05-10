@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import styled from "styled-components/native";
+import { sessionRequest } from "./src/services/array.service";
 
 export default function App() {
-  const Title = styled.Text``;
+  sessionRequest();
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
