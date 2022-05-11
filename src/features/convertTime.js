@@ -6,6 +6,5 @@ export const ConvertTime = (d) => {
 
   var hDisplay = h + "h ";
   var mDisplay = m + "m ";
-  var sDisplay = s + "s ";
-  return hDisplay + mDisplay + sDisplay;
+  return hDisplay + mDisplay;
 };
