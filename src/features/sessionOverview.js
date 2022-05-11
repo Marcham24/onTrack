@@ -16,7 +16,13 @@ export const SessionView = (session = {}) => {
     tags = ["test", "items"],
   } = session;
 
-  const H3 = styled.Text``;
+  const TEST = (size) => {
+    return 4 * size + "px";
+  };
+
+  const H3 = styled.Text`
+    font-size: ${TEST(3)};
+  `;
 
   const ProjectCard = styled.View`
     margin: 10px;
@@ -38,7 +44,6 @@ export const SessionView = (session = {}) => {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     padding: 10px;
   `;
 
@@ -86,7 +91,7 @@ export const SessionView = (session = {}) => {
                   comment,
                   [
                     { text: "OK" },
-                    { text: "Edit", onPress: () => setModalVisible(true) },
+                    //{ text: "Edit", onPress: () => setModalVisible(true) },
                     {
                       text: "Delete",
                       style: "cancel",
