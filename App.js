@@ -1,14 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { sessionRequest } from "./src/services/array.service";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+import { TotalAllTime } from "./src/features/totalAllTime";
+import { SessionContextProvider } from "./src/services/array.context";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 export default function App() {
-  sessionRequest();
+  const Tab = createBottomTabNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <SessionContextProvider>
+        <NavigationContainer>
+          <View style={styles.container}>
+            <TotalAllTime calcReq="week" />
+          </View>
+        </NavigationContainer>
+      </SessionContextProvider>
+      <ExpoStatusBar style="auto" />
+    </>
   );
 }
 

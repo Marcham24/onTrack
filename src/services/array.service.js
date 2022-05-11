@@ -1,8 +1,8 @@
 import { projects, sessions } from "./mock/array";
 
-export const sessionRequest = (project = "GermErase") => {
+export const sessionRequest = () => {
   return new Promise((resolve, reject) => {
-    const mockSessions = sessions[project];
+    const mockSessions = sessions;
     if (!mockSessions) {
       reject("No project found!");
     }
@@ -12,9 +12,9 @@ export const sessionRequest = (project = "GermErase") => {
 
 sessionRequest();
 
-export const projectRequest = (project = "GermErase") => {
+export const projectRequest = () => {
   return new Promise((resolve, reject) => {
-    const mockProjects = projects[project];
+    const mockProjects = projects;
     if (!mockProjects) {
       reject("No project found!");
     }
