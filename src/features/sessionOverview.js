@@ -5,49 +5,67 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { sessionTime } from "./sessionTime";
 import { ConvertTime } from "./convertTime";
 import { EditingModal } from "./editingModal";
+import { TimeToDays } from "./timeToDays";
+import {
+  H1,
+  H2,
+  H3,
+  ProjectText,
+  CategoryText,
+  TimeText,
+  TagssText,
+  BodyText,
+  InputText,
+  TotalTimeText,
+} from "../utils/styling";
+import { projects } from "../services/mock/array";
 
 export const SessionView = (session = {}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const {
     project = "GermErase",
-    start = new Date("May 07, 2022 13:54:43"),
-    end = new Date("May 07, 2022 16:32:24"),
+    start = new Date("May 11, 2022 13:54:43"),
+    end = new Date("May 11, 2022 16:32:24"),
     comment = "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags = ["test", "items"],
   } = session;
 
-  const TEST = (size) => {
-    return 4 * size + "px";
-  };
-
-  const H3 = styled.Text`
-    font-size: ${TEST(3)};
-  `;
+  const color = projects.find((colorFind) =>
+    colorFind.name.includes(project)
+  )?.color;
 
   const ProjectCard = styled.View`
-    margin: 10px;
-    border-color: #393e46;
-    border-width: 1px;
-    border-left-width: 5px;
+    background-color: white;
+    margin: 12px;
+    border-left-color: ${color};
+    border-left-width: 4px;
     border-radius: 8px;
   `;
 
   const TimeView = styled.View`
     display: flex;
     flex-direction: row;
-    background-color: #eeeeee;
-    padding: 10px;
-    border-radius: 8px;
+    background-color: #dcdcdc;
+    padding: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
   `;
 
-  const PrimaryView = styled.View`
+  const Headline = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px;
+    padding: 8px 8px 0 8px; ;
   `;
 
   const TagsView = styled.View`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 8px 8px 8px;
+  `;
+
+  const TagsContainer = styled.View`
     display: flex;
     flex-direction: row;
   `;
@@ -71,50 +89,51 @@ export const SessionView = (session = {}) => {
           <EditingModal changeModal={handleChangeModalVisible} />
         </Modal>
       </View>
+
       <ProjectCard>
-        <PrimaryView>
-          <View>
-            <H3>
-              {project} - {ConvertTime(sessionTime({ start, end }))}
-            </H3>
-            <TagsView>
-              {tags?.map((i) => (
-                <Text key={i}>#{i} </Text>
-              ))}
-            </TagsView>
-          </View>
-          <View>
-            <Pressable
-              onPress={() => {
-                Alert.alert(
-                  project + " session on " + start.toLocaleDateString(),
-                  comment,
-                  [
-                    { text: "OK" },
-                    //{ text: "Edit", onPress: () => setModalVisible(true) },
-                    {
-                      text: "Delete",
-                      style: "cancel",
-                      onPress: () =>
-                        Alert.alert(
-                          "Are you sure you want to delete this session entry?",
-                          "",
-                          [{ text: "Delete" }, { text: "Go back" }]
-                        ),
-                    },
-                  ]
-                );
-              }}
-            >
-              <Ionicons name={"information-circle-outline"} size={25} />
-            </Pressable>
-            <Text>{start.toLocaleDateString()} </Text>
-          </View>
-        </PrimaryView>
+        <Headline>
+          <ProjectText>{project}</ProjectText>
+          <TotalTimeText>
+            {ConvertTime(sessionTime({ start, end }))}
+          </TotalTimeText>
+        </Headline>
+        <TagsView>
+          <TagsContainer>
+            {tags?.map((i) => (
+              <TagssText key={i}>#{i}</TagssText>
+            ))}
+          </TagsContainer>
+          <TimeText>{TimeToDays(start)}</TimeText>
+        </TagsView>
         <TimeView>
-          <Text>{start.toLocaleTimeString()} </Text>
-          <Ionicons name={"arrow-forward"} size={16} />
-          <Text>{end.toLocaleTimeString()} </Text>
+          <TimeText>{start.toLocaleTimeString()} </TimeText>
+          <TimeText> ➞ </TimeText>
+          <TimeText>{end.toLocaleTimeString()} </TimeText>
+          <Pressable
+            style={{ marginLeft: "auto" }}
+            onPress={() => {
+              Alert.alert(
+                project + " session on " + start.toLocaleDateString(),
+                comment,
+                [
+                  { text: "OK" },
+                  //{ text: "Edit", onPress: () => setModalVisible(true) },
+                  {
+                    text: "Delete",
+                    style: "cancel",
+                    onPress: () =>
+                      Alert.alert(
+                        "Are you sure you want to delete this session entry?",
+                        "",
+                        [{ text: "Delete" }, { text: "Go back" }]
+                      ),
+                  },
+                ]
+              );
+            }}
+          >
+            <Ionicons name={"information-circle"} size={24} color={color} />
+          </Pressable>
         </TimeView>
       </ProjectCard>
     </>

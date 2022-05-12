@@ -4,12 +4,23 @@ import { SessionContext } from "../services/array.context";
 import { ConvertTime } from "./convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import styled from "styled-components/native";
+import { LinearGradient } from "expo-linear-gradient";
+import {
+  H1,
+  H2,
+  H3,
+  ProjectText,
+  CategoryText,
+  TimeText,
+  TagssText,
+  BodyText,
+  InputText,
+} from "../utils/styling";
 
 export const PeriodTime = ({ calcDays }) => {
   const [total, setTotal] = useState(0);
   const [prevTotal, setPrevTotal] = useState(0);
   const [change, setChange] = useState(0);
-  const [symbol, setSymbol] = useState(null);
   const { sessions } = useContext(SessionContext);
 
   useEffect(() => {
@@ -24,12 +35,11 @@ export const PeriodTime = ({ calcDays }) => {
     setChange(Math.abs(incDec).toFixed());
   }, [incDec, sessions]);
 
-  useEffect(() => {
-    setSymbol(changeSymbol);
-  }, [changeSymbol, sessions]);
-
   const period = Date.now() - 1000 * 60 * 60 * 24 * calcDays;
   const prevPeriod = Date.now() - 1000 * 60 * 60 * 24 * calcDays * 2;
+
+  const upVisual = "trending-up-outline";
+  const downVisual = "trending-down-outline";
 
   const up = "chevron-up-circle";
   const down = "chevron-down-circle";
@@ -55,30 +65,32 @@ export const PeriodTime = ({ calcDays }) => {
     );
 
   let incDec;
-  let changeSymbol;
+  let color;
+  let symbol;
+  let symbolVisual;
 
   prevPeriodTotal === periodTotal
     ? (incDec = 0)
     : prevPeriodTotal < periodTotal
     ? ((incDec = ((prevPeriodTotal - periodTotal) / prevPeriodTotal) * 100),
-      (changeSymbol = up))
+      (symbol = up),
+      (color = "#66ff6626"),
+      (symbolVisual = upVisual))
     : ((incDec = ((periodTotal - prevPeriodTotal) / prevPeriodTotal) * 100),
-      (changeSymbol = down));
+      (symbol = down),
+      (color = "#ff240026"),
+      (symbolVisual = downVisual));
 
-  const H2 = styled.Text`
-    font-size: 30px;
-    color: #ffd369;
-    padding: 0px 0px 10px 0px;
-  `;
+  //color: #ffd369;
 
   const TotalTimeView = styled.View`
     flex-direction: column;
-    max-width: 50%;
-    padding: 20px;
-    margin: 8px;
-    background-color: #393e46;
+    max-width: 48%;
+    padding: 16px 12px;
+    margin: 4px;
+    background-color: #5d6472;
     flex-grow: 1;
-    border-radius: 12px;
+    border-radius: 8px;
   `;
 
   const ChangeView = styled.View`
@@ -87,25 +99,44 @@ export const PeriodTime = ({ calcDays }) => {
     align-content: stretch;
   `;
 
-  const H3 = styled.Text`
-    font-size: 18px;
-    color: #eeeeee;
-  `;
-
   return (
     <>
       <TotalTimeView>
-        <H3>Last {calcDays} days:</H3>
-        <View>
-          <H2>{total}</H2>
+        <LinearGradient
+          colors={["rgba(0,0,0,0.7)", "transparent"]}
+          style={{
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            height: 100,
+          }}
+        />
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View>
+            <H3>Last {calcDays} days: </H3>
+            <View>
+              <H2>{total} </H2>
+            </View>
+          </View>
+          <View>
+            <Ionicons
+              name={symbolVisual}
+              size={100}
+              color={color}
+              style={{ position: "absolute", left: -100, zIndex: 0 }}
+            />
+          </View>
         </View>
         <ChangeView>
-          <Ionicons name={symbol} size={25} color={"white"} />
-          <Text style={{ color: "white" }}>
+          <Ionicons name={symbol} size={20} color="white" />
+          <BodyText style={{ color: "white" }}>
             {change
-              ? change + "% vs. previous " + calcDays + " days "
+              ? " " + change + "% vs. previous " + calcDays + " days "
               : "No change"}
-          </Text>
+          </BodyText>
         </ChangeView>
       </TotalTimeView>
     </>

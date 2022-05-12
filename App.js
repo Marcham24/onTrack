@@ -6,7 +6,28 @@ import { SessionContextProvider } from "./src/services/array.context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SessionView } from "./src/features/sessionOverview";
+import { Logo } from "./src/features/logo";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import {
+  useFonts as useRoboto,
+  Roboto_300Light,
+} from "@expo-google-fonts/roboto";
+import {
+  useFonts as useRobotoCondensed,
+  RobotoCondensed_700Bold,
+} from "@expo-google-fonts/roboto-condensed";
+
+import {
+  H1,
+  H2,
+  H3,
+  ProjectText,
+  CategoryText,
+  TimeText,
+  TagssText,
+  BodyText,
+  InputText,
+} from "./src/utils/styling";
 
 const DashboardScreen = () => {
   return (
@@ -18,9 +39,8 @@ const DashboardScreen = () => {
         <PeriodTime calcDays={7} />
         <PeriodTime calcDays={30} />
       </View>
-      <View>
-        <SessionView />
-      </View>
+
+      <SessionView />
     </>
   );
 };
@@ -28,7 +48,7 @@ const DashboardScreen = () => {
 const ProjectsScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <Logo size={250} full={true} color="red" project="GermErase" />
     </View>
   );
 };
@@ -58,15 +78,26 @@ const SettingsScreen = () => {
 };
 
 const TAB_ICON = {
-  Dashboard: "md-restaurant",
-  Projects: "md-map",
-  Export: "md-settings",
+  Dashboard: "grid-outline",
+  Projects: "file-tray-full-outline",
+  Export: "arrow-down-circle-outline",
   Settings: "md-settings",
-  " ": "md-settings",
+  " ": "add-circle",
 };
 
 export default function App() {
   const Tab = createBottomTabNavigator();
+  const [robotoLoaded] = useRoboto({
+    Roboto_300Light,
+  });
+
+  const [robotoCondensedLoaded] = useRobotoCondensed({
+    RobotoCondensed_700Bold,
+  });
+
+  if (!robotoLoaded || !robotoCondensedLoaded) {
+    return null;
+  }
 
   return (
     <>
@@ -102,14 +133,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#white",
     alignItems: "center",
     justifyContent: "center",
   },
   side: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#fff",
+    backgroundColor: "#white",
     alignItems: "center",
     justifyContent: "center",
   },

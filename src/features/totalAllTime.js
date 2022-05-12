@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Text, View } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { ConvertTime } from "./convertTime";
+import { TimeToDays } from "./timeToDays";
 
 export const TotalAllTime = () => {
   const [total, setTotal] = useState(0);
@@ -22,7 +23,7 @@ export const TotalAllTime = () => {
 
   return (
     <View>
-      <Text> {total} </Text>
+      <Text> {total}</Text>
     </View>
   );
 };
