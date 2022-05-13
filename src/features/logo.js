@@ -1,26 +1,27 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import styled from "styled-components/native";
 import { LinearGradient } from "expo-linear-gradient";
+import { CategoryText, ProjectText } from "../utils/styling";
 
-export const Logo = ({ project, size = 100, full = true, color }) => {
+export const Logo = ({ project, size = 100, full = true, color, category }) => {
   let logoWording;
 
   !full
-    ? (logoWording = project.toString().charAt(0))
+    ? (logoWording = project?.toString().charAt(0))
     : (logoWording = project);
 
   return (
-    <View style={[styles(size, color, full).logo]}>
+    <View style={[styles(size, color, full, project, category).logo]}>
       <LinearGradient
-        colors={["rgba(0,0,0,0.5)", "transparent"]}
+        colors={["rgba(0,0,0,0.6)", "transparent"]}
         style={{
-          borderTopLeftRadius: size / 10,
-          borderTopRightRadius: size / 10,
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
           position: "absolute",
           left: 0,
           right: 0,
           top: 0,
-          height: (size / 5) * 2,
+          height: (size / 5) * 4,
         }}
       />
       <Text style={[styles(size, color, full).text]}>{logoWording}</Text>
@@ -34,16 +35,17 @@ const styles = (size, color, full) =>
       backgroundColor: color,
       justifyContent: "center",
       alignItems: "center",
-      borderRadius: size / 10,
+      borderTopLeftRadius: 8,
+      borderTopRightRadius: 8,
       flexDirection: "row",
       width: size,
-      height: size,
+      height: (size / 5) * 4,
     },
     text: {
-      padding: 20,
+      padding: 5,
       textAlign: "center",
       color: "white",
-      fontSize: full ? size / 6 : size / 2,
+      fontSize: full ? size / 7 : size / 2,
       fontFamily: "RobotoCondensed_700Bold",
       flex: 1,
       flexWrap: "wrap",

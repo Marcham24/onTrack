@@ -6,7 +6,7 @@ import { SessionContextProvider } from "./src/services/array.context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SessionView } from "./src/features/sessionOverview";
-import { Logo } from "./src/features/logo";
+import { ViewProjects } from "./src/features/ProjectsList";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {
   useFonts as useRoboto,
@@ -48,7 +48,7 @@ const DashboardScreen = () => {
 const ProjectsScreen = () => {
   return (
     <View>
-      <Logo size={250} full={true} color="red" project="GermErase" />
+      <ViewProjects />
     </View>
   );
 };
@@ -81,7 +81,7 @@ const TAB_ICON = {
   Dashboard: "grid-outline",
   Projects: "file-tray-full-outline",
   Export: "arrow-down-circle-outline",
-  Settings: "md-settings",
+  Settings: "settings-outline",
   " ": "add-circle",
 };
 
@@ -109,8 +109,8 @@ export default function App() {
                 let iconName = TAB_ICON[route.name];
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
-              tabBarActiveTintColor: "#ffd369",
-              tabBarInactiveTintColor: "#393e46",
+              tabBarActiveTintColor: "#EF8354",
+              tabBarInactiveTintColor: "#4F5D75",
             })}
           >
             <Tab.Screen

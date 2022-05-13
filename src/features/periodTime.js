@@ -74,11 +74,11 @@ export const PeriodTime = ({ calcDays }) => {
     : prevPeriodTotal < periodTotal
     ? ((incDec = ((prevPeriodTotal - periodTotal) / prevPeriodTotal) * 100),
       (symbol = up),
-      (color = "#66ff6626"),
+      (color = "#66ff6633"),
       (symbolVisual = upVisual))
     : ((incDec = ((periodTotal - prevPeriodTotal) / prevPeriodTotal) * 100),
       (symbol = down),
-      (color = "#ff240026"),
+      (color = "#ff240033"),
       (symbolVisual = downVisual));
 
   //color: #ffd369;

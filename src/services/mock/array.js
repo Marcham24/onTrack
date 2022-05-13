@@ -5,7 +5,7 @@ export const sessions = [
     end: new Date("May 08, 2022 16:32:24"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "items"],
+    tags: ["social media", "admin", "meetings"],
   },
   {
     project: "GermErase",
@@ -50,7 +50,7 @@ export const projects = [
 
   {
     name: "Playing Games",
-    category: "Work",
+    category: "Leisure",
     color: "green",
     target: 0,
   },

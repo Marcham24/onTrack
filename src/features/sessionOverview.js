@@ -27,7 +27,7 @@ export const SessionView = (session = {}) => {
     start = new Date("May 11, 2022 13:54:43"),
     end = new Date("May 11, 2022 16:32:24"),
     comment = "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags = ["test", "items"],
+    tags = ["social media", "admin", "meetings"],
   } = session;
 
   const color = projects.find((colorFind) =>
@@ -68,6 +68,8 @@ export const SessionView = (session = {}) => {
   const TagsContainer = styled.View`
     display: flex;
     flex-direction: row;
+    flex-shrink: 1;
+    flex-wrap: wrap;
   `;
 
   const handleChangeModalVisible = () => {
