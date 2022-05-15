@@ -55,3 +55,5 @@ export const projects = [
     target: 0,
   },
 ];
+
+export const categories = ["Work", "Leisure", "Lifestyle", "Learning"];

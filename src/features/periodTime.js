@@ -22,19 +22,19 @@ export const PeriodTime = ({ calcDays }) => {
   const [prevTotal, setPrevTotal] = useState(0);
   const [change, setChange] = useState(0);
 
-  const { sessions } = useContext(SessionContext);
+  const { sessions, rerender } = useContext(SessionContext);
 
   useEffect(() => {
     setTotal(ConvertTime(periodTotal));
-  }, [periodTotal, JSON.stringify(sessions)]);
+  }, [periodTotal, rerender]);
 
   useEffect(() => {
     setPrevTotal(ConvertTime(prevPeriodTotal));
-  }, [prevPeriodTotal, sessions]);
+  }, [prevPeriodTotal, sessions, rerender]);
 
   useEffect(() => {
     setChange(Math.abs(incDec).toFixed());
-  }, [incDec, sessions]);
+  }, [incDec, sessions, rerender]);
 
   const period = Date.now() - 1000 * 60 * 60 * 24 * calcDays;
   const prevPeriod = Date.now() - 1000 * 60 * 60 * 24 * calcDays * 2;

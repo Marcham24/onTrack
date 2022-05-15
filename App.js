@@ -17,6 +17,7 @@ import {
   useFonts as useRobotoCondensed,
   RobotoCondensed_700Bold,
 } from "@expo-google-fonts/roboto-condensed";
+import { AddProject } from "./src/features/AddProject";
 
 import {
   H1,
@@ -48,10 +49,11 @@ const DashboardScreen = () => {
 
 const ProjectsScreen = () => {
   return (
-    <View>
-      <ViewProjects />
-      <H3>Hello world</H3>
-    </View>
+    <>
+      <View>
+        <ViewProjects />
+      </View>
+    </>
   );
 };
 
@@ -66,7 +68,7 @@ const AddSessionScreen = () => {
 const ExportScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <AddProject />
     </View>
   );
 };
