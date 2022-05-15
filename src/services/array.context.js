@@ -7,6 +7,7 @@ export const SessionContextProvider = ({ children }) => {
   const [sessions, setSessions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [rerender, setRerender] = useState(0);
 
   const retrieveSessions = () => {
     setIsLoading(true);
@@ -15,10 +16,12 @@ export const SessionContextProvider = ({ children }) => {
         .then((results) => {
           setIsLoading(false);
           setSessions(results);
+          setRerender(0);
         })
         .catch((err) => {
           setIsLoading(false);
           setError(err);
+          setRerender(0);
         });
     }, 2000);
   };
@@ -26,7 +29,9 @@ export const SessionContextProvider = ({ children }) => {
     retrieveSessions();
   }, []);
   return (
-    <SessionContext.Provider value={{ sessions, isLoading, error }}>
+    <SessionContext.Provider
+      value={{ sessions, isLoading, error, rerender, setRerender }}
+    >
       {children}
     </SessionContext.Provider>
   );

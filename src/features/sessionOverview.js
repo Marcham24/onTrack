@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { View, Text, Modal, Alert, Pressable } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -19,13 +19,16 @@ import {
   TotalTimeText,
 } from "../utils/styling";
 import { projects } from "../services/mock/array";
+import { SessionContext } from "../services/array.context";
 
 export const SessionView = (session = {}) => {
+  const { sessions, rerender, setRerender } = useContext(SessionContext);
+
   const [modalVisible, setModalVisible] = useState(false);
   const {
     project = "GermErase",
-    start = new Date("May 11, 2022 13:54:43"),
-    end = new Date("May 11, 2022 16:32:24"),
+    start = new Date("May 01, 2022 12:55:23"),
+    end = new Date("May 01, 2022 16:32:24"),
     comment = "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags = ["social media", "admin", "meetings"],
   } = session;
@@ -36,7 +39,7 @@ export const SessionView = (session = {}) => {
 
   const ProjectCard = styled.View`
     background-color: white;
-    margin: 12px;
+    margin: 8px;
     border-left-color: ${color};
     border-left-width: 4px;
     border-radius: 8px;
@@ -45,10 +48,12 @@ export const SessionView = (session = {}) => {
   const TimeView = styled.View`
     display: flex;
     flex-direction: row;
-    background-color: #dcdcdc;
+    background-color: #e1e1e7;
     padding: 8px;
     border-bottom-right-radius: 8px;
     align-items: center;
+    border-width: 1px;
+    border-color: #c3c3cf;
   `;
 
   const Headline = styled.View`
@@ -76,6 +81,15 @@ export const SessionView = (session = {}) => {
     setModalVisible(false);
   };
 
+  const deleteSession = (startTime) => {
+    const indexOfSession = sessions.findIndex(
+      (find) => find.start.getTime() === startTime.getTime()
+    );
+
+    sessions.splice(indexOfSession, 1);
+
+    setRerender(rerender + 1);
+  };
   return (
     <>
       <View>
@@ -126,15 +140,23 @@ export const SessionView = (session = {}) => {
                     onPress: () =>
                       Alert.alert(
                         "Are you sure you want to delete this session entry?",
-                        "",
-                        [{ text: "Delete" }, { text: "Go back" }]
+                        "Once deleted, you cannot get this sesson entry back.",
+                        [
+                          {
+                            text: "Delete",
+                            onPress: () => {
+                              deleteSession(start), setRerender(rerender + 1);
+                            },
+                          },
+                          { text: "Go back" },
+                        ]
                       ),
                   },
                 ]
               );
             }}
           >
-            <Ionicons name={"information-circle"} size={24} color={color} />
+            <Ionicons name={"information-circle"} size={24} color="#1c1d23" />
           </Pressable>
         </TimeView>
       </ProjectCard>

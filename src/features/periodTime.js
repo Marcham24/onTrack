@@ -21,11 +21,12 @@ export const PeriodTime = ({ calcDays }) => {
   const [total, setTotal] = useState(0);
   const [prevTotal, setPrevTotal] = useState(0);
   const [change, setChange] = useState(0);
+
   const { sessions } = useContext(SessionContext);
 
   useEffect(() => {
     setTotal(ConvertTime(periodTotal));
-  }, [periodTotal, sessions]);
+  }, [periodTotal, JSON.stringify(sessions)]);
 
   useEffect(() => {
     setPrevTotal(ConvertTime(prevPeriodTotal));
@@ -88,7 +89,7 @@ export const PeriodTime = ({ calcDays }) => {
     max-width: 48%;
     padding: 16px 12px;
     margin: 4px;
-    background-color: #5d6472;
+    background-color: #72768c;
     flex-grow: 1;
     border-radius: 8px;
   `;
@@ -103,7 +104,7 @@ export const PeriodTime = ({ calcDays }) => {
     <>
       <TotalTimeView>
         <LinearGradient
-          colors={["rgba(0,0,0,0.7)", "transparent"]}
+          colors={["rgba(0,0,0,0.5)", "transparent"]}
           style={{
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,

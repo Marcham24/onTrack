@@ -1,8 +1,8 @@
 export const sessions = [
   {
     project: "GermErase",
-    start: new Date("May 07, 2022 12:15:00"),
-    end: new Date("May 08, 2022 16:32:24"),
+    start: new Date("May 11, 2022 13:54:43"),
+    end: new Date("May 11, 2022 16:32:24"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],

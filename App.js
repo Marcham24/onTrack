@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SessionView } from "./src/features/sessionOverview";
 import { ViewProjects } from "./src/features/ProjectsList";
+import { ViewSessions } from "./src/features/SessionsList";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {
   useFonts as useRoboto,
@@ -49,6 +50,7 @@ const ProjectsScreen = () => {
   return (
     <View>
       <ViewProjects />
+      <H3>Hello world</H3>
     </View>
   );
 };
@@ -56,7 +58,7 @@ const ProjectsScreen = () => {
 const AddSessionScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <ViewSessions />
     </View>
   );
 };
@@ -80,7 +82,7 @@ const SettingsScreen = () => {
 const TAB_ICON = {
   Dashboard: "grid-outline",
   Projects: "file-tray-full-outline",
-  Export: "arrow-down-circle-outline",
+  Sessions: "arrow-down-circle-outline",
   Settings: "settings-outline",
   " ": "add-circle",
 };
@@ -120,7 +122,7 @@ export default function App() {
             />
             <Tab.Screen name="Projects" component={ProjectsScreen} />
             <Tab.Screen name=" " component={AddSessionScreen} />
-            <Tab.Screen name="Export" component={ExportScreen} />
+            <Tab.Screen name="Sessions" component={ExportScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
           </Tab.Navigator>
         </NavigationContainer>
