@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { CategoryText, ProjectText } from "../utils/styling";
 
-export const Logo = ({ project, size = 100, full = true, color, category }) => {
+export const Logo = ({ project, size = 100, full, color, category }) => {
   let logoWording;
 
   !full
@@ -35,17 +35,17 @@ const styles = (size, color, full) =>
       backgroundColor: color,
       justifyContent: "center",
       alignItems: "center",
-      borderTopLeftRadius: 8,
-      borderTopRightRadius: 8,
+      borderRadius: 10,
+
       flexDirection: "row",
       width: size,
-      height: (size / 5) * 4,
+      height: size,
     },
     text: {
       padding: 5,
       textAlign: "center",
       color: "white",
-      fontSize: full ? size / 7 : size / 2,
+      fontSize: full ? size / 7 : size / 1.5,
       fontFamily: "RobotoCondensed_700Bold",
       flex: 1,
       flexWrap: "wrap",

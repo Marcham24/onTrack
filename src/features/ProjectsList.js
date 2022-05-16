@@ -2,7 +2,8 @@ import { useState } from "react";
 import { View, FlatList, Button } from "react-native";
 import { Logo } from "./logo";
 import { projects } from "../services/mock/array";
-import { ProjectText, CategoryText, H2 } from "../utils/styling";
+import { ProjectCard } from "./ProjectCard";
+import { H2 } from "../utils/styling";
 
 export const ViewProjects = () => {
   const renderItem = ({ item }) => (
@@ -10,27 +11,14 @@ export const ViewProjects = () => {
   );
 
   const Item = ({ name, color, category }) => (
-    <View style={{ padding: 8 }}>
-      <View style={{ borderWidth: 1, borderRadius: 8, borderColor: "grey" }}>
-        <Logo
-          project={name}
-          category={category}
-          color={color}
-          full={false}
-          size={225}
-        />
-
-        <View style={{ padding: 16 }}>
-          <ProjectText style={{ color: "black" }}>{name}</ProjectText>
-          <CategoryText style={{ color: "grey", paddingBottom: 12 }}>
-            Category: {category}
-          </CategoryText>
-          <Button title="View Project" color="#2d3142">
-            See more
-          </Button>
-        </View>
-      </View>
-    </View>
+    <ProjectCard
+      project={name}
+      category={category}
+      color={color}
+      size={250}
+      full={false}
+      creation={false}
+    />
   );
 
   return (

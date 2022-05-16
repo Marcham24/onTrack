@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { View, Text, Modal, Alert, Pressable } from "react-native";
+import { View, Text, Modal, Alert, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { sessionTime } from "./sessionTime";
@@ -39,35 +39,33 @@ export const SessionView = (session = {}) => {
 
   const ProjectCard = styled.View`
     background-color: white;
-    margin: 8px;
+    margin: 10px;
     border-left-color: ${color};
-    border-left-width: 4px;
-    border-radius: 8px;
+    border-left-width: 10px;
+    border-radius: 10px;
   `;
 
   const TimeView = styled.View`
     display: flex;
     flex-direction: row;
     background-color: #e1e1e7;
-    padding: 8px;
-    border-bottom-right-radius: 8px;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
     align-items: center;
-    border-width: 1px;
-    border-color: #c3c3cf;
   `;
 
   const Headline = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 8px 8px 0 8px; ;
+    padding: 10px 10px 0 10px; ;
   `;
 
   const TagsView = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 8px 8px 8px;
+    padding: 0 10px 10px 10px;
   `;
 
   const TagsContainer = styled.View`
@@ -125,7 +123,7 @@ export const SessionView = (session = {}) => {
           <TimeText>{start.toLocaleTimeString()} </TimeText>
           <TimeText> ➞ </TimeText>
           <TimeText>{end.toLocaleTimeString()} </TimeText>
-          <Pressable
+          <TouchableOpacity
             style={{ marginLeft: "auto" }}
             onPress={() => {
               Alert.alert(
@@ -157,7 +155,7 @@ export const SessionView = (session = {}) => {
             }}
           >
             <Ionicons name={"information-circle"} size={24} color="#1c1d23" />
-          </Pressable>
+          </TouchableOpacity>
         </TimeView>
       </ProjectCard>
     </>
