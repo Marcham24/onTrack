@@ -52,7 +52,7 @@ export const TotalTimeText = styled.Text`
 `;
 
 export const CategoryText = styled.Text`
-  font-size: ${scale(20) + "px"};
+  font-size: ${scale(16) + "px"};
   text-decoration: underline;
   text-decoration-style: dotted;
 `;

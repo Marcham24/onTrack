@@ -16,7 +16,7 @@ export const ProjectCard = ({
 
   const Card = styled.View`
     align-items: center;
-    padding: ${creation ? "20px" : "10px"};
+    padding: ${creation ? "20px" : "5px"};
     background-color: ${creation && creationBackground};
   `;
 
@@ -53,10 +53,20 @@ export const ProjectCard = ({
             size={size}
           />
 
-          <View style={{ padding: 20 }}>
-            <ProjectText style={{ color: "black" }}>
-              {!project ? "Project name" : project}
-            </ProjectText>
+          <View style={{ padding: 15 }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <ProjectText style={{ color: "black" }}>
+                {!project ? "Project name" : project}
+              </ProjectText>
+              <Ionicons
+                name={"ellipsis-horizontal"}
+                size={24}
+                color="#1c1d23"
+              />
+            </View>
+
             <TouchableOpacity>
               <CategoryText style={{ color: "grey" }}>
                 {!category || category === "Please select a category"
@@ -64,13 +74,6 @@ export const ProjectCard = ({
                   : category}
               </CategoryText>
             </TouchableOpacity>
-          </View>
-          <View>
-            {!creation && (
-              <ButtonPrimary title="View project">
-                <Text>View Project</Text>
-              </ButtonPrimary>
-            )}
           </View>
         </View>
       </View>

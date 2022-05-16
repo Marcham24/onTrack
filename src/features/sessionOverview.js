@@ -37,11 +37,13 @@ export const SessionView = (session = {}) => {
     colorFind.name.includes(project)
   )?.color;
 
+  const creationBackground = color + "B3";
+
   const ProjectCard = styled.View`
     background-color: white;
     margin: 10px;
-    border-left-color: ${color};
-    border-left-width: 10px;
+    border-left-color: ${creationBackground};
+    border-left-width: 5px;
     border-radius: 10px;
   `;
 
@@ -49,7 +51,7 @@ export const SessionView = (session = {}) => {
     display: flex;
     flex-direction: row;
     background-color: #e1e1e7;
-    padding: 10px;
+    padding: 5px 15px;
     border-bottom-right-radius: 10px;
     align-items: center;
   `;
@@ -58,14 +60,14 @@ export const SessionView = (session = {}) => {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px 10px 0 10px; ;
+    padding: 15px 15px 0 15px; ;
   `;
 
   const TagsView = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 10px 10px 10px;
+    padding: 0 15px 15px 15px;
   `;
 
   const TagsContainer = styled.View`
@@ -154,7 +156,7 @@ export const SessionView = (session = {}) => {
               );
             }}
           >
-            <Ionicons name={"information-circle"} size={24} color="#1c1d23" />
+            <Ionicons name={"ellipsis-horizontal"} size={24} color="#1c1d23" />
           </TouchableOpacity>
         </TimeView>
       </ProjectCard>
