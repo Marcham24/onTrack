@@ -29,6 +29,9 @@ import {
   TagssText,
   BodyText,
   InputText,
+  ButtonPrimary,
+  ButtonText,
+  ButtonSecondary,
 } from "./src/utils/styling";
 
 const DashboardScreen = () => {
@@ -76,7 +79,14 @@ const ExportScreen = () => {
 const SettingsScreen = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <H2>Testing</H2>
+      <H3>Testing</H3>
+      <ButtonPrimary onPress={() => alert("Hello")}>
+        <ButtonText>Testing button</ButtonText>
+      </ButtonPrimary>
+      <ButtonSecondary>
+        <ButtonText>Testing button</ButtonText>
+      </ButtonSecondary>
     </View>
   );
 };

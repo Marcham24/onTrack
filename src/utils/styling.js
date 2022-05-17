@@ -1,42 +1,37 @@
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
 const { width } = Dimensions.get("window");
-import { LinearGradient } from "expo-linear-gradient";
 
-//Guideline sizes are based on standard ~5.5" screen mobile device
 const guidelineBaseWidth = 550;
 
 const scale = (size) => (width / guidelineBaseWidth) * size;
 
-export const Gradient = styled(
-  LinearGradient
-)`        colors={["rgba(0,0,0,0.6)", "transparent"]}
-        style={{
-          borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          height: (size / 5) * 4,
-        }} `;
+export const colors = {
+  primary: "#D0421B",
+  secondary: "#757575",
+  tertiary: "#F1F1F1",
+  quaternary: "#FFFFFF",
+  disabled: "#DEDEDE",
+  error: "#D0421B",
+  success: "#138000",
+};
+
+export const fontSizes = ["12", "15", "18", "20", "24", "28", "32"];
+export const fontWeights = ["300", "700"];
+export const fonts = ["Roboto_300Light", "RobotoCondensed_700Bold"];
+export const spacing = ["5px", "10px", "15px", "20px", "30px", "40px"];
 
 export const H1 = styled.Text`
   color: white;
-  font-size: ${scale(32) + "px"};
 `;
 
 export const H2 = styled.Text`
-  font-size: ${scale(28) + "px"};
-  color: white;
-  font-family: RobotoCondensed_700Bold;
+  font-size: ${scale(fontSizes[5]) + "px"};
+  color: ${colors.primary};
+  font-weight: ${fontWeights[1]};
 `;
 
-export const H3 = styled.Text`
-  font-size: ${scale(24) + "px"};
-  color: ${(props) => props.fontColor || "white"}
-  font-family: Roboto_300Light;
-`;
+export const H3 = styled.Text``;
 
 export const ProjectText = styled.Text`
   font-size: ${scale(20) + "px"};
@@ -77,4 +72,30 @@ export const BodyText = styled.Text`
 
 export const InputText = styled.Text`
   font-size: ${scale(16) + "px"};
+`;
+
+export const ButtonPrimary = styled.TouchableOpacity`
+background-color: ${colors.primary}
+  padding: ${spacing[3]};
+  margin:${spacing[2]};
+  border-radius:${spacing[0]};
+
+`;
+
+export const ButtonSecondary = styled.TouchableOpacity`
+background-color: ${colors.secondary}
+  padding: ${spacing[3]};
+  margin:${spacing[2]};
+    border-radius:${spacing[0]}; 
+  
+`;
+
+export const ButtonText = styled.Text`
+  color: ${colors.tertiary};
+  font-family: ${fonts[0]};
+  font-weight: ${fontWeights[0]};
+  text-align: center;
+  font-family: ${fonts[1]};
+  font-weight: ${fontWeights[1]};
+  font-size: ${scale(fontSizes[2]) + "px"};
 `;
