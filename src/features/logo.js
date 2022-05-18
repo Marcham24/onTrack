@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { TotalAllTime } from "./totalAllTime";
+import { TotalTimeText } from "../infrastructure/commonStyles";
 
 export const Logo = ({ project, size = 100, full, color, category }) => {
   let logoWording = project?.toString().charAt(0);
@@ -28,10 +29,14 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
           height: full ? (size / 6) * 3 : size,
         }}
       />
-      <TotalTimeView>
-        <TotalAllTime project={project} projectSpecific={true} />
-      </TotalTimeView>
 
+      {full && (
+        <TotalTimeView>
+          <TotalTimeText>
+            <TotalAllTime project={project} projectSpecific={true} />
+          </TotalTimeText>
+        </TotalTimeView>
+      )}
       <Text style={[styles(size, color, full).text]}>{logoWording}</Text>
     </View>
   );

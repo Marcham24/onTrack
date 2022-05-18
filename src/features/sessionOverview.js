@@ -4,31 +4,30 @@ import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { sessionTime } from "./sessionTime";
 import { ConvertTime } from "./convertTime";
+import { ModalBase } from "./ModalBase";
 import { EditingModal } from "./editingModal";
 import { TimeToDays } from "./timeToDays";
 import { Logo } from "./logo";
 import {
-  H1,
-  H2,
-  H3,
+  Input,
   ProjectText,
-  CategoryText,
   TimeText,
   TagssText,
-  BodyText,
-  InputText,
-  TotalTimeText,
-} from "../utils/styling";
+} from "../infrastructure/commonStyles";
 import { projects } from "../services/mock/array";
 import { SessionContext } from "../services/array.context";
+import { Btn } from "./Btn";
 
 export const SessionView = (session = {}) => {
   const { sessions, rerender, setRerender } = useContext(SessionContext);
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [projectEditable, setProjectEditable] = useState(false);
+  const [newComment, setNewComment] = useState();
+
   const {
     project = "GermErase",
-    start = new Date("May 01, 2022 12:55:23"),
+    start = new Date("May 17, 2022 12:55:23"),
     end = new Date("May 01, 2022 16:32:24"),
     comment = "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags = ["social media", "admin", "meetings"],
@@ -38,7 +37,7 @@ export const SessionView = (session = {}) => {
     colorFind.name.includes(project)
   )?.color;
 
-  const creationBackground = color + "B3";
+  const creationBackground = color + "80";
 
   const ProjectCard = styled.View`
     background-color: white;
@@ -57,37 +56,14 @@ export const SessionView = (session = {}) => {
     justify-content: space-between;
   `;
 
-  const Headline = styled.View`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  `;
-
-  const TagsView = styled.View`
-    display: flex;
-    flex-direction: row;
-    background-color: #dedede;
-    padding: 4px 8px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    align-items: center;
-  `;
-
   const TagsContainer = styled.View`
     display: flex;
     flex-direction: row;
     flex-shrink: 1;
     flex-wrap: wrap;
-    background-color: red;
+    padding: 10px;
   `;
-
-  const TimeContainer = styled.View`
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 1;
-    flex-wrap: wrap;
-    align-items: center;
-  `;
+  // For editing modal - dont not delete just yet
 
   const handleChangeModalVisible = () => {
     setModalVisible(false);
@@ -102,21 +78,89 @@ export const SessionView = (session = {}) => {
 
     setRerender(rerender + 1);
   };
+
+  let tagsToText = "";
+
+  tags?.map((i) => (tagsToText += i + ", "));
+
+  tagsToText.slice(0, -1);
   return (
     <>
       <View>
-        <Modal
-          animationType="fade"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <EditingModal changeModal={handleChangeModalVisible} />
-        </Modal>
+        <ModalBase
+          title={project + " session " + TimeToDays(start)}
+          header={true}
+          color={creationBackground}
+          modalVisible={modalVisible}
+          setModalVisible={() => setModalVisible(!modalVisible)}
+          children={
+            <View>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Input
+                  textAlign="center"
+                  value={start.toLocaleDateString()}
+                  editable={projectEditable ? true : false}
+                />
+                <Input
+                  textAlign="center"
+                  value={start.toLocaleTimeString()}
+                  editable={false}
+                />
+                <Ionicons
+                  name={"arrow-forward-outline"}
+                  size={30}
+                  color="#1c1d23"
+                />
+                <Input
+                  textAlign="center"
+                  value={end.toLocaleTimeString()}
+                  editable={false}
+                />
+              </View>
+              <Input
+                value={comment}
+                editable={projectEditable ? true : false}
+                multiline={true}
+                onChangeText={() => setNewComment(newComment)}
+              />
+              <TagsContainer>
+                {tags?.map((i) => (
+                  <TagssText key={i}>#{i}</TagssText>
+                ))}
+              </TagsContainer>
+
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Btn
+                  title="Edit"
+                  type="edit"
+                  onPress={() => setProjectEditable(true)}
+                />
+                <Btn
+                  type="delete"
+                  title="Delete"
+                  onPress={() =>
+                    Alert.alert(
+                      "Are you sure you want to delete this session entry?",
+                      "Once deleted, you cannot get this sesson entry back.",
+                      [
+                        {
+                          text: "Delete",
+                          onPress: () => {
+                            deleteSession(start), setRerender(rerender + 1);
+                          },
+                        },
+                        { text: "Go back" },
+                      ]
+                    )
+                  }
+                />
+              </View>
+            </View>
+          }
+        />
       </View>
+
+      {/* <EditingModal changeModal={handleChangeModalVisible} /> */}
 
       <ProjectCard>
         <View>
@@ -139,34 +183,34 @@ export const SessionView = (session = {}) => {
           </View>
           <View>
             <TouchableOpacity
-              onPress={() => {
-                Alert.alert(
-                  project + " session on " + start.toLocaleDateString(),
-                  comment,
-                  [
-                    { text: "OK" },
-                    //{ text: "Edit", onPress: () => setModalVisible(true) },
-                    {
-                      text: "Delete",
-                      style: "cancel",
-                      onPress: () =>
-                        Alert.alert(
-                          "Are you sure you want to delete this session entry?",
-                          "Once deleted, you cannot get this sesson entry back.",
-                          [
-                            {
-                              text: "Delete",
-                              onPress: () => {
-                                deleteSession(start), setRerender(rerender + 1);
-                              },
-                            },
-                            { text: "Go back" },
-                          ]
-                        ),
-                    },
-                  ]
-                );
-              }}
+              onPress={() => setModalVisible(true)}
+              //   Alert.alert(
+              //     project + " session on " + start.toLocaleDateString(),
+              //     comment,
+              //     [
+              //       { text: "OK" },
+              //       //{ text: "Edit", onPress: () => setModalVisible(true) },
+              //       {
+              //         text: "Delete",
+              //         style: "cancel",
+              //         onPress: () =>
+              //           Alert.alert(
+              //             "Are you sure you want to delete this session entry?",
+              //             "Once deleted, you cannot get this sesson entry back.",
+              //             [
+              //               {
+              //                 text: "Delete",
+              //                 onPress: () => {
+              //                   deleteSession(start), setRerender(rerender + 1);
+              //                 },
+              //               },
+              //               { text: "Go back" },
+              //             ]
+              //           ),
+              //       },
+              //     ]
+              //   );
+              // }}
             >
               <Ionicons name={"ellipsis-vertical"} size={24} color="#1c1d23" />
             </TouchableOpacity>

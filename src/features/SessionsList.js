@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { View, FlatList, Button } from "react-native";
 import { Logo } from "./logo";
 import { SessionContext } from "../services/array.context";
-import { ProjectText, CategoryText, H2 } from "../utils/styling";
+import { H2 } from "../infrastructure/commonStyles";
 import { SessionView } from "../features/sessionOverview";
 
 export const ViewSessions = () => {
@@ -32,9 +32,9 @@ export const ViewSessions = () => {
 
   return (
     <View>
-      <H2 style={{ color: "black", padding: 8 }}>Your projects</H2>
+      <H2>Your recent sessions</H2>
       <FlatList
-        data={sessions}
+        data={sessions.sort((a, b) => b.start - a.start)}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         extraData={rerender}

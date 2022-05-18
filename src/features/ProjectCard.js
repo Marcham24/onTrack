@@ -1,6 +1,6 @@
 import { Logo } from "./logo";
 import styled from "styled-components/native";
-import { ProjectText, CategoryText } from "../utils/styling";
+import { ProjectText, CategoryText } from "../infrastructure/commonStyles";
 import { View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TotalAllTime } from "./totalAllTime";
@@ -13,11 +13,12 @@ export const ProjectCard = ({
   full,
   creation = false,
 }) => {
-  const creationBackground = color + "40";
+  const creationBackground = color + "66";
 
   const Card = styled.View`
     align-items: center;
-    padding: ${creation ? "20px" : "10px 5px"};
+    background-color: ${creation && creationBackground};
+    padding: ${creation ? "30px" : "20px 5px"};
   `;
 
   return (
@@ -47,32 +48,33 @@ export const ProjectCard = ({
           />
 
           {!creation && (
-            <View style={{ padding: 15 }}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <ProjectText style={{ color: "black" }}>
-                  {!project ? "Project name" : project}
-                </ProjectText>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: 15,
+              }}
+            >
+              <View>
+                <ProjectText>{!project ? "Project name" : project}</ProjectText>
+                <TouchableOpacity>
+                  <CategoryText>
+                    {!category || category === "Please select a category"
+                      ? "Category"
+                      : "Category: " + category}
+                  </CategoryText>
+                </TouchableOpacity>
+              </View>
+              <View>
                 <TouchableOpacity>
                   <Ionicons
-                    name={"ellipsis-horizontal"}
+                    name={"ellipsis-vertical"}
                     size={24}
                     color="#1c1d23"
                   />
                 </TouchableOpacity>
               </View>
-
-              <TouchableOpacity>
-                <CategoryText style={{ color: "grey" }}>
-                  {!category || category === "Please select a category"
-                    ? "Category"
-                    : category}
-                </CategoryText>
-              </TouchableOpacity>
             </View>
           )}
         </View>

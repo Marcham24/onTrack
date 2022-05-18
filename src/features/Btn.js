@@ -1,24 +1,24 @@
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
+import { scale } from "../infrastructure/scale";
 
-export const Btn = ({ title, type = "normal", onPress, color }) => {
+export const Btn = ({ title, type = "normal", onPress }) => {
   const Opacity = styled.TouchableOpacity`
-    background-color: ${color};
-    padding: 15px;
-    margin: 10px;
+    background-color: ${(props) => props.theme.colors.c2}
+    padding: ${(props) => scale(props.theme.space[2]) + "px"};
+    margin: ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
+    border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     justify-content: center;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: #dedede;
-    justify-content: center;
+
+    align-items: center;
   `;
   const Title = styled.Text`
-    font-size: 13px;
-    font-weight: 700;
-    font-family: Inter_300Light;
-    color: black;
+    font-size: ${(props) => scale(props.theme.fontSizes.button) + "px"};
+    font-family: ${(props) => props.theme.fonts.medium};
+    font-weight: ${(props) => props.theme.fontWeights.medium};
+    color: white;
   `;
 
   const BtnView = styled.View`
@@ -26,19 +26,19 @@ export const Btn = ({ title, type = "normal", onPress, color }) => {
   `;
 
   const ICON = {
-    normal: "arrow-forward-circle",
+    normal: "arrow-forward",
     edit: "create",
     delete: "trash",
-    back: "arrow-back-circle",
+    back: "arrow-back",
   };
 
   let iconName = ICON[type];
 
   return (
     <BtnView>
-      <Opacity onPress={onPress}>
+      <Opacity onPress={onPress} activeOpacity={0.8}>
         <Title> {title} </Title>
-        <Ionicons name={iconName} size={18} color="black" />
+        <Ionicons name={iconName} size={scale(15)} color="white" />
       </Opacity>
     </BtnView>
   );

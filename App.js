@@ -19,6 +19,7 @@ import { SessionView } from "./src/features/sessionOverview";
 import { ViewProjects } from "./src/features/ProjectsList";
 import { ViewSessions } from "./src/features/SessionsList";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { SafeView } from "./src/components/safeView";
 
 import {
   useFonts as useInter,
@@ -27,16 +28,19 @@ import {
   Inter_700Bold,
   Inter_900Black,
 } from "@expo-google-fonts/inter";
-import {
-  useFonts as useRoboto,
-  Roboto_300Light,
-} from "@expo-google-fonts/inter";
-import {
-  useFonts as useRobotoCondensed,
-  RobotoCondensed_700Bold,
-} from "@expo-google-fonts/roboto-condensed";
 import { AddProject } from "./src/features/AddProject";
-import { H1 } from "./src/infrastructure/commonStyles";
+import {
+  BodyText,
+  CategoryText,
+  H1,
+  H2,
+  H3,
+  Input,
+  ProjectText,
+  TagssText,
+  TimeText,
+  TotalTimeText,
+} from "./src/infrastructure/commonStyles";
 import { Btn } from "./src/features/Btn";
 import { TextInput } from "react-native-paper";
 import { ModalBase } from "./src/features/ModalBase";
@@ -45,9 +49,9 @@ import { DashboardScreen } from "./src/screens/dashboard-screen";
 const ProjectsScreen = () => {
   return (
     <>
-      <View>
+      <SafeView>
         <ViewProjects />
-      </View>
+      </SafeView>
     </>
   );
 };
@@ -62,9 +66,9 @@ const AddSessionScreen = () => {
 
 const ExportScreen = () => {
   return (
-    <View>
+    <SafeView>
       <AddProject />
-    </View>
+    </SafeView>
   );
 };
 
@@ -72,11 +76,23 @@ const SettingsScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View>
+    <ThemeProvider theme={theme}>
       <View>
-        <Btn color="#EF8354" onPress={() => setModalVisible(true)} />
+        <H1>Hello World!</H1>
+        <H2>Hello World!</H2>
+        <H3>Hello World!</H3>
+        <ProjectText>Hello World!</ProjectText>
+        <TotalTimeText>Hello World!</TotalTimeText>
+        <CategoryText>Hello World!</CategoryText>
+        <TimeText>Hello World!</TimeText>
+        <TagssText>Hello World!</TagssText>
+        <BodyText>Hello World!</BodyText>
+        <Input>Hello World!</Input>
+        <Btn title="Hello World!" />
+        <Btn title="Hello World!" color="danger" />
+        <Btn title="Hello World!" color="success" />
       </View>
-    </View>
+    </ThemeProvider>
   );
 };
 
@@ -90,13 +106,6 @@ const TAB_ICON = {
 
 export default function App() {
   const Tab = createBottomTabNavigator();
-  const [robotoLoaded] = useRoboto({
-    Roboto_300Light,
-  });
-
-  const [robotoCondensedLoaded] = useRobotoCondensed({
-    RobotoCondensed_700Bold,
-  });
 
   const [interLoaded] = useInter({
     Inter_300Light,
@@ -105,9 +114,9 @@ export default function App() {
     Inter_900Black,
   });
 
-  // if (!robotoLoaded || !robotoCondensedLoaded || !interLoaded) {
-  //   return null;
-  // }
+  if (!interLoaded) {
+    return null;
+  }
 
   return (
     <>

@@ -4,21 +4,18 @@ import {
   TouchableOpacity,
   View,
   Text,
-  Modal,
-  Button,
   Alert,
   ScrollView,
 } from "react-native";
 import { categories, projects, sessions } from "../services/mock/array";
-import { Picker } from "@react-native-picker/picker";
 import ColorPicker from "react-native-wheel-color-picker";
-import { Logo } from "./logo";
-import { ProjectText, CategoryText, Input } from "../utils/styling";
+import { H2, Input } from "../infrastructure/commonStyles";
 import { ProjectCard } from "./ProjectCard";
 import { Btn } from "./Btn";
 import { ModalBase } from "./ModalBase";
 import styled from "styled-components/native";
 import { Dropdown } from "react-native-element-dropdown";
+import { scale } from "../infrastructure/scale";
 
 export const AddProject = () => {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -48,7 +45,7 @@ export const AddProject = () => {
       <View>
         <ModalBase
           title="Add new category"
-          header={false}
+          header={true}
           modalVisible={modalVisible}
           setModalVisible={() => setModalVisible(!modalVisible)}
           children={
@@ -73,59 +70,47 @@ export const AddProject = () => {
           }
         />
       </View>
-      <View style={{ flexGrow: 1 }}>
+      <View style={{ flex: 1 }}>
         <ProjectCard
           project={newProject}
           category={newCategory}
           color={newColor}
-          size={80}
+          size={scale(100)}
           full={false}
           creation={true}
         />
 
-        <Btn
-          title="Add project"
-          color="white"
-          onPress={() => {
-            !newProject ||
-            !newCategory ||
-            newCategory === "Please select a category" ||
-            newProject === "Project name"
-              ? Alert.alert(
-                  "Uh oh, something doesn't seem right!",
-                  "Please check that you have entered both a project and category name."
-                )
-              : addProject();
-          }}
-        />
-      </View>
-
-      <ScrollView>
-        <View>
+        <ScrollView style={{ flex: 2 }}>
           <View>
-            <Input
-              onChangeText={setNewProject}
-              placeholder="Project name"
-              value={newProject}
-            />
-          </View>
-          <View>
-            <Dropdown
-              maxHeight={300}
-              placeholder="Select item"
-              searchPlaceholder="Search..."
-              value={newCategory}
-              style={styles.dropdown}
-              placeholderStyle={styles.placeholderStyle}
-              selectedTextStyle={styles.selectedTextStyle}
-              inputSearchStyle={styles.inputSearchStyle}
-              iconStyle={styles.iconStyle}
-              data={sessions}
-              labelField="project"
-              valueField="comment"
-            />
+            <View>
+              <Input
+                onChangeText={setNewProject}
+                placeholder="Enter new project name"
+                defaultValue={newProject}
+              />
+            </View>
+            <View>
+              <Input
+                onChangeText={setNewCategory}
+                placeholder="Enter category name"
+                defaultValue={newCategory}
+              />
+              {/* <Dropdown
+                maxHeight={300}
+                placeholder="Select item"
+                searchPlaceholder="Search..."
+                value={newCategory}
+                style={styles.dropdown}
+                placeholderStyle={styles.placeholderStyle}
+                selectedTextStyle={styles.selectedTextStyle}
+                inputSearchStyle={styles.inputSearchStyle}
+                iconStyle={styles.iconStyle}
+                data={sessions}
+                labelField="project"
+                valueField="comment"
+              /> */}
 
-            {/* <Picker
+              {/* <Picker
               selectedValue={newCategory}
               onValueChange={(v, i) => setNewCategory(v)}
               style={{
@@ -142,36 +127,54 @@ export const AddProject = () => {
                 return <Picker.Item label={v} value={v} key={v} />;
               })}
             </Picker> */}
-            <TouchableOpacity
-              style={{
-                marginLeft: "auto",
-                paddingRight: 10,
-                paddingBottom: 10,
-              }}
-              onPress={() => setModalVisible(true)}
-            >
-              <Text
+              {/* <TouchableOpacity
                 style={{
-                  textDecorationLine: "underline",
-                  textDecorationStyle: "dotted",
+                  marginLeft: "auto",
+                  paddingRight: 10,
+                  paddingBottom: 10,
                 }}
+                onPress={() => setModalVisible(true)}
               >
-                Add new category{" "}
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    textDecorationLine: "underline",
+                    textDecorationStyle: "dotted",
+                  }}
+                >
+                  Add new category{" "}
+                </Text>
+              </TouchableOpacity> */}
+            </View>
+            <View style={{ padding: 10 }}>
+              <ColorPicker
+                color={newColor}
+                discreteLength={10}
+                onColorChange={(color) => setNewColor(color)}
+                thumbSize={scale(15)}
+                noSnap={true}
+                swatches={false}
+              />
+            </View>
           </View>
-          <View style={{ paddingLeft: 100, paddingRight: 100, paddingTop: 20 }}>
-            <ColorPicker
-              color={newColor}
-              discreteLength={10}
-              onColorChange={(color) => setNewColor(color)}
-              thumbSize={20}
-              noSnap={true}
-              swatches={false}
-            />
-          </View>
+        </ScrollView>
+        <View style={{ flexShrink: 1 }}>
+          <Btn
+            title="Add project"
+            color="white"
+            onPress={() => {
+              !newProject ||
+              !newCategory ||
+              newCategory === "Please select a category" ||
+              newProject === "Project name"
+                ? Alert.alert(
+                    "Uh oh, something doesn't seem right!",
+                    "Please check that you have entered both a project and category name."
+                  )
+                : addProject();
+            }}
+          />
         </View>
-      </ScrollView>
+      </View>
     </>
   );
 };
