@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Text, View } from "react-native";
 import { SessionContext } from "../services/array.context";
+import { H2 } from "../utils/styling";
 import { ConvertTime } from "./convertTime";
 import { TimeToDays } from "./timeToDays";
 
@@ -28,9 +29,5 @@ export const TotalAllTime = ({ project, projectSpecific = false }) => {
     );
   }, [periodTotal, rerender]);
 
-  return (
-    <View>
-      <Text>{total}</Text>
-    </View>
-  );
+  return <Text>{total}</Text>;
 };

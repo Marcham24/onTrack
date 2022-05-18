@@ -8,6 +8,8 @@ import {
   Modal,
   TouchableOpacity,
 } from "react-native";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./src/infrastructure/theme/index";
 import { TotalAllTime } from "./src/features/totalAllTime";
 import { PeriodTime } from "./src/features/periodTime";
 import { SessionContextProvider } from "./src/services/array.context";
@@ -17,10 +19,18 @@ import { SessionView } from "./src/features/sessionOverview";
 import { ViewProjects } from "./src/features/ProjectsList";
 import { ViewSessions } from "./src/features/SessionsList";
 import Ionicons from "@expo/vector-icons/Ionicons";
+
+import {
+  useFonts as useInter,
+  Inter_300Light,
+  Inter_500Medium,
+  Inter_700Bold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
 import {
   useFonts as useRoboto,
   Roboto_300Light,
-} from "@expo-google-fonts/roboto";
+} from "@expo-google-fonts/inter";
 import {
   useFonts as useRobotoCondensed,
   RobotoCondensed_700Bold,
@@ -114,36 +124,45 @@ export default function App() {
     RobotoCondensed_700Bold,
   });
 
-  if (!robotoLoaded || !robotoCondensedLoaded) {
-    return null;
-  }
+  const [interLoaded] = useInter({
+    Inter_300Light,
+    Inter_500Medium,
+    Inter_700Bold,
+    Inter_900Black,
+  });
+
+  // if (!robotoLoaded || !robotoCondensedLoaded || !interLoaded) {
+  //   return null;
+  // }
 
   return (
     <>
-      <SessionContextProvider>
-        <NavigationContainer style={{ backgroundColor: "black" }}>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ color, size }) => {
-                let iconName = TAB_ICON[route.name];
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: "#EF8354",
-              tabBarInactiveTintColor: "#4F5D75",
-            })}
-          >
-            <Tab.Screen
-              name="Dashboard"
-              component={DashboardScreen}
-              options={{ headerShown: false }}
-            />
-            <Tab.Screen name="Projects" component={ProjectsScreen} />
-            <Tab.Screen name=" " component={AddSessionScreen} />
-            <Tab.Screen name="Sessions" component={ExportScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </SessionContextProvider>
+      <ThemeProvider theme={theme}>
+        <SessionContextProvider>
+          <NavigationContainer style={{ backgroundColor: "black" }}>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ color, size }) => {
+                  let iconName = TAB_ICON[route.name];
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: "#EF8354",
+                tabBarInactiveTintColor: "#4F5D75",
+              })}
+            >
+              <Tab.Screen
+                name="Dashboard"
+                component={DashboardScreen}
+                options={{ headerShown: false }}
+              />
+              <Tab.Screen name="Projects" component={ProjectsScreen} />
+              <Tab.Screen name=" " component={AddSessionScreen} />
+              <Tab.Screen name="Sessions" component={ExportScreen} />
+              <Tab.Screen name="Settings" component={SettingsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </SessionContextProvider>
+      </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
   );

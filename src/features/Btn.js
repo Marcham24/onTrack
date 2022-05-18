@@ -12,11 +12,12 @@ export const Btn = ({ title, type = "normal", onPress, color }) => {
     border-radius: 5px;
     border-width: 1px;
     border-color: #dedede;
+    justify-content: center;
   `;
   const Title = styled.Text`
     font-size: 13px;
     font-weight: 700;
-    font-family: RobotoCondensed_700Bold;
+    font-family: Inter_300Light;
     color: black;
   `;
 

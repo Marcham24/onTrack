@@ -57,14 +57,13 @@ export const ProjectCard = ({
                 <ProjectText style={{ color: "black" }}>
                   {!project ? "Project name" : project}
                 </ProjectText>
-                <Ionicons
-                  name={"ellipsis-horizontal"}
-                  size={24}
-                  color="#1c1d23"
-                />
-              </View>
-              <View>
-                <TotalAllTime project={project} projectSpecific={true} />
+                <TouchableOpacity>
+                  <Ionicons
+                    name={"ellipsis-horizontal"}
+                    size={24}
+                    color="#1c1d23"
+                  />
+                </TouchableOpacity>
               </View>
 
               <TouchableOpacity>

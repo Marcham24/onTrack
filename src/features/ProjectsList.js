@@ -16,7 +16,7 @@ export const ViewProjects = () => {
       category={category}
       color={color}
       size={240}
-      full={false}
+      full={true}
       creation={false}
     />
   );
