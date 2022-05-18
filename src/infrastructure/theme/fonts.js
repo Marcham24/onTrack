@@ -1,3 +1,4 @@
+import { scale } from "../scale";
 export const fonts = {
   caption: "Inter_300Light",
   body: "Inter_500Medium",
@@ -20,6 +21,11 @@ export const fontSizes = {
   h5: 24,
   h4: 34,
   h3: 45,
-  h2: 56,
-  h1: 112,
+  h2: 32,
+  h1: 40,
+};
+
+export const lineHeights = {
+  title: 28,
+  copy: 20,
 };

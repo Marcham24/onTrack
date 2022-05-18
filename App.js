@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { ThemeProvider } from "styled-components";
-import { theme } from "./src/infrastructure/theme/index";
+import { theme } from "./src/infrastructure/theme";
 import { TotalAllTime } from "./src/features/totalAllTime";
 import { PeriodTime } from "./src/features/periodTime";
 import { SessionContextProvider } from "./src/services/array.context";
@@ -36,37 +36,11 @@ import {
   RobotoCondensed_700Bold,
 } from "@expo-google-fonts/roboto-condensed";
 import { AddProject } from "./src/features/AddProject";
-
-import {
-  H1,
-  H2,
-  H3,
-  ProjectText,
-  CategoryText,
-  TimeText,
-  TagssText,
-  BodyText,
-  Input,
-} from "./src/utils/styling";
+import { H1 } from "./src/infrastructure/commonStyles";
 import { Btn } from "./src/features/Btn";
 import { TextInput } from "react-native-paper";
 import { ModalBase } from "./src/features/ModalBase";
-
-const DashboardScreen = () => {
-  return (
-    <>
-      <View style={styles.container}>
-        <TotalAllTime />
-      </View>
-      <View style={styles.side}>
-        <PeriodTime calcDays={7} />
-        <PeriodTime calcDays={30} />
-      </View>
-
-      <SessionView />
-    </>
-  );
-};
+import { DashboardScreen } from "./src/screens/dashboard-screen";
 
 const ProjectsScreen = () => {
   return (
@@ -139,7 +113,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <SessionContextProvider>
-          <NavigationContainer style={{ backgroundColor: "black" }}>
+          <NavigationContainer>
             <Tab.Navigator
               screenOptions={({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
