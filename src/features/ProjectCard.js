@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { ProjectText, CategoryText } from "../utils/styling";
 import { View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { TotalAllTime } from "./totalAllTime";
 
 export const ProjectCard = ({
   project,
@@ -16,15 +17,7 @@ export const ProjectCard = ({
 
   const Card = styled.View`
     align-items: center;
-    padding: ${creation ? "20px" : "5px"};
-    background-color: ${creation && creationBackground};
-  `;
-
-  const ButtonPrimary = styled.TouchableOpacity`
-    padding: 10px;
-    margin: 10px;
-    background-color: #e1e1e7;
-    border-radius: 5px;
+    padding: ${creation ? "20px" : "10px 5px"};
   `;
 
   return (
@@ -53,28 +46,36 @@ export const ProjectCard = ({
             size={size}
           />
 
-          <View style={{ padding: 15 }}>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <ProjectText style={{ color: "black" }}>
-                {!project ? "Project name" : project}
-              </ProjectText>
-              <Ionicons
-                name={"ellipsis-horizontal"}
-                size={24}
-                color="#1c1d23"
-              />
-            </View>
+          {!creation && (
+            <View style={{ padding: 15 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <ProjectText style={{ color: "black" }}>
+                  {!project ? "Project name" : project}
+                </ProjectText>
+                <Ionicons
+                  name={"ellipsis-horizontal"}
+                  size={24}
+                  color="#1c1d23"
+                />
+              </View>
+              <View>
+                <TotalAllTime project={project} projectSpecific={true} />
+              </View>
 
-            <TouchableOpacity>
-              <CategoryText style={{ color: "grey" }}>
-                {!category || category === "Please select a category"
-                  ? "Category"
-                  : category}
-              </CategoryText>
-            </TouchableOpacity>
-          </View>
+              <TouchableOpacity>
+                <CategoryText style={{ color: "grey" }}>
+                  {!category || category === "Please select a category"
+                    ? "Category"
+                    : category}
+                </CategoryText>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       </View>
     </Card>

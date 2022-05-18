@@ -104,7 +104,7 @@ export const PeriodTime = ({ calcDays }) => {
     <>
       <TotalTimeView>
         <LinearGradient
-          colors={["rgba(0,0,0,0.5)", "transparent"]}
+          colors={["rgba(0,0,0,0.35)", "rgba(255,255,255,.45)"]}
           style={{
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,

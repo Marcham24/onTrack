@@ -6,6 +6,7 @@ import { sessionTime } from "./sessionTime";
 import { ConvertTime } from "./convertTime";
 import { EditingModal } from "./editingModal";
 import { TimeToDays } from "./timeToDays";
+import { Logo } from "./logo";
 import {
   H1,
   H2,
@@ -41,33 +42,35 @@ export const SessionView = (session = {}) => {
 
   const ProjectCard = styled.View`
     background-color: white;
-    margin: 10px;
-    border-left-color: ${creationBackground};
-    border-left-width: 5px;
-    border-radius: 10px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    padding: 10px;
+    flex-direction: row;
+    align-content: center;
+    border-width: 1px;
+    border-color: #dedede;
   `;
 
   const TimeView = styled.View`
     display: flex;
     flex-direction: row;
-    background-color: #e1e1e7;
-    padding: 5px 15px;
-    border-bottom-right-radius: 10px;
-    align-items: center;
+    justify-content: space-between;
   `;
 
   const Headline = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px 15px 0 15px; ;
   `;
 
   const TagsView = styled.View`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 15px 15px 15px;
+    background-color: #dedede;
+    padding: 4px 8px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    align-items: center;
   `;
 
   const TagsContainer = styled.View`
@@ -75,6 +78,15 @@ export const SessionView = (session = {}) => {
     flex-direction: row;
     flex-shrink: 1;
     flex-wrap: wrap;
+    background-color: red;
+  `;
+
+  const TimeContainer = styled.View`
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    align-items: center;
   `;
 
   const handleChangeModalVisible = () => {
@@ -107,58 +119,82 @@ export const SessionView = (session = {}) => {
       </View>
 
       <ProjectCard>
-        <Headline>
-          <ProjectText>{project}</ProjectText>
-          <TotalTimeText>
-            {ConvertTime(sessionTime({ start, end }))}
-          </TotalTimeText>
-        </Headline>
-        <TagsView>
+        <View>
+          <Logo project={project} color={color} full={false} size={50} />
+        </View>
+        <View
+          style={{
+            alignItems: "center",
+            paddingLeft: 10,
+            flexDirection: "row",
+            flex: 1,
+            justifyContent: "space-between",
+          }}
+        >
+          <View>
+            <ProjectText>
+              {project + " - " + ConvertTime(sessionTime({ start, end }))}
+            </ProjectText>
+            <TimeText>{TimeToDays(start)}</TimeText>
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                Alert.alert(
+                  project + " session on " + start.toLocaleDateString(),
+                  comment,
+                  [
+                    { text: "OK" },
+                    //{ text: "Edit", onPress: () => setModalVisible(true) },
+                    {
+                      text: "Delete",
+                      style: "cancel",
+                      onPress: () =>
+                        Alert.alert(
+                          "Are you sure you want to delete this session entry?",
+                          "Once deleted, you cannot get this sesson entry back.",
+                          [
+                            {
+                              text: "Delete",
+                              onPress: () => {
+                                deleteSession(start), setRerender(rerender + 1);
+                              },
+                            },
+                            { text: "Go back" },
+                          ]
+                        ),
+                    },
+                  ]
+                );
+              }}
+            >
+              <Ionicons name={"ellipsis-vertical"} size={24} color="#1c1d23" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <TimeView>
+          {/* <TimeContainer>
+            <Ionicons name={"timer-outline"} size={14} color="#1c1d23" />
+            <TimeText>{start.toLocaleTimeString()}</TimeText>
+            <Ionicons
+              name={"arrow-forward-outline"}
+              size={10}
+              color="#1c1d23"
+            />
+            <TimeText>{end.toLocaleTimeString()}</TimeText>
+          </TimeContainer> */}
+
+          {/* <TimeText>{TimeToDays(start)}</TimeText> */}
+        </TimeView>
+
+        {/* <TagsView>
           <TagsContainer>
             {tags?.map((i) => (
               <TagssText key={i}>#{i}</TagssText>
             ))}
           </TagsContainer>
-          <TimeText>{TimeToDays(start)}</TimeText>
-        </TagsView>
-        <TimeView>
-          <TimeText>{start.toLocaleTimeString()} </TimeText>
-          <TimeText> ➞ </TimeText>
-          <TimeText>{end.toLocaleTimeString()} </TimeText>
-          <TouchableOpacity
-            style={{ marginLeft: "auto" }}
-            onPress={() => {
-              Alert.alert(
-                project + " session on " + start.toLocaleDateString(),
-                comment,
-                [
-                  { text: "OK" },
-                  //{ text: "Edit", onPress: () => setModalVisible(true) },
-                  {
-                    text: "Delete",
-                    style: "cancel",
-                    onPress: () =>
-                      Alert.alert(
-                        "Are you sure you want to delete this session entry?",
-                        "Once deleted, you cannot get this sesson entry back.",
-                        [
-                          {
-                            text: "Delete",
-                            onPress: () => {
-                              deleteSession(start), setRerender(rerender + 1);
-                            },
-                          },
-                          { text: "Go back" },
-                        ]
-                      ),
-                  },
-                ]
-              );
-            }}
-          >
-            <Ionicons name={"ellipsis-horizontal"} size={24} color="#1c1d23" />
-          </TouchableOpacity>
-        </TimeView>
+          
+        </TagsView> */}
       </ProjectCard>
     </>
   );

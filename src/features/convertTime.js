@@ -4,6 +4,6 @@ export const ConvertTime = (d) => {
   var m = Math.floor((d % 3600) / 60);
 
   var hDisplay = h + "h ";
-  var mDisplay = m + "m ";
+  var mDisplay = m + "m";
   return hDisplay + mDisplay;
 };

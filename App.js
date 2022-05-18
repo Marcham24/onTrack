@@ -1,5 +1,13 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
+import { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
 import { TotalAllTime } from "./src/features/totalAllTime";
 import { PeriodTime } from "./src/features/periodTime";
 import { SessionContextProvider } from "./src/services/array.context";
@@ -28,11 +36,11 @@ import {
   TimeText,
   TagssText,
   BodyText,
-  InputText,
-  ButtonPrimary,
-  ButtonText,
-  ButtonSecondary,
+  Input,
 } from "./src/utils/styling";
+import { Btn } from "./src/features/Btn";
+import { TextInput } from "react-native-paper";
+import { ModalBase } from "./src/features/ModalBase";
 
 const DashboardScreen = () => {
   return (
@@ -77,16 +85,13 @@ const ExportScreen = () => {
 };
 
 const SettingsScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View>
-      <H2>Testing</H2>
-      <H3>Testing</H3>
-      <ButtonPrimary onPress={() => alert("Hello")}>
-        <ButtonText>Testing button</ButtonText>
-      </ButtonPrimary>
-      <ButtonSecondary>
-        <ButtonText>Testing button</ButtonText>
-      </ButtonSecondary>
+      <View>
+        <Btn color="#EF8354" onPress={() => setModalVisible(true)} />
+      </View>
     </View>
   );
 };
@@ -116,7 +121,7 @@ export default function App() {
   return (
     <>
       <SessionContextProvider>
-        <NavigationContainer>
+        <NavigationContainer style={{ backgroundColor: "black" }}>
           <Tab.Navigator
             screenOptions={({ route }) => ({
               tabBarIcon: ({ color, size }) => {

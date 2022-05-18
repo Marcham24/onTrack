@@ -4,11 +4,18 @@ import { SessionContext } from "../services/array.context";
 import { ConvertTime } from "./convertTime";
 import { TimeToDays } from "./timeToDays";
 
-export const TotalAllTime = () => {
+export const TotalAllTime = ({ project, projectSpecific = false }) => {
   const [total, setTotal] = useState(0);
-  const { sessions } = useContext(SessionContext);
+  const { sessions, rerender } = useContext(SessionContext);
 
-  const periodTotal = sessions.reduce(
+  let sessionsArray = sessions;
+
+  projectSpecific &&
+    (sessionsArray = sessions.filter((v) => {
+      return v.project.includes(project);
+    }));
+
+  const periodTotal = sessionsArray.reduce(
     (v, currentValue) =>
       (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
     0
@@ -19,11 +26,11 @@ export const TotalAllTime = () => {
       //function to change seconds to readable time format
       ConvertTime(periodTotal)
     );
-  }, [periodTotal]);
+  }, [periodTotal, rerender]);
 
   return (
     <View>
-      <Text> {total}</Text>
+      <Text>{total}</Text>
     </View>
   );
 };

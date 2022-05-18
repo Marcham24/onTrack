@@ -26,9 +26,10 @@ export const H1 = styled.Text`
 `;
 
 export const H2 = styled.Text`
-  font-size: ${scale(fontSizes[5]) + "px"};
-  color: ${colors.primary};
+  font-size: ${scale(fontSizes[4]) + "px"};
+  color: ${colors.secondary};
   font-weight: ${fontWeights[1]};
+  font-family: ${fonts[1]};
 `;
 
 export const H3 = styled.Text``;
@@ -62,40 +63,25 @@ export const TagssText = styled.Text`
   font-family: Roboto_300Light;
   text-decoration: underline;
   text-decoration-style: dotted;
-  padding-right: 4px;
-  color: #393b46;
+  margin-right: 5px;
+  padding: 3px 5px;
+  color: white;
+  border-radius: 10px;
 `;
 
 export const BodyText = styled.Text`
   font-size: ${scale(14) + "px"};
 `;
 
-export const InputText = styled.Text`
-  font-size: ${scale(16) + "px"};
-`;
-
-export const ButtonPrimary = styled.TouchableOpacity`
-background-color: ${colors.primary}
-  padding: ${spacing[3]};
-  margin:${spacing[2]};
-  border-radius:${spacing[0]};
-
-`;
-
-export const ButtonSecondary = styled.TouchableOpacity`
-background-color: ${colors.secondary}
-  padding: ${spacing[3]};
-  margin:${spacing[2]};
-    border-radius:${spacing[0]}; 
-  
-`;
-
-export const ButtonText = styled.Text`
-  color: ${colors.tertiary};
-  font-family: ${fonts[0]};
-  font-weight: ${fontWeights[0]};
-  text-align: center;
-  font-family: ${fonts[1]};
-  font-weight: ${fontWeights[1]};
-  font-size: ${scale(fontSizes[2]) + "px"};
+export const Input = styled.TextInput`
+  font-size: 13px;
+  background-color: white;
+  border-width: 1px;
+  border-color: #DEDEDE
+  border-radius: 5px;
+  padding: 10px; 
+  margin: 10px;
+  color:black;
+  flex-shrink:1;
+  flex-grow:1;
 `;

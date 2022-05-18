@@ -21,6 +21,6 @@ export const TimeToDays = (date) => {
       return "3 days ago";
 
     default:
-      return date.toLocaleDateString();
+      return "on " + date.toLocaleDateString();
   }
 };

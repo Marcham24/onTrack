@@ -12,15 +12,14 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
   return (
     <View style={[styles(size, color, full, project, category).logo]}>
       <LinearGradient
-        colors={["rgba(0,0,0,0.35)", "rgba(255,255,255,0.5)"]}
+        colors={["rgba(0,0,0,0.5)", "transparent"]}
         style={{
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
+          borderRadius: 5,
           position: "absolute",
           left: 0,
           right: 0,
           top: 0,
-          height: (size / 6) * 3,
+          height: size,
         }}
       />
 
@@ -35,15 +34,15 @@ const styles = (size, color, full) =>
       backgroundColor: color,
       justifyContent: "center",
       alignItems: "center",
-      borderRadius: 10,
+      borderRadius: 5,
       flexDirection: "row",
       width: size,
-      height: (size / 6) * 3,
+      height: size,
     },
     text: {
       textAlign: "center",
       color: "white",
-      fontSize: full ? size / 7 : size / 3,
+      fontSize: full ? size / 7 : size / 1.7,
       fontFamily: "RobotoCondensed_700Bold",
       flex: 1,
       flexWrap: "wrap",

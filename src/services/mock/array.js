@@ -31,6 +31,22 @@ export const sessions = [
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["test", "items"],
   },
+  {
+    project: "Playing Games",
+    start: new Date("March 15, 2022 15:15:57"),
+    end: new Date("March 17, 2022 16:19:16"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["test", "items"],
+  },
+  {
+    project: "Working Out",
+    start: new Date("March 15, 2022 15:15:57"),
+    end: new Date("March 17, 2022 16:19:16"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["test", "items"],
+  },
 ];
 
 export const projects = [
@@ -54,6 +70,18 @@ export const projects = [
     color: "#00FF00",
     target: 0,
   },
+
+  {
+    name: "Working Out",
+    category: "Leisure",
+    color: "#FFFF00",
+    target: 0,
+  },
 ];
 
-export const categories = ["Work", "Leisure", "Lifestyle", "Learning"];
+export const categories = [
+  { Category: "Work" },
+  { Category: "Leisure" },
+  { Category: "Lifestyle" },
+  { Category: "Learning" },
+];
