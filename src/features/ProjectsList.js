@@ -27,7 +27,7 @@ export const ViewProjects = () => {
       <FlatList
         horizontal={true}
         data={projects.sort((a, b) => a.name.localeCompare(b.name))}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.color}
         renderItem={renderItem}
       />
     </View>

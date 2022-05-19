@@ -4,6 +4,7 @@ import { Logo } from "./logo";
 import { SessionContext } from "../services/array.context";
 import { H2 } from "../infrastructure/commonStyles";
 import { SessionView } from "../features/sessionOverview";
+import { getCurrentTimestamp } from "react-native/Libraries/Utilities/createPerformanceLogger";
 
 export const ViewSessions = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -34,8 +35,9 @@ export const ViewSessions = () => {
     <View>
       <H2>Your recent sessions</H2>
       <FlatList
+        keyboardShouldPersistTaps="always"
         data={sessions.sort((a, b) => b.start - a.start)}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.start}
         renderItem={renderItem}
         extraData={rerender}
       />

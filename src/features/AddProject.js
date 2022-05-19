@@ -71,14 +71,16 @@ export const AddProject = () => {
         />
       </View>
       <View style={{ flex: 1 }}>
-        <ProjectCard
-          project={newProject}
-          category={newCategory}
-          color={newColor}
-          size={scale(100)}
-          full={false}
-          creation={true}
-        />
+        <View>
+          <ProjectCard
+            project={newProject}
+            category={newCategory}
+            color={newColor}
+            size={scale(100)}
+            full={false}
+            creation={true}
+          />
+        </View>
 
         <ScrollView style={{ flex: 2 }}>
           <View>

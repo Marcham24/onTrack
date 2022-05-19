@@ -58,9 +58,12 @@ const ProjectsScreen = () => {
 
 const AddSessionScreen = () => {
   return (
-    <View>
-      <ViewSessions />
-    </View>
+    <>
+      <SafeView>
+        <ViewSessions />
+      </SafeView>
+      <ExpoStatusBar style="auto" />
+    </>
   );
 };
 
@@ -76,23 +79,21 @@ const SettingsScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <ThemeProvider theme={theme}>
-      <View>
-        <H1>Hello World!</H1>
-        <H2>Hello World!</H2>
-        <H3>Hello World!</H3>
-        <ProjectText>Hello World!</ProjectText>
-        <TotalTimeText>Hello World!</TotalTimeText>
-        <CategoryText>Hello World!</CategoryText>
-        <TimeText>Hello World!</TimeText>
-        <TagssText>Hello World!</TagssText>
-        <BodyText>Hello World!</BodyText>
-        <Input>Hello World!</Input>
-        <Btn title="Hello World!" />
-        <Btn title="Hello World!" color="danger" />
-        <Btn title="Hello World!" color="success" />
-      </View>
-    </ThemeProvider>
+    <View>
+      <H1>Hello World!</H1>
+      <H2>Hello World!</H2>
+      <H3>Hello World!</H3>
+      <ProjectText>Hello World!</ProjectText>
+      <TotalTimeText>Hello World!</TotalTimeText>
+      <CategoryText>Hello World!</CategoryText>
+      <TimeText>Hello World!</TimeText>
+      <TagssText>Hello World!</TagssText>
+      <BodyText>Hello World!</BodyText>
+      <Input>Hello World!</Input>
+      <Btn title="Hello World!" />
+      <Btn title="Hello World!" color="danger" />
+      <Btn title="Hello World!" color="success" />
+    </View>
   );
 };
 
@@ -122,28 +123,49 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <SessionContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarIcon: ({ color, size }) => {
-                  let iconName = TAB_ICON[route.name];
-                  return <Ionicons name={iconName} size={size} color={color} />;
-                },
-                tabBarActiveTintColor: "#EF8354",
-                tabBarInactiveTintColor: "#4F5D75",
-              })}
-            >
-              <Tab.Screen
-                name="Dashboard"
-                component={DashboardScreen}
-                options={{ headerShown: false }}
-              />
-              <Tab.Screen name="Projects" component={ProjectsScreen} />
-              <Tab.Screen name=" " component={AddSessionScreen} />
-              <Tab.Screen name="Sessions" component={ExportScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
+          <SafeView>
+            <NavigationContainer>
+              <Tab.Navigator
+                screenOptions={({ route }) => ({
+                  tabBarIcon: ({ color, size }) => {
+                    let iconName = TAB_ICON[route.name];
+                    return (
+                      <Ionicons name={iconName} size={size} color={color} />
+                    );
+                  },
+
+                  tabBarActiveTintColor: "#EF8354",
+                  tabBarInactiveTintColor: "#4F5D75",
+                })}
+              >
+                <Tab.Screen
+                  name="Dashboard"
+                  component={DashboardScreen}
+                  options={{ headerShown: false }}
+                />
+                <Tab.Screen
+                  name="Projects"
+                  component={ProjectsScreen}
+                  options={{ headerShown: false }}
+                />
+                <Tab.Screen
+                  name=" "
+                  component={AddSessionScreen}
+                  options={{ headerShown: false }}
+                />
+                <Tab.Screen
+                  name="Sessions"
+                  component={ExportScreen}
+                  options={{ headerShown: false }}
+                />
+                <Tab.Screen
+                  name="Settings"
+                  component={SettingsScreen}
+                  options={{ headerShown: false }}
+                />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </SafeView>
         </SessionContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />

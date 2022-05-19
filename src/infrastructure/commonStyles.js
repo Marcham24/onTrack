@@ -56,18 +56,34 @@ export const TimeText = styled.Text`
   color: ${(props) => props.theme.colors.c2};
 `;
 
+export const TagsView = styled.View`
+  background-color: ${(props) => props.theme.colors.c4};
+  border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
+  padding: ${(props) => scale(props.theme.space[1]) + "px"}
+    flex-direction: row
+  flex-shrink: 1;
+  margin-right: ${(props) => scale(props.theme.space[1]) + "px"};
+    margin-bottom: ${(props) => scale(props.theme.space[1]) + "px"};
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+`;
+
 export const TagssText = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.caption) + "px"};
-  font-family: ${(props) => props.theme.fonts.light};
-  font-weight: ${(props) => props.theme.fontWeights.light};
+  font-family: ${(props) => props.theme.fonts.medium};
+  font-weight: ${(props) => props.theme.fontWeights.medium};
   color: ${(props) => props.theme.colors.c2};
-  background-color: ${(props) => props.theme.colors.c4};
-  border-radius: ${(props) => scale(props.theme.space[2]) + "px"};
-  padding: ${(props) => scale(props.theme.space[0]) + "px"}
-    ${(props) => scale(props.theme.space[1]) + "px"};
-  flex-wrap: wrap;
+  text-transform: uppercase;
+`;
+
+export const TagsContainer = styled.View`
+  display: flex;
+  flex-direction: row;
   flex-shrink: 1;
-  margin-right: ${(props) => scale(props.theme.space[0]) + "px"};
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: center;
 `;
 
 export const BodyText = styled.Text`
@@ -89,6 +105,25 @@ export const Input = styled.TextInput`
   margin: ${(props) => scale(props.theme.space[1]) + "px"};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.c4};
-  flex-shrink: 1;
   flex-grow: 1;
+`;
+
+export const SessionCard = styled.View`
+  background-color: ${(props) => props.theme.colors.white};
+  margin: ${(props) => scale(props.theme.space[0]) + "px"}
+    ${(props) => scale(props.theme.space[1]) + "px"};
+  border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+  padding: ${(props) => scale(props.theme.space[1]) + "px"};
+  flex-direction: row;
+  align-content: center;
+  border-width: 1px;
+  border-color: #dedede;
+`;
+
+export const SessionCardText = styled.View`
+  padding-left: ${(props) => scale(props.theme.space[2]) + "px"};
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 `;

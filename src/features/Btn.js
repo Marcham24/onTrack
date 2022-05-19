@@ -11,7 +11,7 @@ export const Btn = ({ title, type = "normal", onPress }) => {
     flex-direction: row;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     justify-content: center;
-
+    
     align-items: center;
   `;
   const Title = styled.Text`
@@ -30,6 +30,9 @@ export const Btn = ({ title, type = "normal", onPress }) => {
     edit: "create",
     delete: "trash",
     back: "arrow-back",
+    add: "add-circle",
+    confirm: "checkmark-outline",
+    cancel: "close-outline",
   };
 
   let iconName = ICON[type];

@@ -7,4 +7,5 @@ export const colors = {
   inverse: " #efeef4 ",
   danger: "#CA0B00",
   success: " #02a60c  ",
+  white: "#FFFFFF",
 };
