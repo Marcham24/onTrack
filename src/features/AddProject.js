@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -7,6 +7,7 @@ import {
   Alert,
   ScrollView,
 } from "react-native";
+import { SessionContext } from "../services/array.context";
 import { categories, projects, sessions } from "../services/mock/array";
 import ColorPicker from "react-native-wheel-color-picker";
 import { H2, Input } from "../infrastructure/commonStyles";
@@ -19,7 +20,7 @@ import { scale } from "../infrastructure/scale";
 
 export const AddProject = () => {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
+  const { rerender, setRerender } = useContext(SessionContext);
   const [newProject, setNewProject] = useState("");
   const [newCategory, setNewCategory] = useState("");
   const [newColor, setNewColor] = useState(randomColor);
@@ -38,6 +39,7 @@ export const AddProject = () => {
     setNewProject("");
     setNewCategory("");
     setNewColor(randomColor);
+    setRerender(rerender + 1);
   };
 
   return (

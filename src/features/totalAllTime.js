@@ -6,28 +6,24 @@ import { ConvertTime } from "./convertTime";
 import { TimeToDays } from "./timeToDays";
 
 export const TotalAllTime = ({ project, projectSpecific = false }) => {
-  const [total, setTotal] = useState(0);
-  const { sessions, rerender } = useContext(SessionContext);
-
-  let sessionsArray = sessions;
-
-  projectSpecific &&
-    (sessionsArray = sessions.filter((v) => {
-      return v.project.includes(project);
-    }));
-
-  const periodTotal = sessionsArray.reduce(
-    (v, currentValue) =>
-      (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
-    0
-  );
-
-  useEffect(() => {
-    setTotal(
-      //function to change seconds to readable time format
-      ConvertTime(periodTotal)
-    );
-  }, [periodTotal, rerender]);
-
-  return <Text>{total}</Text>;
+  // const [total, setTotal] = useState(0);
+  // const { sessions, rerender } = useContext(SessionContext);
+  // let sessionsArray = sessions;
+  // projectSpecific &&
+  //   (sessionsArray = sessions.filter((v) => {
+  //     return v.project.includes(project);
+  //   }));
+  // const periodTotal = sessionsArray.reduce(
+  //   (v, currentValue) =>
+  //     (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
+  //   0
+  // );
+  // useEffect(() => {
+  //   setTotal(
+  //     //function to change seconds to readable time format
+  //     ConvertTime(periodTotal)
+  //   );
+  // }, [periodTotal, rerender]);
+  // return <Text>{total}</Text>;
+  return null;
 };

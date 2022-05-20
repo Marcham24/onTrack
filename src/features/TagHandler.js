@@ -15,7 +15,7 @@ const DeleteTag = styled.TouchableOpacity`
   padding-left: ${(props) => scale(props.theme.space[0]) + "px"};
 `;
 
-export const TagsHandler = ({ editable, tags = [] }) => {
+export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
   const [tagsList, setTagsList] = useState(tags);
   const [newTag, setNewTag] = useState("");
 
@@ -27,6 +27,7 @@ export const TagsHandler = ({ editable, tags = [] }) => {
     let formattedTag = newTag.replace(/[^a-zA-Z0-9]/g, "");
     tagsList.push(formattedTag);
     setNewTag("");
+    passNewTags(tagsList);
   };
 
   return (

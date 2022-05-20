@@ -1,18 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SessionContext } from "../services/array.context";
 import { View, Alert } from "react-native";
 import styled from "styled-components/native";
 import { Input } from "../infrastructure/commonStyles";
 import { Btn } from "./Btn";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TagsHandler } from "./TagHandler";
-
-const TagsContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 1;
-  flex-wrap: wrap;
-  padding: 10px;
-`;
+import { sessions } from "../services/mock/array";
 
 export const EditingModal = ({
   changeModal,
@@ -26,8 +20,11 @@ export const EditingModal = ({
   tags,
   projectEditable,
 }) => {
+  const { rerender, setRerender } = useContext(SessionContext);
+  const [tempStart, setTempStart] = useState(start);
+  const [tempEnd, setTempEnd] = useState(end);
   const [tempComment, setTempComment] = useState(comment);
-  const [newComment, setNewComment] = useState(comment);
+  const [tempTags, setTempTags] = useState(tags);
 
   const handleProjectEditable = () => {
     changeProjectEditable();
@@ -37,22 +34,34 @@ export const EditingModal = ({
     deleteSession(start);
   };
 
-  const handleUpdateSession = () => {
-    setNewComment(tempComment);
+  const handleUpdateSession = (startTime) => {
+    const indexOfSession = sessions.findIndex(
+      (find) => find.start.getTime() === startTime.getTime()
+    );
 
-    const updatedSessionEnter = [
+    console.log(indexOfSession);
+
+    const updatedSessionEntry = [
       {
         project: project,
-        start: newStart,
-        end: newEnd,
-        comment: newComment,
-        tags: newTagList,
+        start: start,
+        end: end,
+        comment: tempComment,
+        tags: tempTags,
       },
     ];
-    changeModal();
+
+    sessions[indexOfSession] = updatedSessionEntry;
+
+    console.log(sessions[indexOfSession]);
+
+    setRerender(rerender + 1);
   };
 
   const handleCancelUpdate = () => {
+    console.log(tempTags);
+    console.log(tempComment);
+
     changeCancelProjectEditable();
   };
 
@@ -82,7 +91,11 @@ export const EditingModal = ({
         editable={projectEditable ? true : false}
         multiline={true}
       />
-      <TagsHandler tags={tags} editable={projectEditable ? true : false} />
+      <TagsHandler
+        tags={tags}
+        editable={projectEditable ? true : false}
+        passNewTags={setTempTags}
+      />
 
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Btn
@@ -95,7 +108,7 @@ export const EditingModal = ({
           title={projectEditable ? "Save" : "Delete"}
           onPress={
             projectEditable
-              ? handleUpdateSession
+              ? () => handleUpdateSession(start)
               : () =>
                   Alert.alert(
                     "Are you sure you want to delete this session entry?",
