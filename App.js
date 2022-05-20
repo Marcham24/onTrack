@@ -45,6 +45,7 @@ import { Btn } from "./src/features/Btn";
 import { TextInput } from "react-native-paper";
 import { ModalBase } from "./src/features/ModalBase";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
+import { EditingModal } from "./src/features/editingModal";
 
 const ProjectsScreen = () => {
   return (
@@ -80,19 +81,7 @@ const SettingsScreen = () => {
 
   return (
     <View>
-      <H1>Hello World!</H1>
-      <H2>Hello World!</H2>
-      <H3>Hello World!</H3>
-      <ProjectText>Hello World!</ProjectText>
-      <TotalTimeText>Hello World!</TotalTimeText>
-      <CategoryText>Hello World!</CategoryText>
-      <TimeText>Hello World!</TimeText>
-      <TagssText>Hello World!</TagssText>
-      <BodyText>Hello World!</BodyText>
-      <Input>Hello World!</Input>
-      <Btn title="Hello World!" />
-      <Btn title="Hello World!" color="danger" />
-      <Btn title="Hello World!" color="success" />
+      <EditingModal />
     </View>
   );
 };

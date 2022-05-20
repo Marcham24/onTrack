@@ -7,9 +7,10 @@ import { Btn } from "./Btn";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TagsHandler } from "./TagHandler";
 import { sessions } from "../services/mock/array";
+import { scale } from "../infrastructure/scale";
+import DatePicker from "react-native-date-picker";
 
 export const EditingModal = ({
-  changeModal,
   changeProjectEditable,
   changeCancelProjectEditable,
   deleteSession,
@@ -26,6 +27,9 @@ export const EditingModal = ({
   const [tempComment, setTempComment] = useState(comment);
   const [tempTags, setTempTags] = useState(tags);
 
+  const [startPickerOpen, setStartPickerOpen] = useState(false);
+  const [endPickerOpen, setEndPickerOpen] = useState(false);
+
   const handleProjectEditable = () => {
     changeProjectEditable();
   };
@@ -39,50 +43,53 @@ export const EditingModal = ({
       (find) => find.start.getTime() === startTime.getTime()
     );
 
-    console.log(indexOfSession);
-
-    const updatedSessionEntry = [
-      {
-        project: project,
-        start: start,
-        end: end,
-        comment: tempComment,
-        tags: tempTags,
-      },
-    ];
-
-    sessions[indexOfSession] = updatedSessionEntry;
-
-    console.log(sessions[indexOfSession]);
+    sessions[indexOfSession].project = project;
+    sessions[indexOfSession].start = start;
+    sessions[indexOfSession].end = end;
+    sessions[indexOfSession].comment = tempComment;
+    sessions[indexOfSession].tags = tempTags;
 
     setRerender(rerender + 1);
   };
 
   const handleCancelUpdate = () => {
-    console.log(tempTags);
-    console.log(tempComment);
-
     changeCancelProjectEditable();
   };
 
   return (
     <View>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <Input
-          textAlign="center"
-          value={start.toLocaleDateString()}
-          editable={projectEditable ? true : false}
+        <>
+          <Btn
+            mimicInput={true}
+            type={"none"}
+            title={start.toLocaleTimeString()}
+            onPress={projectEditable ? () => setStartPickerOpen(true) : null}
+          />
+          <DatePicker
+            modal
+            mode={"datetime"}
+            open={startPickerOpen}
+            date={start}
+            onConfirm={(date) => {
+              setStartPickerOpen(false);
+              setTempStart(date);
+            }}
+            onCancel={() => {
+              setStartPickerOpen(false);
+            }}
+          />
+        </>
+        <Ionicons
+          name={"arrow-forward-outline"}
+          size={scale(20)}
+          color="#1c1d23"
         />
-        <Input
-          textAlign="center"
-          value={start.toLocaleTimeString()}
-          editable={false}
-        />
-        <Ionicons name={"arrow-forward-outline"} size={30} color="#1c1d23" />
-        <Input
-          textAlign="center"
-          value={end.toLocaleTimeString()}
-          editable={false}
+        <Btn
+          mimicInput={true}
+          type={"none"}
+          title={end.toLocaleTimeString()}
+          onPress={projectEditable ? null : null}
         />
       </View>
       <Input
