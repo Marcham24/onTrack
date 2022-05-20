@@ -76,15 +76,7 @@ const ExportScreen = () => {
   );
 };
 
-const SettingsScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  return (
-    <View>
-      <EditingModal />
-    </View>
-  );
-};
+const SettingsScreen = () => {};
 
 const TAB_ICON = {
   Dashboard: "grid-outline",

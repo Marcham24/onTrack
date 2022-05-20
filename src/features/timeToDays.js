@@ -1,3 +1,5 @@
+import { Readable } from "./ReadableDateTime";
+
 const today = new Date();
 today.setUTCHours(0, 0, 0, 0);
 
@@ -21,6 +23,6 @@ export const TimeToDays = (date) => {
       return "3 days ago";
 
     default:
-      return "on " + date.toLocaleDateString();
+      return "on " + Readable(date, "date");
   }
 };

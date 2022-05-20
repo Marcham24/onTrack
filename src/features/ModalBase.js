@@ -24,9 +24,7 @@ export const ModalBase = ({
   `;
 
   const ModalBody = styled.View`
-    margin: ${(props) => scale(props.theme.space[3]) + "px"};
-    margin-top: ${(props) => scale(props.theme.space[5]) + "px"};
-    margin-bottom: ${(props) => scale(props.theme.space[5]) + "px"};
+    margin: ${(props) => scale(props.theme.space[0]) + "px"};
     background-color: white;
     flex-shrink: 1;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};

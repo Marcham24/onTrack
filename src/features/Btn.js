@@ -21,7 +21,7 @@ export const Btn = ({
         ? (props) => props.theme.colors.inverse
         : (props) => props.theme.colors.c2
     }
-    padding: ${(props) => scale(props.theme.space[2]) + "px"};
+    padding: ${(props) => scale(props.theme.space[1]) + "px"};
     margin: ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};

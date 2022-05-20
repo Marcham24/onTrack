@@ -8,7 +8,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { TagsHandler } from "./TagHandler";
 import { sessions } from "../services/mock/array";
 import { scale } from "../infrastructure/scale";
-import DatePicker from "react-native-date-picker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { Readable } from "./ReadableDateTime";
 
 export const EditingModal = ({
   changeProjectEditable,
@@ -44,8 +45,8 @@ export const EditingModal = ({
     );
 
     sessions[indexOfSession].project = project;
-    sessions[indexOfSession].start = start;
-    sessions[indexOfSession].end = end;
+    sessions[indexOfSession].start = tempStart;
+    sessions[indexOfSession].end = tempEnd;
     sessions[indexOfSession].comment = tempComment;
     sessions[indexOfSession].tags = tempTags;
 
@@ -56,40 +57,45 @@ export const EditingModal = ({
     changeCancelProjectEditable();
   };
 
+  const handleStartConfirm = (startTime) => {
+    setStartPickerOpen(false);
+    setTempStart(startTime);
+  };
+
+  const handleEndConfirm = (endTime) => {
+    setEndPickerOpen(false);
+    setTempEnd(endTime);
+  };
+
   return (
     <View>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <>
-          <Btn
-            mimicInput={true}
-            type={"none"}
-            title={start.toLocaleTimeString()}
-            onPress={projectEditable ? () => setStartPickerOpen(true) : null}
-          />
-          <DatePicker
-            modal
-            mode={"datetime"}
-            open={startPickerOpen}
-            date={start}
-            onConfirm={(date) => {
-              setStartPickerOpen(false);
-              setTempStart(date);
-            }}
-            onCancel={() => {
-              setStartPickerOpen(false);
-            }}
-          />
-        </>
-        <Ionicons
-          name={"arrow-forward-outline"}
-          size={scale(20)}
-          color="#1c1d23"
-        />
+      <View>
         <Btn
           mimicInput={true}
           type={"none"}
-          title={end.toLocaleTimeString()}
-          onPress={projectEditable ? null : null}
+          title={Readable(tempStart)}
+          onPress={projectEditable ? () => setStartPickerOpen(true) : null}
+        />
+        <DateTimePickerModal
+          date={tempStart}
+          isVisible={startPickerOpen}
+          mode="datetime"
+          onConfirm={handleStartConfirm}
+          onCancel={() => setStartPickerOpen(false)}
+        />
+
+        <Btn
+          mimicInput={true}
+          type={"none"}
+          title={Readable(tempEnd)}
+          onPress={projectEditable ? () => setEndPickerOpen(true) : null}
+        />
+        <DateTimePickerModal
+          date={tempEnd}
+          isVisible={endPickerOpen}
+          mode="datetime"
+          onConfirm={handleEndConfirm}
+          onCancel={() => setEndPickerOpen(false)}
         />
       </View>
       <Input

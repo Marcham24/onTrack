@@ -22,8 +22,6 @@ export const SessionView = (session = {}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [projectEditable, setProjectEditable] = useState(false);
-  const [tempComment, setTempComment] = useState(comment);
-  const [newComment, setNewComment] = useState(comment);
 
   const {
     project = "GermErase",
