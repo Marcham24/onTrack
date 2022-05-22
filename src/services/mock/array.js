@@ -1,24 +1,16 @@
 export const sessions = [
   {
     project: "GermErase",
-    start: new Date("May 15, 2022 13:54:43"),
-    end: new Date("May 15, 2022 16:32:24"),
+    start: new Date("May 21, 2022 12:24:00"),
+    end: new Date("May 21, 2022 15:24:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
   },
   {
     project: "Gym",
-    start: new Date("May 14, 2022 15:15:57"),
-    end: new Date("May 14, 2022 15:56:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "items"],
-  },
-  {
-    project: "Playing Games",
-    start: new Date("May 14, 2022 17:15:57"),
-    end: new Date("May 14, 2022 19:19:16"),
+    start: new Date("May 22, 2022 12:24:00"),
+    end: new Date("May 22, 2022 13:24:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["test", "items"],

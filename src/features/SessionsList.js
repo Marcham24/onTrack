@@ -4,7 +4,6 @@ import { Logo } from "./logo";
 import { SessionContext } from "../services/array.context";
 import { H2 } from "../infrastructure/commonStyles";
 import { SessionView } from "../features/sessionOverview";
-import { getCurrentTimestamp } from "react-native/Libraries/Utilities/createPerformanceLogger";
 
 export const ViewSessions = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -27,6 +26,7 @@ export const ViewSessions = () => {
         end={end}
         comment={comment}
         tags={tags}
+        creation={false}
       />
     </View>
   );

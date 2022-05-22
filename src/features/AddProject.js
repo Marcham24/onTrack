@@ -27,6 +27,8 @@ export const AddProject = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
 
+  const creationBackground = newColor + "66";
+
   const newProjectEntry = {
     name: newProject,
     category: newCategory,
@@ -72,19 +74,26 @@ export const AddProject = () => {
           }
         />
       </View>
-      <View style={{ flex: 1 }}>
-        <View>
+      <View style={{ flexGrow: 1 }}>
+        <View
+          style={{
+            backgroundColor: creationBackground,
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <ProjectCard
             project={newProject}
             category={newCategory}
             color={newColor}
-            size={scale(100)}
-            full={false}
-            creation={true}
+            size={scale(160)}
+            full={true}
+            creation={false}
           />
         </View>
 
-        <ScrollView style={{ flex: 2 }}>
+        <ScrollView style={{ flex: 1 }}>
           <View>
             <View>
               <Input
@@ -165,6 +174,7 @@ export const AddProject = () => {
           <Btn
             title="Add project"
             color="white"
+            type="add"
             onPress={() => {
               !newProject ||
               !newCategory ||
@@ -182,29 +192,3 @@ export const AddProject = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  dropdown: {
-    margin: 16,
-    height: 50,
-    borderBottomColor: "gray",
-    borderBottomWidth: 0.5,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 13,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  inputSearchStyle: {
-    height: 0,
-    fontSize: 16,
-  },
-});

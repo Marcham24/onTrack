@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { SessionContext } from "../services/array.context";
-import { View, Alert } from "react-native";
+import { View, Alert, Text } from "react-native";
 import styled from "styled-components/native";
 import { Input } from "../infrastructure/commonStyles";
 import { Btn } from "./Btn";
@@ -44,17 +44,25 @@ export const EditingModal = ({
       (find) => find.start.getTime() === startTime.getTime()
     );
 
+    console.log(sessions[indexOfSession]);
+
     sessions[indexOfSession].project = project;
     sessions[indexOfSession].start = tempStart;
     sessions[indexOfSession].end = tempEnd;
     sessions[indexOfSession].comment = tempComment;
     sessions[indexOfSession].tags = tempTags;
 
+    console.log(sessions[indexOfSession]);
+
     setRerender(rerender + 1);
   };
 
   const handleCancelUpdate = () => {
     changeCancelProjectEditable();
+    setTempStart(start);
+    setTempEnd(end);
+    setTempComment(comment);
+    setTempTags(tags);
   };
 
   const handleStartConfirm = (startTime) => {
@@ -100,16 +108,16 @@ export const EditingModal = ({
       </View>
       <Input
         value={tempComment}
+        placeholder="No comment for this session."
         onChangeText={(value) => setTempComment(value)}
         editable={projectEditable ? true : false}
         multiline={true}
       />
       <TagsHandler
-        tags={tags}
+        tags={tempTags}
         editable={projectEditable ? true : false}
         passNewTags={setTempTags}
       />
-
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Btn
           title={projectEditable ? "Cancel" : "Edit"}

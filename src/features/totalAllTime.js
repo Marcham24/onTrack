@@ -14,8 +14,7 @@ export const TotalAllTime = ({ project, projectSpecific = false }) => {
       return v.project.includes(project);
     }));
   const periodTotal = sessionsArray.reduce(
-    (v, currentValue) =>
-      (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
+    (v, currentValue) => (v = v + (currentValue.end - currentValue.start)),
     0
   );
   useEffect(() => {

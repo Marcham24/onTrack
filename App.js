@@ -46,6 +46,7 @@ import { TextInput } from "react-native-paper";
 import { ModalBase } from "./src/features/ModalBase";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { EditingModal } from "./src/features/editingModal";
+import { AddSession } from "./src/features/AddSession";
 
 const ProjectsScreen = () => {
   return (
@@ -76,7 +77,13 @@ const ExportScreen = () => {
   );
 };
 
-const SettingsScreen = () => {};
+const SettingsScreen = () => {
+  return (
+    <SafeView>
+      <AddSession />
+    </SafeView>
+  );
+};
 
 const TAB_ICON = {
   Dashboard: "grid-outline",

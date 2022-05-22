@@ -1,3 +1,3 @@
 export const sessionTime = ({ start, end }) => {
-  return end.getTime() - start.getTime();
+  return end - start;
 };

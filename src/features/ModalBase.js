@@ -28,6 +28,7 @@ export const ModalBase = ({
     background-color: white;
     flex-shrink: 1;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    margin: ${(props) => scale(props.theme.space[2]) + "px"};
   `;
   return (
     <>

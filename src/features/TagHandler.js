@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -16,16 +16,24 @@ const DeleteTag = styled.TouchableOpacity`
 `;
 
 export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
-  const [tagsList, setTagsList] = useState(tags);
+  let tagsList = useRef();
   const [newTag, setNewTag] = useState("");
 
+  tagsList = tags;
+
   const handleRemoveTag = (i) => {
-    setTagsList(tagsList.filter((item) => item !== i));
+    const indexOfSession = tags.indexOf(i);
+    tagsList.splice(indexOfSession, 1);
+    console.log(tagsList);
+    setNewTag("");
+    passNewTags(tagsList);
+    tagsList.slice();
   };
 
   const handleAddTag = () => {
     let formattedTag = newTag.replace(/[^a-zA-Z0-9]/g, "");
     tagsList.push(formattedTag);
+    console.log(tagsList);
     setNewTag("");
     passNewTags(tagsList);
   };
@@ -40,7 +48,7 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
               <DeleteTag onPress={() => handleRemoveTag(i)}>
                 <Ionicons
                   name={"close-circle"}
-                  size={scale(15)}
+                  size={scale(16)}
                   color="black"
                 />
               </DeleteTag>

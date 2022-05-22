@@ -8,28 +8,23 @@ import { ModalBase } from "./ModalBase";
 import { EditingModal } from "./editingModal";
 import { TimeToDays } from "./timeToDays";
 import { Logo } from "./logo";
-import {
-  ProjectText,
-  TimeText,
-  SessionCard,
-  SessionCardText,
-} from "../infrastructure/commonStyles";
+import { ProjectText, TimeText } from "../infrastructure/commonStyles";
 import { projects } from "../services/mock/array";
 import { SessionContext } from "../services/array.context";
+import { scale } from "../infrastructure/scale";
 
-export const SessionView = (session = {}) => {
+export const SessionView = ({
+  project,
+  start,
+  end,
+  comment,
+  tags,
+  creation = false,
+}) => {
   const { sessions, rerender, setRerender } = useContext(SessionContext);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [projectEditable, setProjectEditable] = useState(false);
-
-  const {
-    project = "GermErase",
-    start = new Date("May 17, 2022 12:55:23"),
-    end = new Date("May 01, 2022 16:32:24"),
-    comment = "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags = ["social media", "admin", "meetings"],
-  } = session;
 
   const color = projects.find((colorFind) =>
     colorFind.name.includes(project)
@@ -51,11 +46,43 @@ export const SessionView = (session = {}) => {
 
   const handleDeleteSession = (startTime) => {
     const indexOfSession = sessions.findIndex(
-      (find) => find.start.getTime() === startTime.getTime()
+      (find) => find.start === startTime
     );
     sessions.splice(indexOfSession, 1);
     setRerender(rerender + 1);
   };
+
+  const SessionCard = styled.View`
+    background-color: ${(props) => props.theme.colors.white};
+    margin-top: ${
+      creation
+        ? (props) => scale(props.theme.space[1]) + "px"
+        : (props) => scale(props.theme.space[1]) + "px"
+    }
+        margin-bottom: ${
+          creation
+            ? (props) => scale(props.theme.space[1]) + "px"
+            : (props) => scale(props.theme.space[1]) + "px"
+        }
+            margin-left: ${(props) => scale(props.theme.space[1]) + "px"}
+                margin-right: ${(props) => scale(props.theme.space[1]) + "px"}
+
+    border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    padding: ${(props) => scale(props.theme.space[1]) + "px"};
+    flex-direction: row;
+    align-content: center;
+    border-width: 1px;
+    border-color: #dedede;
+    
+  `;
+
+  const SessionCardText = styled.View`
+    padding-left: ${(props) => scale(props.theme.space[2]) + "px"};
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  `;
 
   return (
     <>
@@ -95,8 +122,14 @@ export const SessionView = (session = {}) => {
             <TimeText>{TimeToDays(start)}</TimeText>
           </View>
           <View>
-            <TouchableOpacity onPress={() => setModalVisible(true)}>
-              <Ionicons name={"ellipsis-vertical"} size={24} color="#1c1d23" />
+            <TouchableOpacity
+              onPress={!creation ? () => setModalVisible(true) : null}
+            >
+              <Ionicons
+                name={"ellipsis-vertical"}
+                size={scale(16)}
+                color="#1c1d23"
+              />
             </TouchableOpacity>
           </View>
         </SessionCardText>

@@ -14,12 +14,14 @@ export const Readable = (d, type) => {
     "Dec",
   ];
 
-  const y = d.getFullYear();
-  const m = monthNames[d.getMonth()];
-  const da = d.getDate();
+  const toDate = new Date(d);
 
-  let h = d.getHours();
-  let min = d.getMinutes();
+  const y = toDate.getFullYear();
+  const m = monthNames[toDate.getMonth()];
+  const da = toDate.getDate();
+
+  let h = toDate.getHours();
+  let min = toDate.getMinutes();
 
   min < 9 ? (min = "0" + min) : min;
 
@@ -31,7 +33,7 @@ export const Readable = (d, type) => {
 
   //time
   let ampm;
-  h < 12 ? (ampm = "a.m.") : ((ampm = "p.m."), (h = h - 12));
+  h < 11 ? (ampm = "a.m.") : ((ampm = "p.m."), (h = h - 12));
   const timeArr = [h, min];
   const time = timeArr.join(":");
   const timeAmPm = [time, ampm];

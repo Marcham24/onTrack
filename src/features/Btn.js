@@ -26,7 +26,7 @@ export const Btn = ({
     flex-direction: row;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     justify-content: center;
-    align-items: center;
+
   `;
   const Title = styled.Text`
     font-size: ${(props) => scale(props.theme.fontSizes.button) + "px"};
@@ -41,9 +41,7 @@ export const Btn = ({
       : (props) => props.theme.colors.white};
   `;
 
-  const BtnView = styled.View`
-    flex-grow: 1;
-  `;
+  const BtnView = styled.View``;
 
   const ICON = {
     none: "",

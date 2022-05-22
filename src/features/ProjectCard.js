@@ -4,6 +4,7 @@ import { ProjectText, CategoryText } from "../infrastructure/commonStyles";
 import { View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TotalAllTime } from "./totalAllTime";
+import { scale } from "../infrastructure/scale";
 
 export const ProjectCard = ({
   project,
@@ -16,9 +17,7 @@ export const ProjectCard = ({
   const creationBackground = color + "66";
 
   const Card = styled.View`
-    align-items: center;
-    background-color: ${creation && creationBackground};
-    padding: ${creation ? "30px" : "20px 5px"};
+    padding: ${(props) => scale(props.theme.space[1]) + "px"};
   `;
 
   return (
@@ -70,7 +69,7 @@ export const ProjectCard = ({
                 <TouchableOpacity>
                   <Ionicons
                     name={"ellipsis-vertical"}
-                    size={24}
+                    size={scale(16)}
                     color="#1c1d23"
                   />
                 </TouchableOpacity>

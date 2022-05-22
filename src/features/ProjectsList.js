@@ -5,6 +5,7 @@ import { projects } from "../services/mock/array";
 import { ProjectCard } from "./ProjectCard";
 import { H2 } from "../infrastructure/commonStyles";
 import { SessionContext } from "../services/array.context";
+import { scale } from "../infrastructure/scale";
 
 export const ViewProjects = () => {
   const { rerender } = useContext(SessionContext);
@@ -17,7 +18,7 @@ export const ViewProjects = () => {
       project={name}
       category={category}
       color={color}
-      size={240}
+      size={scale(160)}
       full={true}
       creation={false}
     />
