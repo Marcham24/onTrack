@@ -19,7 +19,7 @@ export const EditingModal = ({
   start,
   end,
   comment,
-  tags,
+  tags = [],
   projectEditable,
 }) => {
   const { rerender, setRerender } = useContext(SessionContext);

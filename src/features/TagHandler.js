@@ -22,7 +22,7 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
   tagsList = tags;
 
   const handleRemoveTag = (i) => {
-    const indexOfSession = tags.indexOf(i);
+    const indexOfSession = tagsList.indexOf(i);
     tagsList.splice(indexOfSession, 1);
     console.log(tagsList);
     setNewTag("");
