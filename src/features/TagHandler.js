@@ -16,33 +16,28 @@ const DeleteTag = styled.TouchableOpacity`
 `;
 
 export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
-  let tagsList = useRef();
   const [newTag, setNewTag] = useState("");
 
-  tagsList = tags;
+  let tagsList = tags;
 
   const handleRemoveTag = (i) => {
-    const indexOfSession = tagsList.indexOf(i);
-    tagsList.splice(indexOfSession, 1);
-    console.log(tagsList);
-    setNewTag("");
+    tagsList = tagsList.filter((tag) => tag !== i);
     passNewTags(tagsList);
-    tagsList.slice();
+    setNewTag("");
   };
 
   const handleAddTag = () => {
     let formattedTag = newTag.replace(/[^a-zA-Z0-9]/g, "");
-    tagsList.push(formattedTag);
-    console.log(tagsList);
-    setNewTag("");
+    tagsList = [...tagsList, formattedTag];
     passNewTags(tagsList);
+    setNewTag("");
   };
 
   return (
     <>
       <TagsContainer>
         {tagsList.map((i, v) => (
-          <TagsView key={v}>
+          <TagsView key={v.toString()}>
             <TagssText>{i}</TagssText>
             {editable && (
               <DeleteTag onPress={() => handleRemoveTag(i)}>

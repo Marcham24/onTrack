@@ -54,25 +54,14 @@ export const SessionView = ({
 
   const SessionCard = styled.View`
     background-color: ${(props) => props.theme.colors.white};
-    margin-top: ${
-      creation
-        ? (props) => scale(props.theme.space[1]) + "px"
-        : (props) => scale(props.theme.space[1]) + "px"
-    }
-        margin-bottom: ${
-          creation
-            ? (props) => scale(props.theme.space[1]) + "px"
-            : (props) => scale(props.theme.space[1]) + "px"
-        }
-            margin-left: ${(props) => scale(props.theme.space[1]) + "px"}
-                margin-right: ${(props) => scale(props.theme.space[1]) + "px"}
-
+    margin: ${(props) => scale(props.theme.space[0]) + "px"} ${(props) =>
+    scale(props.theme.space[1]) + "px"}
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     padding: ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
     align-content: center;
     border-width: 1px;
-    border-color: #dedede;
+    border-color: ${(props) => props.theme.colors.c5};
     
   `;
 

@@ -63,6 +63,7 @@ export const EditingModal = ({
     setTempEnd(end);
     setTempComment(comment);
     setTempTags(tags);
+    console.log(tags);
   };
 
   const handleStartConfirm = (startTime) => {

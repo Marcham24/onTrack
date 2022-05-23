@@ -20,7 +20,7 @@ export const fontSizes = {
   title: 12,
   h3: 14,
   h2: 24,
-  h1: 30,
+  h1: 35,
 };
 
 export const lineHeights = {

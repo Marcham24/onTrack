@@ -3,6 +3,7 @@ export const colors = {
   c2: " #353535 ",
   c3: " #939393  ",
   c4: "   #c9c9c9    ",
+  c5: "#dcdcdc",
   disabled: "#9C9C9C",
   inverse: " #efeef4 ",
   danger: "#CA0B00",

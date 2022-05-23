@@ -1,23 +1,46 @@
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { TotalAllTime } from "./totalAllTime";
 import { TotalTimeText } from "../infrastructure/commonStyles";
+import { scale } from "../infrastructure/scale";
 
 export const Logo = ({ project, size = 100, full, color, category }) => {
   let logoWording = project?.toString().charAt(0);
 
   const TotalTimeView = styled.View`
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #efefef;
-    border-radius: 5px;
-    padding: 2px 5px;
+    top: ${(props) => scale(props.theme.space[1]) + "px"};
+    left: ${(props) => scale(props.theme.space[1]) + "px"};
+    background-color: ${(props) => props.theme.colors.inverse};
+    border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    padding: ${(props) => scale(props.theme.space[0]) + "px"}
+      ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
   `;
+
+  const LogoText = styled.Text`
+    font-family: ${(props) => props.theme.fonts.logo};
+    font-weight: ${(props) => props.theme.fontWeights.logo};
+    color: ${(props) => props.theme.colors.white};
+    text-align: center;
+    font-size:${full ? size / 3 + "px" : size / 1.7 + "px"}
+    flex:1
+    flex-wrap: wrap
+    flex-shrink:1
+  `;
+
+  const LogoContainer = styled.View`
+    background-color: ${color};
+    justify-content: center;
+    align-items: center;
+    border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    flex-direction: row;
+    width: ${size + "px"};
+    height: ${full ? (size / 6) * 3 + "px" : size + "px"};
+  `;
+
   return (
-    <View style={[styles(size, color, full, project, category).logo]}>
+    <LogoContainer>
       <LinearGradient
         colors={["rgba(0,0,0,0.5)", "transparent"]}
         style={{
@@ -37,29 +60,7 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
           </TotalTimeText>
         </TotalTimeView>
       )}
-      <Text style={[styles(size, color, full).text]}>{logoWording}</Text>
-    </View>
+      <LogoText>{logoWording}</LogoText>
+    </LogoContainer>
   );
 };
-
-const styles = (size, color, full) =>
-  StyleSheet.create({
-    logo: {
-      backgroundColor: color,
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 5,
-      flexDirection: "row",
-      width: size,
-      height: full ? (size / 6) * 3 : size,
-    },
-    text: {
-      textAlign: "center",
-      color: "white",
-      fontSize: full ? size / 3 : size / 1.7,
-      fontFamily: "Inter_900Black",
-      flex: 1,
-      flexWrap: "wrap",
-      flexShrink: 1,
-    },
-  });

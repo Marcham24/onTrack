@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { LinearGradient } from "expo-linear-gradient";
 import { scale } from "../infrastructure/scale";
 
 export const Btn = ({

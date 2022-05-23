@@ -56,6 +56,7 @@ export const AddSession = () => {
     setNewStart(now);
     setNewEnd(now);
     setNewComment("");
+    setNewTags([]);
 
     setRerender(rerender + 1);
   };
@@ -66,7 +67,7 @@ export const AddSession = () => {
         <View
           style={{
             backgroundColor: creationBackground,
-            flex: 2,
+            flex: 1,
             justifyContent: "center",
           }}
         >
@@ -78,7 +79,7 @@ export const AddSession = () => {
           />
         </View>
       ) : null}
-      <View>
+      <View style={!newProject && { flexGrow: 1, justifyContent: "center" }}>
         <Btn
           title={
             newProject

@@ -5,7 +5,7 @@ export const H1 = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.h1) + "px"};
   font-family: ${(props) => props.theme.fonts.logo};
   font-weight: ${(props) => props.theme.fontWeights.logo};
-  color: ${(props) => props.theme.colors.c1};
+  color: ${(props) => props.theme.colors.white};
 `;
 
 export const H2 = styled.Text`
