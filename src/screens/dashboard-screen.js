@@ -1,80 +1,103 @@
 import { SafeView } from "../components/safeView";
 import styled from "styled-components/native";
+import { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
 import { H1 } from "../infrastructure/commonStyles";
-import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryTheme,
+  VictoryPie,
+  VictoryContainer,
+} from "victory-native";
+import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Logo } from "../features/logo";
+import { G } from "react-native-svg";
+import { exp } from "react-native/Libraries/Animated/Easing";
 
 export const DashboardScreen = () => {
   const data = [
-    { quarter: 1, earnings: scale(5000) },
-    { quarter: 2, earnings: 16500 },
-    { quarter: 3, earnings: 14250 },
-    { quarter: 4, earnings: 19000 },
+    { x: "G", y: 20000000 },
+    { x: "W", y: 30000000 },
+    { x: "P", y: 10000000 },
+    { x: "A", y: 15000000 },
   ];
+
+  const [graphicData, setGraphicData] = useState(0);
+
+  useEffect(() => {
+    setGraphicData(50); // Setting the data that we want to display
+  }, []);
   return (
     <SafeView>
       <View>
         <ScrollView>
           <View
             style={{
-              height: "30%",
+              flex: 1,
               backgroundColor: "#353535",
-              padding: 20,
-              justifyContent: "center",
+              paddingHorizontal: 20,
+              paddingVertical: 20,
+              justifyContent: "space-between",
               overflow: "hidden",
-            }}
-          >
-            <View>
-              <H1>Your{"\n"}Dashboard</H1>
-              <Ionicons
-                style={{
-                  position: "absolute",
-                  zIndex: -1,
-                  left: 200,
-                  top: -200,
-                }}
-                name="timer-outline"
-                size={scale(350)}
-                color="#404040"
-              />
-            </View>
-          </View>
-          {/* <View style={{ top: "-10%" }}>
-        <PeriodTime calcDays={7} />
-        <PeriodTime calcDays={30} />
-      </View> */}
-          <View
-            style={{
-              backgroundColor: "white",
-              justifyContent: "center",
+              flexDirection: "row",
               alignItems: "center",
-              flexShrink: 1,
-              borderRadius: 100,
-              height: 100,
-              width: 100,
             }}
           >
-            <Text style={{ fontSize: 50 }}>+</Text>
+            <H1>Dashboard</H1>
+            <Logo project="D" color="#353535" full={false} size={scale(50)} />
           </View>
-          <View>
-            <VictoryChart theme={VictoryTheme.material} width={scale(270)}>
-              <VictoryBar data={data} x="quarter" y="earnings" horizontal />
-            </VictoryChart>
+          <View style={{ flexDirection: "row", backgroundColor: "#353535" }}>
+            <VictoryPie
+              animate={{
+                duration: 5000,
+                easing: "exp",
+              }}
+              events={[
+                {
+                  target: "data",
+                  eventHandlers: {
+                    onPressIn: () => {
+                      return [
+                        {
+                          target: "labels",
+                          mutation: ({ datum, text }) => {
+                            return text === ConvertTime(datum.y)
+                              ? null
+                              : { text: ConvertTime(datum.y) };
+                          },
+                        },
+                      ];
+                    },
+                  },
+                },
+              ]}
+              labelRadius={({ innerRadius }) => innerRadius + scale(30)}
+              padAngle={() => scale(2)}
+              innerRadius={scale(graphicData)}
+              style={{
+                labels: {
+                  fill: "black",
+                  fontSize: scale(16),
+                  fontWeight: 900,
+                  fontFamily: "Inter_900Black",
+                },
+              }}
+              containerComponent={
+                <VictoryContainer
+                  domainPadding={{ x: 40 }}
+                  standalone={false}
+                />
+              }
+              data={data}
+              colorScale={["#ff0000", "#ff1", "#FF0AAA", "#fa1"]}
+            />
           </View>
-          <View>
-            <VictoryChart theme={VictoryTheme.material}>
-              <VictoryBar data={data} x="quarter" y="earnings" horizontal />
-            </VictoryChart>
-          </View>
-          <View>
-            <VictoryChart theme={VictoryTheme.material}>
-              <VictoryBar data={data} x="quarter" y="earnings" horizontal />
-            </VictoryChart>
-          </View>
+          <PeriodTime calcDays={7} />
         </ScrollView>
       </View>
     </SafeView>
