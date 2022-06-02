@@ -1,6 +1,6 @@
 import { SafeView } from "../components/safeView";
 import styled from "styled-components/native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
@@ -16,16 +16,13 @@ import {
 import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Logo } from "../features/logo";
-import { G } from "react-native-svg";
-import { exp } from "react-native/Libraries/Animated/Easing";
+import { arrayConvert } from "../features/ArrayConvert";
+import { SessionContext } from "../services/array.context";
 
 export const DashboardScreen = () => {
-  const data = [
-    { x: "G", y: 20000000 },
-    { x: "W", y: 30000000 },
-    { x: "P", y: 10000000 },
-    { x: "A", y: 15000000 },
-  ];
+  const { sessions, rerender } = useContext(SessionContext);
+
+  const data = arrayConvert(sessions);
 
   const [graphicData, setGraphicData] = useState(0);
 
@@ -53,10 +50,10 @@ export const DashboardScreen = () => {
           </View>
           <View style={{ flexDirection: "row", backgroundColor: "#353535" }}>
             <VictoryPie
-              animate={{
-                duration: 5000,
-                easing: "exp",
-              }}
+              labels={() => null}
+              startAngle={135}
+              endAngle={-135}
+              cornerRadius={120}
               events={[
                 {
                   target: "data",
@@ -66,9 +63,9 @@ export const DashboardScreen = () => {
                         {
                           target: "labels",
                           mutation: ({ datum, text }) => {
-                            return text === ConvertTime(datum.y)
+                            return text === datum.x + ConvertTime(datum.y)
                               ? null
-                              : { text: ConvertTime(datum.y) };
+                              : { text: datum.x + ConvertTime(datum.y) };
                           },
                         },
                       ];
@@ -76,12 +73,11 @@ export const DashboardScreen = () => {
                   },
                 },
               ]}
-              labelRadius={({ innerRadius }) => innerRadius + scale(30)}
-              padAngle={() => scale(2)}
-              innerRadius={scale(graphicData)}
+              padAngle={() => scale(5)}
+              innerRadius={scale(100)}
               style={{
                 labels: {
-                  fill: "black",
+                  fill: "white",
                   fontSize: scale(16),
                   fontWeight: 900,
                   fontFamily: "Inter_900Black",
