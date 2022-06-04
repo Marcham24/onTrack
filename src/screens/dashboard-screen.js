@@ -21,14 +21,11 @@ import { SessionContext } from "../services/array.context";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
+  const [selectedPieProject, setSelectedPieProject] = useState(null);
+  const [selectedPieTime, setSelectedPieTime] = useState(null);
 
   const data = arrayConvert(sessions);
 
-  const [graphicData, setGraphicData] = useState(0);
-
-  useEffect(() => {
-    setGraphicData(50); // Setting the data that we want to display
-  }, []);
   return (
     <SafeView>
       <View>
@@ -48,12 +45,10 @@ export const DashboardScreen = () => {
             <H1>Dashboard</H1>
             <Logo project="D" color="#353535" full={false} size={scale(50)} />
           </View>
-          <View style={{ flexDirection: "row", backgroundColor: "#353535" }}>
+          <View style={{ backgroundColor: "#353535" }}>
             <VictoryPie
               labels={() => null}
-              startAngle={135}
-              endAngle={-135}
-              cornerRadius={120}
+              cornerRadius={scale(4)}
               events={[
                 {
                   target: "data",
@@ -61,11 +56,10 @@ export const DashboardScreen = () => {
                     onPressIn: () => {
                       return [
                         {
-                          target: "labels",
+                          target: "data",
                           mutation: ({ datum, text }) => {
-                            return text === datum.x + ConvertTime(datum.y)
-                              ? null
-                              : { text: datum.x + ConvertTime(datum.y) };
+                            setSelectedPieProject(datum.x);
+                            setSelectedPieTime(ConvertTime(datum.y));
                           },
                         },
                       ];
@@ -73,7 +67,7 @@ export const DashboardScreen = () => {
                   },
                 },
               ]}
-              padAngle={() => scale(5)}
+              padAngle={() => scale(4)}
               innerRadius={scale(100)}
               style={{
                 labels: {
@@ -83,15 +77,13 @@ export const DashboardScreen = () => {
                   fontFamily: "Inter_900Black",
                 },
               }}
-              containerComponent={
-                <VictoryContainer
-                  domainPadding={{ x: 40 }}
-                  standalone={false}
-                />
-              }
               data={data}
               colorScale={["#ff0000", "#ff1", "#FF0AAA", "#fa1"]}
             />
+            <View>
+              <Logo project={selectedPieProject} size={scale(50)} />
+              <Text style={{ color: "white" }}>{selectedPieTime}</Text>
+            </View>
           </View>
           <PeriodTime calcDays={7} />
         </ScrollView>
