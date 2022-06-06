@@ -64,7 +64,6 @@ const AddSessionScreen = () => {
       <SafeView>
         <ViewSessions />
       </SafeView>
-      <ExpoStatusBar style="auto" />
     </>
   );
 };

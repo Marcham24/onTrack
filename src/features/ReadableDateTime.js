@@ -33,7 +33,9 @@ export const Readable = (d, type) => {
 
   //time
   let ampm;
-  h < 11 ? (ampm = "a.m.") : ((ampm = "p.m."), (h = h - 12));
+  h < 12 ? (ampm = "a.m.") : (ampm = "p.m.");
+  h > 12 && (h = h - 12);
+
   const timeArr = [h, min];
   const time = timeArr.join(":");
   const timeAmPm = [time, ampm];

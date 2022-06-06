@@ -1,35 +1,47 @@
 import { SafeView } from "../components/safeView";
 import styled from "styled-components/native";
 import { useState, useEffect, useContext } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
-import { H1 } from "../infrastructure/commonStyles";
+import { H2, H1, H3 } from "../infrastructure/commonStyles";
 import {
   VictoryBar,
   VictoryChart,
   VictoryTheme,
   VictoryPie,
   VictoryContainer,
+  VictoryLabel,
+  VictoryPortal,
 } from "victory-native";
 import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Logo } from "../features/logo";
 import { arrayConvert } from "../features/ArrayConvert";
 import { SessionContext } from "../services/array.context";
+import { findColor } from "../functions/findColor";
+import { Svg } from "react-native-svg";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
+  const [timePeriod, setTimePeriod] = useState(1);
+
+  const data = arrayConvert(sessions, "", timePeriod);
+  const color = arrayConvert(sessions, "colors", timePeriod);
+
   const [selectedPieProject, setSelectedPieProject] = useState(null);
   const [selectedPieTime, setSelectedPieTime] = useState(null);
 
-  const data = arrayConvert(sessions);
+  const handleChangeTimePeriod = () => {
+    setSelectedPieProject(null);
+    setSelectedPieTime(null);
+  };
 
   return (
     <SafeView>
       <View>
-        <ScrollView>
+        <ScrollView stickyHeaderIndices={[1]}>
           <View
             style={{
               flex: 1,
@@ -42,50 +54,150 @@ export const DashboardScreen = () => {
               alignItems: "center",
             }}
           >
-            <H1>Dashboard</H1>
+            <View>
+              <H1>
+                {timePeriod === 1
+                  ? "Today's"
+                  : timePeriod === 7
+                  ? "Weekly"
+                  : timePeriod === 30
+                  ? "Monthly"
+                  : "All time"}
+              </H1>
+              <H1>Dashboard</H1>
+            </View>
             <Logo project="D" color="#353535" full={false} size={scale(50)} />
           </View>
-          <View style={{ backgroundColor: "#353535" }}>
-            <VictoryPie
-              labels={() => null}
-              cornerRadius={scale(4)}
-              events={[
-                {
-                  target: "data",
-                  eventHandlers: {
-                    onPressIn: () => {
-                      return [
-                        {
-                          target: "data",
-                          mutation: ({ datum, text }) => {
-                            setSelectedPieProject(datum.x);
-                            setSelectedPieTime(ConvertTime(datum.y));
-                          },
-                        },
-                      ];
-                    },
-                  },
-                },
-              ]}
-              padAngle={() => scale(4)}
-              innerRadius={scale(100)}
+          <View>
+            <View
               style={{
-                labels: {
-                  fill: "white",
-                  fontSize: scale(16),
-                  fontWeight: 900,
-                  fontFamily: "Inter_900Black",
-                },
+                color: "white",
+                backgroundColor: "grey",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                padding: 20,
               }}
-              data={data}
-              colorScale={["#ff0000", "#ff1", "#FF0AAA", "#fa1"]}
-            />
-            <View>
-              <Logo project={selectedPieProject} size={scale(50)} />
-              <Text style={{ color: "white" }}>{selectedPieTime}</Text>
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  setTimePeriod(1);
+                  handleChangeTimePeriod();
+                }}
+              >
+                <Text>Today</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setTimePeriod(7);
+                  handleChangeTimePeriod();
+                }}
+              >
+                <Text>7 days</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setTimePeriod(30);
+                  handleChangeTimePeriod();
+                }}
+              >
+                <Text>30 days</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  setTimePeriod(Infinity);
+                  handleChangeTimePeriod();
+                }}
+              >
+                <Text>All time </Text>
+              </TouchableOpacity>
             </View>
           </View>
-          <PeriodTime calcDays={7} />
+          <PeriodTime calcDays={timePeriod} />
+
+          {data.length === 0 ? (
+            <Text>No Data for this time period</Text>
+          ) : (
+            <View
+              style={{
+                backgroundColor: "white",
+                margin: scale(8),
+                borderRadius: 10,
+                padding: scale(15),
+              }}
+            >
+              <H2>Top project's breakdown</H2>
+              <VictoryPie
+                startAngle={360}
+                endAngle={0}
+                labels={() => null}
+                animate={{
+                  duration: 1000,
+                }}
+                padding={{ top: 0, button: 0, right: scale(44), left: 0 }}
+                cornerRadius={scale(4)}
+                events={[
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onPressIn: () => {
+                        return [
+                          {
+                            target: "data",
+                            mutation: ({ datum }) => {
+                              setSelectedPieProject(datum.x);
+                              setSelectedPieTime(ConvertTime(datum.y));
+                            },
+                          },
+                        ];
+                      },
+                    },
+                  },
+                ]}
+                padAngle={() => scale(2)}
+                innerRadius={scale(50)}
+                data={data}
+                colorScale={color}
+              />
+              {selectedPieProject ? (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <Logo
+                    project={selectedPieProject}
+                    color={findColor(selectedPieProject)}
+                    full={false}
+                    size={scale(60)}
+                  />
+                  <View style={{ paddingLeft: 20 }}>
+                    <H3>{selectedPieProject}</H3>
+                    <H3 style={{ color: "grey" }}>{selectedPieTime}</H3>
+                  </View>
+                </View>
+              ) : (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <Logo full={false} size={scale(60)} color="black" />
+                  <View style={{ paddingLeft: 20 }}>
+                    <H3>Tap the chart for </H3>
+                    <H3>project information</H3>
+                  </View>
+                </View>
+              )}
+              <View>
+                <PeriodTime calcDays={timePeriod} />
+                <PeriodTime calcDays={timePeriod} />
+                <PeriodTime calcDays={timePeriod} />
+                <PeriodTime calcDays={timePeriod} />
+              </View>
+            </View>
+          )}
         </ScrollView>
       </View>
     </SafeView>

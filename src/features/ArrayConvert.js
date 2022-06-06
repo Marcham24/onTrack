@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Text } from "react-native";
+import { findColor } from "../functions/findColor";
 import { projects } from "../services/mock/array";
 import { Btn } from "./Btn";
+import { PeriodTime } from "./periodTime";
 
-export const arrayConvert = (sessions) => {
+export const arrayConvert = (sessions, type, period = 7) => {
   //   get unique project names from projects array,
   //   use periodtime function to calculate total times for that project,
   //   sort list high to low, splice new array to a limited Number,
@@ -13,10 +15,15 @@ export const arrayConvert = (sessions) => {
 
   let projectWithTimes = [];
 
+  const periodTime = Date.now() - 1000 * 60 * 60 * 24 * period;
+
   const projectTimes = projectNames.map((i) => {
     const projectTime = sessions
       .filter((el) => {
         return el.project === i;
+      })
+      .filter((date) => {
+        return date.start > periodTime;
       })
       .reduce(
         (v, currentValue) =>
@@ -35,7 +42,15 @@ export const arrayConvert = (sessions) => {
     .filter((x) => {
       return x.y !== 0;
     })
-    .sort((a, b) => a.y - b.y);
+    .sort((a, b) => b.y - a.y);
 
-  return projectWithTimesNoZeros;
+  let projectColorsArray = [];
+
+  const projectColors = projectWithTimesNoZeros.map((i, v) => {
+    const color = findColor(i.x);
+
+    projectColorsArray.push(color);
+  });
+
+  return type === "colors" ? projectColorsArray : projectWithTimesNoZeros;
 };
