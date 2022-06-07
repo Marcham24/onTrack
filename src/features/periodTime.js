@@ -26,15 +26,15 @@ export const PeriodTime = ({ calcDays }) => {
 
   useEffect(() => {
     setTotal(ConvertTime(periodTotal));
-  }, [periodTotal, rerender]);
+  }, [periodTotal, rerender, calcDays]);
 
   useEffect(() => {
     setPrevTotal(ConvertTime(prevPeriodTotal));
-  }, [prevPeriodTotal, sessions, rerender]);
+  }, [prevPeriodTotal, sessions, rerender, calcDays]);
 
   useEffect(() => {
     setChange(Math.abs(incDec).toFixed());
-  }, [incDec, sessions, rerender]);
+  }, [incDec, sessions, rerender, calcDays]);
 
   const period = Date.now() - 1000 * 60 * 60 * 24 * calcDays;
   const prevPeriod = Date.now() - 1000 * 60 * 60 * 24 * calcDays * 2;
@@ -103,23 +103,11 @@ export const PeriodTime = ({ calcDays }) => {
   return (
     <>
       <TotalTimeView>
-        <LinearGradient
-          colors={["rgba(0,0,0,0.35)", "rgba(255,255,255,.45)"]}
-          style={{
-            borderTopLeftRadius: 8,
-            borderTopRightRadius: 8,
-            position: "absolute",
-            left: 0,
-            right: 0,
-            top: 0,
-            height: 100,
-          }}
-        />
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View>
             <H3>Last {calcDays} days: </H3>
             <View>
-              <H2>{total} </H2>
+              <H2 style={{ color: "white" }}>{total} </H2>
             </View>
           </View>
           <View>

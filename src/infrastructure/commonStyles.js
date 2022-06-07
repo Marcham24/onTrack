@@ -126,3 +126,12 @@ export const SessionCardText = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const DashboardCard = styled.View`
+  flex:1; 
+  margin: ${(props) => scale(props.theme.space[1]) + "px"}
+  border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+  padding: ${(props) => scale(props.theme.space[2]) + "px"};
+  background-color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : props.theme.colors.white};
+`;

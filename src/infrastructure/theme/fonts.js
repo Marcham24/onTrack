@@ -19,7 +19,7 @@ export const fontSizes = {
   body: 10,
   title: 12,
   h3: 14,
-  h2: 24,
+  h2: 20,
   h1: 28,
 };
 

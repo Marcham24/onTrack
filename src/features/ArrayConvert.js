@@ -2,8 +2,6 @@ import { useContext } from "react";
 import { Text } from "react-native";
 import { findColor } from "../functions/findColor";
 import { projects } from "../services/mock/array";
-import { Btn } from "./Btn";
-import { PeriodTime } from "./periodTime";
 
 export const arrayConvert = (sessions, type, period = 7) => {
   //   get unique project names from projects array,

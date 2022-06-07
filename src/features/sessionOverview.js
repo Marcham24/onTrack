@@ -101,7 +101,7 @@ export const SessionView = ({
       />
       <SessionCard>
         <View>
-          <Logo project={project} color={color} full={false} size={50} />
+          <Logo project={project} color={color} full={false} size={scale(40)} />
         </View>
         <SessionCardText>
           <View>
