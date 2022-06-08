@@ -65,7 +65,7 @@ export const ProjectCard = ({
                   </CategoryText>
                 </TouchableOpacity>
               </View>
-              <View>
+              <View style={{ flexShrink: 0 }}>
                 <TouchableOpacity>
                   <Ionicons
                     name={"ellipsis-vertical"}

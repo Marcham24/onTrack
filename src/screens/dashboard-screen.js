@@ -7,13 +7,13 @@ import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
 import { H2, H1, H3, DashboardCard } from "../infrastructure/commonStyles";
 import {
+  VictoryZoomContainer,
+  VictoryStack,
+  VictoryArea,
   VictoryBar,
-  VictoryChart,
-  VictoryTheme,
-  VictoryPie,
-  VictoryContainer,
-  VictoryLabel,
-  VictoryPortal,
+  VictoryAxis,
+  VictoryTooltip,
+  VictoryVoronoiContainer,
 } from "victory-native";
 import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -24,10 +24,13 @@ import { findColor } from "../functions/findColor";
 import { Svg } from "react-native-svg";
 import { Dimensions } from "react-native";
 const { width } = Dimensions.get("window");
+import { ProjectPie } from "../features/ProjectPie";
+import { projects } from "../services/mock/array";
+import { Readable } from "../features/ReadableDateTime";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
-  const [timePeriod, setTimePeriod] = useState(30);
+  const [timePeriod, setTimePeriod] = useState(3);
 
   const data = arrayConvert(sessions, "", timePeriod);
   const color = arrayConvert(sessions, "colors", timePeriod);
@@ -64,9 +67,7 @@ export const DashboardScreen = () => {
                   ? "Today's"
                   : timePeriod === 7
                   ? "Weekly"
-                  : timePeriod === 30
-                  ? "Monthly"
-                  : "All time"}
+                  : "Monthly"}
               </H1>
               <H1>Dashboard</H1>
             </View>
@@ -123,20 +124,6 @@ export const DashboardScreen = () => {
                   30 days
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  setTimePeriod(Infinity);
-                  handleChangeTimePeriod();
-                }}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  All time{" "}
-                </Text>
-              </TouchableOpacity>
             </View>
           </View>
           <View>
@@ -145,95 +132,73 @@ export const DashboardScreen = () => {
             ) : (
               <View style={{ flexDirection: "row", alignItems: "stretch" }}>
                 <DashboardCard>
-                  <H2>Project breakdown</H2>
-                  <View
-                    style={{ flexDirection: "row", paddingVertical: scale(20) }}
-                  >
-                    <Svg viewbox={`0 0 ${pieDims} ${pieDims}`}>
-                      <VictoryPie
-                        width={pieDims}
-                        height={pieDims}
-                        padding={0}
-                        startAngle={360}
-                        endAngle={0}
-                        labels={() => null}
-                        animate={{
-                          duration: 1000,
-                        }}
-                        cornerRadius={scale(4)}
-                        events={[
-                          {
-                            target: "data",
-                            eventHandlers: {
-                              onPressIn: () => {
-                                return [
-                                  {
-                                    target: "data",
-                                    mutation: ({ datum }) => {
-                                      setSelectedPieProject(datum.x);
-                                      setSelectedPieTime(ConvertTime(datum.y));
-                                    },
-                                  },
-                                ];
-                              },
-                            },
-                          },
-                        ]}
-                        padAngle={() => scale(2)}
-                        innerRadius={scale(50)}
-                        data={data}
-                        colorScale={color}
-                      />
-                      <VictoryLabel
-                        textAnchor="middle"
-                        style={{ fontSize: scale(12), fontWeight: 900 }}
-                        x={pieDims / 2}
-                        y={pieDims / 2}
-                        text={
-                          selectedPieProject
-                            ? selectedPieProject.length > 12
-                              ? selectedPieProject.substr(0, 12) + "..."
-                              : selectedPieProject
-                            : null
-                        }
-                      />
-                    </Svg>
-                  </View>
-                  {selectedPieProject ? (
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Logo
-                        project={selectedPieProject}
-                        color={findColor(selectedPieProject)}
-                        full={false}
-                        size={scale(40)}
-                      />
-                      <View style={{ paddingLeft: scale(10) }}>
-                        <H3>{selectedPieTime}</H3>
-                      </View>
-                    </View>
-                  ) : (
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Logo full={false} size={scale(40)} color="black" />
-                      <View style={{ paddingLeft: scale(10) }}>
-                        <H3>Tap for more </H3>
-                        <H3>information</H3>
-                      </View>
-                    </View>
-                  )}
+                  <ProjectPie timePeriod={timePeriod} />
                 </DashboardCard>
                 <DashboardCard backgroundColor={"#353535"}>
-                  <H2 style={{ color: "white" }}>Your time</H2>
+                  <H2 style={{ color: "white" }}>Your time this period </H2>
                   <PeriodTime calcDays={timePeriod} />
+                </DashboardCard>
+              </View>
+            )}
+          </View>
+          <View>
+            {data.length === 0 ? (
+              <Text>No Data for this time period</Text>
+            ) : (
+              <View style={{ flexDirection: "row", alignItems: "stretch" }}>
+                <DashboardCard>
+                  <H2>Hello</H2>
+                  <VictoryStack
+                    padding={30}
+                    width={350}
+                    colorScale={["purple", "red", "green"]}
+                  >
+                    {projects.map((i, v) => {
+                      let now = new Date();
+                      let start = now.setHours(24, 0, 0, 0);
+                      let end = now.setHours(0, 0, 0, 0);
+                      let projectEntry = [];
+                      let day = 1000 * 60 * 60 * 24;
+
+                      const sessionFilter = sessions.filter((el) => {
+                        return el.project === i.name;
+                      });
+
+                      for (let a = 0; a < timePeriod; a++) {
+                        let dateFilter = sessionFilter.filter((date) => {
+                          return date.start > start && date.start > end;
+                        });
+
+                        let test = dateFilter.map((u, c) => {});
+
+                        let dateTotal = 20;
+
+                        const entry = {
+                          x: Readable(end, "date"),
+                          y: dateTotal,
+                          n: i.name,
+                        };
+
+                        projectEntry.push(entry);
+
+                        start = start - day;
+                        end = end - day;
+                      }
+
+                      return (
+                        <VictoryBar
+                          animate={{
+                            duration: 1000,
+                          }}
+                          key={v}
+                          barWidth={(1 / timePeriod) * scale(200)}
+                          data={projectEntry}
+                        />
+                      );
+                    })}
+
+                    <VictoryAxis />
+                  </VictoryStack>
                 </DashboardCard>
               </View>
             )}

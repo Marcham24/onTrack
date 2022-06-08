@@ -21,6 +21,7 @@ export const ViewProjects = () => {
       size={scale(160)}
       full={true}
       creation={false}
+      style={{ alignItems: "stretch" }}
     />
   );
 

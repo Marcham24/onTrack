@@ -23,6 +23,14 @@ export const sessions = [
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
   },
+  {
+    project: "GermErase",
+    start: new Date("May 29, 2022 12:24:00"),
+    end: new Date("May 29, 2022 16:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
 ];
 
 export const projects = [

@@ -16,6 +16,7 @@ import {
   BodyText,
   InputText,
 } from "../utils/styling";
+import { scale } from "../infrastructure/scale";
 
 export const PeriodTime = ({ calcDays }) => {
   const [total, setTotal] = useState(0);
@@ -75,59 +76,44 @@ export const PeriodTime = ({ calcDays }) => {
     : prevPeriodTotal < periodTotal
     ? ((incDec = ((prevPeriodTotal - periodTotal) / prevPeriodTotal) * 100),
       (symbol = up),
-      (color = "#66ff6633"),
+      (color = "#66ff66"),
       (symbolVisual = upVisual))
     : ((incDec = ((periodTotal - prevPeriodTotal) / prevPeriodTotal) * 100),
       (symbol = down),
-      (color = "#ff240033"),
+      (color = "#ff2400"),
       (symbolVisual = downVisual));
 
   //color: #ffd369;
 
-  const TotalTimeView = styled.View`
-    flex-direction: column;
-    max-width: 48%;
-    padding: 16px 12px;
-    margin: 4px;
-    background-color: #72768c;
-    flex-grow: 1;
-    border-radius: 8px;
-  `;
-
   const ChangeView = styled.View`
     flex-direction: row;
-    align-items: center;
-    align-content: stretch;
+    align-self: flex-start;
+    flex-grow: 1;
+    align-items: flex-end;
   `;
 
   return (
     <>
-      <TotalTimeView>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View style={{ justifyContent: "space-between" }}>
+        <View>
           <View>
-            <H3>Last {calcDays} days: </H3>
-            <View>
-              <H2 style={{ color: "white" }}>{total} </H2>
-            </View>
-          </View>
-          <View>
-            <Ionicons
-              name={symbolVisual}
-              size={100}
-              color={color}
-              style={{ position: "absolute", left: -100, zIndex: 0 }}
-            />
+            <H2 style={{ color: "white", paddingTop: 20 }}>{total} </H2>
           </View>
         </View>
-        <ChangeView>
-          <Ionicons name={symbol} size={20} color="white" />
-          <BodyText style={{ color: "white" }}>
-            {change
-              ? " " + change + "% vs. previous " + calcDays + " days "
+        <View style={{ alignItems: "center" }}>
+          <Ionicons name={symbolVisual} size={scale(150)} color={color} />
+        </View>
+      </View>
+      <ChangeView>
+        <View style={{ alignItems: "center", flexDirection: "row" }}>
+          <Ionicons name={symbol} size={scale(20)} color="white" />
+          <H3 style={{ color: "white", paddingLeft: scale(5) }}>
+            {change || change === Infinity
+              ? change + "% vs. previous \nperiod"
               : "No change"}
-          </BodyText>
-        </ChangeView>
-      </TotalTimeView>
+          </H3>
+        </View>
+      </ChangeView>
     </>
   );
 };
