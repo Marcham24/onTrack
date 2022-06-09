@@ -43,7 +43,7 @@ export const DashboardScreen = () => {
     setSelectedPieTime(null);
   };
 
-  const pieDims = width / 2 - scale(30);
+  const chartDims = width - scale(30);
 
   return (
     <SafeView>
@@ -147,34 +147,43 @@ export const DashboardScreen = () => {
             ) : (
               <View style={{ flexDirection: "row", alignItems: "stretch" }}>
                 <DashboardCard>
-                  <H2>Hello</H2>
+                  <H2>Time breakdown</H2>
                   <VictoryStack
-                    padding={30}
-                    width={350}
-                    colorScale={["purple", "red", "green"]}
+                    domainPadding={scale(25)}
+                    padding={scale(25)}
+                    width={chartDims}
+                    height={chartDims / 1.5}
                   >
                     {projects.map((i, v) => {
                       let now = new Date();
-                      let start = now.setHours(24, 0, 0, 0);
+                      let start = now.setHours(23, 59, 59, 999);
                       let end = now.setHours(0, 0, 0, 0);
                       let projectEntry = [];
                       let day = 1000 * 60 * 60 * 24;
 
-                      const sessionFilter = sessions.filter((el) => {
+                      const projectFilter = sessions.filter((el) => {
                         return el.project === i.name;
                       });
 
                       for (let a = 0; a < timePeriod; a++) {
-                        let dateFilter = sessionFilter.filter((date) => {
-                          return date.start > start && date.start > end;
-                        });
+                        let dateFilter = [{}];
+                        dateFilter = projectFilter
+                          .filter((date) => {
+                            return date.start < start && date.start > end;
+                          })
+                          .sort((c, b) => b.start - c.start);
 
-                        let test = dateFilter.map((u, c) => {});
-
-                        let dateTotal = 20;
+                        let dateTotal = dateFilter.reduce(
+                          (t, currentValue) =>
+                            (t =
+                              t +
+                              (currentValue.end.getTime() -
+                                currentValue.start.getTime())),
+                          0
+                        );
 
                         const entry = {
-                          x: Readable(end, "date"),
+                          x: start,
                           y: dateTotal,
                           n: i.name,
                         };
@@ -184,20 +193,26 @@ export const DashboardScreen = () => {
                         start = start - day;
                         end = end - day;
                       }
-
+                      console.log(projectEntry);
                       return (
                         <VictoryBar
-                          animate={{
-                            duration: 1000,
+                          // animate={{
+                          //   duration: 3000,
+                          // }}
+                          style={{
+                            data: {
+                              fill: findColor(i.name) + "B3",
+                            },
                           }}
+                          barWidth={scale((1 / timePeriod) * 300)}
                           key={v}
-                          barWidth={(1 / timePeriod) * scale(200)}
                           data={projectEntry}
                         />
                       );
                     })}
-
                     <VictoryAxis />
+
+                    <VictoryAxis dependentAxis />
                   </VictoryStack>
                 </DashboardCard>
               </View>

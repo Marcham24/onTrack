@@ -41,7 +41,7 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
 
   return (
     <LogoContainer>
-      <LinearGradient
+      {/* <LinearGradient
         colors={["rgba(0,0,0,0.5)", "transparent"]}
         style={{
           borderRadius: 5,
@@ -51,7 +51,7 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
           top: 0,
           height: full ? (size / 6) * 3 : size,
         }}
-      />
+      /> */}
 
       {full && (
         <TotalTimeView>

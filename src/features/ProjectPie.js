@@ -36,7 +36,7 @@ export const ProjectPie = ({ timePeriod }) => {
             endAngle={0}
             labels={() => null}
             animate={{
-              duration: 1000,
+              duration: 200,
             }}
             cornerRadius={scale(4)}
             events={[

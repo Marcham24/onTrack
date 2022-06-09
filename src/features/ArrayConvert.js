@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { Text } from "react-native";
 import { findColor } from "../functions/findColor";
 import { projects } from "../services/mock/array";
 
@@ -15,7 +13,7 @@ export const arrayConvert = (sessions, type, period = 7) => {
 
   const periodTime = Date.now() - 1000 * 60 * 60 * 24 * period;
 
-  const projectTimes = projectNames.map((i) => {
+  projectNames.map((i) => {
     const projectTime = sessions
       .filter((el) => {
         return el.project === i;
@@ -44,8 +42,8 @@ export const arrayConvert = (sessions, type, period = 7) => {
 
   let projectColorsArray = [];
 
-  const projectColors = projectWithTimesNoZeros.map((i, v) => {
-    const color = findColor(i.x);
+  projectWithTimesNoZeros.map((i, v) => {
+    const color = findColor(i.x) + "B3";
 
     projectColorsArray.push(color);
   });

@@ -1,6 +1,30 @@
 export const sessions = [
   {
     project: "GermErase",
+    start: new Date("June 09, 2022 12:24:00"),
+    end: new Date("June 09, 2022 14:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
+    project: "Gym",
+    start: new Date("June 09, 2022 15:24:00"),
+    end: new Date("June 09, 2022 16:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
+    project: "Playing Games",
+    start: new Date("June 08, 2022 12:24:00"),
+    end: new Date("June 08, 2022 14:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
+    project: "Working Out",
     start: new Date("June 07, 2022 12:24:00"),
     end: new Date("June 07, 2022 14:24:00"),
     comment:
@@ -8,25 +32,49 @@ export const sessions = [
     tags: ["social media", "admin", "meetings"],
   },
   {
+    project: "GermErase",
+    start: new Date("June 07, 2022 16:24:00"),
+    end: new Date("June 07, 2022 19:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
     project: "Gym",
-    start: new Date("June 06, 2022 12:24:00"),
-    end: new Date("June 06, 2022 14:24:00"),
+    start: new Date("June 06, 2022 13:24:00"),
+    end: new Date("June 06, 2022 16:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
+    project: "Playing Games",
+    start: new Date("June 03, 2022 12:24:00"),
+    end: new Date("June 03, 2022 18:24:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
   },
   {
     project: "Working Out",
-    start: new Date("May 30, 2022 12:24:00"),
-    end: new Date("May 30, 2022 16:24:00"),
+    start: new Date("June 01, 2022 12:24:00"),
+    end: new Date("June 01, 2022 14:24:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
   },
   {
     project: "GermErase",
-    start: new Date("May 29, 2022 12:24:00"),
-    end: new Date("May 29, 2022 16:24:00"),
+    start: new Date("June 01, 2022 16:24:00"),
+    end: new Date("June 01, 2022 18:24:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["social media", "admin", "meetings"],
+  },
+  {
+    project: "Gym",
+    start: new Date("June 01, 2022 13:24:00"),
+    end: new Date("June 01, 2022 16:24:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
@@ -49,7 +97,7 @@ export const projects = [
   },
 
   {
-    name: "Playing Games with a long title",
+    name: "Playing Games",
     category: "Leisure",
     color: "#00FF00",
     target: 0,
@@ -58,7 +106,7 @@ export const projects = [
   {
     name: "Working Out",
     category: "Leisure",
-    color: "#ff0",
+    color: "#00ffff",
     target: 0,
   },
 ];
