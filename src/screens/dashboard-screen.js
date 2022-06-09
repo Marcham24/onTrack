@@ -149,17 +149,27 @@ export const DashboardScreen = () => {
                 <DashboardCard>
                   <H2>Time breakdown</H2>
                   <VictoryStack
-                    domainPadding={scale(25)}
-                    padding={scale(25)}
+                    domainPadding={
+                      timePeriod === 1
+                        ? 0
+                        : timePeriod === 7
+                        ? scale(25)
+                        : scale(8)
+                    }
+                    padding={scale(30)}
                     width={chartDims}
                     height={chartDims / 1.5}
+                    scale={{ x: "time" }}
                   >
                     {projects.map((i, v) => {
                       let now = new Date();
-                      let start = now.setHours(23, 59, 59, 999);
-                      let end = now.setHours(0, 0, 0, 0);
-                      let projectEntry = [];
                       let day = 1000 * 60 * 60 * 24;
+
+                      let start =
+                        now.setHours(23, 59, 59, 999) - day * (timePeriod - 1);
+                      let end =
+                        now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
+                      let projectEntry = [];
 
                       const projectFilter = sessions.filter((el) => {
                         return el.project === i.name;
@@ -167,11 +177,9 @@ export const DashboardScreen = () => {
 
                       for (let a = 0; a < timePeriod; a++) {
                         let dateFilter = [{}];
-                        dateFilter = projectFilter
-                          .filter((date) => {
-                            return date.start < start && date.start > end;
-                          })
-                          .sort((c, b) => b.start - c.start);
+                        dateFilter = projectFilter.filter((date) => {
+                          return date.start < start && date.start > end;
+                        });
 
                         let dateTotal = dateFilter.reduce(
                           (t, currentValue) =>
@@ -183,35 +191,31 @@ export const DashboardScreen = () => {
                         );
 
                         const entry = {
-                          x: start,
-                          y: dateTotal,
+                          x: new Date(start),
+                          y: dateTotal / (60 * 60 * 1000),
                           n: i.name,
                         };
 
                         projectEntry.push(entry);
 
-                        start = start - day;
-                        end = end - day;
+                        start = start + day;
+                        end = end + day;
                       }
-                      console.log(projectEntry);
+
                       return (
                         <VictoryBar
-                          // animate={{
-                          //   duration: 3000,
-                          // }}
                           style={{
                             data: {
                               fill: findColor(i.name) + "B3",
                             },
                           }}
-                          barWidth={scale((1 / timePeriod) * 300)}
+                          barWidth={scale((1 / timePeriod) * 250)}
                           key={v}
                           data={projectEntry}
                         />
                       );
                     })}
                     <VictoryAxis />
-
                     <VictoryAxis dependentAxis />
                   </VictoryStack>
                 </DashboardCard>
