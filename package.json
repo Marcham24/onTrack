@@ -36,7 +36,8 @@
     "react-native-web": "0.17.7",
     "react-native-wheel-color-picker": "^1.2.0",
     "styled-components": "^5.3.5",
-    "victory-native": "^36.4.0"
+    "victory-native": "^36.4.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

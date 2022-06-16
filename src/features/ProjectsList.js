@@ -27,7 +27,7 @@ export const ViewProjects = () => {
 
   return (
     <View>
-      <H2>Your projects</H2>
+      <H2 style={{color: "white"}}>Your projects</H2>
       <FlatList
         horizontal={true}
         data={projects.sort((a, b) => a.name.localeCompare(b.name))}

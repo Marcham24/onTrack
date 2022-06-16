@@ -27,6 +27,7 @@ const { width } = Dimensions.get("window");
 import { ProjectPie } from "../features/ProjectPie";
 import { projects } from "../services/mock/array";
 import { Readable } from "../features/ReadableDateTime";
+import { ViewProjects } from "../features/ProjectsList";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -145,7 +146,7 @@ export const DashboardScreen = () => {
             {data.length === 0 ? (
               <Text>No Data for this time period</Text>
             ) : (
-              <View style={{ flexDirection: "row", alignItems: "stretch" }}>
+              <View style={{ alignItems: "stretch" }}>
                 <DashboardCard>
                   <H2>Time breakdown</H2>
                   <VictoryStack
@@ -218,6 +219,9 @@ export const DashboardScreen = () => {
                     <VictoryAxis />
                     <VictoryAxis dependentAxis />
                   </VictoryStack>
+                </DashboardCard>
+                <DashboardCard backgroundColor={"#353535"}>
+                  <ViewProjects />
                 </DashboardCard>
               </View>
             )}

@@ -26,8 +26,13 @@ export const ProjectPie = ({ timePeriod }) => {
   return (
     <>
       <H2>Project breakdown</H2>
-      <View style={{ flexDirection: "row", paddingVertical: scale(20) }}>
-        <Svg viewbox={`0 0 ${pieDims} ${pieDims}`}>
+      <View style={{ justifyContent: "space-between" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            paddingVertical: scale(20),
+          }}
+        >
           <VictoryPie
             width={pieDims}
             height={pieDims}
@@ -62,37 +67,23 @@ export const ProjectPie = ({ timePeriod }) => {
             data={data}
             colorScale={color}
           />
-          <VictoryLabel
-            textAnchor="middle"
-            style={{ fontSize: scale(14), fontWeight: 900 }}
-            x={pieDims / 2}
-            y={pieDims / 2}
-            text={
-              selectedPieProject
-                ? selectedPieProject.length > 12
-                  ? selectedPieProject.substr(0, 12) + "..."
-                  : selectedPieProject
-                : null
-            }
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Logo
+            project={selectedPieProject ? selectedPieProject : null}
+            color={selectedPieProject ? findColor(selectedPieProject) : "black"}
+            full={false}
+            size={scale(40)}
           />
-        </Svg>
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
-        <Logo
-          project={selectedPieProject ? selectedPieProject : null}
-          color={selectedPieProject ? findColor(selectedPieProject) : "black"}
-          full={false}
-          size={scale(40)}
-        />
-        <View style={{ paddingLeft: scale(10) }}>
-          <H3>
-            {selectedPieProject ? selectedPieTime : "Tap for more information"}
-          </H3>
+          <View style={{ paddingLeft: scale(10) }}>
+            <H3>{selectedPieProject ? selectedPieProject : "Tap for more"}</H3>
+            <H3>{selectedPieProject ? selectedPieTime : "information"}</H3>
+          </View>
         </View>
       </View>
     </>

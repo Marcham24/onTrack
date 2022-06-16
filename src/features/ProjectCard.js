@@ -18,6 +18,7 @@ export const ProjectCard = ({
 
   const Card = styled.View`
     padding: ${(props) => scale(props.theme.space[1]) + "px"};
+    border-radius: 10px;
   `;
 
   return (
@@ -25,17 +26,8 @@ export const ProjectCard = ({
       <View style={{ width: size }}>
         <View
           style={{
-            borderRadius: 10,
+            borderRadius: 8,
             backgroundColor: "white",
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 4,
-            },
-            shadowOpacity: 0.3,
-            shadowRadius: 4.65,
-
-            elevation: 8,
           }}
         >
           <Logo
