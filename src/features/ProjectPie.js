@@ -21,7 +21,7 @@ export const ProjectPie = ({ timePeriod }) => {
   const [selectedPieProject, setSelectedPieProject] = useState(null);
   const [selectedPieTime, setSelectedPieTime] = useState(null);
 
-  const pieDims = width / 2 - scale(30);
+  const pieDims = width / 2 - scale(50);
 
   return (
     <>
@@ -30,7 +30,7 @@ export const ProjectPie = ({ timePeriod }) => {
         <View
           style={{
             flexDirection: "row",
-            paddingVertical: scale(20),
+            paddingVertical: scale(30),
           }}
         >
           <VictoryPie
@@ -75,8 +75,8 @@ export const ProjectPie = ({ timePeriod }) => {
           }}
         >
           <Logo
-            project={selectedPieProject ? selectedPieProject : null}
-            color={selectedPieProject ? findColor(selectedPieProject) : "black"}
+            project={selectedPieProject ? selectedPieProject : "i"}
+            color={selectedPieProject ? findColor(selectedPieProject) : "#000000"}
             full={false}
             size={scale(40)}
           />

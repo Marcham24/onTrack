@@ -6,15 +6,7 @@ import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
 import { H2, H1, H3, DashboardCard } from "../infrastructure/commonStyles";
-import {
-  VictoryZoomContainer,
-  VictoryStack,
-  VictoryArea,
-  VictoryBar,
-  VictoryAxis,
-  VictoryTooltip,
-  VictoryVoronoiContainer,
-} from "victory-native";
+import { VictoryStack, VictoryBar, VictoryAxis } from "victory-native";
 import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Logo } from "../features/logo";
@@ -32,6 +24,7 @@ import { ViewProjects } from "../features/ProjectsList";
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
   const [timePeriod, setTimePeriod] = useState(3);
+  const [changeColor, setChangeColor] = useState("#8B0000");
 
   const data = arrayConvert(sessions, "", timePeriod);
   const color = arrayConvert(sessions, "colors", timePeriod);
@@ -44,7 +37,7 @@ export const DashboardScreen = () => {
     setSelectedPieTime(null);
   };
 
-  const chartDims = width - scale(30);
+  const chartDims = width - scale(40);
 
   return (
     <SafeView>
@@ -60,6 +53,8 @@ export const DashboardScreen = () => {
               overflow: "hidden",
               flexDirection: "row",
               alignItems: "center",
+              zIndex: 1000,
+              elevation: 1000,
             }}
           >
             <View>
@@ -127,104 +122,107 @@ export const DashboardScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-          <View>
-            {data.length === 0 ? (
-              <Text>No Data for this time period</Text>
-            ) : (
-              <View style={{ flexDirection: "row", alignItems: "stretch" }}>
-                <DashboardCard>
-                  <ProjectPie timePeriod={timePeriod} />
-                </DashboardCard>
-                <DashboardCard backgroundColor={"#353535"}>
-                  <H2 style={{ color: "white" }}>Your time this period </H2>
-                  <PeriodTime calcDays={timePeriod} />
-                </DashboardCard>
-              </View>
-            )}
-          </View>
-          <View>
-            {data.length === 0 ? (
-              <Text>No Data for this time period</Text>
-            ) : (
-              <View style={{ alignItems: "stretch" }}>
-                <DashboardCard>
-                  <H2>Time breakdown</H2>
-                  <VictoryStack
-                    domainPadding={
-                      timePeriod === 1
-                        ? 0
-                        : timePeriod === 7
-                        ? scale(25)
-                        : scale(8)
-                    }
-                    padding={scale(30)}
-                    width={chartDims}
-                    height={chartDims / 1.5}
-                    scale={{ x: "time" }}
-                  >
-                    {projects.map((i, v) => {
-                      let now = new Date();
-                      let day = 1000 * 60 * 60 * 24;
+          <View style={{ padding: 5 }}>
+            <View>
+              {data.length === 0 ? (
+                <Text>No Data for this time period</Text>
+              ) : (
+                <View style={{ flexDirection: "row", alignItems: "stretch" }}>
+                  <DashboardCard>
+                    <ProjectPie timePeriod={timePeriod} />
+                  </DashboardCard>
+                  <DashboardCard backgroundColor={changeColor}>
+                    <H2 style={{ color: "white" }}>Your time this period </H2>
+                    <PeriodTime calcDays={timePeriod} />
+                  </DashboardCard>
+                </View>
+              )}
+            </View>
+            <View>
+              {data.length === 0 ? (
+                <Text>No Data for this time period</Text>
+              ) : (
+                <View style={{ alignItems: "stretch" }}>
+                  <DashboardCard>
+                    <H2>Time breakdown</H2>
+                    <VictoryStack
+                      domainPadding={
+                        timePeriod === 1
+                          ? 0
+                          : timePeriod === 7
+                          ? scale(25)
+                          : scale(8)
+                      }
+                      padding={scale(30)}
+                      width={chartDims}
+                      height={chartDims / 1.5}
+                      scale={{ x: "time" }}
+                    >
+                      {projects.map((i, v) => {
+                        let now = new Date();
+                        let day = 1000 * 60 * 60 * 24;
 
-                      let start =
-                        now.setHours(23, 59, 59, 999) - day * (timePeriod - 1);
-                      let end =
-                        now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
-                      let projectEntry = [];
+                        let start =
+                          now.setHours(23, 59, 59, 999) -
+                          day * (timePeriod - 1);
+                        let end =
+                          now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
+                        let projectEntry = [];
 
-                      const projectFilter = sessions.filter((el) => {
-                        return el.project === i.name;
-                      });
-
-                      for (let a = 0; a < timePeriod; a++) {
-                        let dateFilter = [{}];
-                        dateFilter = projectFilter.filter((date) => {
-                          return date.start < start && date.start > end;
+                        const projectFilter = sessions.filter((el) => {
+                          return el.project === i.name;
                         });
 
-                        let dateTotal = dateFilter.reduce(
-                          (t, currentValue) =>
-                            (t =
-                              t +
-                              (currentValue.end.getTime() -
-                                currentValue.start.getTime())),
-                          0
+                        for (let a = 0; a < timePeriod; a++) {
+                          let dateFilter = [{}];
+                          dateFilter = projectFilter.filter((date) => {
+                            return date.start < start && date.start > end;
+                          });
+
+                          let dateTotal = dateFilter.reduce(
+                            (t, currentValue) =>
+                              (t =
+                                t +
+                                (currentValue.end.getTime() -
+                                  currentValue.start.getTime())),
+                            0
+                          );
+
+                          const entry = {
+                            x: new Date(start),
+                            y: dateTotal / (60 * 60 * 1000),
+                            n: i.name,
+                          };
+
+                          projectEntry.push(entry);
+
+                          start = start + day;
+                          end = end + day;
+                        }
+
+                        return (
+                          <VictoryBar
+                            style={{
+                              data: {
+                                fill: findColor(i.name) + "B3",
+                              },
+                            }}
+                            barWidth={scale((1 / timePeriod) * 250)}
+                            key={v}
+                            data={projectEntry}
+                          />
                         );
-
-                        const entry = {
-                          x: new Date(start),
-                          y: dateTotal / (60 * 60 * 1000),
-                          n: i.name,
-                        };
-
-                        projectEntry.push(entry);
-
-                        start = start + day;
-                        end = end + day;
-                      }
-
-                      return (
-                        <VictoryBar
-                          style={{
-                            data: {
-                              fill: findColor(i.name) + "B3",
-                            },
-                          }}
-                          barWidth={scale((1 / timePeriod) * 250)}
-                          key={v}
-                          data={projectEntry}
-                        />
-                      );
-                    })}
-                    <VictoryAxis />
-                    <VictoryAxis dependentAxis />
-                  </VictoryStack>
-                </DashboardCard>
-                <DashboardCard backgroundColor={"#353535"}>
-                  <ViewProjects />
-                </DashboardCard>
-              </View>
-            )}
+                      })}
+                      <VictoryAxis />
+                      <VictoryAxis dependentAxis />
+                    </VictoryStack>
+                  </DashboardCard>
+                  <DashboardCard backgroundColor={"#353535"}>
+                    <ViewProjects />
+                  </DashboardCard>
+                </View>
+              )}
+            </View>
           </View>
         </ScrollView>
       </View>

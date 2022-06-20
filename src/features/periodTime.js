@@ -46,15 +46,14 @@ export const PeriodTime = ({ calcDays }) => {
   const up = "chevron-up-circle";
   const down = "chevron-down-circle";
 
-  const periodTotal = sessions
-    .filter((date) => {
-      return date.start > period;
-    })
-    .reduce(
-      (v, currentValue) =>
-        (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
-      0
-    );
+  const periodFilter = sessions.filter((date) => {
+    return date.start > period;
+  });
+  const periodTotal = periodFilter.reduce(
+    (v, currentValue) =>
+      (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
+    0
+  );
 
   const prevPeriodTotal = sessions
     .filter((date) => {
@@ -97,21 +96,27 @@ export const PeriodTime = ({ calcDays }) => {
       <View style={{ justifyContent: "space-between" }}>
         <View>
           <View>
-            <H2 style={{ color: "white", paddingTop: 20 }}>{total} </H2>
+            <H3 style={{ color: "white", paddingTop: 20 }}>
+              {total} over {periodFilter.length} sessions{" "}
+            </H3>
           </View>
         </View>
         <View style={{ alignItems: "center" }}>
-          <Ionicons name={symbolVisual} size={scale(150)} color={color} />
+          <Ionicons name={symbolVisual} size={scale(150)} color={"black"} />
         </View>
       </View>
       <ChangeView>
         <View style={{ alignItems: "center", flexDirection: "row" }}>
-          <Ionicons name={symbol} size={scale(20)} color="white" />
-          <H3 style={{ color: "white", paddingLeft: scale(5) }}>
-            {change || change === Infinity
-              ? change + "% vs. previous \nperiod"
-              : "No change"}
-          </H3>
+          {change == Infinity ? (
+            <H3 style={{color:"white"}}>No previous data recorded</H3>
+          ) : (
+            <>
+              <Ionicons name={symbol} size={scale(20)} color="white" />
+              <H3 style={{ color: "white", paddingLeft: scale(5) }}>
+                {change + "% vs. previous period"}
+              </H3>
+            </>
+          )}
         </View>
       </ChangeView>
     </>

@@ -9,8 +9,8 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
 
   const TotalTimeView = styled.View`
     position: absolute;
-    top: ${(props) => scale(props.theme.space[1]) + "px"};
-    left: ${(props) => scale(props.theme.space[1]) + "px"};
+    top: ${(props) => scale(props.theme.space[2]) + "px"};
+    left: ${(props) => scale(props.theme.space[2]) + "px"};
     background-color: ${(props) => props.theme.colors.inverse};
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     padding: ${(props) => scale(props.theme.space[0]) + "px"}
@@ -34,7 +34,14 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
     background-color: ${color + "B3"};
     justify-content: center;
     align-items: center;
-    border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    border-top-left-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    border-top-right-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+    border-bottom-left-radius: ${full
+      ? "0px"
+      : (props) => scale(props.theme.space[1]) + "px"};
+    border-bottom-right-radius: ${full
+      ? "0px"
+      : (props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
     width: ${size + "px"};
     height: ${full ? (size / 6) * 3 + "px" : size + "px"};

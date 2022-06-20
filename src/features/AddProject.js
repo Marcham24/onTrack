@@ -87,7 +87,7 @@ export const AddProject = () => {
             project={newProject}
             category={newCategory}
             color={newColor}
-            size={scale(160)}
+            size={scale(200)}
             full={true}
             creation={false}
           />

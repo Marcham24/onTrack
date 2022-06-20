@@ -19,6 +19,7 @@ export const ProjectCard = ({
   const Card = styled.View`
     padding: ${(props) => scale(props.theme.space[1]) + "px"};
     border-radius: 10px;
+
   `;
 
   return (

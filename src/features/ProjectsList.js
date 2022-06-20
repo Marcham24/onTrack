@@ -18,7 +18,7 @@ export const ViewProjects = () => {
       project={name}
       category={category}
       color={color}
-      size={scale(160)}
+      size={scale(200)}
       full={true}
       creation={false}
       style={{ alignItems: "stretch" }}
@@ -27,7 +27,7 @@ export const ViewProjects = () => {
 
   return (
     <View>
-      <H2 style={{ color: "white" }}>Your projects</H2>
+      <H2 style={{color:"white"}}>Your projects</H2>
       <FlatList
         horizontal={true}
         data={projects.sort((a, b) => a.name.localeCompare(b.name))}

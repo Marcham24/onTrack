@@ -23,7 +23,7 @@ export const Readable = (d, type) => {
   let h = toDate.getHours();
   let min = toDate.getMinutes();
 
-  min < 9 ? (min = "0" + min) : min;
+  min < 10 ? (min = "0" + min) : min;
 
   //date
   const dateNoYArr = [m, da];

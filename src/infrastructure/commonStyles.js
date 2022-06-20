@@ -19,7 +19,7 @@ export const H3 = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.h3) + "px"};
   font-family: ${(props) => props.theme.fonts.medium};
   font-weight: ${(props) => props.theme.fontWeights.medium};
-  color: ${(props) => props.theme.colors.c1};
+  color: ${(props) => props.theme.colors.c2};
   flex-wrap: wrap;
   flex-shrink: 1;
 `;
@@ -45,8 +45,6 @@ export const CategoryText = styled.Text`
   font-family: ${(props) => props.theme.fonts.light};
   font-weight: ${(props) => props.theme.fontWeights.light};
   color: ${(props) => props.theme.colors.c3};
-  text-decoration: underline;
-  text-decoration-style: dotted;
 `;
 
 export const TimeText = styled.Text`
@@ -98,9 +96,9 @@ export const Input = styled.TextInput`
   font-family: ${(props) => props.theme.fonts.light};
   font-weight: ${(props) => props.theme.fontWeights.light};
   color: ${(props) => props.theme.colors.c2};
-  background-color: ${(props) => props.theme.colors.inverse};
+  background-color: ${(props) => props.theme.colors.white};
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-  padding: ${(props) => scale(props.theme.space[1]) + "px"};
+  padding: ${(props) => scale(props.theme.space[3]) + "px"};
   margin: ${(props) => scale(props.theme.space[1]) + "px"};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.c4};
@@ -129,9 +127,15 @@ export const SessionCardText = styled.View`
 
 export const DashboardCard = styled.View`
   flex:1; 
-  margin: ${(props) => scale(props.theme.space[1]) + "px"}
+  margin: ${(props) => scale(props.theme.space[2]) + "px"}
   border-radius: ${(props) => scale(props.theme.space[3]) + "px"};
-  padding: ${(props) => scale(props.theme.space[2]) + "px"};
+  padding: ${(props) => scale(props.theme.space[4]) + "px"};
   background-color: ${(props) =>
     props.backgroundColor ? props.backgroundColor : props.theme.colors.white};
+
+    shadow-color: #000;
+shadow-offset: 0px 2px;
+shadow-opacity: 0.25;
+shadow-radius: 5px;
+elevation: 20;
 `;

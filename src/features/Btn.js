@@ -8,6 +8,7 @@ export const Btn = ({
   onPress,
   mimicInput = false,
 }) => {
+
   const Opacity = styled.TouchableOpacity`
     border-width: ${mimicInput ? "1px" : "0px"}
     border-color: ${
@@ -17,14 +18,15 @@ export const Btn = ({
     }
     background-color: ${
       mimicInput
-        ? (props) => props.theme.colors.inverse
+        ? (props) => props.theme.colors.white
         : (props) => props.theme.colors.c2
     }
-    padding: ${(props) => scale(props.theme.space[1]) + "px"};
+    padding: ${(props) => scale(props.theme.space[3]) + "px"};
     margin: ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     justify-content: center;
+    align-items: center;
 
   `;
   const Title = styled.Text`
@@ -59,7 +61,7 @@ export const Btn = ({
     <BtnView>
       <Opacity onPress={onPress} activeOpacity={0.8}>
         <Title> {title} </Title>
-        <Ionicons name={iconName} size={scale(15)} color="white" />
+        <Ionicons name={iconName} size={scale(12)} color="white" />
       </Opacity>
     </BtnView>
   );

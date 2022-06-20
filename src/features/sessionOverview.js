@@ -99,30 +99,35 @@ export const SessionView = ({
           />
         }
       />
-      <SessionCard>
-        <View>
-          <Logo project={project} color={color} full={false} size={scale(40)} />
-        </View>
-        <SessionCardText>
+      <TouchableOpacity
+        onPress={!creation ? () => setModalVisible(true) : null}
+      >
+        <SessionCard>
           <View>
-            <ProjectText>
-              {project + " - " + ConvertTime(sessionTime({ start, end }))}
-            </ProjectText>
-            <TimeText>{TimeToDays(start)}</TimeText>
+            <Logo
+              project={project}
+              color={color}
+              full={false}
+              size={scale(40)}
+            />
           </View>
-          <View>
-            <TouchableOpacity
-              onPress={!creation ? () => setModalVisible(true) : null}
-            >
+          <SessionCardText>
+            <View>
+              <ProjectText>
+                {project + " - " + ConvertTime(sessionTime({ start, end }))}
+              </ProjectText>
+              <TimeText>{TimeToDays(start)}</TimeText>
+            </View>
+            <View>
               <Ionicons
-                name={"ellipsis-vertical"}
+                name={"arrow-forward-outline"}
                 size={scale(16)}
                 color="#1c1d23"
               />
-            </TouchableOpacity>
-          </View>
-        </SessionCardText>
-      </SessionCard>
+            </View>
+          </SessionCardText>
+        </SessionCard>
+      </TouchableOpacity>
     </>
   );
 };
