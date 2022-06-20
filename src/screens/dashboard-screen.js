@@ -213,7 +213,7 @@ export const DashboardScreen = () => {
                           />
                         );
                       })}
-                      <VictoryAxis />
+                      <VictoryAxis tickCount={4} tickFormat={date => Readable(date - 1,"short")}/>
                       <VictoryAxis dependentAxis />
                     </VictoryStack>
                   </DashboardCard>

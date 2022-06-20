@@ -11,11 +11,14 @@ import { Readable } from "./ReadableDateTime";
 
 export const ViewSessions = () => {
   const { sessions, rerender } = useContext(SessionContext);
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() - 3 * 24 * 60 * 60 * 1000);
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  
 
   const renderItem = ({ item }) => (
     <Item
@@ -87,7 +90,7 @@ export const ViewSessions = () => {
               onPress={() => setEndPickerOpen(true)}
             />
             <DateTimePickerModal
-            date={endDate}
+              date={endDate}
               value={endDate}
               isVisible={endPickerOpen}
               mode="date"
@@ -103,7 +106,7 @@ export const ViewSessions = () => {
               onPress={() => setStartPickerOpen(true)}
             />
             <DateTimePickerModal
-            date={startDate}
+              date={startDate}
               value={startDate}
               isVisible={startPickerOpen}
               mode="date"

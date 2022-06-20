@@ -98,7 +98,7 @@ export const Input = styled.TextInput`
   color: ${(props) => props.theme.colors.c2};
   background-color: ${(props) => props.theme.colors.white};
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-  padding: ${(props) => scale(props.theme.space[3]) + "px"};
+  padding: ${(props) => scale(props.theme.space[2]) + "px"};
   margin: ${(props) => scale(props.theme.space[1]) + "px"};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.c4};

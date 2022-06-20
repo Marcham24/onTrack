@@ -41,6 +41,11 @@ export const Readable = (d, type) => {
   const timeAmPm = [time, ampm];
   const ReadableTime = timeAmPm.join(" ");
 
+  //short style for project chart
+
+  const shortArr = [da, m]
+  const ReadableShort = shortArr.join(" ");
+
   //datetime
 
   const fullArr = [ReadableDate, ReadableTime];
@@ -50,5 +55,7 @@ export const Readable = (d, type) => {
     ? ReadableTime
     : type === "date"
     ? ReadableDate
+    : type === "short"
+    ? ReadableShort
     : ReadableDateTime;
 };
