@@ -6,16 +6,15 @@ import {
   Text,
   Alert,
   ScrollView,
+  Keyboard,
 } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { categories, projects, sessions } from "../services/mock/array";
 import ColorPicker from "react-native-wheel-color-picker";
-import { H2, Input } from "../infrastructure/commonStyles";
+import { H2, Input, DropdownStyled } from "../infrastructure/commonStyles";
 import { ProjectCard } from "./ProjectCard";
 import { Btn } from "./Btn";
 import { ModalBase } from "./ModalBase";
-import styled from "styled-components/native";
-import { Dropdown } from "react-native-element-dropdown";
 import { scale } from "../infrastructure/scale";
 
 export const AddProject = () => {
@@ -23,6 +22,7 @@ export const AddProject = () => {
   const { rerender, setRerender } = useContext(SessionContext);
   const [newProject, setNewProject] = useState("");
   const [newCategory, setNewCategory] = useState("");
+  const [category, setCategory] = useState("");
   const [newColor, setNewColor] = useState(randomColor);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +31,7 @@ export const AddProject = () => {
 
   const newProjectEntry = {
     name: newProject,
-    category: newCategory,
+    category: category,
     color: newColor,
   };
 
@@ -39,9 +39,14 @@ export const AddProject = () => {
     projects.push(newProjectEntry);
 
     setNewProject("");
+    setCategory("");
     setNewCategory("");
     setNewColor(randomColor);
     setRerender(rerender + 1);
+  };
+
+  const newCategoryEntry = {
+    category: newCategory,
   };
 
   return (
@@ -49,15 +54,26 @@ export const AddProject = () => {
       <View>
         <ModalBase
           title="Add new category"
+          color="grey"
           header={true}
           modalVisible={modalVisible}
           setModalVisible={() => setModalVisible(!modalVisible)}
           children={
-            <View>
-              <View>
+            <>
+              <View style={{ flexDirection: "row" }}>
                 <Input
-                  placeholder="Enter new category name"
-                  onChangeText={setNewCategory}
+                  placeholder="Enter new project name"
+                  onEndEditing={(event) =>
+                    setNewCategory(event.nativeEvent.text)
+                  }
+                  defaultValue={newCategory}
+                />
+                <Btn
+                  color="#ededed"
+                  title="add"
+                  onPress={() => {
+                    Keyboard.dismiss();
+                  }}
                 />
               </View>
               <View>
@@ -65,12 +81,12 @@ export const AddProject = () => {
                   color="#ededed"
                   title="Save"
                   onPress={() => {
-                    categories.push(newCategory);
+                    categories.push(newCategoryEntry);
                     setModalVisible(false);
                   }}
                 />
               </View>
-            </View>
+            </>
           }
         />
       </View>
@@ -85,7 +101,7 @@ export const AddProject = () => {
         >
           <ProjectCard
             project={newProject}
-            category={newCategory}
+            category={category}
             color={newColor}
             size={scale(200)}
             full={true}
@@ -93,81 +109,55 @@ export const AddProject = () => {
           />
         </View>
 
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="always">
           <View>
-            <View>
-              <Input
-                onChangeText={setNewProject}
-                placeholder="Enter new project name"
-                defaultValue={newProject}
-              />
-            </View>
-            <View>
-              <Input
-                onChangeText={setNewCategory}
-                placeholder="Enter category name"
-                defaultValue={newCategory}
-              />
-              {/* <Dropdown
-                maxHeight={300}
-                placeholder="Select item"
-                searchPlaceholder="Search..."
-                value={newCategory}
-                style={styles.dropdown}
-                placeholderStyle={styles.placeholderStyle}
-                selectedTextStyle={styles.selectedTextStyle}
-                inputSearchStyle={styles.inputSearchStyle}
-                iconStyle={styles.iconStyle}
-                data={sessions}
-                labelField="project"
-                valueField="comment"
-              /> */}
-
-              {/* <Picker
-              selectedValue={newCategory}
-              onValueChange={(v, i) => setNewCategory(v)}
-              style={{
-                backgroundColor: "white",
-                color: "black",
-                fontSize: 100,
+            <Input
+              onChangeText={setNewProject}
+              placeholder="Enter new project name"
+              defaultValue={newProject}
+            />
+          </View>
+          <View>
+            <DropdownStyled
+              maxHeight={scale(150)}
+              placeholder="Select category"
+              value={newCategory}
+              data={categories}
+              labelField="category"
+              valueField="category"
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              onChange={(item) => {
+                setCategory(item.category);
               }}
+            />
+            <TouchableOpacity
+              style={{
+                marginLeft: "auto",
+                paddingRight: 10,
+                paddingBottom: 10,
+              }}
+              onPress={() => setModalVisible(true)}
             >
-              <Picker.Item
-                label="Please select a category"
-                value="Please select a category"
-              />
-              {categories.map((v, i) => {
-                return <Picker.Item label={v} value={v} key={v} />;
-              })}
-            </Picker> */}
-              {/* <TouchableOpacity
+              <Text
                 style={{
-                  marginLeft: "auto",
-                  paddingRight: 10,
-                  paddingBottom: 10,
+                  textDecorationLine: "underline",
                 }}
-                onPress={() => setModalVisible(true)}
               >
-                <Text
-                  style={{
-                    textDecorationLine: "underline",
-                    textDecorationStyle: "dotted",
-                  }}
-                >
-                  Add new category{" "}
-                </Text>
-              </TouchableOpacity> */}
-            </View>
-            <View style={{ padding: 10 }}>
-              <ColorPicker
-                color={newColor}
-                discreteLength={10}
-                onColorChange={(color) => setNewColor(color)}
-                thumbSize={scale(15)}
-                noSnap={true}
-                swatches={false}
-              />
-            </View>
+                Add new category
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ padding: 10 }}>
+            <ColorPicker
+              color={newColor}
+              discreteLength={10}
+              onColorChange={(color) => setNewColor(color)}
+              thumbSize={scale(15)}
+              noSnap={true}
+              swatches={false}
+            />
           </View>
         </ScrollView>
         <View style={{ flexShrink: 1 }}>
@@ -177,7 +167,7 @@ export const AddProject = () => {
             type="add"
             onPress={() => {
               !newProject ||
-              !newCategory ||
+              !category ||
               newCategory === "Please select a category" ||
               newProject === "Project name"
                 ? Alert.alert(
@@ -192,3 +182,12 @@ export const AddProject = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  placeholderStyle: {
+    fontSize: scale(11),
+  },
+  selectedTextStyle: {
+    fontSize: scale(11),
+  },
+});

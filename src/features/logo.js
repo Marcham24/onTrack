@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { LinearGradient } from "expo-linear-gradient";
 import { TotalAllTime } from "./totalAllTime";
 import { TotalTimeText } from "../infrastructure/commonStyles";
 import { scale } from "../infrastructure/scale";
@@ -49,18 +48,6 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
 
   return (
     <LogoContainer>
-      {/* <LinearGradient
-        colors={["rgba(0,0,0,0.5)", "transparent"]}
-        style={{
-          borderRadius: 5,
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          height: full ? (size / 6) * 3 : size,
-        }}
-      /> */}
-
       {full && (
         <TotalTimeView>
           <TotalTimeText>

@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Dropdown } from "react-native-element-dropdown";
 import { scale } from "./scale";
 
 export const H1 = styled.Text`
@@ -93,9 +94,9 @@ export const BodyText = styled.Text`
 
 export const Input = styled.TextInput`
   font-size: ${(props) => scale(props.theme.fontSizes.button) + "px"};
-  font-family: ${(props) => props.theme.fonts.light};
+
   font-weight: ${(props) => props.theme.fontWeights.light};
-  color: ${(props) => props.theme.colors.c2};
+
   background-color: ${(props) => props.theme.colors.white};
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
   padding: ${(props) => scale(props.theme.space[2]) + "px"};
@@ -138,4 +139,19 @@ shadow-offset: 0px 2px;
 shadow-opacity: 0.25;
 shadow-radius: 5px;
 elevation: 20;
+`;
+
+export const DropdownStyled = styled(Dropdown)`
+  font-size: ${(props) => scale(props.theme.fontSizes.button) + "px"};
+  font-family: ${(props) => props.theme.fonts.light};
+  font-weight: ${(props) => props.theme.fontWeights.light};
+  color: ${(props) => props.theme.colors.c2};
+  background-color: ${(props) => props.theme.colors.white};
+  border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
+  padding: ${(props) => scale(props.theme.space[2]) + "px"};
+  margin: ${(props) => scale(props.theme.space[1]) + "px"};
+  border-width: 1px;
+  border-color: ${(props) => props.theme.colors.c4};
+  flex-grow: 1;
+  height: ${scale(35) + "px"};
 `;

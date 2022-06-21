@@ -14,11 +14,10 @@ export const ViewSessions = () => {
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() - 3 * 24 * 60 * 60 * 1000);
+
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-  
 
   const renderItem = ({ item }) => (
     <Item
@@ -44,14 +43,14 @@ export const ViewSessions = () => {
   );
 
   const handleSetStartTime = (value) => {
-    setStartDate(value)
-    setStartPickerOpen(false)
-  }
+    setStartDate(value);
+    setStartPickerOpen(false);
+  };
 
   const handleSetEndTime = (value) => {
-    setEndDate(value)
-    setEndPickerOpen(false)
-  }
+    setEndDate(value);
+    setEndPickerOpen(false);
+  };
 
   const keyExtractor = (item) => item.start;
   const sortedSessions = sessions.sort((a, b) => b.start - a.start);
@@ -90,8 +89,8 @@ export const ViewSessions = () => {
               onPress={() => setEndPickerOpen(true)}
             />
             <DateTimePickerModal
-              date={endDate}
-              value={endDate}
+              value={startDate}
+              date={startDate}
               isVisible={endPickerOpen}
               mode="date"
               onConfirm={(value) => handleSetEndTime(value)}
@@ -107,7 +106,6 @@ export const ViewSessions = () => {
             />
             <DateTimePickerModal
               date={startDate}
-              value={startDate}
               isVisible={startPickerOpen}
               mode="date"
               onConfirm={(value) => handleSetStartTime(value)}

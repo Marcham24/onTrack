@@ -23,7 +23,7 @@ export const SessionContextProvider = ({ children }) => {
           setError(err);
           setRerender(0);
         });
-    }, 1000);
+    }, 0);
   };
   useEffect(() => {
     retrieveSessions();

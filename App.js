@@ -42,7 +42,6 @@ import {
   TotalTimeText,
 } from "./src/infrastructure/commonStyles";
 import { Btn } from "./src/features/Btn";
-import { TextInput } from "react-native-paper";
 import { ModalBase } from "./src/features/ModalBase";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { EditingModal } from "./src/features/editingModal";

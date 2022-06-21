@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Modal, View, Text, TouchableOpacity } from "react-native";
+import {
+  Modal,
+  View,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import styled from "styled-components/native";
 import { H3 } from "../infrastructure/commonStyles";
 import { Btn } from "./Btn";
@@ -33,6 +39,7 @@ export const ModalBase = ({
   return (
     <>
       <Modal
+        avoidKeyboard
         animationType="fade"
         transparent={true}
         visible={modalVisible}
@@ -40,7 +47,8 @@ export const ModalBase = ({
           setModalVisible(!modalVisible);
         }}
       >
-        <View
+        <KeyboardAvoidingView
+          behavior={"padding"}
           style={{
             backgroundColor: "rgba(0,0,0,0.75)",
             flex: 1,
@@ -71,7 +79,7 @@ export const ModalBase = ({
               <View style={{ padding: 10 }}>{children}</View>
             </View>
           </ModalBody>
-        </View>
+        </KeyboardAvoidingView>
       </Modal>
     </>
   );

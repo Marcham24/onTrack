@@ -4,7 +4,6 @@ import { SessionContext } from "../services/array.context";
 import { ConvertTime } from "./convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import styled from "styled-components/native";
-import { LinearGradient } from "expo-linear-gradient";
 import {
   H1,
   H2,
@@ -108,7 +107,7 @@ export const PeriodTime = ({ calcDays }) => {
       <ChangeView>
         <View style={{ alignItems: "center", flexDirection: "row" }}>
           {change == Infinity ? (
-            <H3 style={{color:"white"}}>No previous data recorded</H3>
+            <H3 style={{ color: "white" }}>No previous data recorded</H3>
           ) : (
             <>
               <Ionicons name={symbol} size={scale(20)} color="white" />
