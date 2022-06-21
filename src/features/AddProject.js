@@ -80,10 +80,17 @@ export const AddProject = () => {
                 <Btn
                   color="#ededed"
                   title="Save"
-                  onPress={() => {
-                    categories.push(newCategoryEntry);
-                    setModalVisible(false);
-                  }}
+                  onPress={() =>
+                    categories.findIndex(
+                      (cat) => cat.category === newCategory
+                    ) === -1
+                      ? categories.push(newCategoryEntry) +
+                        setModalVisible(false)
+                      : Alert.alert(
+                          "Uh oh, this category already exists",
+                          "Please check the dropdown on the previous page."
+                        )
+                  }
                 />
               </View>
             </>
@@ -109,7 +116,7 @@ export const AddProject = () => {
           />
         </View>
 
-        <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="always">
+        <ScrollView style={{ flex: 1.5 }} keyboardShouldPersistTaps="always">
           <View>
             <Input
               onChangeText={setNewProject}

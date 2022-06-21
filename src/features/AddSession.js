@@ -1,8 +1,13 @@
-import { ScrollView, View, Text } from "react-native";
+import {
+  ScrollView,
+  View,
+  KeyboardAvoidingView,
+  StyleSheet,
+} from "react-native";
 import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TagsHandler } from "./TagHandler";
-import { Input } from "../infrastructure/commonStyles";
+import { Input, DropdownStyled } from "../infrastructure/commonStyles";
 import { Btn } from "./Btn";
 import { ProjectCard } from "./ProjectCard";
 import { SessionContext } from "../services/array.context";
@@ -16,18 +21,15 @@ export const AddSession = () => {
 
   const now = new Date();
 
-  const [newProject, setNewProject] = useState("GermErase");
+  const [newProject, setNewProject] = useState("Project");
   const [newStart, setNewStart] = useState(now);
   const [newEnd, setNewEnd] = useState(now);
   const [newComment, setNewComment] = useState("");
   const [newTags, setNewTags] = useState([]);
+  const [projectColor, setProjectColor] = useState("#000000");
 
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
-
-  const projectColor = projects.find((colorFind) =>
-    colorFind.name.includes(newProject)
-  )?.color;
 
   const handleStartConfirm = (startTime) => {
     setStartPickerOpen(false);
@@ -52,11 +54,12 @@ export const AddSession = () => {
 
     sessions.push(newSessionEntry);
 
-    setNewProject("GermErase");
+    setNewProject("Project");
     setNewStart(now);
     setNewEnd(now);
     setNewComment("");
     setNewTags([]);
+    setProjectColor("#000000");
 
     setRerender(rerender + 1);
   };
@@ -80,63 +83,77 @@ export const AddSession = () => {
         </View>
       ) : null}
       <View style={!newProject && { flexGrow: 1, justifyContent: "center" }}>
-        <Btn
-          title={
-            newProject
-              ? "Adding new " + newProject + " session"
-              : "Select a project to get started"
-          }
-          type={newProject && "none"}
+        <DropdownStyled
+          maxHeight={scale(200)}
+          placeholder="Select a project"
+          value={newProject}
+          data={projects}
+          labelField="name"
+          valueField="name"
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          onChange={(item) => {
+            setNewProject(item.name);
+            setProjectColor(
+              projects.find((colorFind) => colorFind.name.includes(item.name))
+                ?.color
+            );
+          }}
         />
       </View>
       {newProject ? (
         <>
-          <ScrollView keyboardShouldPersistTaps="always" style={{ flex: 2 }}>
-            <View>
+          <KeyboardAvoidingView
+            style={{ flex: 1.5, marginBottom: scale(40) }}
+            behavior={"padding"}
+          >
+            <ScrollView style={{ flex: 2 }}>
               <View>
-                <Btn
-                  mimicInput={true}
-                  type={"none"}
-                  title={newStart ? Readable(newStart) : "Add a start time"}
-                  onPress={() => setStartPickerOpen(true)}
-                />
-                <DateTimePickerModal
-                  date={newStart}
-                  isVisible={startPickerOpen}
-                  mode="datetime"
-                  onConfirm={handleStartConfirm}
-                  onCancel={() => setStartPickerOpen(false)}
-                />
+                <View>
+                  <Btn
+                    mimicInput={true}
+                    type={"none"}
+                    title={newStart ? Readable(newStart) : "Add a start time"}
+                    onPress={() => setStartPickerOpen(true)}
+                  />
+                  <DateTimePickerModal
+                    date={newStart}
+                    isVisible={startPickerOpen}
+                    mode="datetime"
+                    onConfirm={handleStartConfirm}
+                    onCancel={() => setStartPickerOpen(false)}
+                  />
 
-                <Btn
-                  mimicInput={true}
-                  type={"none"}
-                  title={newEnd ? Readable(newEnd) : "Add a end time"}
-                  onPress={() => setEndPickerOpen(true)}
+                  <Btn
+                    mimicInput={true}
+                    type={"none"}
+                    title={newEnd ? Readable(newEnd) : "Add a end time"}
+                    onPress={() => setEndPickerOpen(true)}
+                  />
+                  <DateTimePickerModal
+                    date={newEnd}
+                    isVisible={endPickerOpen}
+                    mode="datetime"
+                    onConfirm={handleEndConfirm}
+                    onCancel={() => setEndPickerOpen(false)}
+                  />
+                </View>
+                <Input
+                  placeholder="Please enter your new comment for this session"
+                  value={newComment}
+                  onChangeText={(value) => setNewComment(value)}
+                  editable={true}
+                  multiline={true}
                 />
-                <DateTimePickerModal
-                  date={newEnd}
-                  isVisible={endPickerOpen}
-                  mode="datetime"
-                  onConfirm={handleEndConfirm}
-                  onCancel={() => setEndPickerOpen(false)}
+                <TagsHandler
+                  tags={newTags}
+                  editable={true}
+                  passNewTags={setNewTags}
                 />
               </View>
-              <Input
-                placeholder="Please enter your new comment for this session"
-                value={newComment}
-                onChangeText={(value) => setNewComment(value)}
-                editable={true}
-                multiline={true}
-              />
-              <TagsHandler
-                tags={newTags}
-                editable={true}
-                passNewTags={setNewTags}
-              />
-            </View>
-          </ScrollView>
-
+            </ScrollView>
+          </KeyboardAvoidingView>
           <View style={{ flexShrink: 1 }}>
             <Btn
               title="Add session"
@@ -150,3 +167,12 @@ export const AddSession = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  placeholderStyle: {
+    fontSize: scale(11),
+  },
+  selectedTextStyle: {
+    fontSize: scale(11),
+  },
+});

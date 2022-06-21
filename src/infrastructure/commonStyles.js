@@ -58,7 +58,7 @@ export const TimeText = styled.Text`
 export const TagsView = styled.View`
   background-color: ${(props) => props.theme.colors.c4};
   border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
-  padding: ${(props) => scale(props.theme.space[1]) + "px"}
+  padding: ${(props) => scale(props.theme.space[2]) + "px"}
     flex-direction: row
   flex-shrink: 1;
   margin-right: ${(props) => scale(props.theme.space[1]) + "px"};
@@ -99,7 +99,7 @@ export const Input = styled.TextInput`
 
   background-color: ${(props) => props.theme.colors.white};
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-  padding: ${(props) => scale(props.theme.space[2]) + "px"};
+  padding: ${(props) => scale(props.theme.space[3]) + "px"};
   margin: ${(props) => scale(props.theme.space[1]) + "px"};
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.c4};
@@ -153,5 +153,5 @@ export const DropdownStyled = styled(Dropdown)`
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.c4};
   flex-grow: 1;
-  height: ${scale(35) + "px"};
+  height: ${scale(40) + "px"};
 `;
