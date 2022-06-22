@@ -60,7 +60,6 @@ export const TagsView = styled.View`
   border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
   padding: ${(props) => scale(props.theme.space[2]) + "px"}
     flex-direction: row
-  flex-shrink: 1;
   margin-right: ${(props) => scale(props.theme.space[1]) + "px"};
     margin-bottom: ${(props) => scale(props.theme.space[1]) + "px"};
   justify-content: center;
@@ -77,7 +76,6 @@ export const TagssText = styled.Text`
 `;
 
 export const TagsContainer = styled.View`
-  display: flex;
   flex-direction: row;
   flex-shrink: 1;
   flex-wrap: wrap;

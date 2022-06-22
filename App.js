@@ -120,8 +120,10 @@ export default function App() {
                     );
                   },
 
-                  tabBarActiveTintColor: "#EF8354",
-                  tabBarInactiveTintColor: "#4F5D75",
+                  tabBarActiveTintColor: "white",
+                  tabBarInactiveTintColor: "grey",
+                  tabBarInactiveBackgroundColor: "black",
+                  tabBarActiveBackgroundColor: "black",
                 })}
               >
                 <Tab.Screen
@@ -132,22 +134,34 @@ export default function App() {
                 <Tab.Screen
                   name="Projects"
                   component={ProjectsScreen}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerStyle: { backgroundColor: "black" },
+                    headerTitleStyle: { color: "white" },
+                  }}
                 />
                 <Tab.Screen
                   name=" "
                   component={AddSessionScreen}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerStyle: { backgroundColor: "black" },
+                    headerTitleStyle: { color: "white" },
+                  }}
                 />
                 <Tab.Screen
                   name="Sessions"
                   component={ExportScreen}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerStyle: { backgroundColor: "black" },
+                    headerTitleStyle: { color: "white" },
+                  }}
                 />
                 <Tab.Screen
                   name="Settings"
                   component={SettingsScreen}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerStyle: { backgroundColor: "black" },
+                    headerTitleStyle: { color: "white" },
+                  }}
                 />
               </Tab.Navigator>
             </NavigationContainer>

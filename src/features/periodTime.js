@@ -93,7 +93,6 @@ export const PeriodTime = ({ calcDays }) => {
 
   return (
     <DashboardCard
-      rerender={calcDays}
       backgroundColor={color}
       children={
         <>
@@ -107,7 +106,7 @@ export const PeriodTime = ({ calcDays }) => {
               </View>
             </View>
             <View style={{ alignItems: "center" }}>
-              <Ionicons name={symbolVisual} size={scale(150)} color={"black"} />
+              <Ionicons name={symbolVisual} size={scale(150)} color={"white"} />
             </View>
           </View>
           <ChangeView>

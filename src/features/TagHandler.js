@@ -12,7 +12,9 @@ import { scale } from "../infrastructure/scale";
 import { Btn } from "./Btn";
 
 const DeleteTag = styled.TouchableOpacity`
-  padding-left: ${(props) => scale(props.theme.space[0]) + "px"};
+  flex-direction: row;
+
+  align-items: center;
 `;
 
 export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
@@ -38,16 +40,16 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
       <TagsContainer>
         {tagsList.map((i, v) => (
           <TagsView key={v.toString()}>
-            <TagssText>{i}</TagssText>
-            {editable && (
-              <DeleteTag onPress={() => handleRemoveTag(i)}>
+            <DeleteTag onPress={() => handleRemoveTag(i)}>
+              <TagssText>{i} </TagssText>
+              {editable && (
                 <Ionicons
                   name={"close-circle"}
                   size={scale(16)}
                   color="black"
                 />
-              </DeleteTag>
-            )}
+              )}
+            </DeleteTag>
           </TagsView>
         ))}
       </TagsContainer>
@@ -66,6 +68,7 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
               multiline={false}
               value={newTag}
               onChangeText={(value) => setNewTag(value)}
+              blurOnSubmit={false}
             />
             <Btn type="add" onPress={handleAddTag} />
           </View>

@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Keyboard,
   TouchableWithoutFeedback,
+  Platform,
 } from "react-native";
 import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
@@ -17,6 +18,7 @@ import { projects } from "../services/mock/array";
 import { scale } from "../infrastructure/scale";
 import { Readable } from "./ReadableDateTime";
 import { SessionView } from "./sessionOverview";
+import { findColor } from "../functions/findColor";
 
 export const AddSession = () => {
   const { sessions, rerender, setRerender } = useContext(SessionContext);
@@ -100,11 +102,7 @@ export const AddSession = () => {
               inputSearchStyle={styles.inputSearchStyle}
               onChange={(item) => {
                 setNewProject(item.name);
-                setProjectColor(
-                  projects.find((colorFind) =>
-                    colorFind.name.includes(item.name)
-                  )?.color
-                );
+                setProjectColor(findColor(item.name));
               }}
             />
           </View>
@@ -114,8 +112,8 @@ export const AddSession = () => {
       <>
         <KeyboardAvoidingView
           style={{ flex: 1.5 }}
-          behavior={"padding"}
-          keyboardVerticalOffset={20}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={65}
         >
           <ScrollView style={{ flex: 2 }} keyboardShouldPersistTaps="always">
             <View>

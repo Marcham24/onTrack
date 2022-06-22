@@ -8,6 +8,7 @@ import {
   ScrollView,
   Keyboard,
   KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { categories, projects, sessions } from "../services/mock/array";
@@ -118,10 +119,10 @@ export const AddProject = () => {
         </View>
         <KeyboardAvoidingView
           style={{ flex: 1.5 }}
-          behavior={"padding"}
-          keyboardVerticalOffset={20}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={65}
         >
-          <ScrollView style={{ flex: 1.5 }} keyboardShouldPersistTaps="always">
+          <ScrollView style={{ flex: 2 }} keyboardShouldPersistTaps="always">
             <View>
               <Input
                 onChangeText={setNewProject}
