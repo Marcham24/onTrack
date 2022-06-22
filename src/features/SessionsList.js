@@ -105,6 +105,7 @@ export const ViewSessions = () => {
               onPress={() => setStartPickerOpen(true)}
             />
             <DateTimePickerModal
+              value={startDate}
               date={startDate}
               isVisible={startPickerOpen}
               mode="date"

@@ -5,7 +5,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
-import { H2, H1, H3, DashboardCard } from "../infrastructure/commonStyles";
+import { H2, H1, H3 } from "../infrastructure/commonStyles";
 import { VictoryStack, VictoryBar, VictoryAxis } from "victory-native";
 import { ConvertTime } from "../features/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -20,6 +20,7 @@ import { ProjectPie } from "../features/ProjectPie";
 import { projects } from "../services/mock/array";
 import { Readable } from "../features/ReadableDateTime";
 import { ViewProjects } from "../features/ProjectsList";
+import { DashboardCard } from "../features/DashboardCard";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -128,13 +129,11 @@ export const DashboardScreen = () => {
                 <Text>No Data for this time period</Text>
               ) : (
                 <View style={{ flexDirection: "row", alignItems: "stretch" }}>
-                  <DashboardCard>
-                    <ProjectPie timePeriod={timePeriod} />
-                  </DashboardCard>
-                  <DashboardCard backgroundColor={changeColor}>
-                    <H2 style={{ color: "white" }}>Your time this period </H2>
-                    <PeriodTime calcDays={timePeriod} />
-                  </DashboardCard>
+                  <DashboardCard
+                    children={<ProjectPie timePeriod={timePeriod} />}
+                  ></DashboardCard>
+
+                  <PeriodTime calcDays={timePeriod} />
                 </View>
               )}
             </View>
@@ -213,7 +212,10 @@ export const DashboardScreen = () => {
                           />
                         );
                       })}
-                      <VictoryAxis tickCount={4} tickFormat={date => Readable(date - 1,"short")}/>
+                      <VictoryAxis
+                        tickCount={4}
+                        tickFormat={(date) => Readable(date - 1, "short")}
+                      />
                       <VictoryAxis dependentAxis />
                     </VictoryStack>
                   </DashboardCard>

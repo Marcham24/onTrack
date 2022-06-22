@@ -8,7 +8,6 @@ export const Btn = ({
   onPress,
   mimicInput = false,
 }) => {
-
   const Opacity = styled.TouchableOpacity`
     border-width: ${mimicInput ? "1px" : "0px"}
     border-color: ${
@@ -60,7 +59,7 @@ export const Btn = ({
   return (
     <BtnView>
       <Opacity onPress={onPress} activeOpacity={0.8}>
-        <Title> {title} </Title>
+        <Title>{title ? title + " " : ""}</Title>
         <Ionicons name={iconName} size={scale(12)} color="white" />
       </Opacity>
     </BtnView>

@@ -7,6 +7,7 @@ import {
   Alert,
   ScrollView,
   Keyboard,
+  KeyboardAvoidingView,
 } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { categories, projects, sessions } from "../services/mock/array";
@@ -97,11 +98,11 @@ export const AddProject = () => {
           }
         />
       </View>
-      <View style={{ flexGrow: 1 }}>
+      <View style={{ flexGrow: 1, flex: 1 }}>
         <View
           style={{
             backgroundColor: creationBackground,
-            flex: 1,
+            padding: 20,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -115,76 +116,81 @@ export const AddProject = () => {
             creation={false}
           />
         </View>
-
-        <ScrollView style={{ flex: 1.5 }} keyboardShouldPersistTaps="always">
-          <View>
-            <Input
-              onChangeText={setNewProject}
-              placeholder="Enter new project name"
-              defaultValue={newProject}
-            />
-          </View>
-          <View>
-            <DropdownStyled
-              maxHeight={scale(150)}
-              placeholder="Select category"
-              value={newCategory}
-              data={categories}
-              labelField="category"
-              valueField="category"
-              placeholderStyle={styles.placeholderStyle}
-              selectedTextStyle={styles.selectedTextStyle}
-              inputSearchStyle={styles.inputSearchStyle}
-              onChange={(item) => {
-                setCategory(item.category);
-              }}
-            />
-            <TouchableOpacity
-              style={{
-                marginLeft: "auto",
-                paddingRight: 10,
-                paddingBottom: 10,
-              }}
-              onPress={() => setModalVisible(true)}
-            >
-              <Text
-                style={{
-                  textDecorationLine: "underline",
+        <KeyboardAvoidingView
+          style={{ flex: 1.5 }}
+          behavior={"padding"}
+          keyboardVerticalOffset={20}
+        >
+          <ScrollView style={{ flex: 1.5 }} keyboardShouldPersistTaps="always">
+            <View>
+              <Input
+                onChangeText={setNewProject}
+                placeholder="Enter new project name"
+                defaultValue={newProject}
+              />
+            </View>
+            <View>
+              <DropdownStyled
+                maxHeight={scale(150)}
+                placeholder="Select category"
+                value={newCategory}
+                data={categories}
+                labelField="category"
+                valueField="category"
+                placeholderStyle={styles.placeholderStyle}
+                selectedTextStyle={styles.selectedTextStyle}
+                inputSearchStyle={styles.inputSearchStyle}
+                onChange={(item) => {
+                  setCategory(item.category);
                 }}
+              />
+              <TouchableOpacity
+                style={{
+                  marginLeft: "auto",
+                  paddingRight: 10,
+                  paddingBottom: 10,
+                }}
+                onPress={() => setModalVisible(true)}
               >
-                Add new category
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{ padding: 10 }}>
-            <ColorPicker
-              color={newColor}
-              discreteLength={10}
-              onColorChange={(color) => setNewColor(color)}
-              thumbSize={scale(15)}
-              noSnap={true}
-              swatches={false}
+                <Text
+                  style={{
+                    textDecorationLine: "underline",
+                  }}
+                >
+                  Add new category
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ padding: 10 }}>
+              <ColorPicker
+                color={newColor}
+                discreteLength={10}
+                onColorChange={(color) => setNewColor(color)}
+                thumbSize={scale(15)}
+                noSnap={true}
+                swatches={false}
+              />
+            </View>
+          </ScrollView>
+          <View style={{ flexShrink: 1 }}>
+            <Btn
+              title="Add project"
+              color="white"
+              type="add"
+              onPress={() => {
+                !newProject ||
+                !category ||
+                newCategory === "Please select a category" ||
+                newProject === "Project name"
+                  ? Alert.alert(
+                      "Uh oh, something doesn't seem right!",
+                      "Please check that you have entered both a project and category name."
+                    )
+                  : addProject();
+              }}
             />
           </View>
-        </ScrollView>
-        <View style={{ flexShrink: 1 }}>
-          <Btn
-            title="Add project"
-            color="white"
-            type="add"
-            onPress={() => {
-              !newProject ||
-              !category ||
-              newCategory === "Please select a category" ||
-              newProject === "Project name"
-                ? Alert.alert(
-                    "Uh oh, something doesn't seem right!",
-                    "Please check that you have entered both a project and category name."
-                  )
-                : addProject();
-            }}
-          />
-        </View>
+        </KeyboardAvoidingView>
       </View>
     </>
   );

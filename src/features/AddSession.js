@@ -3,6 +3,8 @@ import {
   View,
   KeyboardAvoidingView,
   StyleSheet,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
@@ -66,94 +68,101 @@ export const AddSession = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      {newProject ? (
-        <View
-          style={{
-            backgroundColor: creationBackground,
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
-          <SessionView
-            project={newProject}
-            start={newStart}
-            end={newEnd}
-            creation={true}
-          />
-        </View>
-      ) : null}
-      <View style={!newProject && { flexGrow: 1, justifyContent: "center" }}>
-        <DropdownStyled
-          maxHeight={scale(200)}
-          placeholder="Select a project"
-          value={newProject}
-          data={projects}
-          labelField="name"
-          valueField="name"
-          placeholderStyle={styles.placeholderStyle}
-          selectedTextStyle={styles.selectedTextStyle}
-          inputSearchStyle={styles.inputSearchStyle}
-          onChange={(item) => {
-            setNewProject(item.name);
-            setProjectColor(
-              projects.find((colorFind) => colorFind.name.includes(item.name))
-                ?.color
-            );
-          }}
-        />
-      </View>
-      {newProject ? (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss()}>
         <>
-          <KeyboardAvoidingView
-            style={{ flex: 1.5, marginBottom: scale(40) }}
-            behavior={"padding"}
+          <View
+            style={{
+              backgroundColor: creationBackground,
+              flex: 1,
+              justifyContent: "center",
+            }}
           >
-            <ScrollView style={{ flex: 2 }}>
-              <View>
-                <View>
-                  <Btn
-                    mimicInput={true}
-                    type={"none"}
-                    title={newStart ? Readable(newStart) : "Add a start time"}
-                    onPress={() => setStartPickerOpen(true)}
-                  />
-                  <DateTimePickerModal
-                    date={newStart}
-                    isVisible={startPickerOpen}
-                    mode="datetime"
-                    onConfirm={handleStartConfirm}
-                    onCancel={() => setStartPickerOpen(false)}
-                  />
+            <SessionView
+              project={newProject}
+              start={newStart}
+              end={newEnd}
+              creation={true}
+            />
+          </View>
 
-                  <Btn
-                    mimicInput={true}
-                    type={"none"}
-                    title={newEnd ? Readable(newEnd) : "Add a end time"}
-                    onPress={() => setEndPickerOpen(true)}
-                  />
-                  <DateTimePickerModal
-                    date={newEnd}
-                    isVisible={endPickerOpen}
-                    mode="datetime"
-                    onConfirm={handleEndConfirm}
-                    onCancel={() => setEndPickerOpen(false)}
-                  />
-                </View>
-                <Input
-                  placeholder="Please enter your new comment for this session"
-                  value={newComment}
-                  onChangeText={(value) => setNewComment(value)}
-                  editable={true}
-                  multiline={true}
+          <View
+            style={!newProject && { flexGrow: 1, justifyContent: "center" }}
+          >
+            <DropdownStyled
+              maxHeight={scale(200)}
+              placeholder="Select a project"
+              value={newProject}
+              data={projects}
+              labelField="name"
+              valueField="name"
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              onChange={(item) => {
+                setNewProject(item.name);
+                setProjectColor(
+                  projects.find((colorFind) =>
+                    colorFind.name.includes(item.name)
+                  )?.color
+                );
+              }}
+            />
+          </View>
+        </>
+      </TouchableWithoutFeedback>
+
+      <>
+        <KeyboardAvoidingView
+          style={{ flex: 1.5 }}
+          behavior={"padding"}
+          keyboardVerticalOffset={20}
+        >
+          <ScrollView style={{ flex: 2 }} keyboardShouldPersistTaps="always">
+            <View>
+              <View>
+                <Btn
+                  mimicInput={true}
+                  type={"none"}
+                  title={newStart ? Readable(newStart) : "Add a start time"}
+                  onPress={() => setStartPickerOpen(true)}
                 />
-                <TagsHandler
-                  tags={newTags}
-                  editable={true}
-                  passNewTags={setNewTags}
+                <DateTimePickerModal
+                  date={newStart}
+                  isVisible={startPickerOpen}
+                  mode="datetime"
+                  onConfirm={handleStartConfirm}
+                  onCancel={() => setStartPickerOpen(false)}
+                />
+
+                <Btn
+                  mimicInput={true}
+                  type={"none"}
+                  title={newEnd ? Readable(newEnd) : "Add a end time"}
+                  onPress={() => setEndPickerOpen(true)}
+                />
+                <DateTimePickerModal
+                  date={newEnd}
+                  isVisible={endPickerOpen}
+                  mode="datetime"
+                  onConfirm={handleEndConfirm}
+                  onCancel={() => setEndPickerOpen(false)}
                 />
               </View>
-            </ScrollView>
-          </KeyboardAvoidingView>
+              <Input
+                placeholder="Please enter your new comment for this session"
+                value={newComment}
+                onChangeText={(value) => setNewComment(value)}
+                editable={true}
+                multiline={true}
+              />
+              <TagsHandler
+                tags={newTags}
+                editable={true}
+                passNewTags={setNewTags}
+              />
+            </View>
+          </ScrollView>
+
           <View style={{ flexShrink: 1 }}>
             <Btn
               title="Add session"
@@ -162,8 +171,8 @@ export const AddSession = () => {
               onPress={() => handleAddSession()}
             />
           </View>
-        </>
-      ) : null}
+        </KeyboardAvoidingView>
+      </>
     </View>
   );
 };

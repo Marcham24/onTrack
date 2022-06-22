@@ -63,10 +63,9 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
           >
             <Input
               placeholder="Enter new tags"
-              multiline={true}
+              multiline={false}
               value={newTag}
               onChangeText={(value) => setNewTag(value)}
-              blurOnSubmit={false}
             />
             <Btn type="add" onPress={handleAddTag} />
           </View>

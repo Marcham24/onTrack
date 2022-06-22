@@ -16,6 +16,7 @@ import {
   InputText,
 } from "../utils/styling";
 import { scale } from "../infrastructure/scale";
+import { DashboardCard } from "./DashboardCard";
 
 export const PeriodTime = ({ calcDays }) => {
   const [total, setTotal] = useState(0);
@@ -74,11 +75,11 @@ export const PeriodTime = ({ calcDays }) => {
     : prevPeriodTotal < periodTotal
     ? ((incDec = ((prevPeriodTotal - periodTotal) / prevPeriodTotal) * 100),
       (symbol = up),
-      (color = "#66ff66B3"),
+      (color = "#02a60c"),
       (symbolVisual = upVisual))
     : ((incDec = ((periodTotal - prevPeriodTotal) / prevPeriodTotal) * 100),
       (symbol = down),
-      (color = "#ff2400B3"),
+      (color = "#CA0B00"),
       (symbolVisual = downVisual));
 
   //color: #ffd369;
@@ -91,33 +92,40 @@ export const PeriodTime = ({ calcDays }) => {
   `;
 
   return (
-    <>
-      <View style={{ justifyContent: "space-between" }}>
-        <View>
-          <View>
-            <H3 style={{ color: "white", paddingTop: 20 }}>
-              {total} over {periodFilter.length} sessions{" "}
-            </H3>
+    <DashboardCard
+      rerender={calcDays}
+      backgroundColor={color}
+      children={
+        <>
+          <H2 style={{ color: "white" }}>Your time this period </H2>
+          <View style={{ justifyContent: "space-between" }}>
+            <View>
+              <View>
+                <H3 style={{ color: "white", paddingTop: 20 }}>
+                  {total} over {periodFilter.length} sessions{" "}
+                </H3>
+              </View>
+            </View>
+            <View style={{ alignItems: "center" }}>
+              <Ionicons name={symbolVisual} size={scale(150)} color={"black"} />
+            </View>
           </View>
-        </View>
-        <View style={{ alignItems: "center" }}>
-          <Ionicons name={symbolVisual} size={scale(150)} color={"black"} />
-        </View>
-      </View>
-      <ChangeView>
-        <View style={{ alignItems: "center", flexDirection: "row" }}>
-          {change == Infinity ? (
-            <H3 style={{ color: "white" }}>No previous data recorded</H3>
-          ) : (
-            <>
-              <Ionicons name={symbol} size={scale(20)} color="white" />
-              <H3 style={{ color: "white", paddingLeft: scale(5) }}>
-                {change + "% vs. previous period"}
-              </H3>
-            </>
-          )}
-        </View>
-      </ChangeView>
-    </>
+          <ChangeView>
+            <View style={{ alignItems: "center", flexDirection: "row" }}>
+              {change == Infinity ? (
+                <H3 style={{ color: "white" }}>No previous data recorded</H3>
+              ) : (
+                <>
+                  <Ionicons name={symbol} size={scale(20)} color="white" />
+                  <H3 style={{ color: "white", paddingLeft: scale(5) }}>
+                    {change + "% vs. previous \nperiod"}
+                  </H3>
+                </>
+              )}
+            </View>
+          </ChangeView>
+        </>
+      }
+    />
   );
 };
