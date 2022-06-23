@@ -123,6 +123,7 @@ export const ViewSessions = () => {
         renderItem={renderItem}
         extraData={rerender}
         initialNumToRender={12}
+        ListEmptyComponent={<H2>No sessions added for this search</H2>}
       />
       <View style={{ flexShrink: 1 }}>
         <Btn title={"Export to CSV"} color="white" />

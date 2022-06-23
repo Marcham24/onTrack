@@ -1,10 +1,12 @@
 import { useState } from "react";
 import {
+  ScrollView,
   Modal,
   View,
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import styled from "styled-components/native";
 import { H3 } from "../infrastructure/commonStyles";
@@ -48,7 +50,7 @@ export const ModalBase = ({
         }}
       >
         <KeyboardAvoidingView
-          behavior={"padding"}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
           style={{
             backgroundColor: "rgba(0,0,0,0.75)",
             flex: 1,
@@ -76,7 +78,7 @@ export const ModalBase = ({
                   />
                 </TouchableOpacity>
               )}
-              <View style={{ padding: 10 }}>{children}</View>
+              <ScrollView style={{ padding: 10 }}>{children}</ScrollView>
             </View>
           </ModalBody>
         </KeyboardAvoidingView>

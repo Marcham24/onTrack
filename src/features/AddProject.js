@@ -44,6 +44,7 @@ export const AddProject = () => {
     setCategory("");
     setNewCategory("");
     setNewColor(randomColor);
+    Keyboard.dismiss();
     setRerender(rerender + 1);
   };
 

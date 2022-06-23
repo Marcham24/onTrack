@@ -1,26 +1,13 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView,
-  Modal,
-  TouchableOpacity,
-} from "react-native";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./src/infrastructure/theme";
-import { TotalAllTime } from "./src/features/totalAllTime";
-import { PeriodTime } from "./src/features/periodTime";
 import { SessionContextProvider } from "./src/services/array.context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SessionView } from "./src/features/sessionOverview";
 import { ViewProjects } from "./src/features/ProjectsList";
 import { ViewSessions } from "./src/features/SessionsList";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeView } from "./src/components/safeView";
-
 import {
   useFonts as useInter,
   Inter_300Light,
@@ -29,58 +16,29 @@ import {
   Inter_900Black,
 } from "@expo-google-fonts/inter";
 import { AddProject } from "./src/features/AddProject";
-import {
-  BodyText,
-  CategoryText,
-  H1,
-  H2,
-  H3,
-  Input,
-  ProjectText,
-  TagssText,
-  TimeText,
-  TotalTimeText,
-} from "./src/infrastructure/commonStyles";
-import { Btn } from "./src/features/Btn";
-import { ModalBase } from "./src/features/ModalBase";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
-import { EditingModal } from "./src/features/editingModal";
 import { AddSession } from "./src/features/AddSession";
+import { SView, H1 } from "./src/infrastructure/commonStyles";
+import { Btn } from "./src/features/Btn";
 
 const ProjectsScreen = () => {
   return (
     <>
-      <SafeView>
-        <ViewProjects />
-      </SafeView>
+      <ViewProjects />
     </>
   );
 };
 
 const AddSessionScreen = () => {
-  return (
-    <>
-      <SafeView>
-        <ViewSessions />
-      </SafeView>
-    </>
-  );
+  return <ViewSessions />;
 };
 
 const ExportScreen = () => {
-  return (
-    <SafeView>
-      <AddProject />
-    </SafeView>
-  );
+  return <AddProject />;
 };
 
 const SettingsScreen = () => {
-  return (
-    <SafeView>
-      <AddSession />
-    </SafeView>
-  );
+  return <AddSession />;
 };
 
 const TAB_ICON = {
@@ -109,8 +67,8 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <SessionContextProvider>
-          <SafeView>
-            <NavigationContainer>
+          <NavigationContainer>
+            <SafeView>
               <Tab.Navigator
                 screenOptions={({ route }) => ({
                   tabBarIcon: ({ color, size }) => {
@@ -161,14 +119,18 @@ export default function App() {
                   options={{
                     headerStyle: { backgroundColor: "black" },
                     headerTitleStyle: { color: "white" },
+                    headerLeft: ({ navigation }) => (
+                      <Btn onPress={() => navigation.push("Dashboard")} />
+                    ),
                   }}
                 />
               </Tab.Navigator>
-            </NavigationContainer>
-          </SafeView>
+            </SafeView>
+          </NavigationContainer>
         </SessionContextProvider>
       </ThemeProvider>
-      <ExpoStatusBar style="auto" />
+
+      <ExpoStatusBar />
     </>
   );
 }

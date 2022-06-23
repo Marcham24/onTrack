@@ -5,7 +5,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
-import { H2, H1, H3 } from "../infrastructure/commonStyles";
+import { H2, H1, H3, SView, TimePeriod } from "../infrastructure/commonStyles";
 import {
   VictoryStack,
   VictoryBar,
@@ -96,183 +96,146 @@ export const DashboardScreen = () => {
   });
 
   return (
-    <SafeView>
-      <View>
-        <ScrollView stickyHeaderIndices={[1]}>
-          <View
-            style={{
-              flex: 2,
-              flexGrow: 1,
-              backgroundColor: "#353535",
-              paddingHorizontal: scale(20),
-              paddingVertical: scale(150),
-              justifyContent: "space-between",
+    <>
+      <SView row pt={4} pb={4} bg={"c1"} justify={"sa"} align={"c"}>
+        <TouchableOpacity
+          onPress={() => {
+            setTimePeriod(1);
+            handleChangeTimePeriod();
+          }}
+        >
+          <TimePeriod>Today</TimePeriod>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setTimePeriod(7);
+            handleChangeTimePeriod();
+          }}
+        >
+          <TimePeriod>7 days</TimePeriod>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setTimePeriod(30);
+            handleChangeTimePeriod();
+          }}
+        >
+          <TimePeriod>30 days</TimePeriod>
+        </TouchableOpacity>
+      </SView>
 
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <View>
-              <H1>
-                {timePeriod === 1
-                  ? "Today's"
-                  : timePeriod === 7
-                  ? "Weekly"
-                  : "Monthly"}
-              </H1>
-              <H1>Dashboard</H1>
-            </View>
-            <Logo project="D" color="#000000" full={false} size={scale(75)} />
+      <ScrollView>
+        <SView
+          flex={3}
+          row
+          pt={7}
+          pl={5}
+          pb={9}
+          pr={5}
+          bg={"c2"}
+          align={"c"}
+          justify={"sb"}
+        >
+          <H1>
+            {timePeriod === 1
+              ? "Today's \n"
+              : timePeriod === 7
+              ? "Weekly \n"
+              : "Monthly \n"}
+            Dashboard
+          </H1>
+          <Logo project="D" color="#000000" full={false} size={scale(75)} />
+        </SView>
+        <View style={{ padding: 5, top: -80 }}>
+          <View>
+            {data.length === 0 ? (
+              <Text>No Data for this time period</Text>
+            ) : (
+              <View style={{ flexDirection: "row", alignItems: "stretch" }}>
+                <DashboardCard
+                  children={<ProjectPie timePeriod={timePeriod} />}
+                />
+
+                <PeriodTime calcDays={timePeriod} />
+              </View>
+            )}
           </View>
-
-          <View
-            style={{
-              backgroundColor: "black",
-
-              padding: 20,
-              zIndex: 200,
-              elevation: 30,
-            }}
-          >
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-around" }}
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  setTimePeriod(1);
-                  handleChangeTimePeriod();
-                }}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  Today
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  setTimePeriod(7);
-                  handleChangeTimePeriod();
-                }}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  7 days
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  setTimePeriod(30);
-                  handleChangeTimePeriod();
-                }}
-              >
-                <Text
-                  style={{
-                    color: "white",
-                  }}
-                >
-                  30 days
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          <View style={{ padding: 5 }}>
-            <View>
-              {data.length === 0 ? (
-                <Text>No Data for this time period</Text>
-              ) : (
-                <View style={{ flexDirection: "row", alignItems: "stretch" }}>
-                  <DashboardCard
-                    children={<ProjectPie timePeriod={timePeriod} />}
-                  />
-
-                  <PeriodTime calcDays={timePeriod} />
-                </View>
-              )}
-            </View>
-            <View>
-              {data.length === 0 ? (
-                <Text>No Data for this time period</Text>
-              ) : (
-                <View style={{ alignItems: "stretch" }}>
-                  <DashboardCard>
-                    <H2>Time breakdown</H2>
-                    <VictoryStack
-                      events={[
-                        {
-                          target: "data",
-                          eventHandlers: {
-                            // no-op the default tooltip onMouseOver and onMouseOut event handlers
-                            onMouseOver: () => {},
-                            onMouseOut: () => {},
-                            // add an onClick handler
-                            onPressIn: () => {
-                              return [
-                                {
-                                  // this mutation sets `active: false` on all labels
-                                  eventKey: "all",
-                                  target: "labels",
-                                  mutation: () => ({ active: false }),
-                                },
-                                {
-                                  // next, the second mutation sets `active: true` on just the slice you clicked
-                                  // the eventKey is set to the element that originated the event if non is given
-                                  target: "labels",
-                                  mutation: () => ({ active: true }),
-                                },
-                              ];
-                            },
+          <View>
+            {data.length === 0 ? (
+              <Text>No Data for this time period</Text>
+            ) : (
+              <View style={{ alignItems: "stretch" }}>
+                <DashboardCard>
+                  <H2>Time breakdown</H2>
+                  <VictoryStack
+                    events={[
+                      {
+                        target: "data",
+                        eventHandlers: {
+                          // no-op the default tooltip onMouseOver and onMouseOut event handlers
+                          onMouseOver: () => {},
+                          onMouseOut: () => {},
+                          // add an onClick handler
+                          onPressIn: () => {
+                            return [
+                              {
+                                // this mutation sets `active: false` on all labels
+                                eventKey: "all",
+                                target: "labels",
+                                mutation: () => ({ active: false }),
+                              },
+                              {
+                                // next, the second mutation sets `active: true` on just the slice you clicked
+                                // the eventKey is set to the element that originated the event if non is given
+                                target: "labels",
+                                mutation: () => ({ active: true }),
+                              },
+                            ];
                           },
                         },
-                      ]}
-                      containerComponent={
-                        <VictoryVoronoiContainer
-                          labelComponent={
-                            <VictoryTooltip
-                              width={2000}
-                              cornerRadius={0}
-                              flyoutStyle={{ fill: "white" }}
-                            />
-                          }
-                          voronoiDimension="x"
-                          labels={({ datum }) => `y: ${datum.y}`}
-                        />
-                      }
-                      domainPadding={
-                        timePeriod === 1
-                          ? 0
-                          : timePeriod === 7
-                          ? scale(25)
-                          : scale(8)
-                      }
-                      padding={scale(30)}
-                      width={chartDims}
-                      height={chartDims / 1.5}
-                      scale={{ x: "time" }}
-                    >
-                      {getChartData}
-                      <VictoryAxis
-                        tickCount={4}
-                        tickFormat={(date) => Readable(date - 1, "short")}
+                      },
+                    ]}
+                    containerComponent={
+                      <VictoryVoronoiContainer
+                        labelComponent={
+                          <VictoryTooltip
+                            width={2000}
+                            cornerRadius={0}
+                            flyoutStyle={{ fill: "white" }}
+                          />
+                        }
+                        voronoiDimension="x"
+                        labels={({ datum }) => `y: ${datum.y}`}
                       />
-                      <VictoryAxis dependentAxis />
-                    </VictoryStack>
-                  </DashboardCard>
-                  <DashboardCard backgroundColor={"#353535"}>
-                    <ViewProjects />
-                  </DashboardCard>
-                </View>
-              )}
-            </View>
+                    }
+                    domainPadding={
+                      timePeriod === 1
+                        ? 0
+                        : timePeriod === 7
+                        ? scale(25)
+                        : scale(8)
+                    }
+                    padding={scale(30)}
+                    width={chartDims}
+                    height={chartDims / 1.5}
+                    scale={{ x: "time" }}
+                  >
+                    {getChartData}
+                    <VictoryAxis
+                      tickCount={4}
+                      tickFormat={(date) => Readable(date - 1, "short")}
+                    />
+                    <VictoryAxis dependentAxis />
+                  </VictoryStack>
+                </DashboardCard>
+                <DashboardCard backgroundColor={"#353535"}>
+                  <ViewProjects />
+                </DashboardCard>
+              </View>
+            )}
           </View>
-        </ScrollView>
-      </View>
-    </SafeView>
+        </View>
+      </ScrollView>
+    </>
   );
 };

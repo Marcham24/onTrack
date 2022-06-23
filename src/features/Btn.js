@@ -9,18 +9,13 @@ export const Btn = ({
   mimicInput = false,
 }) => {
   const Opacity = styled.TouchableOpacity`
-    border-width: ${mimicInput ? "1px" : "0px"}
-    border-color: ${
-      mimicInput
-        ? (props) => props.theme.colors.c4
-        : (props) => props.theme.colors.c2
-    }
+ 
     background-color: ${
       mimicInput
         ? (props) => props.theme.colors.white
         : (props) => props.theme.colors.c2
     }
-    padding: ${(props) => scale(props.theme.space[3]) + "px"};
+    padding: ${(props) => scale(props.theme.space[4]) + "px"};
     margin: ${(props) => scale(props.theme.space[1]) + "px"};
     flex-direction: row;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};

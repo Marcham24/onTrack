@@ -16,7 +16,7 @@ export const DashboardCard = ({ children, backgroundColor }) => {
 
   const AnimDashboardCard = styled(Animated.View)`
   flex:1; 
-  margin: ${(props) => scale(props.theme.space[1]) + "px"}
+  margin: ${(props) => scale(props.theme.space[2]) + "px"}
   border-radius: ${(props) => scale(props.theme.space[3]) + "px"};
   padding: ${(props) => scale(props.theme.space[4]) + "px"};
   background-color: ${(props) =>
