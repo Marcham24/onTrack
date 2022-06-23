@@ -27,6 +27,7 @@ import { projects } from "../services/mock/array";
 import { Readable } from "../features/ReadableDateTime";
 import { ViewProjects } from "../features/ProjectsList";
 import { DashboardCard } from "../features/DashboardCard";
+import { DashboardHeader } from "../features/DashboardHeader";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -124,29 +125,10 @@ export const DashboardScreen = () => {
         </TouchableOpacity>
       </SView>
 
-      <ScrollView>
-        <SView
-          flex={3}
-          row
-          pt={7}
-          pl={5}
-          pb={9}
-          pr={5}
-          bg={"c2"}
-          align={"c"}
-          justify={"sb"}
-        >
-          <H1>
-            {timePeriod === 1
-              ? "Today's \n"
-              : timePeriod === 7
-              ? "Weekly \n"
-              : "Monthly \n"}
-            Dashboard
-          </H1>
-          <Logo project="D" color="#000000" full={false} size={scale(75)} />
-        </SView>
-        <View style={{ padding: 5, top: -80 }}>
+      <ScrollView style={{ flex: 2 }}>
+        <DashboardHeader />
+
+        <View style={{ padding: 5 }}>
           <View>
             {data.length === 0 ? (
               <Text>No Data for this time period</Text>
