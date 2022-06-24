@@ -7,6 +7,7 @@ export const H1 = styled.Text`
   font-family: ${(props) => props.theme.fonts.logo};
   font-weight: ${(props) => props.theme.fontWeights.logo};
   color: ${(props) => props.theme.colors.white};
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 `;
 
 export const H2 = styled.Text`
@@ -145,51 +146,58 @@ export const TimePeriod = styled.Text`
 `;
 
 export const SView = styled.View`
-${(props) => props.flex && "flex:" + props.flex}
+background-color: ${(props) =>
+  props.bg === "c1"
+    ? props.theme.colors.c1
+    : props.bg === "c2"
+    ? props.theme.colors.c2
+    : props.bg === "c3"
+    ? props.theme.colors.c3
+    : props.bg === "c4"
+    ? props.theme.colors.c4
+    : props.bg === "c5"
+    ? props.theme.colors.c5
+    : props.bg === "disabled"
+    ? props.theme.colors.disabled
+    : props.bg === "inverse"
+    ? props.theme.colors.inverse
+    : props.bg === "danger"
+    ? props.theme.colors.danger
+    : props.bg === "success"
+    ? props.theme.colors.success
+    : props.bg === "white"
+    ? props.theme.colors.white
+    : "none"}
+  ${(props) => props.flex && "flex:" + props.flex}
   ${(props) => props.row && "flex-direction: row"}
   ${(props) => props.grow && "flex-grow: 1"}
   ${(props) => props.shrink && "flex-shrink:1"}
+  ${(props) =>
+    props.br && "border-radius:" + scale(props.theme.space[1]) + "px"};}
   padding-top: ${(props) =>
     props.pt ? scale(props.theme.space[props.pt]) + "px" : "0px"}
   padding-left:   ${(props) =>
-    props.pl ? scale(props.theme.space[props.pl]) + "px" : "0px"};
+    props.pl ? scale(props.theme.space[props.pl]) + "px" : "0px"}
   padding-bottom:   ${(props) =>
-    props.pb ? scale(props.theme.space[props.pb]) + "px" : "0px"};
+    props.pb ? scale(props.theme.space[props.pb]) + "px" : "0px"}
   padding-right:   ${(props) =>
-    props.pr ? scale(props.theme.space[props.pr]) + "px" : "0px"};
+    props.pr ? scale(props.theme.space[props.pr]) + "px" : "0px"}
+  ${(props) => props.p && "padding:" + scale(props.theme.space[props.p]) + "px"}
   margin: ${(props) =>
     props.mv ? scale(props.theme.space[props.mv]) + "px" : "0px"}
-    ${(props) =>
-      props.mh ? scale(props.theme.space[props.mh]) + "px" : "0px"};
+    ${(props) => (props.mh ? scale(props.theme.space[props.mh]) + "px" : "0px")}
   justify-content: ${(props) =>
     props.justify === "sb"
       ? "space-between"
       : props.justify === "sa"
       ? "space-around"
-      : null}
-      align-items: ${(props) => (props.align === "c" ? "center" : null)}
+      : "flex-start"}
+  ${(props) =>
+    props.shadow &&
+    "shadow-color: #000; shadow-offset: 0px 2px; shadow-opacity: 0.25; shadow-radius: 5px; elevation: 20;"}
+
+      
+
   ${(props) => props.z && "z-index:" + props.z}
-        
- ${(props) => props.elevate && "elevation:" + props.elevate}
-  
-  background-color: ${(props) =>
-    props.bg === "c1"
-      ? props.theme.colors.c1
-      : props.bg === "c2"
-      ? props.theme.colors.c2
-      : props.bg === "c3"
-      ? props.theme.colors.c3
-      : props.bg === "c4"
-      ? props.theme.colors.c4
-      : props.bg === "c5"
-      ? props.theme.colors.c5
-      : props.bg === "disabled"
-      ? props.theme.colors.disabled
-      : props.bg === "inverse"
-      ? props.theme.colors.inverse
-      : props.bg === "danger"
-      ? props.theme.colors.danger
-      : props.bg === "success"
-      ? props.theme.colors.success
-      : props.theme.colors.white}
+  ${(props) => props.elevate && "elevation:" + props.elevate}
 `;

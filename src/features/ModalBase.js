@@ -33,7 +33,7 @@ export const ModalBase = ({
 
   const ModalBody = styled.View`
     margin: ${(props) => scale(props.theme.space[0]) + "px"};
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.inverse};
     flex-shrink: 1;
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
     margin: ${(props) => scale(props.theme.space[2]) + "px"};

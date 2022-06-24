@@ -121,7 +121,6 @@ export const AddProject = () => {
         <KeyboardAvoidingView
           style={{ flex: 1.5 }}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={65}
         >
           <ScrollView style={{ flex: 2 }} keyboardShouldPersistTaps="always">
             <View>

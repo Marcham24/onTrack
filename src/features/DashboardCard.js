@@ -27,7 +27,7 @@ shadow-offset: 0px 2px;
 shadow-opacity: 0.25;
 shadow-radius: 5px;
 elevation: 20;
-z-index:1
+
 `;
 
   return (

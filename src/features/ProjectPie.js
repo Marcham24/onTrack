@@ -10,6 +10,7 @@ import { SessionContext } from "../services/array.context";
 import { findColor } from "../functions/findColor";
 import { Svg } from "react-native-svg";
 import { Dimensions } from "react-native";
+import { DashboardCard } from "./DashboardCard";
 const { width } = Dimensions.get("window");
 
 export const ProjectPie = ({ timePeriod }) => {
@@ -25,67 +26,73 @@ export const ProjectPie = ({ timePeriod }) => {
 
   return (
     <>
-      <H2>Project breakdown</H2>
-      <View style={{ justifyContent: "space-between" }}>
-        <View
-          style={{
-            flexDirection: "row",
-            paddingVertical: scale(30),
-          }}
-        >
-          <VictoryPie
-            width={pieDims}
-            height={pieDims}
-            padding={0}
-            startAngle={360}
-            endAngle={0}
-            labels={() => null}
-            animate={{
-              duration: 500,
+      <DashboardCard>
+        <H2>Project breakdown</H2>
+        <View style={{ justifyContent: "space-between" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingVertical: scale(30),
             }}
-            cornerRadius={scale(4)}
-            events={[
-              {
-                target: "data",
-                eventHandlers: {
-                  onPressIn: () => {
-                    return [
-                      {
-                        target: "data",
-                        mutation: ({ datum }) => {
-                          setSelectedPieProject(datum.x);
-                          setSelectedPieTime(ConvertTime(datum.y));
+          >
+            <VictoryPie
+              width={pieDims}
+              height={pieDims}
+              padding={0}
+              startAngle={360}
+              endAngle={0}
+              labels={() => null}
+              animate={{
+                duration: 500,
+              }}
+              cornerRadius={scale(4)}
+              events={[
+                {
+                  target: "data",
+                  eventHandlers: {
+                    onPressIn: () => {
+                      return [
+                        {
+                          target: "data",
+                          mutation: ({ datum }) => {
+                            setSelectedPieProject(datum.x);
+                            setSelectedPieTime(ConvertTime(datum.y));
+                          },
                         },
-                      },
-                    ];
+                      ];
+                    },
                   },
                 },
-              },
-            ]}
-            padAngle={() => scale(2)}
-            innerRadius={scale(50)}
-            data={data}
-            colorScale={color}
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <Logo
-            project={selectedPieProject ? selectedPieProject : "i"}
-            color={selectedPieProject ? findColor(selectedPieProject) : "#000000"}
-            full={false}
-            size={scale(40)}
-          />
-          <View style={{ paddingLeft: scale(10) }}>
-            <H3>{selectedPieProject ? selectedPieProject : "Tap for more"}</H3>
-            <H3>{selectedPieProject ? selectedPieTime : "information"}</H3>
+              ]}
+              padAngle={() => scale(2)}
+              innerRadius={scale(50)}
+              data={data}
+              colorScale={color}
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Logo
+              project={selectedPieProject ? selectedPieProject : "i"}
+              color={
+                selectedPieProject ? findColor(selectedPieProject) : "#000000"
+              }
+              full={false}
+              size={scale(40)}
+            />
+            <View style={{ paddingLeft: scale(10) }}>
+              <H3>
+                {selectedPieProject ? selectedPieProject : "Tap for more"}
+              </H3>
+              <H3>{selectedPieProject ? selectedPieTime : "information"}</H3>
+            </View>
           </View>
         </View>
-      </View>
+      </DashboardCard>
     </>
   );
 };

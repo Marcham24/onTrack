@@ -116,6 +116,7 @@ export const PeriodTime = ({ calcDays }) => {
               ) : (
                 <>
                   <Ionicons name={symbol} size={scale(20)} color="white" />
+
                   <H3 style={{ color: "white", paddingLeft: scale(5) }}>
                     {change + "% vs. previous \nperiod"}
                   </H3>

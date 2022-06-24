@@ -20,13 +20,10 @@ import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { AddSession } from "./src/features/AddSession";
 import { SView, H1 } from "./src/infrastructure/commonStyles";
 import { Btn } from "./src/features/Btn";
+import { Toast } from "./src/features/Toast";
 
 const ProjectsScreen = () => {
-  return (
-    <>
-      <ViewProjects />
-    </>
-  );
+  return <Toast />;
 };
 
 const AddSessionScreen = () => {
@@ -82,6 +79,7 @@ export default function App() {
                   tabBarInactiveTintColor: "grey",
                   tabBarInactiveBackgroundColor: "black",
                   tabBarActiveBackgroundColor: "black",
+                  tabBarHideOnKeyboard: true,
                 })}
               >
                 <Tab.Screen

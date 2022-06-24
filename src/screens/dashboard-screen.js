@@ -1,7 +1,13 @@
 import { SafeView } from "../components/safeView";
 import styled from "styled-components/native";
-import { useState, useEffect, useContext } from "react";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { useState, useEffect, useContext, useRef } from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Animated,
+} from "react-native";
 import { PeriodTime } from "../features/periodTime";
 import { TotalAllTime } from "../features/totalAllTime";
 import { scale } from "../infrastructure/scale";
@@ -28,6 +34,7 @@ import { Readable } from "../features/ReadableDateTime";
 import { ViewProjects } from "../features/ProjectsList";
 import { DashboardCard } from "../features/DashboardCard";
 import { DashboardHeader } from "../features/DashboardHeader";
+import { Toast } from "../features/Toast";
 
 export const DashboardScreen = () => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -96,9 +103,11 @@ export const DashboardScreen = () => {
     );
   });
 
+  const [scrollY] = useState(new Animated.Value(0));
+
   return (
     <>
-      <SView row pt={4} pb={4} bg={"c1"} justify={"sa"} align={"c"}>
+      <SView row pt={4} pb={4} bg={"c1"} justify={"sa"} align={"c"} shadow>
         <TouchableOpacity
           onPress={() => {
             setTimePeriod(1);
@@ -125,98 +134,97 @@ export const DashboardScreen = () => {
         </TouchableOpacity>
       </SView>
 
-      <ScrollView style={{ flex: 2 }}>
-        <DashboardHeader />
-
-        <View style={{ padding: 5 }}>
-          <View>
-            {data.length === 0 ? (
-              <Text>No Data for this time period</Text>
-            ) : (
-              <View style={{ flexDirection: "row", alignItems: "stretch" }}>
-                <DashboardCard
-                  children={<ProjectPie timePeriod={timePeriod} />}
-                />
-
-                <PeriodTime calcDays={timePeriod} />
-              </View>
-            )}
-          </View>
-          <View>
-            {data.length === 0 ? (
-              <Text>No Data for this time period</Text>
-            ) : (
-              <View style={{ alignItems: "stretch" }}>
-                <DashboardCard>
-                  <H2>Time breakdown</H2>
-                  <VictoryStack
-                    events={[
-                      {
-                        target: "data",
-                        eventHandlers: {
-                          // no-op the default tooltip onMouseOver and onMouseOut event handlers
-                          onMouseOver: () => {},
-                          onMouseOut: () => {},
-                          // add an onClick handler
-                          onPressIn: () => {
-                            return [
-                              {
-                                // this mutation sets `active: false` on all labels
-                                eventKey: "all",
-                                target: "labels",
-                                mutation: () => ({ active: false }),
-                              },
-                              {
-                                // next, the second mutation sets `active: true` on just the slice you clicked
-                                // the eventKey is set to the element that originated the event if non is given
-                                target: "labels",
-                                mutation: () => ({ active: true }),
-                              },
-                            ];
-                          },
-                        },
-                      },
-                    ]}
-                    containerComponent={
-                      <VictoryVoronoiContainer
-                        labelComponent={
-                          <VictoryTooltip
-                            width={2000}
-                            cornerRadius={0}
-                            flyoutStyle={{ fill: "white" }}
-                          />
-                        }
-                        voronoiDimension="x"
-                        labels={({ datum }) => `y: ${datum.y}`}
-                      />
-                    }
-                    domainPadding={
-                      timePeriod === 1
-                        ? 0
-                        : timePeriod === 7
-                        ? scale(25)
-                        : scale(8)
-                    }
-                    padding={scale(30)}
-                    width={chartDims}
-                    height={chartDims / 1.5}
-                    scale={{ x: "time" }}
-                  >
-                    {getChartData}
-                    <VictoryAxis
-                      tickCount={4}
-                      tickFormat={(date) => Readable(date - 1, "short")}
-                    />
-                    <VictoryAxis dependentAxis />
-                  </VictoryStack>
-                </DashboardCard>
-                <DashboardCard backgroundColor={"#353535"}>
-                  <ViewProjects />
-                </DashboardCard>
-              </View>
-            )}
-          </View>
+      <ScrollView
+        bounces={false}
+        stickyHeaderIndices={[0]}
+        scrollEventThrottle={16}
+        overScrollMode={"never"}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: { contentOffset: { y: scrollY } },
+            },
+          ],
+          {
+            listener: (event) => {},
+            useNativeDriver: false,
+          }
+        )}
+      >
+        <View>
+          <DashboardHeader animatedValue={scrollY} project={"far-flung"} />
         </View>
+
+        <SView p={1} style={{ zIndex: 10 }}>
+          <SView row mv={0}>
+            <ProjectPie timePeriod={timePeriod} />
+            <PeriodTime calcDays={timePeriod} />
+          </SView>
+          <SView>
+            <DashboardCard>
+              <H2>Time breakdown</H2>
+              <VictoryStack
+                // events={[
+                //   {
+                //     target: "data",
+                //     eventHandlers: {
+                //       // no-op the default tooltip onMouseOver and onMouseOut event handlers
+                //       onMouseOver: () => {},
+                //       onMouseOut: () => {},
+                //       // add an onClick handler
+                //       onPressIn: () => {
+                //         return [
+                //           {
+                //             // this mutation sets `active: false` on all labels
+                //             eventKey: "all",
+                //             target: "labels",
+                //             mutation: () => ({ active: false }),
+                //           },
+                //           {
+                //             // next, the second mutation sets `active: true` on just the slice you clicked
+                //             // the eventKey is set to the element that originated the event if non is given
+                //             target: "labels",
+                //             mutation: () => ({ active: true }),
+                //           },
+                //         ];
+                //       },
+                //     },
+                //   },
+                // ]}
+                // containerComponent={
+                //   <VictoryVoronoiContainer
+                //     labelComponent={
+                //       <VictoryTooltip
+                //         width={2000}
+                //         cornerRadius={0}
+                //         flyoutStyle={{ fill: "white" }}
+                //       />
+                //     }
+                //     voronoiDimension="x"
+                //     labels={({ datum }) => `y: ${datum.y}`}
+                //   />
+                // }
+                domainPadding={
+                  timePeriod === 1 ? 0 : timePeriod === 7 ? scale(25) : scale(8)
+                }
+                padding={scale(30)}
+                width={chartDims}
+                height={chartDims / 1.5}
+                scale={{ x: "time" }}
+              >
+                {getChartData}
+                <VictoryAxis
+                  tickCount={4}
+                  tickFormat={(date) => Readable(date - 1, "short")}
+                />
+                <VictoryAxis dependentAxis />
+              </VictoryStack>
+            </DashboardCard>
+            <DashboardCard backgroundColor={"#353535"}>
+              <ViewProjects />
+            </DashboardCard>
+          </SView>
+        </SView>
       </ScrollView>
     </>
   );

@@ -30,7 +30,7 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
   `;
 
   const LogoContainer = styled.View`
-    background-color: ${color + "B3"};
+    background-color: ${color};
     justify-content: center;
     align-items: center;
     border-top-left-radius: ${(props) => scale(props.theme.space[1]) + "px"};
