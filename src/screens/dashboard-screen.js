@@ -151,12 +151,10 @@ export const DashboardScreen = () => {
           }
         )}
       >
-        <View>
-          <DashboardHeader animatedValue={scrollY} project={"far-flung"} />
-        </View>
+        <DashboardHeader animatedValue={scrollY} project={"far-flung"} />
 
-        <SView p={1} style={{ zIndex: 10 }}>
-          <SView row mv={0}>
+        <SView p={1} z={5}>
+          <SView row>
             <ProjectPie timePeriod={timePeriod} />
             <PeriodTime calcDays={timePeriod} />
           </SView>

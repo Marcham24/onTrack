@@ -33,14 +33,12 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
     background-color: ${color};
     justify-content: center;
     align-items: center;
-    border-top-left-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-    border-top-right-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-    border-bottom-left-radius: ${full
-      ? "0px"
-      : (props) => scale(props.theme.space[1]) + "px"};
-    border-bottom-right-radius: ${full
-      ? "0px"
-      : (props) => scale(props.theme.space[1]) + "px"};
+    border-top-left-radius: ${(props) =>
+      full ? scale(props.theme.space[1]) + "px" : size + "px"};
+    border-top-right-radius: ${(props) =>
+      full ? scale(props.theme.space[1]) + "px" : size + "px"};
+    border-bottom-left-radius: ${full ? "0px" : size + "px"};
+    border-bottom-right-radius: ${full ? "0px" : size + "px"};
     flex-direction: row;
     width: ${size + "px"};
     height: ${full ? (size / 6) * 3 + "px" : size + "px"};
