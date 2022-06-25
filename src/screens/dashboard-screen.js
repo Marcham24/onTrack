@@ -151,7 +151,7 @@ export const DashboardScreen = () => {
           }
         )}
       >
-        <DashboardHeader animatedValue={scrollY} project={"far-flung"} />
+        <DashboardHeader animatedValue={scrollY} project="aberrant" />
 
         <SView p={1} z={5}>
           <SView row>
