@@ -145,7 +145,7 @@ export const TimePeriod = styled.Text`
   color: ${(props) => props.theme.colors.white};
 `;
 
-export const SView = styled.View`
+export const V = styled.View`
 background-color: ${(props) =>
   props.bg === "c1"
     ? props.theme.colors.c1
@@ -183,21 +183,40 @@ background-color: ${(props) =>
   padding-right:   ${(props) =>
     props.pr ? scale(props.theme.space[props.pr]) + "px" : "0px"}
   ${(props) => props.p && "padding:" + scale(props.theme.space[props.p]) + "px"}
-  margin: ${(props) =>
-    props.mv ? scale(props.theme.space[props.mv]) + "px" : "0px"}
-    ${(props) => (props.mh ? scale(props.theme.space[props.mh]) + "px" : "0px")}
+  margin-top: ${(props) =>
+    props.mt ? scale(props.theme.space[props.mt]) + "px" : "0px"}
+  margin-left:   ${(props) =>
+    props.ml ? scale(props.theme.space[props.ml]) + "px" : "0px"}
+  margin-bottom:   ${(props) =>
+    props.mb ? scale(props.theme.space[props.mb]) + "px" : "0px"}
+  margin-right:   ${(props) =>
+    props.mr ? scale(props.theme.space[props.mr]) + "px" : "0px"}
+  ${(props) => props.m && "margin:" + scale(props.theme.space[props.m]) + "px"}
   justify-content: ${(props) =>
-    props.justify === "sb"
+    props.j === "sb"
       ? "space-between"
-      : props.justify === "sa"
+      : props.j === "sa"
       ? "space-around"
       : "flex-start"}
+  align-content: ${(props) =>
+    props.ac === "sb"
+      ? "space-between"
+      : props.ac === "sa"
+      ? "space-around"
+      : props.ac === "c"
+      ? "center"
+      : "flex-start"}
+    align-items: ${(props) =>
+      props.ai === "sb"
+        ? "space-between"
+        : props.ai === "sa"
+        ? "space-around"
+        : props.ai === "c"
+        ? "center"
+        : "flex-start"}
   ${(props) =>
     props.shadow &&
     "shadow-color: #000; shadow-offset: 0px 2px; shadow-opacity: 0.25; shadow-radius: 5px; elevation: 20;"}
-
-      
-
   ${(props) => props.z && "z-index:" + props.z}
   ${(props) => props.elevate && "elevation:" + props.elevate}
 `;

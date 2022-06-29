@@ -6,7 +6,7 @@ import {
   Animated,
   ImageBackground,
 } from "react-native";
-import { SView, H1 } from "../infrastructure/commonStyles";
+import { V, H1 } from "../infrastructure/commonStyles";
 import { Logo } from "./logo";
 import { scale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
@@ -81,13 +81,7 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           },
         ]}
       >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: 6,
-          }}
-        >
+        <V row ai={"c"}>
           <Logo project={projectName} color={color} full={false} size={40} />
           <H1
             style={[
@@ -99,7 +93,7 @@ export const DashboardHeader = ({ project, animatedValue }) => {
             {projectName}{" "}
           </H1>
           <Ionicons name={"add-circle"} size={scale(40)} color={"white"} />
-        </View>
+        </V>
       </Animated.View>
       <Animated.View style={[styles(color).sliderContainerStyle]}>
         <Animated.View
@@ -115,9 +109,9 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           >
             <Logo project={projectName} color={color} full={false} size={80} />
 
-            <SView p={3}>
+            <V p={3}>
               <H1> {projectName} </H1>
-            </SView>
+            </V>
 
             <Ionicons name={"add-circle"} size={scale(40)} color={"white"} />
           </Animated.View>
@@ -135,12 +129,12 @@ const styles = (color) =>
       alignSelf: "center",
       width: width,
       overflow: "hidden",
-      height: width,
+      height: scale(250),
       backgroundColor: "#00000000",
     },
     sliderContainerStyle: {
       width: width * 2,
-      height: width,
+      height: scale(250),
       marginLeft: -(width / 2),
       position: "absolute",
       bottom: 0,

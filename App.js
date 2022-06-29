@@ -5,7 +5,7 @@ import { SessionContextProvider } from "./src/services/array.context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ViewProjects } from "./src/features/ProjectsList";
-import { ViewSessions } from "./src/features/SessionsList";
+import { SessionSearch } from "./src/features/SessionSearch";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeView } from "./src/components/safeView";
 import {
@@ -27,7 +27,7 @@ const ProjectsScreen = () => {
 };
 
 const AddSessionScreen = () => {
-  return <ViewSessions />;
+  return <SessionSearch />;
 };
 
 const ExportScreen = () => {
@@ -59,6 +59,8 @@ export default function App() {
   if (!interLoaded) {
     return null;
   }
+
+  // ! This is a comment
 
   return (
     <>
@@ -127,7 +129,6 @@ export default function App() {
           </NavigationContainer>
         </SessionContextProvider>
       </ThemeProvider>
-
       <ExpoStatusBar />
     </>
   );

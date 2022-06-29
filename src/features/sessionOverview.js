@@ -20,6 +20,7 @@ export const SessionView = ({
   comment,
   tags,
   creation = false,
+  inverse = false,
 }) => {
   const { sessions, rerender, setRerender } = useContext(SessionContext);
 
@@ -53,18 +54,21 @@ export const SessionView = ({
   };
 
   const SessionCard = styled.View`
-    background-color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) =>
+    inverse ? props.theme.colors.inverse : props.theme.colors.white};
+
     margin: ${(props) => scale(props.theme.space[1]) + "px"}
     border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
-    padding: ${(props) => scale(props.theme.space[2]) + "px"};
+    padding: ${(props) => scale(props.theme.space[3]) + "px"};
     flex-direction: row;
     align-content: center;
+
     
   `;
 
   const SessionCardText = styled.View`
     padding-left: ${(props) => scale(props.theme.space[2]) + "px"};
-    flex: 1;
+    flex-grow: 1;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
@@ -115,7 +119,7 @@ export const SessionView = ({
               </ProjectText>
               <TimeText>{TimeToDays(start)}</TimeText>
             </View>
-            <View>
+            <View style={{ paddingLeft: 40 }}>
               <Ionicons
                 name={"arrow-forward-outline"}
                 size={scale(16)}

@@ -43,17 +43,11 @@ export const EditingModal = ({
     const indexOfSession = sessions.findIndex(
       (find) => find.start.getTime() === startTime.getTime()
     );
-
-    console.log(sessions[indexOfSession]);
-
     sessions[indexOfSession].project = project;
     sessions[indexOfSession].start = tempStart;
     sessions[indexOfSession].end = tempEnd;
     sessions[indexOfSession].comment = tempComment;
     sessions[indexOfSession].tags = tempTags;
-
-    console.log(sessions[indexOfSession]);
-
     setRerender(rerender + 1);
   };
 
@@ -63,7 +57,6 @@ export const EditingModal = ({
     setTempEnd(end);
     setTempComment(comment);
     setTempTags(tags);
-    console.log(tags);
   };
 
   const handleStartConfirm = (startTime) => {

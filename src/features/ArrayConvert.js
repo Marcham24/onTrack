@@ -43,7 +43,7 @@ export const arrayConvert = (sessions, type, period = 7) => {
   let projectColorsArray = [];
 
   projectWithTimesNoZeros.map((i, v) => {
-    const color = findColor(i.x) + "B3";
+    const color = findColor(i.x);
 
     projectColorsArray.push(color);
   });

@@ -3,44 +3,21 @@ import { View, FlatList } from "react-native";
 import { Logo } from "./logo";
 import { SessionContext } from "../services/array.context";
 import { H2 } from "../infrastructure/commonStyles";
-import { SessionView } from "../features/sessionOverview";
+import { SessionView } from "./sessionOverview";
 import { Input } from "../infrastructure/commonStyles";
 import { Btn } from "./Btn";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Readable } from "./ReadableDateTime";
+import { SessionList } from "./SessionList";
 
-export const ViewSessions = () => {
+export const SessionSearch = () => {
   const { sessions, rerender } = useContext(SessionContext);
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() - 3 * 24 * 60 * 60 * 1000);
 
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const renderItem = ({ item }) => (
-    <Item
-      project={item.project}
-      start={item.start}
-      end={item.end}
-      comment={item.comment}
-      tags={item.tags}
-    />
-  );
-
-  const Item = ({ project, start, end, comment, tags }) => (
-    <View>
-      <SessionView
-        project={project}
-        start={start}
-        end={end}
-        comment={comment}
-        tags={tags}
-        creation={false}
-      />
-    </View>
-  );
 
   const handleSetStartTime = (value) => {
     setStartDate(value);
@@ -50,9 +27,10 @@ export const ViewSessions = () => {
   const handleSetEndTime = (value) => {
     setEndDate(value);
     setEndPickerOpen(false);
+    console.log(startDate);
+    console.log(endDate);
   };
 
-  const keyExtractor = (item) => item.start;
   const sortedSessions = sessions.sort((a, b) => b.start - a.start);
 
   const dateSearch = sortedSessions.filter((date) => {
@@ -61,7 +39,7 @@ export const ViewSessions = () => {
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
-  const searchfilter = dateSearch.filter((query) => {
+  const searchFilter = dateSearch.filter((query) => {
     return (
       query.comment.toLowerCase().includes(searchQuery.toLowerCase()) ||
       query.project.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -115,16 +93,9 @@ export const ViewSessions = () => {
           </View>
         </View>
       </View>
-      <FlatList
-        style={{ flex: 2 }}
-        keyboardShouldPersistTaps="always"
-        data={searchfilter}
-        keyExtractor={keyExtractor}
-        renderItem={renderItem}
-        extraData={rerender}
-        initialNumToRender={12}
-        ListEmptyComponent={<H2>No sessions added for this search</H2>}
-      />
+      <View style={{ flex: 2 }}>
+        <SessionList data={searchFilter} />
+      </View>
       <View style={{ flexShrink: 1 }}>
         <Btn title={"Export to CSV"} color="white" />
       </View>
