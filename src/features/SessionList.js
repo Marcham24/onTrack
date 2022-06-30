@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { View, FlatList } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { H3 } from "../infrastructure/commonStyles";
-import { SessionView } from "./sessionOverview";
+import { SessionView } from "./SessionOverview";
 
 export const SessionList = ({
   data,

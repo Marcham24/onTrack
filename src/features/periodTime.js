@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Text, View } from "react-native";
 import { SessionContext } from "../services/array.context";
-import { ConvertTime } from "./convertTime";
+import { ConvertTime } from "../functions/convertTime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import styled from "styled-components/native";
 import {
@@ -37,8 +37,11 @@ export const PeriodTime = ({ calcDays }) => {
     setChange(Math.abs(incDec).toFixed());
   }, [incDec, sessions, rerender, calcDays]);
 
-  const period = Date.now() - 1000 * 60 * 60 * 24 * calcDays;
-  const prevPeriod = Date.now() - 1000 * 60 * 60 * 24 * calcDays * 2;
+  let now = new Date();
+  const day = 1000 * 60 * 60 * 24;
+
+  const period = now.setHours(23, 59, 59, 0) - day * calcDays;
+  const prevPeriod = now.setHours(23, 59, 59, 0) - day * calcDays * 2;
 
   const upVisual = "trending-up-outline";
   const downVisual = "trending-down-outline";

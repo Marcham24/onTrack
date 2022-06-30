@@ -1,4 +1,4 @@
-import { Readable } from "./ReadableDateTime";
+import { Readable } from "./readableDateTime";
 
 const today = new Date();
 today.setUTCHours(0, 0, 0, 0);

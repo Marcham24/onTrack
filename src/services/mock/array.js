@@ -1,16 +1,16 @@
 export const sessions = [
   {
     project: "stitch",
-    start: new Date("June 29, 2022 08:24:00"),
-    end: new Date("June 29, 2022 09:55:00"),
+    start: new Date("June 30, 2022 08:24:00"),
+    end: new Date("June 30, 2022 09:55:00"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],
   },
   {
     project: "stitch",
-    start: new Date("June 29, 2022 04:48:00"),
-    end: new Date("June 29, 2022 07:16:55"),
+    start: new Date("June 30, 2022 04:48:00"),
+    end: new Date("June 30, 2022 07:16:55"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: ["social media", "admin", "meetings"],

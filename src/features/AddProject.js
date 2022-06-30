@@ -15,7 +15,7 @@ import { categories, projects, sessions } from "../services/mock/array";
 import ColorPicker from "react-native-wheel-color-picker";
 import { H2, Input, DropdownStyled } from "../infrastructure/commonStyles";
 import { ProjectCard } from "./ProjectCard";
-import { Btn } from "./Btn";
+import { Btn } from "../infrastructure/Btn";
 import { ModalBase } from "./ModalBase";
 import { scale } from "../infrastructure/scale";
 

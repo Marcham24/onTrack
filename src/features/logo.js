@@ -1,9 +1,9 @@
 import styled from "styled-components/native";
-import { TotalAllTime } from "./totalAllTime";
+import { TotalAllTime } from "../functions/totalAllTime";
 import { TotalTimeText } from "../infrastructure/commonStyles";
 import { scale } from "../infrastructure/scale";
 
-export const Logo = ({ project, size = 100, full, color, category }) => {
+export const Logo = ({ project, size = 100, full, color }) => {
   let logoWording = project?.toString().charAt(0);
 
   const TotalTimeView = styled.View`
@@ -48,9 +48,7 @@ export const Logo = ({ project, size = 100, full, color, category }) => {
     <LogoContainer>
       {full && (
         <TotalTimeView>
-          <TotalTimeText>
-            <TotalAllTime project={project} projectSpecific={true} />
-          </TotalTimeText>
+          <TotalTimeText>{TotalAllTime(project, true)}</TotalTimeText>
         </TotalTimeView>
       )}
       <LogoText>{logoWording}</LogoText>

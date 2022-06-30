@@ -11,13 +11,13 @@ import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TagsHandler } from "./TagHandler";
 import { Input, DropdownStyled } from "../infrastructure/commonStyles";
-import { Btn } from "./Btn";
+import { Btn } from "../infrastructure/Btn";
 import { ProjectCard } from "./ProjectCard";
 import { SessionContext } from "../services/array.context";
 import { projects } from "../services/mock/array";
 import { scale } from "../infrastructure/scale";
-import { Readable } from "./ReadableDateTime";
-import { SessionView } from "./sessionOverview";
+import { Readable } from "../functions/readableDateTime";
+import { SessionView } from "./SessionOverview";
 import { findColor } from "../functions/findColor";
 
 export const AddSession = () => {

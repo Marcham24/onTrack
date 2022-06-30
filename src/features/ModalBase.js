@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import { H3 } from "../infrastructure/commonStyles";
-import { Btn } from "./Btn";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
 

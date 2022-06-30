@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { View, FlatList, Button } from "react-native";
-import { Logo } from "./logo";
 import { projects } from "../services/mock/array";
 import { ProjectCard } from "./ProjectCard";
 import { H2 } from "../infrastructure/commonStyles";

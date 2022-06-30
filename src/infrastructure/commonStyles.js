@@ -142,7 +142,7 @@ export const TimePeriod = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.title) + "px"};
   font-family: ${(props) => props.theme.fonts.bold};
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.c1};
 `;
 
 export const V = styled.View`
@@ -197,6 +197,8 @@ background-color: ${(props) =>
       ? "space-between"
       : props.j === "sa"
       ? "space-around"
+      : props.j === "c"
+      ? "center"
       : "flex-start"}
   align-content: ${(props) =>
     props.ac === "sb"

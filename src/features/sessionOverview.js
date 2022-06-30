@@ -2,12 +2,12 @@ import { useState, useContext } from "react";
 import { View, Text, Modal, Alert, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { sessionTime } from "./sessionTime";
-import { ConvertTime } from "./convertTime";
+import { sessionTime } from "../functions/sessionTime";
+import { ConvertTime } from "../functions/convertTime";
 import { ModalBase } from "./ModalBase";
-import { EditingModal } from "./editingModal";
-import { TimeToDays } from "./timeToDays";
-import { Logo } from "./logo";
+import { EditingModal } from "./ModalSessionEdit";
+import { TimeToDays } from "../functions/timeToDays";
+import { Logo } from "./Logo";
 import { ProjectText, TimeText } from "../infrastructure/commonStyles";
 import { projects } from "../services/mock/array";
 import { SessionContext } from "../services/array.context";
@@ -110,6 +110,7 @@ export const SessionView = ({
               color={color}
               full={false}
               size={scale(40)}
+              sessions={sessions}
             />
           </View>
           <SessionCardText>

@@ -1,9 +1,8 @@
-import { Logo } from "./logo";
+import { Logo } from "./Logo";
 import styled from "styled-components/native";
 import { ProjectText, CategoryText } from "../infrastructure/commonStyles";
 import { View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { TotalAllTime } from "./totalAllTime";
 import { scale } from "../infrastructure/scale";
 
 export const ProjectCard = ({
@@ -19,7 +18,6 @@ export const ProjectCard = ({
   const Card = styled.View`
     padding: ${(props) => scale(props.theme.space[1]) + "px"};
     border-radius: 10px;
-
   `;
 
   return (

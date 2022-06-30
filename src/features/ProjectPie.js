@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { scale } from "../infrastructure/scale";
 import { H2, H3 } from "../infrastructure/commonStyles";
 import { VictoryPie, VictoryLabel } from "victory-native";
-import { ConvertTime } from "../features/convertTime";
-import { Logo } from "../features/logo";
+import { ConvertTime } from "../functions/convertTime";
+import { Logo } from "./Logo";
 import { arrayConvert } from "../features/ArrayConvert";
 import { SessionContext } from "../services/array.context";
 import { findColor } from "../functions/findColor";
@@ -12,17 +12,59 @@ import { Svg } from "react-native-svg";
 import { Dimensions } from "react-native";
 import { DashboardCard } from "./DashboardCard";
 const { width } = Dimensions.get("window");
+import { projects } from "../services/mock/array";
 
 export const ProjectPie = ({ timePeriod }) => {
   const { sessions } = useContext(SessionContext);
-
-  const data = arrayConvert(sessions, "", timePeriod);
-  const color = arrayConvert(sessions, "colors", timePeriod);
 
   const [selectedPieProject, setSelectedPieProject] = useState(null);
   const [selectedPieTime, setSelectedPieTime] = useState(null);
 
   const pieDims = width / 2 - scale(50);
+
+  const projectNames = projects.map((i) => i.name);
+
+  let projectWithTimes = [];
+
+  let now = new Date();
+  const day = 1000 * 60 * 60 * 24;
+
+  const periodTime = now.setHours(23, 59, 59, 0) - day * timePeriod;
+
+  projectNames.map((i) => {
+    const projectTime = sessions
+      .filter((el) => {
+        return el.project === i;
+      })
+      .filter((date) => {
+        return date.start > periodTime;
+      })
+      .reduce(
+        (v, currentValue) =>
+          (v = v + (currentValue.end.getTime() - currentValue.start.getTime())),
+        0
+      );
+    const entry = {
+      x: i,
+      y: projectTime,
+    };
+
+    projectWithTimes.push(entry);
+  });
+
+  const projectWithTimesNoZeros = projectWithTimes
+    .filter((x) => {
+      return x.y !== 0;
+    })
+    .sort((a, b) => b.y - a.y);
+
+  let projectColorsArray = [];
+
+  projectWithTimesNoZeros.map((i, v) => {
+    const color = findColor(i.x);
+
+    projectColorsArray.push(color);
+  });
 
   return (
     <>
@@ -66,8 +108,8 @@ export const ProjectPie = ({ timePeriod }) => {
               ]}
               padAngle={() => scale(2)}
               innerRadius={scale(50)}
-              data={data}
-              colorScale={color}
+              data={projectWithTimesNoZeros}
+              colorScale={projectColorsArray}
             />
           </View>
           <View

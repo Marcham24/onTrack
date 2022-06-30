@@ -1,13 +1,12 @@
 import { useState, useContext } from "react";
 import { View, FlatList } from "react-native";
-import { Logo } from "./logo";
 import { SessionContext } from "../services/array.context";
 import { H2 } from "../infrastructure/commonStyles";
-import { SessionView } from "./sessionOverview";
+import { SessionView } from "./SessionOverview";
 import { Input } from "../infrastructure/commonStyles";
-import { Btn } from "./Btn";
+import { Btn } from "../infrastructure/Btn";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { Readable } from "./ReadableDateTime";
+import { Readable } from "../functions/readableDateTime";
 import { SessionList } from "./SessionList";
 
 export const SessionSearch = () => {

@@ -7,11 +7,10 @@ import {
   ImageBackground,
 } from "react-native";
 import { V, H1 } from "../infrastructure/commonStyles";
-import { Logo } from "./logo";
+import { Logo } from "./Logo";
 import { scale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
-import { projectBg } from "./projectBg";
-import { Btn } from "./Btn";
+import { projectBg } from "../functions/projectBg";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const { width } = Dimensions.get("window");

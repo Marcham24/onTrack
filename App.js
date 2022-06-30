@@ -19,7 +19,6 @@ import { AddProject } from "./src/features/AddProject";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { AddSession } from "./src/features/AddSession";
 import { SView, H1 } from "./src/infrastructure/commonStyles";
-import { Btn } from "./src/features/Btn";
 import { Toast } from "./src/features/Toast";
 
 const ProjectsScreen = () => {
@@ -93,35 +92,35 @@ export default function App() {
                   name="Projects"
                   component={ProjectsScreen}
                   options={{
-                    headerStyle: { backgroundColor: "black" },
-                    headerTitleStyle: { color: "white" },
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
                   }}
                 />
                 <Tab.Screen
                   name=" "
                   component={AddSessionScreen}
                   options={{
-                    headerStyle: { backgroundColor: "black" },
-                    headerTitleStyle: { color: "white" },
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
                   }}
                 />
                 <Tab.Screen
                   name="Sessions"
                   component={ExportScreen}
                   options={{
-                    headerStyle: { backgroundColor: "black" },
-                    headerTitleStyle: { color: "white" },
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
                   }}
                 />
                 <Tab.Screen
                   name="Settings"
                   component={SettingsScreen}
                   options={{
-                    headerStyle: { backgroundColor: "black" },
-                    headerTitleStyle: { color: "white" },
-                    headerLeft: ({ navigation }) => (
-                      <Btn onPress={() => navigation.push("Dashboard")} />
-                    ),
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                    //headerLeft: ({ navigation }) => (
+                    //<Btn onPress={() => navigation.push("Dashboard")} />
+                    //),
                   }}
                 />
               </Tab.Navigator>

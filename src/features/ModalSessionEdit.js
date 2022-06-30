@@ -3,13 +3,13 @@ import { SessionContext } from "../services/array.context";
 import { View, Alert, Text } from "react-native";
 import styled from "styled-components/native";
 import { Input } from "../infrastructure/commonStyles";
-import { Btn } from "./Btn";
+import { Btn } from "../infrastructure/Btn";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TagsHandler } from "./TagHandler";
 import { sessions } from "../services/mock/array";
 import { scale } from "../infrastructure/scale";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { Readable } from "./ReadableDateTime";
+import { Readable } from "../functions/readableDateTime";
 
 export const EditingModal = ({
   changeProjectEditable,

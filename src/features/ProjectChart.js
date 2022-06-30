@@ -10,14 +10,15 @@ import {
 } from "victory-native";
 import { SessionContext } from "../services/array.context";
 import { findColor } from "../functions/findColor";
-import { Dimensions } from "react-native";
+import { Dimensions, ActivityIndicator } from "react-native";
 const { width } = Dimensions.get("window");
 import { projects } from "../services/mock/array";
-import { Readable } from "../features/ReadableDateTime";
+import { Readable } from "../functions/readableDateTime";
 import { ScrollView } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Logo } from "./logo";
+import { Logo } from "./Logo";
 import { SessionList } from "./SessionList";
+import { DashboardCard } from "./DashboardCard";
 
 export const ProjectChart = ({ timePeriod }) => {
   const { sessions, rerender } = useContext(SessionContext);
@@ -25,8 +26,10 @@ export const ProjectChart = ({ timePeriod }) => {
   const [dateStart, setDateStart] = useState();
 
   const handleSelectedDate = (selectedDate) => {
-    setDateStart(selectedDate);
-    setDateEnd(new Date(selectedDate - 24 * 60 * 60 * 1000).toISOString());
+    setDateStart(selectedDate.setHours(23, 59, 59, 0));
+    const newDate = new Date(selectedDate).setHours(0, 0, 0, 0);
+
+    setDateEnd(new Date(newDate).toISOString());
   };
 
   const selectedDateFilter = sessions.filter((date) => {
@@ -78,48 +81,47 @@ export const ProjectChart = ({ timePeriod }) => {
             fill: findColor(i.name),
           },
         }}
-        barWidth={timePeriod === 1 ? width * 0.6 : scale(40)}
+        barWidth={
+          timePeriod === 1
+            ? width * 0.6
+            : timePeriod === 7
+            ? scale(30)
+            : scale(15)
+        }
         key={v}
         data={projectEntry}
       />
     );
   });
 
-  let chartWidth;
-
-  timePeriod === 30 ? (chartWidth = width * 4) : (chartWidth = width * 0.95);
+  const chartWidth = width * 0.95;
+  let chartHeight;
+  timePeriod === 30 ? (chartHeight = width * 1.75) : (chartHeight = width);
 
   return (
-    <>
-      <V row ac={"c"} j={"sb"}>
-        <H2>Time breakdown</H2>
-        {timePeriod === 30 && (
-          <V row ai={"c"}>
-            <H3 style={{ color: "grey" }}>Scroll </H3>
-            <Ionicons
-              name={"arrow-forward-outline"}
-              size={scale(30)}
-              color={"grey"}
-            />
-          </V>
-        )}
-      </V>
+    <DashboardCard>
+      <H2>Time breakdown</H2>
       <ScrollView
+        scrollEnabled={false}
         horizontal
         bounces={false}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
         <VictoryChart
-          height={width}
+          sortOrder="descending"
+          horizontal={timePeriod === 30 ? true : false}
+          height={chartHeight}
           width={chartWidth}
-          padding={50}
+          padding={scale(50)}
           events={[
             {
               childName: "bar",
               target: "data",
               eventHandlers: {
-                onPressIn: (event, data) => handleSelectedDate(data.datum.x),
+                onPressIn: (event, data) => {
+                  handleSelectedDate(data.datum.x);
+                },
               },
             },
           ]}
@@ -139,7 +141,8 @@ export const ProjectChart = ({ timePeriod }) => {
             }}
           />
           <VictoryAxis
-            tickCount={timePeriod === 30 ? 30 : timePeriod === 7 ? 7 : 1}
+            scale={{ x: "time" }}
+            tickCount={timePeriod === 30 ? 10 : timePeriod === 7 ? 7 : 1}
             tickFormat={(date) => Readable(date, "short")}
           />
         </VictoryChart>
@@ -147,18 +150,24 @@ export const ProjectChart = ({ timePeriod }) => {
       {dateEnd ? (
         <>
           <V pb={3}>
-            <H2>Your sessions</H2>
+            <H2>{Readable(dateStart, "date")} sessions</H2>
           </V>
           <SessionList data={selectedDateFilter} horizontal inverse />
         </>
       ) : (
         <V row ai="c">
-          <Logo project={"i"} color={"#000000"} full={false} size={scale(40)} />
+          <Logo
+            project={"i"}
+            color={"#000000"}
+            full={false}
+            size={scale(40)}
+            sessions={sessions}
+          />
           <V pl={2}>
             <H3>Tap for more information</H3>
           </V>
         </V>
       )}
-    </>
+    </DashboardCard>
   );
 };

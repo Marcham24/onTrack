@@ -9,7 +9,7 @@ import {
 } from "../infrastructure/commonStyles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
-import { Btn } from "./Btn";
+import { Btn } from "../infrastructure/Btn";
 
 const DeleteTag = styled.TouchableOpacity`
   flex-direction: row;
