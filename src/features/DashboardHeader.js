@@ -6,7 +6,7 @@ import {
   Animated,
   ImageBackground,
 } from "react-native";
-import { V, H1 } from "../infrastructure/commonStyles";
+import { V, H1, BodyText } from "../infrastructure/commonStyles";
 import { Logo } from "./Logo";
 import { scale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
@@ -18,14 +18,14 @@ const { width } = Dimensions.get("window");
 export const DashboardHeader = ({ project, animatedValue }) => {
   const headerHeight = animatedValue.interpolate({
     inputRange: [0, 150],
-    outputRange: [scale(250), scale(50)],
+    outputRange: [scale(300), scale(50)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
 
   const headerBorderRadius = animatedValue.interpolate({
-    inputRange: [0, 150, 170],
-    outputRange: [scale(300), 24, 12],
+    inputRange: [0, 150],
+    outputRange: [scale(75), scale(12)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
@@ -80,7 +80,7 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           },
         ]}
       >
-        <V row ai={"c"}>
+        <V row ai={"c"} pl={2} pr={2}>
           <Logo project={projectName} color={color} full={false} size={40} />
           <H1
             style={[
@@ -88,10 +88,13 @@ export const DashboardHeader = ({ project, animatedValue }) => {
               { transform: [{ scale: 0.65 }] },
             ]}
           >
-            {" "}
-            {projectName}{" "}
+            {projectName}
           </H1>
-          <Ionicons name={"add-circle"} size={scale(40)} color={"white"} />
+          <Ionicons
+            name={"ellipsis-vertical"}
+            size={scale(25)}
+            color={"white"}
+          />
         </V>
       </Animated.View>
       <Animated.View style={[styles(color).sliderContainerStyle]}>
@@ -106,13 +109,24 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           <Animated.View
             style={[styles(color).headerLogo, { opacity: headerOpacity }]}
           >
-            <Logo project={projectName} color={color} full={false} size={80} />
-
-            <V p={3}>
-              <H1> {projectName} </H1>
+            <V pl={3} pb={6} ai="c">
+              <Logo
+                project={projectName}
+                color={color}
+                full={false}
+                size={120}
+              />
+              <V row pt={2} ai={"c"}>
+                <V pr={2}>
+                  <H1> {projectName} </H1>
+                </V>
+                <Ionicons
+                  name={"ellipsis-vertical"}
+                  size={scale(25)}
+                  color={"white"}
+                />
+              </V>
             </V>
-
-            <Ionicons name={"add-circle"} size={scale(40)} color={"white"} />
           </Animated.View>
         </Animated.View>
       </Animated.View>
@@ -128,30 +142,28 @@ const styles = (color) =>
       alignSelf: "center",
       width: width,
       overflow: "hidden",
-      height: scale(250),
+      height: scale(300),
       backgroundColor: "#00000000",
     },
     sliderContainerStyle: {
       width: width * 2,
-      height: scale(250),
+      height: scale(300),
       marginLeft: -(width / 2),
       position: "absolute",
       bottom: 0,
       overflow: "hidden",
     },
     slider: {
-      height: scale(250),
+      height: scale(300),
       width: width,
       position: "absolute",
 
       bottom: 0,
       marginLeft: width / 2,
       backgroundColor: projectBg(color),
-      justifyContent: "center",
+      justifyContent: "flex-end",
     },
-    headerLogo: {
-      alignItems: "center",
-    },
+
     subHeader: {
       top: -scale(80),
       opacity: 1,

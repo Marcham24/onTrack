@@ -18,11 +18,14 @@ import {
 import { AddProject } from "./src/features/AddProject";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { AddSession } from "./src/features/AddSession";
-import { SView, H1 } from "./src/infrastructure/commonStyles";
-import { Toast } from "./src/features/Toast";
+import { H1, V } from "./src/infrastructure/commonStyles";
 
 const ProjectsScreen = () => {
-  return <Toast />;
+  return (
+    <V>
+      <H1>Hello</H1>
+    </V>
+  );
 };
 
 const AddSessionScreen = () => {

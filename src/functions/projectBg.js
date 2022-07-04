@@ -1,3 +1,3 @@
 export const projectBg = (color) => {
-  return color + "66";
+  return color + "99";
 };

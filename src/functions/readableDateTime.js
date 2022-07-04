@@ -18,6 +18,7 @@ export const Readable = (d, type) => {
 
   const y = toDate.getFullYear();
   const m = monthNames[toDate.getMonth()];
+  const mNum = toDate.getMonth() + 1;
   const da = toDate.getDate();
 
   let h = toDate.getHours();
@@ -43,8 +44,8 @@ export const Readable = (d, type) => {
 
   //short style for project chart
 
-  const shortArr = [da, m]
-  const ReadableShort = shortArr.join(" ");
+  const shortArr = [da, mNum];
+  const ReadableShort = shortArr.join("/");
 
   //datetime
 

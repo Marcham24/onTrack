@@ -11,7 +11,6 @@ export const TotalAllTime = (project, projectSpecific) => {
       return v.project.includes(project);
     }));
 
-  console.log(projectSpecific);
   const periodTotal = sessionsArray.reduce(
     (v, currentValue) => (v = v + (currentValue.end - currentValue.start)),
     0

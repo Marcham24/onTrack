@@ -4,24 +4,40 @@ import {
   Dimensions,
   Animated,
   View,
-  Text,
   TouchableOpacity,
   Button,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
 import { BodyText, H3 } from "../infrastructure/commonStyles";
+import { LoadingIndicator } from "./Loading";
 
-export const Toast = () => {
+export const Loading = ({
+  isLoading,
+  status = "success",
+  header,
+  message,
+  toast,
+  loading,
+}) => {
   const height = Dimensions.get("window").height;
-  const [status, setStatus] = useState(null);
+  const [load, setLoad] = useState(false);
   const popAnim = useRef(new Animated.Value(height)).current;
   const successColor = "#6dcf81";
-  const successHeader = "Success!";
-  const successMessage = "You pressed the success button";
   const failColor = "#bf6060";
-  const failHeader = "Failed!";
-  const failMessage = "You pressed the fail button";
+  let statusColor;
+
+  status === "success"
+    ? (statusColor = successColor)
+    : (statusColor = failColor);
+
+  useEffect(() => {
+    setLoad(true);
+    setTimeout(() => {
+      popIn();
+      setLoad(false);
+    }, 4000);
+  }, [isLoading]);
 
   const popIn = () => {
     Animated.timing(popAnim, {
@@ -49,51 +65,34 @@ export const Toast = () => {
     }).start();
   };
   return (
-    <View>
-      <Animated.View
-        style={[
-          styles.toastContainer,
-          {
-            transform: [{ translateY: popAnim }],
-          },
-        ]}
-      >
-        <View style={styles.toastRow}>
-          <Ionicons
-            name={status === "success" ? "alert-outline" : "close-outline"}
-            size={24}
-            color={status === "success" ? successColor : failColor}
-          />
-          <View style={styles.toastText}>
-            <H3>{status === "success" ? successHeader : failHeader}</H3>
-            <BodyText>
-              {status === "success" ? successMessage : failMessage}
-            </BodyText>
+    <>
+      <View>
+        <Animated.View
+          style={[
+            styles.toastContainer,
+            {
+              transform: [{ translateY: popAnim }],
+            },
+          ]}
+        >
+          <View style={styles.toastRow}>
+            <Ionicons
+              name={status === "success" ? "alert-outline" : "close-outline"}
+              size={24}
+              color={statusColor}
+            />
+            <View style={styles.toastText}>
+              <H3>{header}</H3>
+              <BodyText>{message}</BodyText>
+            </View>
+            <TouchableOpacity onPress={instantPopOut}>
+              <Ionicons name="close-outline" size={24} color="black" />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={instantPopOut}>
-            <Ionicons name="close-outline" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
-      </Animated.View>
-
-      <Button
-        title="Success Message"
-        onPress={() => {
-          setStatus("success");
-          popIn();
-        }}
-        style={{ marginTop: 30 }}
-      ></Button>
-
-      <Button
-        title="Fail Message"
-        onPress={() => {
-          setStatus("fail");
-          popIn();
-        }}
-        style={{ marginTop: 30 }}
-      ></Button>
-    </View>
+        </Animated.View>
+      </View>
+      {loading && <LoadingIndicator isLoading={load} />}
+    </>
   );
 };
 

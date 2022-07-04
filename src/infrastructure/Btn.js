@@ -9,7 +9,7 @@ export const Btn = ({
   mimicInput = false,
 }) => {
   const Opacity = styled.TouchableOpacity`
- 
+ flex-grow:1;
     background-color: ${
       mimicInput
         ? (props) => props.theme.colors.white

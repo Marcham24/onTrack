@@ -3,16 +3,16 @@ import { Animated } from "react-native";
 import styled from "styled-components";
 import { scale } from "../infrastructure/scale";
 
-export const DashboardCard = ({ children, backgroundColor }) => {
+export const DashboardCard = ({ children, backgroundColor, rerender }) => {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1500,
+      duration: 2000,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim]);
+  }, [fadeAnim, rerender]);
 
   const AnimDashboardCard = styled(Animated.View)`
 

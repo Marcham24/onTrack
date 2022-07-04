@@ -13,72 +13,74 @@ import { DashboardCard } from "../features/DashboardCard";
 import { DashboardHeader } from "../features/DashboardHeader";
 import { ProjectChart } from "../features/ProjectChart";
 import { findColor } from "../functions/findColor";
+import { DashboardAddButton } from "../features/DashboardAddButton";
+import { Loading, LoadingIndicator } from "../features/Loading";
 
 export const DashboardScreen = ({ project }) => {
   const [timePeriod, setTimePeriod] = useState(30);
-
-  const isLoading = false;
+  const [loading, setLoading] = useState(false);
 
   const handleChangeTimePeriod = (time) => {
-    setTimePeriod(time);
+    setLoading(!loading);
+    setTimeout(() => {
+      setTimePeriod(time);
+    }, 2000);
+    setTimeout(() => {
+      setLoading(!loading);
+    }, 4000);
   };
 
   const [scrollY] = useState(new Animated.Value(0));
 
   return (
     <>
-      <V row pt={4} pb={4} bg={"c5"} j={"sa"} ai={"c"} shadow>
-        <TouchableOpacity
-          onPress={() => {
-            handleChangeTimePeriod(1);
-          }}
-        >
-          <TimePeriod>Today</TimePeriod>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            handleChangeTimePeriod(7);
-          }}
-        >
-          <TimePeriod>7 days</TimePeriod>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            handleChangeTimePeriod(30);
-          }}
-        >
-          <TimePeriod>30 days</TimePeriod>
-        </TouchableOpacity>
-      </V>
-
-      <ScrollView
-        nestedScrollEnabled={true}
-        bounces={false}
-        stickyHeaderIndices={[0]}
-        scrollEventThrottle={16}
-        overScrollMode={"never"}
-        onScroll={Animated.event(
-          [
-            {
-              nativeEvent: { contentOffset: { y: scrollY } },
-            },
-          ],
-          {
-            listener: (event) => {},
-            useNativeDriver: false,
-          }
-        )}
-      >
-        <DashboardHeader animatedValue={scrollY} />
-        {isLoading ? (
-          <V grow f={1} ai="c" pt={8}>
-            <ActivityIndicator
-              color={findColor(project) || "black"}
-              size="large"
-            />
+      <V>
+        <V row bg={"c5"}>
+          <V row grow f={5} pt={4} pb={4} j={"sa"} ai={"c"}>
+            <TouchableOpacity
+              onPress={() => {
+                handleChangeTimePeriod(1);
+              }}
+            >
+              <TimePeriod>Today</TimePeriod>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                handleChangeTimePeriod(7);
+              }}
+            >
+              <TimePeriod>7 days</TimePeriod>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                handleChangeTimePeriod(30);
+              }}
+            >
+              <TimePeriod>30 days</TimePeriod>
+            </TouchableOpacity>
           </V>
-        ) : (
-          <V p={2} z={5}>
+        </V>
+
+        <ScrollView
+          nestedScrollEnabled={true}
+          bounces={false}
+          stickyHeaderIndices={[0]}
+          scrollEventThrottle={16}
+          overScrollMode={"never"}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: { contentOffset: { y: scrollY } },
+              },
+            ],
+            {
+              listener: (event) => {},
+              useNativeDriver: false,
+            }
+          )}
+        >
+          <DashboardHeader animatedValue={scrollY} project={"join"} />
+          <V p={2}>
             <V row>
               <ProjectPie timePeriod={timePeriod} />
               <PeriodTime calcDays={timePeriod} />
@@ -91,8 +93,10 @@ export const DashboardScreen = ({ project }) => {
               </DashboardCard>
             </>
           </V>
-        )}
-      </ScrollView>
+        </ScrollView>
+      </V>
+      <DashboardAddButton project={project} />
+      <LoadingIndicator isLoading={loading} />
     </>
   );
 };

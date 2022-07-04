@@ -26,8 +26,6 @@ export const SessionSearch = () => {
   const handleSetEndTime = (value) => {
     setEndDate(value);
     setEndPickerOpen(false);
-    console.log(startDate);
-    console.log(endDate);
   };
 
   const sortedSessions = sessions.sort((a, b) => b.start - a.start);

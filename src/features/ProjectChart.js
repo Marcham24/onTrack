@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useMemo } from "react";
 import { scale } from "../infrastructure/scale";
 import { H2, H3, V } from "../infrastructure/commonStyles";
 import {
@@ -7,6 +7,7 @@ import {
   VictoryAxis,
   VictoryVoronoiContainer,
   VictoryChart,
+  VictoryLabel,
 } from "victory-native";
 import { SessionContext } from "../services/array.context";
 import { findColor } from "../functions/findColor";
@@ -36,82 +37,86 @@ export const ProjectChart = ({ timePeriod }) => {
     return date.start < new Date(dateStart) && date.start > new Date(dateEnd);
   });
 
-  const getChartData = projects.map((i, v) => {
-    let now = new Date();
-    let day = 1000 * 60 * 60 * 24;
+  const getChartData = useMemo(
+    () =>
+      projects.map((i, v) => {
+        let now = new Date();
+        let day = 1000 * 60 * 60 * 24;
 
-    let start = now.setHours(23, 59, 59, 0) - day * (timePeriod - 1);
-    let end = now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
-    let projectEntry = [];
+        let start = now.setHours(23, 59, 59, 0) - day * (timePeriod - 1);
+        let end = now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
+        let projectEntry = [];
 
-    const projectFilter = sessions.filter((el) => {
-      return el.project === i.name;
-    });
+        const projectFilter = sessions.filter((el) => {
+          return el.project === i.name;
+        });
 
-    for (let a = 0; a < timePeriod; a++) {
-      let dateFilter = [{}];
-      dateFilter = projectFilter.filter((date) => {
-        return date.start < start && date.start > end;
-      });
+        for (let a = 0; a < timePeriod; a++) {
+          let dateFilter = [{}];
+          dateFilter = projectFilter.filter((date) => {
+            return date.start < start && date.start > end;
+          });
 
-      let dateTotal = dateFilter.reduce(
-        (t, currentValue) =>
-          (t = t + (currentValue.end.getTime() - currentValue.start.getTime())),
-        0
-      );
+          let dateTotal = dateFilter.reduce(
+            (t, currentValue) =>
+              (t =
+                t +
+                (currentValue.end.getTime() - currentValue.start.getTime())),
+            0
+          );
 
-      const entry = {
-        x: new Date(start),
-        y: dateTotal / (60 * 60 * 1000),
-        n: i.name,
-      };
+          const entry = {
+            x: new Date(start),
+            y: dateTotal / (60 * 60 * 1000),
+            n: i.name,
+          };
 
-      projectEntry.push(entry);
+          projectEntry.push(entry);
 
-      start = start + day;
-      end = end + day;
-    }
-    return (
-      <VictoryBar
-        x="x"
-        y="y"
-        name={"bar"}
-        style={{
-          data: {
-            fill: findColor(i.name),
-          },
-        }}
-        barWidth={
-          timePeriod === 1
-            ? width * 0.6
-            : timePeriod === 7
-            ? scale(30)
-            : scale(15)
+          start = start + day;
+          end = end + day;
         }
-        key={v}
-        data={projectEntry}
-      />
-    );
-  });
+        return (
+          <VictoryBar
+            name={"bar"}
+            style={{
+              data: {
+                fill: findColor(i.name),
+              },
+            }}
+            barWidth={timePeriod === 1 ? width * 0.6 : scale(35)}
+            key={v}
+            data={projectEntry}
+            labels={({ datum }) => Readable(datum.x, "short")}
+            labelComponent={<VictoryLabel y={width - scale(10)} />}
+          />
+        );
+      }),
+    [timePeriod, sessions]
+  );
 
-  const chartWidth = width * 0.95;
-  let chartHeight;
-  timePeriod === 30 ? (chartHeight = width * 1.75) : (chartHeight = width);
+  let chartWidth;
+  timePeriod === 30 ? (chartWidth = width * 3) : (chartWidth = width * 0.9);
+
+  const maxDomain = new Date().setHours(23, 59, 59, 0);
+  const minDomain =
+    new Date().setHours(23, 59, 59, 0) - (timePeriod - 1) * 24 * 60 * 60 * 1000;
 
   return (
-    <DashboardCard>
+    <DashboardCard rerender={timePeriod}>
       <H2>Time breakdown</H2>
       <ScrollView
-        scrollEnabled={false}
+        scrollEnabled={timePeriod === 30 ? true : false}
         horizontal
         bounces={false}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
         <VictoryChart
+          maxDomain={{ x: maxDomain }}
+          minDomain={{ x: minDomain }}
           sortOrder="descending"
-          horizontal={timePeriod === 30 ? true : false}
-          height={chartHeight}
+          height={width}
           width={chartWidth}
           padding={scale(50)}
           events={[
@@ -128,7 +133,7 @@ export const ProjectChart = ({ timePeriod }) => {
           containerComponent={<VictoryVoronoiContainer voronoiDimension="x" />}
         >
           <VictoryStack
-            domainPadding={timePeriod === 1 ? 0 : scale(15)}
+            domainPadding={timePeriod === 1 ? 0 : scale(20)}
             scale={{ x: "time" }}
           >
             {getChartData}
@@ -137,14 +142,10 @@ export const ProjectChart = ({ timePeriod }) => {
             dependentAxis
             tickFormat={(time) => time + " h"}
             style={{
-              grid: { stroke: "black", strokeWidth: 1, opacity: 0.04 },
+              grid: { stroke: "black", strokeWidth: 1, opacity: 0.08 },
             }}
           />
-          <VictoryAxis
-            scale={{ x: "time" }}
-            tickCount={timePeriod === 30 ? 10 : timePeriod === 7 ? 7 : 1}
-            tickFormat={(date) => Readable(date, "short")}
-          />
+          <VictoryAxis tickFormat={() => ""} />
         </VictoryChart>
       </ScrollView>
       {dateEnd ? (

@@ -10,7 +10,7 @@ import {
 import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TagsHandler } from "./TagHandler";
-import { Input, DropdownStyled } from "../infrastructure/commonStyles";
+import { Input, DropdownStyled, V } from "../infrastructure/commonStyles";
 import { Btn } from "../infrastructure/Btn";
 import { ProjectCard } from "./ProjectCard";
 import { SessionContext } from "../services/array.context";
@@ -85,8 +85,9 @@ export const AddSession = () => {
         />
       </View>
 
-      <View style={!newProject && { flexGrow: 1, justifyContent: "center" }}>
+      <V row>
         <DropdownStyled
+          style={{ height: scale(60) }}
           maxHeight={scale(200)}
           placeholder="Select a project"
           value={newProject}
@@ -101,7 +102,8 @@ export const AddSession = () => {
             setProjectColor(findColor(item.name));
           }}
         />
-      </View>
+        <Btn type="add" />
+      </V>
 
       <KeyboardAvoidingView
         style={{ flex: 1.5 }}

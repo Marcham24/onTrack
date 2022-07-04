@@ -172,6 +172,8 @@ background-color: ${(props) =>
   ${(props) => props.row && "flex-direction: row"}
   ${(props) => props.grow && "flex-grow: 1"}
   ${(props) => props.shrink && "flex-shrink:1"}
+   ${(props) => props.abs && "position: absolute"}
+     ${(props) => props.top && "top:" + props.top + "px"}
   ${(props) =>
     props.br && "border-radius:" + scale(props.theme.space[1]) + "px"};}
   padding-top: ${(props) =>

@@ -36,37 +36,25 @@ export const ProjectCard = ({
             full={full}
             size={size}
           />
-
-          {!creation && (
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: 15,
-              }}
-            >
-              <View>
-                <ProjectText>{!project ? "Project name" : project}</ProjectText>
-                <TouchableOpacity>
-                  <CategoryText>
-                    {!category || category === "Please select a category"
-                      ? "Category"
-                      : "Category: " + category}
-                  </CategoryText>
-                </TouchableOpacity>
-              </View>
-              <View style={{ flexShrink: 0 }}>
-                <TouchableOpacity>
-                  <Ionicons
-                    name={"ellipsis-vertical"}
-                    size={scale(16)}
-                    color="#1c1d23"
-                  />
-                </TouchableOpacity>
-              </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: 15,
+            }}
+          >
+            <View style={{ flexShrink: 1 }}>
+              <ProjectText>{!project ? "Project name" : project}</ProjectText>
+              <TouchableOpacity>
+                <CategoryText>
+                  {!category || category === "Please select a category"
+                    ? "Category"
+                    : "Category: " + category}
+                </CategoryText>
+              </TouchableOpacity>
             </View>
-          )}
+          </View>
         </View>
       </View>
     </Card>
