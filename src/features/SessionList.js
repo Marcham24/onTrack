@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { View, FlatList } from "react-native";
 import { SessionContext } from "../services/array.context";
-import { H3 } from "../infrastructure/commonStyles";
+import { H3, V } from "../infrastructure/commonStyles";
 import { SessionView } from "./SessionOverview";
 
 export const SessionList = ({
@@ -49,7 +49,11 @@ export const SessionList = ({
       renderItem={renderItem}
       extraData={rerender}
       initialNumToRender={10}
-      ListEmptyComponent={<H3>{emptyListString}</H3>}
+      ListEmptyComponent={
+        <V p={3} ai="c">
+          <H3>{emptyListString}</H3>
+        </V>
+      }
     />
   );
 };

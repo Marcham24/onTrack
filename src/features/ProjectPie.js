@@ -14,7 +14,7 @@ import { DashboardCard } from "./DashboardCard";
 const { width } = Dimensions.get("window");
 import { projects } from "../services/mock/array";
 
-export const ProjectPie = ({ timePeriod }) => {
+export const ProjectPie = ({ timePeriod, isLoading }) => {
   const { sessions } = useContext(SessionContext);
 
   const [selectedPieProject, setSelectedPieProject] = useState(null);
@@ -68,7 +68,7 @@ export const ProjectPie = ({ timePeriod }) => {
 
   return (
     <>
-      <DashboardCard>
+      <DashboardCard isLoading={isLoading}>
         <H2>Project breakdown</H2>
         <View style={{ justifyContent: "space-between" }}>
           <View
@@ -84,9 +84,6 @@ export const ProjectPie = ({ timePeriod }) => {
               startAngle={360}
               endAngle={0}
               labels={() => null}
-              animate={{
-                duration: 500,
-              }}
               cornerRadius={scale(4)}
               events={[
                 {
@@ -107,7 +104,7 @@ export const ProjectPie = ({ timePeriod }) => {
                 },
               ]}
               padAngle={() => scale(2)}
-              innerRadius={scale(50)}
+              innerRadius={scale(40)}
               data={projectWithTimesNoZeros}
               colorScale={projectColorsArray}
             />

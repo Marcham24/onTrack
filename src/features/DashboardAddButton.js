@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Animated, View } from "react-native";
+import { Animated, View, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
@@ -8,10 +8,9 @@ import { H3 } from "../infrastructure/commonStyles";
 
 export const DashboardAddButton = ({ project }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const bottomAnim = useRef(new Animated.Value(0)).current;
+  const bottomAnim = useRef(new Animated.Value(300)).current;
   const spinAnim = useRef(new Animated.Value(0)).current;
-  const buttonColor = findColor(project) || "#000";
+  const buttonColor = findColor(project) || "#353535";
 
   const AddButton = styled.TouchableOpacity`
     background-color: ${buttonColor};
@@ -28,9 +27,10 @@ export const DashboardAddButton = ({ project }) => {
     align-content: center;
   `;
   const MenuItem = styled.TouchableOpacity`
+    elevation: 10;
     background-color: ${buttonColor};
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     position: absolute;
     right: ${scale(10) + "px"};
     bottom: ${(props) => scale(props.bottom) + "px"};
@@ -44,12 +44,7 @@ export const DashboardAddButton = ({ project }) => {
       useNativeDriver: true,
     }).start();
     Animated.timing(bottomAnim, {
-      toValue: menuOpen ? 15 : 0,
-      duration: 300,
-      useNativeDriver: true,
-    }).start();
-    Animated.timing(fadeAnim, {
-      toValue: menuOpen ? 0 : 1,
+      toValue: menuOpen ? 300 : 0,
       duration: 300,
       useNativeDriver: true,
     }).start();
@@ -57,41 +52,39 @@ export const DashboardAddButton = ({ project }) => {
 
   const rotateMenu = spinAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ["0deg", "90deg"],
+    outputRange: ["180deg", "0deg"],
   });
 
   return (
     <>
-      <Animated.View
+      <MenuItem
         style={{
-          opacity: fadeAnim,
-          transform: [{ translateY: bottomAnim }],
+          transform: [{ translateX: bottomAnim }],
         }}
+        bottom={scale(70)}
+        onPress={() => console.log("session")}
       >
-        <MenuItem bottom={scale(70)}>
-          <H3 style={{ color: "white" }}>Manually add a new session</H3>
-        </MenuItem>
-      </Animated.View>
-      <Animated.View
+        <H3 style={{ color: "white" }}>Manually add a new session</H3>
+      </MenuItem>
+
+      <MenuItem
         style={{
-          opacity: fadeAnim,
-          transform: [{ translateY: bottomAnim }],
+          transform: [{ translateX: bottomAnim }],
         }}
+        bottom={scale(120)}
+        onPress={() => console.log("time")}
       >
-        <MenuItem bottom={scale(110)}>
-          <H3 style={{ color: "white" }}>Time a new session</H3>
-        </MenuItem>
-      </Animated.View>
-      <Animated.View
+        <H3 style={{ color: "white" }}>Time a new session</H3>
+      </MenuItem>
+
+      <MenuItem
         style={{
-          opacity: fadeAnim,
-          transform: [{ translateY: bottomAnim }],
+          transform: [{ translateX: bottomAnim }],
         }}
+        bottom={scale(170)}
       >
-        <MenuItem bottom={scale(150)}>
-          <H3 style={{ color: "white" }}>Add a new project</H3>
-        </MenuItem>
-      </Animated.View>
+        <H3 style={{ color: "white" }}>Add a new project</H3>
+      </MenuItem>
 
       <AddButton
         onPress={handleOpenMenu}

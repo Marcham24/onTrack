@@ -5,8 +5,9 @@ import { ProjectCard } from "./ProjectCard";
 import { H2 } from "../infrastructure/commonStyles";
 import { SessionContext } from "../services/array.context";
 import { scale } from "../infrastructure/scale";
+import { DashboardCard } from "./DashboardCard";
 
-export const ViewProjects = () => {
+export const ViewProjects = ({ isLoading }) => {
   const { rerender } = useContext(SessionContext);
   const renderItem = ({ item }) => (
     <Item name={item.name} category={item.category} color={item.color} />
@@ -24,15 +25,21 @@ export const ViewProjects = () => {
     />
   );
 
+  const data = projects.sort((a, b) => a.name.localeCompare(b.name));
+
   return (
-    <View>
+    <DashboardCard backgroundColor={"#353535"} isLoading={isLoading}>
+      <H2 style={{ color: "white", paddingBottom: 10 }}>Your Projects</H2>
       <FlatList
-        horizontal={true}
-        data={projects.sort((a, b) => a.name.localeCompare(b.name))}
+        bounces={false}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={data}
         keyExtractor={(item) => item.color}
         renderItem={renderItem}
         extraData={rerender}
       />
-    </View>
+    </DashboardCard>
   );
 };

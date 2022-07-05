@@ -1,37 +1,73 @@
-import { useState, useEffect } from "react";
-import { Animated } from "react-native";
+import { useState, useRef, useEffect } from "react";
+import { Animated, View } from "react-native";
+import { ActivityIndicator } from "react-native";
 import styled from "styled-components";
 import { scale } from "../infrastructure/scale";
 
-export const DashboardCard = ({ children, backgroundColor, rerender }) => {
-  const [fadeAnim] = useState(new Animated.Value(0));
+export const DashboardCard = ({ children, backgroundColor, isLoading }) => {
+  const opacityAnim = useRef(new Animated.Value(1)).current;
+  const [contentWidth, setContentWidth] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
 
   useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 2000,
-      useNativeDriver: true,
-    }).start();
-  }, [fadeAnim, rerender]);
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(opacityAnim, {
+          toValue: 0.4,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 1,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+      ]),
+      { iterations: -1 }
+    ).start();
+  }, [isLoading, opacityAnim]);
 
-  const AnimDashboardCard = styled(Animated.View)`
-
+  const DashboardCard = styled(Animated.View)`
   flex:1; 
   margin: ${(props) => scale(props.theme.space[2]) + "px"}
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
   padding: ${(props) => scale(props.theme.space[4]) + "px"};
   background-color: ${(props) =>
-    backgroundColor ? backgroundColor : props.theme.colors.white};
+    backgroundColor
+      ? backgroundColor
+      : isLoading
+      ? props.theme.colors.c4
+      : props.theme.colors.white};
 
 `;
 
+  const measure = ({ nativeEvent }) => {
+    setContentWidth(nativeEvent.layout.width);
+    setContentHeight(nativeEvent.layout.height);
+  };
   return (
-    <AnimDashboardCard
+    <DashboardCard
       style={{
-        opacity: fadeAnim,
+        opacity: isLoading ? opacityAnim : 1,
       }}
     >
-      {children}
-    </AnimDashboardCard>
+      {!isLoading ? (
+        <View onLayout={measure} style={{ flex: 1 }}>
+          {children}
+        </View>
+      ) : (
+        <Animated.View style={{}}>
+          <Animated.View
+            style={{
+              width: contentWidth || "90%",
+              height: contentHeight || 400,
+              justifyContent: "center",
+            }}
+          >
+            <ActivityIndicator size="large" color="#000" />
+          </Animated.View>
+        </Animated.View>
+      )}
+    </DashboardCard>
   );
 };

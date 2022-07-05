@@ -21,22 +21,8 @@ import { Logo } from "./Logo";
 import { SessionList } from "./SessionList";
 import { DashboardCard } from "./DashboardCard";
 
-export const ProjectChart = ({ timePeriod }) => {
+export const ProjectChart = ({ timePeriod, isLoading }) => {
   const { sessions, rerender } = useContext(SessionContext);
-  const [dateEnd, setDateEnd] = useState();
-  const [dateStart, setDateStart] = useState();
-
-  const handleSelectedDate = (selectedDate) => {
-    setDateStart(selectedDate.setHours(23, 59, 59, 0));
-    const newDate = new Date(selectedDate).setHours(0, 0, 0, 0);
-
-    setDateEnd(new Date(newDate).toISOString());
-  };
-
-  const selectedDateFilter = sessions.filter((date) => {
-    return date.start < new Date(dateStart) && date.start > new Date(dateEnd);
-  });
-
   const getChartData = useMemo(
     () =>
       projects.map((i, v) => {
@@ -83,16 +69,23 @@ export const ProjectChart = ({ timePeriod }) => {
               data: {
                 fill: findColor(i.name),
               },
+              labels: {
+                fontWeight: ({ datum }) =>
+                  new Date(datum.x).getDay() === 0 ||
+                  new Date(datum.x).getDay() === 6
+                    ? 900
+                    : 300,
+              },
             }}
             barWidth={timePeriod === 1 ? width * 0.6 : scale(35)}
             key={v}
             data={projectEntry}
             labels={({ datum }) => Readable(datum.x, "short")}
-            labelComponent={<VictoryLabel y={width - scale(10)} />}
+            labelComponent={<VictoryLabel y={width + scale(10)} />}
           />
         );
       }),
-    [timePeriod, sessions]
+    [timePeriod, sessions, rerender]
   );
 
   let chartWidth;
@@ -103,8 +96,16 @@ export const ProjectChart = ({ timePeriod }) => {
     new Date().setHours(23, 59, 59, 0) - (timePeriod - 1) * 24 * 60 * 60 * 1000;
 
   return (
-    <DashboardCard rerender={timePeriod}>
-      <H2>Time breakdown</H2>
+    <DashboardCard isLoading={isLoading}>
+      <V row j="sb" ai="c">
+        <H2>Time breakdown</H2>
+        {timePeriod === 30 && (
+          <V row ai="c">
+            <H3>Scroll </H3>
+            <Ionicons name={"arrow-forward"} size={scale(12)} color="grey" />
+          </V>
+        )}
+      </V>
       <ScrollView
         scrollEnabled={timePeriod === 30 ? true : false}
         horizontal
@@ -115,25 +116,17 @@ export const ProjectChart = ({ timePeriod }) => {
         <VictoryChart
           maxDomain={{ x: maxDomain }}
           minDomain={{ x: minDomain }}
-          sortOrder="descending"
           height={width}
           width={chartWidth}
-          padding={scale(50)}
-          events={[
-            {
-              childName: "bar",
-              target: "data",
-              eventHandlers: {
-                onPressIn: (event, data) => {
-                  handleSelectedDate(data.datum.x);
-                },
-              },
-            },
-          ]}
-          containerComponent={<VictoryVoronoiContainer voronoiDimension="x" />}
+          padding={{
+            left: scale(40),
+            top: scale(20),
+            bottom: scale(20),
+            right: scale(40),
+          }}
         >
           <VictoryStack
-            domainPadding={timePeriod === 1 ? 0 : scale(20)}
+            domainPadding={timePeriod === 1 ? scale(5) : scale(30)}
             scale={{ x: "time" }}
           >
             {getChartData}
@@ -145,30 +138,16 @@ export const ProjectChart = ({ timePeriod }) => {
               grid: { stroke: "black", strokeWidth: 1, opacity: 0.08 },
             }}
           />
+          {timePeriod === 30 && (
+            <VictoryAxis
+              dependentAxis
+              tickFormat={(time) => time + " h"}
+              orientation={"right"}
+            />
+          )}
           <VictoryAxis tickFormat={() => ""} />
         </VictoryChart>
       </ScrollView>
-      {dateEnd ? (
-        <>
-          <V pb={3}>
-            <H2>{Readable(dateStart, "date")} sessions</H2>
-          </V>
-          <SessionList data={selectedDateFilter} horizontal inverse />
-        </>
-      ) : (
-        <V row ai="c">
-          <Logo
-            project={"i"}
-            color={"#000000"}
-            full={false}
-            size={scale(40)}
-            sessions={sessions}
-          />
-          <V pl={2}>
-            <H3>Tap for more information</H3>
-          </V>
-        </V>
-      )}
     </DashboardCard>
   );
 };
