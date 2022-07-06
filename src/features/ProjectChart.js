@@ -131,15 +131,15 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           height={width}
           width={chartWidth}
           padding={{
-            left: scale(40),
-            top: scale(20),
-            bottom: scale(20),
-            right: scale(40),
+            left: 40,
+            top: 20,
+            bottom: 20,
+            right: 40,
           }}
         >
           <VictoryStack
-            domainPadding={timePeriod === 1 ? scale(5) : scale(30)}
-            scale={{ x: "time" }}
+            domainPadding={{ x: timePeriod === 1 ? 5 : 30 }}
+            scale={{ y: "time" }}
           >
             {getChartData}
           </VictoryStack>
