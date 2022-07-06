@@ -8,7 +8,7 @@ import { H2, H3 } from "../utils/styling";
 import { scale } from "../infrastructure/scale";
 import { DashboardCard } from "./DashboardCard";
 
-export const PeriodTime = ({ calcDays, isLoading }) => {
+export const PeriodTime = ({ calcDays, isLoading, project }) => {
   const [total, setTotal] = useState(0);
   const [change, setChange] = useState(0);
 
@@ -26,11 +26,19 @@ export const PeriodTime = ({ calcDays, isLoading }) => {
   const up = "chevron-up-circle";
   const down = "chevron-down-circle";
 
-  const periodFilter = sessions.filter((date) => {
+  let projectSpecific;
+
+  project
+    ? (projectSpecific = sessions.filter((el) => {
+        return el.project === project;
+      }))
+    : (projectSpecific = sessions);
+
+  const periodFilter = projectSpecific.filter((date) => {
     return date.start > period;
   });
 
-  const prevPeriodTotal = sessions
+  const prevPeriodTotal = projectSpecific
     .filter((date) => {
       return date.start < period && date.start > prevPeriod;
     })

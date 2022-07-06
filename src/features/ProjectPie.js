@@ -84,7 +84,7 @@ export const ProjectPie = ({ timePeriod, isLoading }) => {
               startAngle={360}
               endAngle={0}
               labels={() => null}
-              cornerRadius={scale(4)}
+              cornerRadius={4}
               events={[
                 {
                   target: "data",
@@ -103,7 +103,7 @@ export const ProjectPie = ({ timePeriod, isLoading }) => {
                   },
                 },
               ]}
-              padAngle={() => scale(2)}
+              padAngle={() => scale(1)}
               innerRadius={scale(40)}
               data={projectWithTimesNoZeros}
               colorScale={projectColorsArray}

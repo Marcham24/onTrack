@@ -5,12 +5,15 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
 import { H3 } from "../infrastructure/commonStyles";
+import { useNavigation } from "@react-navigation/native";
 
 export const DashboardAddButton = ({ project }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const bottomAnim = useRef(new Animated.Value(300)).current;
   const spinAnim = useRef(new Animated.Value(0)).current;
   const buttonColor = findColor(project) || "#353535";
+
+  const navigation = useNavigation();
 
   const AddButton = styled.TouchableOpacity`
     background-color: ${buttonColor};
@@ -62,7 +65,7 @@ export const DashboardAddButton = ({ project }) => {
           transform: [{ translateX: bottomAnim }],
         }}
         bottom={scale(70)}
-        onPress={() => console.log("session")}
+        onPress={() => navigation.navigate("Add a session")}
       >
         <H3 style={{ color: "white" }}>Manually add a new session</H3>
       </MenuItem>
@@ -82,6 +85,7 @@ export const DashboardAddButton = ({ project }) => {
           transform: [{ translateX: bottomAnim }],
         }}
         bottom={scale(170)}
+        onPress={() => navigation.navigate("Add a project")}
       >
         <H3 style={{ color: "white" }}>Add a new project</H3>
       </MenuItem>

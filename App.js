@@ -19,6 +19,8 @@ import { AddProject } from "./src/features/AddProject";
 import { DashboardScreen } from "./src/screens/dashboard-screen";
 import { AddSession } from "./src/features/AddSession";
 import { H1, V } from "./src/infrastructure/commonStyles";
+import { createStackNavigator } from "@react-navigation/stack";
+import "react-native-gesture-handler";
 
 const ProjectsScreen = () => {
   return (
@@ -28,28 +30,32 @@ const ProjectsScreen = () => {
   );
 };
 
-const AddSessionScreen = () => {
-  return <SessionSearch />;
+const ProjectsDashboard = (props) => {
+  return <DashboardScreen {...props} />;
 };
 
-const ExportScreen = () => {
+const AddSessionScreen = () => {
+  return <AddSession />;
+};
+
+const AddProjectScreen = () => {
   return <AddProject />;
 };
 
 const SettingsScreen = () => {
-  return <AddSession />;
+  return <SessionSearch />;
 };
 
-const TAB_ICON = {
-  Dashboard: "grid-outline",
-  Projects: "file-tray-full-outline",
-  Sessions: "arrow-down-circle-outline",
-  Settings: "settings-outline",
-  " ": "add-circle",
-};
+// const TAB_ICON = {
+//   Dashboard: "grid-outline",
+//   Projects: "file-tray-full-outline",
+//   Sessions: "arrow-down-circle-outline",
+//   Settings: "settings-outline",
+//   " ": "add-circle",
+// };
 
 export default function App() {
-  const Tab = createBottomTabNavigator();
+  const Stack = createStackNavigator();
 
   const [interLoaded] = useInter({
     Inter_300Light,
@@ -70,7 +76,57 @@ export default function App() {
         <SessionContextProvider>
           <NavigationContainer>
             <SafeView>
-              <Tab.Navigator
+              <Stack.Navigator initialRouteName="Dashboard">
+                <Stack.Screen
+                  name="Dashboard"
+                  component={DashboardScreen}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                  name="Projects"
+                  component={ProjectsScreen}
+                  options={{
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                  }}
+                />
+                <Stack.Screen
+                  name="Project Dashboard"
+                  component={ProjectsDashboard}
+                  options={{
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                  }}
+                />
+                <Stack.Screen
+                  name="Add a session"
+                  component={AddSessionScreen}
+                  options={{
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                  }}
+                />
+                <Stack.Screen
+                  name="Add a project"
+                  component={AddProjectScreen}
+                  options={{
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                  }}
+                />
+                <Stack.Screen
+                  name="Settings"
+                  component={SettingsScreen}
+                  options={{
+                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerTitleStyle: { color: "#000000" },
+                    //headerLeft: ({ navigation }) => (
+                    //<Btn onPress={() => navigation.push("Dashboard")} />
+                    //),
+                  }}
+                />
+              </Stack.Navigator>
+              {/* <Tab.Navigator
                 screenOptions={({ route }) => ({
                   tabBarIcon: ({ color, size }) => {
                     let iconName = TAB_ICON[route.name];
@@ -126,7 +182,7 @@ export default function App() {
                     //),
                   }}
                 />
-              </Tab.Navigator>
+              </Tab.Navigator> */}
             </SafeView>
           </NavigationContainer>
         </SessionContextProvider>

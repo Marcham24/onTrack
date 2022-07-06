@@ -21,8 +21,9 @@ import { Logo } from "./Logo";
 import { SessionList } from "./SessionList";
 import { DashboardCard } from "./DashboardCard";
 
-export const ProjectChart = ({ timePeriod, isLoading }) => {
+export const ProjectChart = ({ timePeriod, isLoading, project }) => {
   const { sessions, rerender } = useContext(SessionContext);
+
   const getChartData = useMemo(
     () =>
       projects.map((i, v) => {
@@ -33,7 +34,15 @@ export const ProjectChart = ({ timePeriod, isLoading }) => {
         let end = now.setHours(0, 0, 0, 0) - day * (timePeriod - 1);
         let projectEntry = [];
 
-        const projectFilter = sessions.filter((el) => {
+        let projectSpecific;
+
+        project
+          ? (projectSpecific = sessions.filter((el) => {
+              return el.project === project;
+            }))
+          : (projectSpecific = sessions);
+
+        const projectFilter = projectSpecific.filter((el) => {
           return el.project === i.name;
         });
 
@@ -65,9 +74,12 @@ export const ProjectChart = ({ timePeriod, isLoading }) => {
         return (
           <VictoryBar
             name={"bar"}
+            cornerRadius={{ top: 4, bottom: 4 }}
             style={{
               data: {
                 fill: findColor(i.name),
+                stroke: "white",
+                strokeWidth: 2,
               },
               labels: {
                 fontWeight: ({ datum }) =>

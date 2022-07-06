@@ -10,9 +10,11 @@ import { ProjectChart } from "../features/ProjectChart";
 import { DashboardAddButton } from "../features/DashboardAddButton";
 import { DashboardSessions } from "../features/DashboardSessions";
 
-export const DashboardScreen = ({ project }) => {
+export const DashboardScreen = ({ navigation, route }) => {
   const [timePeriod, setTimePeriod] = useState(7);
   const [isLoading, setIsLoading] = useState(false);
+
+  const project = route.params?.project;
 
   useEffect(() => {
     handleChangeTimePeriod(7);
@@ -74,18 +76,26 @@ export const DashboardScreen = ({ project }) => {
           }
         )}
       >
-        <DashboardHeader animatedValue={scrollY} />
+        <DashboardHeader animatedValue={scrollY} project={project} />
         <V row>
           <ProjectPie timePeriod={timePeriod} isLoading={isLoading} />
-          <PeriodTime calcDays={timePeriod} isLoading={isLoading} />
+          <PeriodTime
+            calcDays={timePeriod}
+            isLoading={isLoading}
+            project={project}
+          />
         </V>
         <ViewProjects isLoading={isLoading} />
-        <ProjectChart timePeriod={timePeriod} isLoading={isLoading} />
+        <ProjectChart
+          timePeriod={timePeriod}
+          isLoading={isLoading}
+          project={project}
+        />
 
         <DashboardSessions isLoading={isLoading} />
       </ScrollView>
 
-      <DashboardAddButton />
+      <DashboardAddButton project={project} />
     </>
   );
 };
