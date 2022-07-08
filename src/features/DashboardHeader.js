@@ -4,28 +4,32 @@ import {
   View,
   Dimensions,
   Animated,
-  ImageBackground,
+  TouchableOpacity,
 } from "react-native";
-import { V, H1, BodyText } from "../infrastructure/commonStyles";
+import { V, H1, TimePeriod } from "../infrastructure/commonStyles";
 import { Logo } from "./Logo";
 import { scale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
 import { projectBg } from "../functions/projectBg";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 const { width } = Dimensions.get("window");
 
-export const DashboardHeader = ({ project, animatedValue }) => {
+export const DashboardHeader = ({
+  project,
+  animatedValue,
+  handler,
+  timePeriod,
+}) => {
   const headerHeight = animatedValue.interpolate({
     inputRange: [0, 150],
-    outputRange: [scale(300), scale(50)],
+    outputRange: [scale(300), scale(80)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
 
   const headerBorderRadius = animatedValue.interpolate({
     inputRange: [0, 150],
-    outputRange: [scale(75), scale(12)],
+    outputRange: [scale(100), scale(25)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
@@ -39,7 +43,7 @@ export const DashboardHeader = ({ project, animatedValue }) => {
 
   const subheaderPositionY = animatedValue.interpolate({
     inputRange: [75, 150],
-    outputRange: [0, scale(83)],
+    outputRange: [0, scale(89)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
@@ -59,6 +63,22 @@ export const DashboardHeader = ({ project, animatedValue }) => {
     outputRange: [projectBg(color), color],
     extrapolate: "clamp",
   });
+
+  const padding = animatedValue.interpolate({
+    inputRange: [0, 150],
+    outputRange: [scale(75), 0],
+    extrapolate: "clamp",
+  });
+
+  const headerScale = animatedValue.interpolate({
+    inputRange: [0, 150],
+    outputRange: [1, 0.7],
+    extrapolate: "clamp",
+  });
+
+  const handleChange = (time) => {
+    handler(time);
+  };
 
   return (
     <Animated.View
@@ -80,21 +100,8 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           },
         ]}
       >
-        <V row ai={"c"} pl={2} pr={2}>
-          <Logo project={projectName} color={color} full={false} size={40} />
-          <H1
-            style={[
-              { marginLeft: "auto", marginRight: "auto" },
-              { transform: [{ scale: 0.65 }] },
-            ]}
-          >
-            {projectName}
-          </H1>
-          <Ionicons
-            name={"ellipsis-vertical"}
-            size={scale(25)}
-            color={"white"}
-          />
+        <V row ac={"c"} mr={3} ml={project ? 6 : 0} pl={3}>
+          <H1 size={20}> {projectName} </H1>
         </V>
       </Animated.View>
       <Animated.View style={[styles(color).sliderContainerStyle]}>
@@ -107,25 +114,46 @@ export const DashboardHeader = ({ project, animatedValue }) => {
           ]}
         >
           <Animated.View
-            style={[styles(color).headerLogo, { opacity: headerOpacity }]}
+            style={[
+              styles(color).headerLogo,
+              {
+                opacity: headerOpacity,
+                transform: [{ scale: headerScale }],
+              },
+            ]}
           >
-            <V pl={3} pb={6} ai="c">
+            <V ai="c">
               <Logo
                 project={projectName}
                 color={color}
                 full={false}
                 size={120}
               />
-              <V row pt={2} ai={"c"}>
-                <V pr={2}>
-                  <H1> {projectName} </H1>
-                </V>
-                <Ionicons
-                  name={"ellipsis-vertical"}
-                  size={scale(25)}
-                  color={"white"}
-                />
+              <V pt={2} ai={"c"}>
+                <H1> {projectName} </H1>
               </V>
+            </V>
+          </Animated.View>
+
+          <Animated.View
+            style={{ paddingLeft: padding, paddingRight: padding }}
+          >
+            <V row pt={4} pb={2} j={"sa"}>
+              <TouchableOpacity onPress={() => handleChange(1)}>
+                <V pb={1} ul={timePeriod === 1 ? true : false}>
+                  <TimePeriod> Today </TimePeriod>
+                </V>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleChange(7)}>
+                <V pb={1} ul={timePeriod === 7 ? true : false}>
+                  <TimePeriod> 7 days </TimePeriod>
+                </V>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => handleChange(30)}>
+                <V pb={1} ul={timePeriod === 30 ? true : false}>
+                  <TimePeriod> 30 days </TimePeriod>
+                </V>
+              </TouchableOpacity>
             </V>
           </Animated.View>
         </Animated.View>
@@ -137,8 +165,6 @@ export const DashboardHeader = ({ project, animatedValue }) => {
 const styles = (color) =>
   StyleSheet.create({
     containerStyle: {
-      marginBottom: 50,
-
       alignSelf: "center",
       width: width,
       overflow: "hidden",

@@ -24,6 +24,8 @@ import { DashboardCard } from "./DashboardCard";
 export const ProjectChart = ({ timePeriod, isLoading, project }) => {
   const { sessions, rerender } = useContext(SessionContext);
 
+  // * This needs tweaking so the map of projects is executed only for dashboard. E.g. skips this step for project specific
+
   const getChartData = useMemo(
     () =>
       projects.map((i, v) => {
@@ -89,11 +91,11 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
                     : 300,
               },
             }}
-            barWidth={timePeriod === 1 ? width * 0.6 : scale(35)}
+            barWidth={timePeriod === 1 ? width * 0.6 : 35}
             key={v}
             data={projectEntry}
             labels={({ datum }) => Readable(datum.x, "short")}
-            labelComponent={<VictoryLabel y={width + scale(10)} />}
+            labelComponent={<VictoryLabel y={width + 10} />}
           />
         );
       }),
@@ -131,10 +133,10 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           height={width}
           width={chartWidth}
           padding={{
-            left: 40,
+            left: 50,
             top: 20,
             bottom: 20,
-            right: 40,
+            right: 50,
           }}
         >
           <VictoryStack
@@ -145,7 +147,7 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           </VictoryStack>
           <VictoryAxis
             dependentAxis
-            tickFormat={(time) => time + " h"}
+            tickFormat={(time) => (time <= 1 ? time * 60 + " m" : time + " h")}
             style={{
               grid: { stroke: "black", strokeWidth: 1, opacity: 0.08 },
             }}

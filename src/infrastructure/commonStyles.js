@@ -3,7 +3,10 @@ import { Dropdown } from "react-native-element-dropdown";
 import { scale } from "./scale";
 
 export const H1 = styled.Text`
-  font-size: ${(props) => scale(props.theme.fontSizes.h1) + "px"};
+  font-size: ${(props) =>
+    props.size
+      ? scale(props.size) + "px"
+      : scale(props.theme.fontSizes.h1) + "px"};
   font-family: ${(props) => props.theme.fonts.logo};
   font-weight: ${(props) => props.theme.fontWeights.logo};
   color: ${(props) => props.theme.colors.white};
@@ -142,7 +145,8 @@ export const TimePeriod = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.title) + "px"};
   font-family: ${(props) => props.theme.fonts.bold};
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  color: ${(props) => props.theme.colors.c1};
+  color: ${(props) => props.theme.colors.white};
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 `;
 
 export const V = styled.View`
@@ -168,10 +172,13 @@ background-color: ${(props) =>
     : props.bg === "white"
     ? props.theme.colors.white
     : "none"}
+    
   ${(props) => props.flex && "flex:" + props.flex}
   ${(props) => props.row && "flex-direction: row"}
   ${(props) => props.grow && "flex-grow: 1"}
   ${(props) => props.shrink && "flex-shrink:1"}
+  ${(props) =>
+    props.ul && "border-bottom-width: 3px; border-bottom-color: white; "}
    ${(props) => props.abs && "position: absolute"}
      ${(props) => props.top && "top:" + props.top + "px"}
   ${(props) =>

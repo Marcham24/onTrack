@@ -4,7 +4,6 @@ import { PeriodTime } from "../features/PeriodTime";
 import { V, TimePeriod } from "../infrastructure/commonStyles";
 import { ProjectPie } from "../features/ProjectPie";
 import { ViewProjects } from "../features/ProjectsList";
-import { DashboardCard } from "../features/DashboardCard";
 import { DashboardHeader } from "../features/DashboardHeader";
 import { ProjectChart } from "../features/ProjectChart";
 import { DashboardAddButton } from "../features/DashboardAddButton";
@@ -14,15 +13,18 @@ export const DashboardScreen = ({ navigation, route }) => {
   const [timePeriod, setTimePeriod] = useState(7);
   const [isLoading, setIsLoading] = useState(false);
 
-  const project = route.params?.project;
-
   useEffect(() => {
-    handleChangeTimePeriod(7);
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   }, []);
 
+  const project = route.params?.project;
+
   const handleChangeTimePeriod = (time) => {
-    setIsLoading(true);
     setTimePeriod(time);
+    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -32,32 +34,6 @@ export const DashboardScreen = ({ navigation, route }) => {
 
   return (
     <>
-      <V row bg={"c5"}>
-        <V row grow pt={4} pb={4} j={"sa"} ai={"c"}>
-          <TouchableOpacity
-            onPress={() => {
-              handleChangeTimePeriod(1);
-            }}
-          >
-            <TimePeriod>Today</TimePeriod>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              handleChangeTimePeriod(7);
-            }}
-          >
-            <TimePeriod>7 days</TimePeriod>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              handleChangeTimePeriod(30);
-            }}
-          >
-            <TimePeriod>30 days</TimePeriod>
-          </TouchableOpacity>
-        </V>
-      </V>
-
       <ScrollView
         nestedScrollEnabled={true}
         bounces={false}
@@ -76,7 +52,12 @@ export const DashboardScreen = ({ navigation, route }) => {
           }
         )}
       >
-        <DashboardHeader animatedValue={scrollY} project={project} />
+        <DashboardHeader
+          animatedValue={scrollY}
+          project={project}
+          handler={handleChangeTimePeriod}
+          timePeriod={timePeriod}
+        />
         <V row>
           <ProjectPie timePeriod={timePeriod} isLoading={isLoading} />
           <PeriodTime

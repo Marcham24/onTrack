@@ -3,6 +3,7 @@ import { Animated, View } from "react-native";
 import { ActivityIndicator } from "react-native";
 import styled from "styled-components";
 import { scale } from "../infrastructure/scale";
+import { V } from "../infrastructure/commonStyles";
 
 export const DashboardCard = ({ children, backgroundColor, isLoading }) => {
   const opacityAnim = useRef(new Animated.Value(1)).current;
@@ -33,10 +34,10 @@ export const DashboardCard = ({ children, backgroundColor, isLoading }) => {
   border-radius: ${(props) => scale(props.theme.space[1]) + "px"};
   padding: ${(props) => scale(props.theme.space[4]) + "px"};
   background-color: ${(props) =>
-    backgroundColor
-      ? backgroundColor
-      : isLoading
+    isLoading
       ? props.theme.colors.c4
+      : backgroundColor
+      ? backgroundColor
       : props.theme.colors.white};
 
 `;
@@ -60,11 +61,13 @@ export const DashboardCard = ({ children, backgroundColor, isLoading }) => {
           <Animated.View
             style={{
               width: contentWidth || "90%",
-              height: contentHeight || 400,
-              justifyContent: "center",
+              height: contentHeight || scale(300),
             }}
           >
-            <ActivityIndicator size="large" color="#000" />
+            <V style={{ width: "90%", height: 30 }} bg={"c3"} br></V>
+            <V ai="c" j="c" grow>
+              <ActivityIndicator size="large" color="#000" />
+            </V>
           </Animated.View>
         </Animated.View>
       )}

@@ -21,6 +21,7 @@ import { AddSession } from "./src/features/AddSession";
 import { H1, V } from "./src/infrastructure/commonStyles";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
+import { scale } from "./src/infrastructure/scale";
 
 const ProjectsScreen = () => {
   return (
@@ -80,7 +81,9 @@ export default function App() {
                 <Stack.Screen
                   name="Dashboard"
                   component={DashboardScreen}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerShown: false,
+                  }}
                 />
                 <Stack.Screen
                   name="Projects"
@@ -94,8 +97,21 @@ export default function App() {
                   name="Project Dashboard"
                   component={ProjectsDashboard}
                   options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
+                    headerMode: "float",
+                    headerTitle: "",
+                    headerShown: true,
+                    headerTransparent: true,
+                    headerTintColor: "#FFF",
+                    headerTitleVisible: false,
+                    headerRight: () => (
+                      <V pr={2}>
+                        <Ionicons
+                          name={"ellipsis-vertical"}
+                          size={scale(20)}
+                          color={"white"}
+                        />
+                      </V>
+                    ),
                   }}
                 />
                 <Stack.Screen
@@ -103,7 +119,6 @@ export default function App() {
                   component={AddSessionScreen}
                   options={{
                     headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
                   }}
                 />
                 <Stack.Screen
@@ -120,9 +135,6 @@ export default function App() {
                   options={{
                     headerStyle: { backgroundColor: "#dcdcdc" },
                     headerTitleStyle: { color: "#000000" },
-                    //headerLeft: ({ navigation }) => (
-                    //<Btn onPress={() => navigation.push("Dashboard")} />
-                    //),
                   }}
                 />
               </Stack.Navigator>
