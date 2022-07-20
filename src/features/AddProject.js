@@ -192,14 +192,6 @@ export const AddProject = () => {
           </KeyboardAvoidingView>
         </View>
       </View>
-      <Loading
-        toast
-        loading
-        isLoading={loading}
-        status={toastStatus}
-        header={toastHeader}
-        message={toastMessage}
-      />
     </>
   );
 };

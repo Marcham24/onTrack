@@ -138,7 +138,7 @@ export const DashboardHeader = ({
           <Animated.View
             style={{ paddingLeft: padding, paddingRight: padding }}
           >
-            <V row pt={4} pb={2} j={"sa"}>
+            <V row pt={4} pb={3} j={"sa"}>
               <TouchableOpacity onPress={() => handleChange(1)}>
                 <V pb={1} ul={timePeriod === 1 ? true : false}>
                   <TimePeriod> Today </TimePeriod>

@@ -15,12 +15,12 @@ export const fontWeights = {
 
 export const fontSizes = {
   caption: 8,
-  button: 12,
-  body: 12,
-  title: 12,
-  h3: 14,
-  h2: 20,
-  h1: 28,
+  button: 10,
+  body: 10,
+  title: 10,
+  h3: 12,
+  h2: 16,
+  h1: 20,
 };
 
 export const lineHeights = {

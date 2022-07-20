@@ -16,7 +16,7 @@ export const LoadingIndicator = ({ isLoading = true }) => {
         duration: 800,
         useNativeDriver: true,
       }).start();
-    }, 2400);
+    }, 1000);
   }, [isLoading, fadeAnim]);
 
   return (

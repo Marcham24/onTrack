@@ -35,15 +35,15 @@ const ProjectsDashboard = (props) => {
   return <DashboardScreen {...props} />;
 };
 
-const AddSessionScreen = () => {
-  return <AddSession />;
+const AddSessionScreen = (props) => {
+  return <AddSession {...props} />;
 };
 
 const AddProjectScreen = () => {
   return <AddProject />;
 };
 
-const SettingsScreen = () => {
+const SearchScreen = () => {
   return <SessionSearch />;
 };
 
@@ -81,22 +81,7 @@ export default function App() {
                 <Stack.Screen
                   name="Dashboard"
                   component={DashboardScreen}
-                  options={{
-                    headerShown: false,
-                  }}
-                />
-                <Stack.Screen
-                  name="Projects"
-                  component={ProjectsScreen}
-                  options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
-                  }}
-                />
-                <Stack.Screen
-                  name="Project Dashboard"
-                  component={ProjectsDashboard}
-                  options={{
+                  options={({ navigation }) => ({
                     headerMode: "float",
                     headerTitle: "",
                     headerShown: true,
@@ -104,37 +89,74 @@ export default function App() {
                     headerTintColor: "#FFF",
                     headerTitleVisible: false,
                     headerRight: () => (
-                      <V pr={2}>
+                      <V pr={3}>
                         <Ionicons
-                          name={"ellipsis-vertical"}
+                          name="search"
                           size={scale(20)}
-                          color={"white"}
+                          color="white"
+                          onPress={() => navigation.navigate("Search")}
                         />
                       </V>
                     ),
+                    headerLeft: () => null,
+                  })}
+                />
+                <Stack.Screen
+                  name="Projects"
+                  component={ProjectsScreen}
+                  options={{
+                    headerStyle: { backgroundColor: "#353535" },
+                    headerTitleStyle: { color: "#fff" },
+                    headerTintColor: "#FFF",
                   }}
+                />
+                <Stack.Screen
+                  name="Project Dashboard"
+                  component={ProjectsDashboard}
+                  options={({ navigation }) => ({
+                    headerMode: "float",
+                    headerTitle: "",
+                    headerShown: true,
+                    headerTransparent: true,
+                    headerTintColor: "#FFF",
+                    headerTitleVisible: false,
+                    headerRight: () => (
+                      <V pr={3}>
+                        <Ionicons
+                          name="search"
+                          size={scale(20)}
+                          color="white"
+                          onPress={() => navigation.navigate("Search")}
+                        />
+                      </V>
+                    ),
+                  })}
                 />
                 <Stack.Screen
                   name="Add a session"
                   component={AddSessionScreen}
                   options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
+                    headerStyle: { backgroundColor: "#353535" },
+                    headerTitleStyle: { color: "#fff" },
+                    headerTintColor: "#FFF",
                   }}
                 />
                 <Stack.Screen
                   name="Add a project"
                   component={AddProjectScreen}
                   options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
+                    headerStyle: { backgroundColor: "#353535" },
+                    headerTitleStyle: { color: "#fff" },
+                    headerTintColor: "#FFF",
                   }}
                 />
                 <Stack.Screen
-                  name="Settings"
-                  component={SettingsScreen}
+                  name="Search"
+                  component={SearchScreen}
                   options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
+                    headerStyle: { backgroundColor: "#353535" },
+                    headerTitleStyle: { color: "#fff" },
+                    headerTintColor: "#FFF",
                   }}
                 />
               </Stack.Navigator>
@@ -199,7 +221,7 @@ export default function App() {
           </NavigationContainer>
         </SessionContextProvider>
       </ThemeProvider>
-      <ExpoStatusBar />
+      <ExpoStatusBar style="dark" />
     </>
   );
 }

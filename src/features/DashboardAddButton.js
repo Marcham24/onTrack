@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Animated, View, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { scale } from "../infrastructure/scale";
+import { scale, verticalScale } from "../infrastructure/scale";
 import { findColor } from "../functions/findColor";
 import { H3 } from "../infrastructure/commonStyles";
 import { useNavigation } from "@react-navigation/native";
@@ -18,7 +18,7 @@ export const DashboardAddButton = ({ project }) => {
   const AddButton = styled.TouchableOpacity`
     background-color: ${buttonColor};
     border-radius: 8px;
-    padding: 10px;
+    padding: 5px;
     flex: 1;
     position: absolute;
     right: ${scale(10) + "px"};
@@ -33,10 +33,10 @@ export const DashboardAddButton = ({ project }) => {
     elevation: 10;
     background-color: ${buttonColor};
     border-radius: 5px;
-    padding: 15px;
+    padding: 10px;
     position: absolute;
     right: ${scale(10) + "px"};
-    bottom: ${(props) => scale(props.bottom) + "px"};
+    bottom: ${(props) => verticalScale(props.bottom) + "px"};
   `;
 
   const handleOpenMenu = () => {
@@ -64,30 +64,32 @@ export const DashboardAddButton = ({ project }) => {
         style={{
           transform: [{ translateX: bottomAnim }],
         }}
-        bottom={scale(70)}
-        onPress={() => navigation.navigate("Add a session")}
+        bottom={70}
+        onPress={() =>
+          navigation.navigate("Add a session", { project: project })
+        }
       >
-        <H3 style={{ color: "white" }}>Manually add a new session</H3>
+        <H3 style={{ color: "white" }}>Manually add a session</H3>
       </MenuItem>
 
       <MenuItem
         style={{
           transform: [{ translateX: bottomAnim }],
         }}
-        bottom={scale(120)}
+        bottom={110}
         onPress={() => console.log("time")}
       >
-        <H3 style={{ color: "white" }}>Time a new session</H3>
+        <H3 style={{ color: "white" }}>Time a session</H3>
       </MenuItem>
 
       <MenuItem
         style={{
           transform: [{ translateX: bottomAnim }],
         }}
-        bottom={scale(170)}
+        bottom={150}
         onPress={() => navigation.navigate("Add a project")}
       >
-        <H3 style={{ color: "white" }}>Add a new project</H3>
+        <H3 style={{ color: "white" }}>Add a project</H3>
       </MenuItem>
 
       <AddButton

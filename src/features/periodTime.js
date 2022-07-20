@@ -97,8 +97,14 @@ export const PeriodTime = ({ calcDays, isLoading, project }) => {
             </H2>
           </View>
         </View>
-        <View style={{ alignItems: "center" }}>
-          <Ionicons name={symbolVisual} size={scale(160)} color={"white"} />
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          <Ionicons name={symbolVisual} size={scale(120)} color={"white"} />
         </View>
       </View>
       <ChangeView>

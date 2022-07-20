@@ -27,7 +27,7 @@ export const DashboardScreen = ({ navigation, route }) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 500);
   };
 
   const [scrollY] = useState(new Animated.Value(0));
@@ -66,7 +66,6 @@ export const DashboardScreen = ({ navigation, route }) => {
             project={project}
           />
         </V>
-        <ViewProjects isLoading={isLoading} />
         <ProjectChart
           timePeriod={timePeriod}
           isLoading={isLoading}
@@ -74,6 +73,7 @@ export const DashboardScreen = ({ navigation, route }) => {
         />
 
         <DashboardSessions isLoading={isLoading} />
+        <ViewProjects isLoading={isLoading} />
       </ScrollView>
 
       <DashboardAddButton project={project} />

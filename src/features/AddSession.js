@@ -20,17 +20,18 @@ import { Readable } from "../functions/readableDateTime";
 import { SessionView } from "./SessionOverview";
 import { findColor } from "../functions/findColor";
 
-export const AddSession = () => {
+export const AddSession = ({ route, navigation }) => {
   const { sessions, rerender, setRerender } = useContext(SessionContext);
 
   const now = new Date();
+  const project = route.params?.project || "Project";
 
-  const [newProject, setNewProject] = useState("Project");
+  const [newProject, setNewProject] = useState(project);
   const [newStart, setNewStart] = useState(now);
   const [newEnd, setNewEnd] = useState(now);
   const [newComment, setNewComment] = useState("");
   const [newTags, setNewTags] = useState([]);
-  const [projectColor, setProjectColor] = useState("#000000");
+  const [projectColor, setProjectColor] = useState(findColor(project));
 
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
@@ -73,7 +74,8 @@ export const AddSession = () => {
       <View
         style={{
           backgroundColor: creationBackground,
-          flex: 1,
+          paddingVertical: 40,
+          flexShrink: 1,
           justifyContent: "center",
         }}
       >
@@ -87,7 +89,7 @@ export const AddSession = () => {
 
       <V row>
         <DropdownStyled
-          style={{ height: scale(60) }}
+          style={{ height: scale(50) }}
           maxHeight={scale(200)}
           placeholder="Select a project"
           value={newProject}
@@ -106,7 +108,7 @@ export const AddSession = () => {
       </V>
 
       <KeyboardAvoidingView
-        style={{ flex: 1.5 }}
+        style={{ flex: 2 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={65}
       >
@@ -156,7 +158,7 @@ export const AddSession = () => {
           </View>
         </ScrollView>
 
-        <View style={{ flexShrink: 1 }}>
+        <View>
           <Btn
             title="Add session"
             color="white"

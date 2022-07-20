@@ -1,5 +1,5 @@
 import { useContext, useState, useMemo } from "react";
-import { scale } from "../infrastructure/scale";
+import { scale, verticalScale } from "../infrastructure/scale";
 import { H2, H3, V } from "../infrastructure/commonStyles";
 import {
   VictoryStack,
@@ -73,6 +73,7 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           start = start + day;
           end = end + day;
         }
+
         return (
           <VictoryBar
             name={"bar"}
@@ -91,15 +92,15 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
                     : 300,
               },
             }}
-            barWidth={timePeriod === 1 ? width * 0.6 : 35}
+            barWidth={timePeriod === 1 ? width * 0.5 : scale(25)}
             key={v}
             data={projectEntry}
             labels={({ datum }) => Readable(datum.x, "short")}
-            labelComponent={<VictoryLabel y={width + 10} />}
+            labelComponent={<VictoryLabel y={width} />}
           />
         );
       }),
-    [timePeriod, sessions, rerender]
+    [timePeriod, sessions, rerender, project]
   );
 
   let chartWidth;
@@ -132,22 +133,16 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           minDomain={{ x: minDomain }}
           height={width}
           width={chartWidth}
-          padding={{
-            left: 50,
-            top: 20,
-            bottom: 20,
-            right: 50,
-          }}
         >
           <VictoryStack
-            domainPadding={{ x: timePeriod === 1 ? 5 : 30 }}
+            domainPadding={{ x: timePeriod === 1 ? 5 : 35 }}
             scale={{ y: "time" }}
           >
             {getChartData}
           </VictoryStack>
           <VictoryAxis
             dependentAxis
-            tickFormat={(time) => (time <= 1 ? time * 60 + " m" : time + " h")}
+            tickFormat={(time) => (time < 1 ? time * 60 + " m" : time + " h")}
             style={{
               grid: { stroke: "black", strokeWidth: 1, opacity: 0.08 },
             }}
@@ -155,7 +150,7 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           {timePeriod === 30 && (
             <VictoryAxis
               dependentAxis
-              tickFormat={(time) => time + " h"}
+              tickFormat={(time) => (time < 1 ? time * 60 + " m" : time + " h")}
               orientation={"right"}
             />
           )}
