@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
 import {
   TagsContainer,
-  TagssText,
+  TagsText,
   Input,
   TagsView,
 } from "../infrastructure/commonStyles";
@@ -41,7 +41,7 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
         {tagsList.map((i, v) => (
           <TagsView key={v.toString()}>
             <DeleteTag onPress={() => handleRemoveTag(i)}>
-              <TagssText>{i} </TagssText>
+              <TagsText>{i} </TagsText>
               {editable && (
                 <Ionicons
                   name={"close-circle"}

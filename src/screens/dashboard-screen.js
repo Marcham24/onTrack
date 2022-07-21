@@ -8,6 +8,7 @@ import { DashboardHeader } from "../features/DashboardHeader";
 import { ProjectChart } from "../features/ProjectChart";
 import { DashboardAddButton } from "../features/DashboardAddButton";
 import { DashboardSessions } from "../features/DashboardSessions";
+import { TagList } from "../features/TagList";
 
 export const DashboardScreen = ({ navigation, route }) => {
   const [timePeriod, setTimePeriod] = useState(7);
@@ -66,6 +67,7 @@ export const DashboardScreen = ({ navigation, route }) => {
             project={project}
           />
         </V>
+        <TagList />
         <ProjectChart
           timePeriod={timePeriod}
           isLoading={isLoading}
