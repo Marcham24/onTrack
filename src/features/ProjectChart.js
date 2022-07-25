@@ -65,7 +65,6 @@ export const ProjectChart = ({ timePeriod, isLoading, project }) => {
           const entry = {
             x: new Date(start),
             y: dateTotal / (60 * 60 * 1000),
-            n: i.name,
           };
 
           projectEntry.push(entry);

@@ -60,18 +60,37 @@ export const TimeText = styled.Text`
 `;
 
 export const TagsView = styled.View`
-  background-color: ${(props) => props.theme.colors.c4};
+  background-color: ${(props) => props.theme.colors.c5};
   border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
   padding: ${(props) => scale(props.theme.space[2]) + "px"}
     flex-direction: row
-  margin-right: ${(props) => scale(props.theme.space[1]) + "px"};
-    margin-bottom: ${(props) => scale(props.theme.space[1]) + "px"};
+  margin-right: ${(props) => scale(props.theme.space[2]) + "px"};
+    margin-bottom: ${(props) => scale(props.theme.space[2]) + "px"};
   justify-content: center;
   align-items: center;
   align-content: center;
 `;
 
-export const TagssText = styled.Text`
+export const TagsCountView = styled.View`
+  background-color: ${(props) => props.color};
+  border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
+  padding: ${(props) => scale(props.theme.space[1]) + "px"}
+    flex-direction: row
+  margin-left: ${(props) => scale(props.theme.space[1]) + "px"};
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+`;
+
+export const TagCount = styled.Text`
+  font-size: ${(props) => scale(props.theme.fontSizes.caption) + "px"};
+  font-family: ${(props) => props.theme.fonts.bold};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  color: ${(props) => props.theme.colors.white};
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+`;
+
+export const TagsText = styled.Text`
   font-size: ${(props) => scale(props.theme.fontSizes.caption) + "px"};
   font-family: ${(props) => props.theme.fonts.medium};
   font-weight: ${(props) => props.theme.fontWeights.medium};
@@ -83,7 +102,9 @@ export const TagsContainer = styled.View`
   flex-direction: row;
   flex-shrink: 1;
   flex-wrap: wrap;
-  padding: 10px;
+
+padding-top: ${(props) => scale(props.theme.space[3]) + "px"}
+padding-bottom: ${(props) => scale(props.theme.space[3]) + "px"}
   align-items: center;
 `;
 

@@ -22,7 +22,7 @@ export const DashboardHeader = ({
 }) => {
   const headerHeight = animatedValue.interpolate({
     inputRange: [0, 150],
-    outputRange: [scale(300), scale(80)],
+    outputRange: [scale(300), scale(70)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
@@ -43,7 +43,7 @@ export const DashboardHeader = ({
 
   const subheaderPositionY = animatedValue.interpolate({
     inputRange: [75, 150],
-    outputRange: [0, scale(89)],
+    outputRange: [0, scale(85)],
     extrapolate: "clamp",
     useNativeDriver: true,
   });
@@ -138,7 +138,7 @@ export const DashboardHeader = ({
           <Animated.View
             style={{ paddingLeft: padding, paddingRight: padding }}
           >
-            <V row pt={4} pb={3} j={"sa"}>
+            <V row pt={6} pb={3} pl={4} pr={4} j={"sb"}>
               <TouchableOpacity onPress={() => handleChange(1)}>
                 <V pb={1} ul={timePeriod === 1 ? true : false}>
                   <TimePeriod> Today </TimePeriod>

@@ -30,7 +30,7 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
 
   const handleAddTag = () => {
     let formattedTag = newTag.replace(/[^a-zA-Z0-9]/g, "");
-    tagsList = [...tagsList, formattedTag];
+    tagsList = [...tagsList, formattedTag.toUpperCase()];
     passNewTags(tagsList);
     setNewTag("");
   };

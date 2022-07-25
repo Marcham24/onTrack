@@ -27,6 +27,7 @@ export const Logo = ({ project, size = 100, full, color }) => {
     flex-wrap: wrap
     flex-shrink:1
     text-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+    
   `;
 
   const LogoContainer = styled.View`

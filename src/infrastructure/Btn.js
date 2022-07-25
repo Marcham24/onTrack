@@ -1,18 +1,22 @@
 import styled from "styled-components/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "../infrastructure/scale";
+import { findColor } from "../functions/findColor";
 
 export const Btn = ({
   title,
   type = "normal",
   onPress,
   mimicInput = false,
+  project,
 }) => {
   const Opacity = styled.TouchableOpacity`
  flex-grow:1;
     background-color: ${
       mimicInput
         ? (props) => props.theme.colors.white
+        : project
+        ? findColor(project)
         : (props) => props.theme.colors.c2
     }
     padding: ${(props) => scale(props.theme.space[4]) + "px"};
@@ -34,6 +38,7 @@ export const Btn = ({
     color: ${mimicInput
       ? (props) => props.theme.colors.c2
       : (props) => props.theme.colors.white};
+    ${project && "text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4)"}
   `;
 
   const BtnView = styled.View``;
