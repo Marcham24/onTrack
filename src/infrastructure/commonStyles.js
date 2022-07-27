@@ -64,8 +64,8 @@ export const TagsView = styled.View`
   border-radius: ${(props) => scale(props.theme.space[4]) + "px"};
   padding: ${(props) => scale(props.theme.space[2]) + "px"}
     flex-direction: row
-  margin-right: ${(props) => scale(props.theme.space[2]) + "px"};
-    margin-bottom: ${(props) => scale(props.theme.space[2]) + "px"};
+    margin: ${(props) => scale(props.theme.space[1]) + "px"};
+
   justify-content: center;
   align-items: center;
   align-content: center;

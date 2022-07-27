@@ -10,7 +10,12 @@ import {
 import { useState, useContext } from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { TagsHandler } from "./TagHandler";
-import { Input, DropdownStyled, V } from "../infrastructure/commonStyles";
+import {
+  Input,
+  DropdownStyled,
+  V,
+  TimeText,
+} from "../infrastructure/commonStyles";
 import { Btn } from "../infrastructure/Btn";
 import { ProjectCard } from "./ProjectCard";
 import { SessionContext } from "../services/array.context";
@@ -25,6 +30,7 @@ export const AddSession = ({ route, navigation }) => {
 
   const now = new Date();
   const project = route.params?.project || "Project";
+  const timed = route.params?.timed;
 
   const [newProject, setNewProject] = useState(project);
   const [newStart, setNewStart] = useState(now);
@@ -32,6 +38,9 @@ export const AddSession = ({ route, navigation }) => {
   const [newComment, setNewComment] = useState("");
   const [newTags, setNewTags] = useState([]);
   const [projectColor, setProjectColor] = useState(findColor(project));
+
+  const [newTimedStart, setNewTimedStart] = useState();
+  const [newTimedEnd, setNewTimedEnd] = useState();
 
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
@@ -81,8 +90,8 @@ export const AddSession = ({ route, navigation }) => {
       >
         <SessionView
           project={newProject}
-          start={newStart}
-          end={newEnd}
+          start={newTimedStart ? newTimedStart : newStart}
+          end={newTimedStart ? newTimedEnd : newEnd}
           creation={true}
         />
       </View>
@@ -114,35 +123,43 @@ export const AddSession = ({ route, navigation }) => {
       >
         <ScrollView style={{ flex: 2 }} keyboardShouldPersistTaps="always">
           <View>
-            <View>
-              <Btn
-                mimicInput={true}
-                type={"none"}
-                title={newStart ? Readable(newStart) : "Add a start time"}
-                onPress={() => setStartPickerOpen(true)}
-              />
-              <DateTimePickerModal
-                date={newStart}
-                isVisible={startPickerOpen}
-                mode="datetime"
-                onConfirm={handleStartConfirm}
-                onCancel={() => setStartPickerOpen(false)}
-              />
-
-              <Btn
-                mimicInput={true}
-                type={"none"}
-                title={newEnd ? Readable(newEnd) : "Add a end time"}
-                onPress={() => setEndPickerOpen(true)}
-              />
-              <DateTimePickerModal
-                date={newEnd}
-                isVisible={endPickerOpen}
-                mode="datetime"
-                onConfirm={handleEndConfirm}
-                onCancel={() => setEndPickerOpen(false)}
-              />
-            </View>
+            {timed === true ? (
+              <View>
+                <Btn onPress={() => setNewTimedStart(now)} />
+                <TimeText>{newTimedStart && Readable(newTimedStart)}</TimeText>
+                <Btn onPress={() => setNewTimedEnd(now)} />
+                <TimeText>{newTimedEnd && Readable(newTimedEnd)}</TimeText>
+              </View>
+            ) : (
+              <View>
+                <Btn
+                  mimicInput={true}
+                  type={"none"}
+                  title={newStart ? Readable(newStart) : "Add a start time"}
+                  onPress={() => setStartPickerOpen(true)}
+                />
+                <DateTimePickerModal
+                  date={newStart}
+                  isVisible={startPickerOpen}
+                  mode="datetime"
+                  onConfirm={handleStartConfirm}
+                  onCancel={() => setStartPickerOpen(false)}
+                />
+                <Btn
+                  mimicInput={true}
+                  type={"none"}
+                  title={newEnd ? Readable(newEnd) : "Add a end time"}
+                  onPress={() => setEndPickerOpen(true)}
+                />
+                <DateTimePickerModal
+                  date={newEnd}
+                  isVisible={endPickerOpen}
+                  mode="datetime"
+                  onConfirm={handleEndConfirm}
+                  onCancel={() => setEndPickerOpen(false)}
+                />
+              </View>
+            )}
             <Input
               placeholder="Please enter your new comment for this session"
               value={newComment}

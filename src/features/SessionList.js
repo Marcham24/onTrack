@@ -49,6 +49,7 @@ export const SessionList = ({
       renderItem={renderItem}
       extraData={rerender}
       initialNumToRender={10}
+      maxToRenderPerBatch={5}
       ListEmptyComponent={
         <V p={3} ai="c">
           <H3>{emptyListString}</H3>

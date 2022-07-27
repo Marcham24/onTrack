@@ -57,6 +57,7 @@ const SearchScreen = () => {
 
 export default function App() {
   const Stack = createStackNavigator();
+  const Tab = createBottomTabNavigator();
 
   const [interLoaded] = useInter({
     Inter_300Light,
@@ -160,63 +161,6 @@ export default function App() {
                   }}
                 />
               </Stack.Navigator>
-              {/* <Tab.Navigator
-                screenOptions={({ route }) => ({
-                  tabBarIcon: ({ color, size }) => {
-                    let iconName = TAB_ICON[route.name];
-                    return (
-                      <Ionicons name={iconName} size={size} color={color} />
-                    );
-                  },
-
-                  tabBarActiveTintColor: "white",
-                  tabBarInactiveTintColor: "grey",
-                  tabBarInactiveBackgroundColor: "black",
-                  tabBarActiveBackgroundColor: "black",
-                  tabBarHideOnKeyboard: true,
-                })}
-              >
-                <Tab.Screen
-                  name="Dashboard"
-                  component={DashboardScreen}
-                  options={{ headerShown: false }}
-                />
-                <Tab.Screen
-                  name="Projects"
-                  component={ProjectsScreen}
-                  options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
-                  }}
-                />
-                <Tab.Screen
-                  name=" "
-                  component={AddSessionScreen}
-                  options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
-                  }}
-                />
-                <Tab.Screen
-                  name="Sessions"
-                  component={ExportScreen}
-                  options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
-                  }}
-                />
-                <Tab.Screen
-                  name="Settings"
-                  component={SettingsScreen}
-                  options={{
-                    headerStyle: { backgroundColor: "#dcdcdc" },
-                    headerTitleStyle: { color: "#000000" },
-                    //headerLeft: ({ navigation }) => (
-                    //<Btn onPress={() => navigation.push("Dashboard")} />
-                    //),
-                  }}
-                />
-              </Tab.Navigator> */}
             </SafeView>
           </NavigationContainer>
         </SessionContextProvider>

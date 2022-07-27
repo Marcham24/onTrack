@@ -77,7 +77,12 @@ export const DashboardAddButton = ({ project }) => {
           transform: [{ translateX: bottomAnim }],
         }}
         bottom={110}
-        onPress={() => console.log("time")}
+        onPress={() =>
+          navigation.navigate("Add a session", {
+            project: project,
+            timed: true,
+          })
+        }
       >
         <H3 style={{ color: "white" }}>Time a session</H3>
       </MenuItem>

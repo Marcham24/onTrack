@@ -12,6 +12,7 @@ import { TagList } from "../features/TagList";
 import { H2 } from "../infrastructure/commonStyles";
 import { Btn } from "../infrastructure/Btn";
 import { findColor } from "../functions/findColor";
+import { sessions } from "../services/mock/array";
 
 export const DashboardScreen = ({ navigation, route }) => {
   const [timePeriod, setTimePeriod] = useState(7);
@@ -26,6 +27,23 @@ export const DashboardScreen = ({ navigation, route }) => {
 
   const project = route.params?.project;
 
+  let now = new Date();
+  const day = 1000 * 60 * 60 * 24;
+
+  const periodTime = now.setHours(23, 59, 59, 0) - day * timePeriod;
+
+  const checkTime = sessions.filter((date) => {
+    return date.start > periodTime;
+  });
+
+  const checkProject = project
+    ? checkTime.filter((el) => {
+        return el.project === project;
+      })
+    : checkTime;
+
+  const sessionsExist = checkProject.length;
+
   const handleChangeTimePeriod = (time) => {
     setTimePeriod(time);
     setIsLoading(true);
@@ -35,8 +53,6 @@ export const DashboardScreen = ({ navigation, route }) => {
   };
 
   const [scrollY] = useState(new Animated.Value(0));
-
-  const sessionsExist = true;
 
   return (
     <>
@@ -64,7 +80,7 @@ export const DashboardScreen = ({ navigation, route }) => {
           handler={handleChangeTimePeriod}
           timePeriod={timePeriod}
         />
-        {sessionsExist ? (
+        {!sessionsExist ? (
           <V p={3} j="c" ai="c">
             <H2>No sessions for this time period</H2>
             <V p={3} j="c" ai="c">

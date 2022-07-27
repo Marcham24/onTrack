@@ -1,1815 +1,1790 @@
 export const sessions = [
   {
-    project: "advise",
-    start: new Date("July 21, 2022 08:24:00"),
-    end: new Date("July 21, 2022 12:18:08"),
+    project: "Stitch",
+    start: new Date("July 27, 2022 04:22:43"),
+    end: new Date("July 27, 2022 06:51:06"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["UPLOADING"],
+  },
+  {
+    project: "Punish",
+    start: new Date("July 27, 2022 00:03:31"),
+    end: new Date("July 27, 2022 02:20:12"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "test",
-      "example",
-      "I honeslty cannot think of something else",
-      "biceps",
+      "PROOFREADING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "DOING THINGS FOR WORK",
     ],
   },
   {
-    project: "aberrant",
-    start: new Date("July 21, 2022 04:04:48"),
-    end: new Date("July 21, 2022 06:51:17"),
+    project: "Advise",
+    start: new Date("July 26, 2022 19:44:19"),
+    end: new Date("July 26, 2022 21:03:52"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "legs",
-      "meeting",
-      "I honeslty cannot think of something else",
-      "coding",
-    ],
+    tags: ["SOCIAL MEDIA", "TEST", "CHICKEN", "LEMON"],
   },
   {
-    project: "tooth",
-    start: new Date("July 20, 2022 23:45:36"),
-    end: new Date("July 21, 2022 03:32:24"),
+    project: "Immense",
+    start: new Date("July 26, 2022 15:25:07"),
+    end: new Date("July 26, 2022 19:59:39"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "TURKEY DINOSAURS"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 26, 2022 11:05:55"),
+    end: new Date("July 26, 2022 12:54:13"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "SOCIAL MEDIA", "PROOFREADING", "MEETING"],
+  },
+  {
+    project: "Tooth",
+    start: new Date("July 26, 2022 06:46:43"),
+    end: new Date("July 26, 2022 11:17:50"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "join",
-    start: new Date("July 20, 2022 19:26:24"),
-    end: new Date("July 20, 2022 22:35:19"),
+    project: "Immense",
+    start: new Date("July 26, 2022 02:27:31"),
+    end: new Date("July 26, 2022 04:50:01"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "CODING"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 25, 2022 22:08:19"),
+    end: new Date("July 26, 2022 01:30:25"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST", "EXAMPLE"],
+  },
+  {
+    project: "Tooth",
+    start: new Date("July 25, 2022 17:49:07"),
+    end: new Date("July 25, 2022 22:26:36"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "think",
-    start: new Date("July 20, 2022 15:07:12"),
-    end: new Date("July 20, 2022 18:42:42"),
+    project: "Utter",
+    start: new Date("July 25, 2022 13:29:55"),
+    end: new Date("July 25, 2022 14:10:24"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design"],
+    tags: ["EXAMPLE", "TYPING", "SOCIAL MEDIA"],
   },
   {
-    project: "rabid",
-    start: new Date("July 20, 2022 10:48:00"),
-    end: new Date("July 20, 2022 12:02:24"),
+    project: "Automatic",
+    start: new Date("July 25, 2022 09:10:43"),
+    end: new Date("July 25, 2022 12:58:55"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "chest"],
+    tags: ["CODING", "UPLOADING", "WRITING"],
   },
   {
-    project: "immense",
-    start: new Date("July 20, 2022 06:28:48"),
-    end: new Date("July 20, 2022 08:45:47"),
+    project: "Punish",
+    start: new Date("July 25, 2022 04:51:31"),
+    end: new Date("July 25, 2022 06:58:43"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "proofreading"],
+    tags: ["CHICKEN", "TURKEY DINOSAURS", "CHEST"],
   },
   {
-    project: "utter",
-    start: new Date("July 20, 2022 02:09:36"),
-    end: new Date("July 20, 2022 04:48:44"),
+    project: "Tedious",
+    start: new Date("July 25, 2022 00:32:19"),
+    end: new Date("July 25, 2022 04:46:59"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["meeting", "social media", "chest"],
+    tags: ["SOCIAL MEDIA"],
   },
   {
-    project: "draw",
-    start: new Date("July 19, 2022 21:50:24"),
-    end: new Date("July 19, 2022 22:19:24"),
+    project: "Far-Flung",
+    start: new Date("July 24, 2022 20:13:07"),
+    end: new Date("July 25, 2022 00:31:53"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["uploading", "proofreading"],
+    tags: ["TEST", "I HONESLTY CANNOT THINK OF SOMETHING ELSE", "CHICKEN"],
   },
   {
-    project: "careless",
-    start: new Date("July 19, 2022 17:31:12"),
-    end: new Date("July 19, 2022 20:37:47"),
+    project: "Draw",
+    start: new Date("July 24, 2022 15:53:55"),
+    end: new Date("July 24, 2022 20:38:08"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example"],
+    tags: ["CHICKEN", "I HONESLTY CANNOT THINK OF SOMETHING ELSE"],
   },
   {
-    project: "prison",
-    start: new Date("July 19, 2022 13:12:00"),
-    end: new Date("July 19, 2022 13:37:04"),
+    project: "Immense",
+    start: new Date("July 24, 2022 11:34:43"),
+    end: new Date("July 24, 2022 13:37:49"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "initial discussions",
-      "proofreading",
-      "example",
-      "legs",
-      "I honeslty cannot think of something else",
-    ],
+    tags: ["WRITING", "EXAMPLE"],
   },
   {
-    project: "tooth",
-    start: new Date("July 19, 2022 08:52:48"),
-    end: new Date("July 19, 2022 12:26:23"),
+    project: "Tooth",
+    start: new Date("July 24, 2022 07:15:31"),
+    end: new Date("July 24, 2022 12:02:06"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "careless",
-    start: new Date("July 19, 2022 04:33:36"),
-    end: new Date("July 19, 2022 06:16:43"),
+    project: "Immense",
+    start: new Date("July 24, 2022 02:56:19"),
+    end: new Date("July 24, 2022 06:14:49"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest"],
+    tags: ["DESIGN", "TYPING"],
   },
   {
-    project: "immense",
-    start: new Date("July 19, 2022 00:14:24"),
-    end: new Date("July 19, 2022 02:26:21"),
+    project: "Draw",
+    start: new Date("July 23, 2022 22:37:07"),
+    end: new Date("July 23, 2022 23:42:23"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "test"],
+    tags: ["EATING", "PROOFREADING"],
   },
   {
-    project: "automatic",
-    start: new Date("July 18, 2022 19:55:12"),
-    end: new Date("July 19, 2022 00:09:03"),
+    project: "Advise",
+    start: new Date("July 23, 2022 18:17:55"),
+    end: new Date("July 23, 2022 21:21:48"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "initial discussions", "uploading"],
+    tags: ["BICEPS", "EXAMPLE", "EATING", "CHICKEN"],
   },
   {
-    project: "tooth",
-    start: new Date("July 18, 2022 15:36:00"),
-    end: new Date("July 18, 2022 15:57:57"),
+    project: "Far-Flung",
+    start: new Date("July 23, 2022 13:58:43"),
+    end: new Date("July 23, 2022 16:30:37"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
+    tags: ["DOING THINGS FOR WORK", "LEGS", "TEST"],
   },
   {
-    project: "careless",
-    start: new Date("July 18, 2022 11:16:48"),
-    end: new Date("July 18, 2022 14:28:34"),
+    project: "Gaze",
+    start: new Date("July 23, 2022 09:39:31"),
+    end: new Date("July 23, 2022 10:22:23"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing"],
+    tags: ["DOING THINGS FOR WORK", "MEETING", "INITIAL DISCUSSIONS", "TYPING"],
   },
   {
-    project: "punish",
-    start: new Date("July 18, 2022 06:57:36"),
-    end: new Date("July 18, 2022 07:58:06"),
+    project: "Bubble",
+    start: new Date("July 23, 2022 05:20:19"),
+    end: new Date("July 23, 2022 09:11:03"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "social media", "doing things for work"],
+    tags: ["TYPING", "SOCIAL MEDIA", "EXAMPLE", "TEST"],
   },
   {
-    project: "bubble",
-    start: new Date("July 18, 2022 02:38:24"),
-    end: new Date("July 18, 2022 06:13:53"),
+    project: "Stitch",
+    start: new Date("July 23, 2022 01:01:07"),
+    end: new Date("July 23, 2022 02:18:15"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "writing", "initial discussions", "social media"],
+    tags: ["TEST"],
   },
   {
-    project: "think",
-    start: new Date("July 17, 2022 22:19:12"),
-    end: new Date("July 17, 2022 23:43:04"),
+    project: "Immense",
+    start: new Date("July 22, 2022 20:41:55"),
+    end: new Date("July 22, 2022 22:21:50"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon"],
+    tags: ["CHICKEN", "MEETING"],
   },
   {
-    project: "far-flung",
-    start: new Date("July 17, 2022 18:00:00"),
-    end: new Date("July 17, 2022 22:45:48"),
+    project: "Prison",
+    start: new Date("July 22, 2022 16:22:43"),
+    end: new Date("July 22, 2022 19:30:42"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "chicken", "chest"],
+    tags: ["UPLOADING", "DESIGN", "SOCIAL MEDIA", "TYPING", "CHICKEN"],
   },
   {
-    project: "nonchalant",
-    start: new Date("July 17, 2022 13:40:48"),
-    end: new Date("July 17, 2022 17:17:05"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "lemon"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 17, 2022 09:21:36"),
-    end: new Date("July 17, 2022 09:33:35"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example"],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 17, 2022 05:02:24"),
-    end: new Date("July 17, 2022 08:07:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "test", "lemon", "writing"],
-  },
-  {
-    project: "draw",
-    start: new Date("July 17, 2022 00:43:12"),
-    end: new Date("July 17, 2022 03:03:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "lemon"],
-  },
-  {
-    project: "punish",
-    start: new Date("July 16, 2022 20:24:00"),
-    end: new Date("July 17, 2022 01:01:18"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "biceps", "typing"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("July 16, 2022 16:04:48"),
-    end: new Date("July 16, 2022 19:16:52"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "lemon", "turkey dinosaurs"],
-  },
-  {
-    project: "utter",
-    start: new Date("July 16, 2022 11:45:36"),
-    end: new Date("July 16, 2022 15:00:47"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "typing", "writing"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("July 16, 2022 07:26:24"),
-    end: new Date("July 16, 2022 11:00:13"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken", "meeting", "legs", "social media"],
-  },
-  {
-    project: "utter",
-    start: new Date("July 16, 2022 03:07:12"),
-    end: new Date("July 16, 2022 04:49:31"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "example", "initial discussions"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 15, 2022 22:48:00"),
-    end: new Date("July 16, 2022 03:07:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["I honeslty cannot think of something else"],
-  },
-  {
-    project: "rabid",
-    start: new Date("July 15, 2022 18:28:48"),
-    end: new Date("July 15, 2022 22:57:13"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["uploading", "proofreading"],
-  },
-  {
-    project: "bubble",
-    start: new Date("July 15, 2022 14:09:36"),
-    end: new Date("July 15, 2022 16:14:00"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken", "lemon", "legs", "chest"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("July 15, 2022 09:50:24"),
-    end: new Date("July 15, 2022 14:24:01"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "initial discussions",
-      "typing",
-      "I honeslty cannot think of something else",
-    ],
-  },
-  {
-    project: "utter",
-    start: new Date("July 15, 2022 05:31:12"),
-    end: new Date("July 15, 2022 08:51:05"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "social media", "legs"],
-  },
-  {
-    project: "yellow",
-    start: new Date("July 15, 2022 01:12:00"),
-    end: new Date("July 15, 2022 02:10:15"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "lemon",
-      "coding",
-      "meeting",
-      "design",
-      "I honeslty cannot think of something else",
-    ],
-  },
-  {
-    project: "advise",
-    start: new Date("July 14, 2022 20:52:48"),
-    end: new Date("July 15, 2022 00:30:58"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "lemon",
-      "chest",
-      "I honeslty cannot think of something else",
-      "biceps",
-    ],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 14, 2022 16:33:36"),
-    end: new Date("July 14, 2022 17:04:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "biceps", "design", "writing"],
-  },
-  {
-    project: "rabid",
-    start: new Date("July 14, 2022 12:14:24"),
-    end: new Date("July 14, 2022 13:11:51"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "design"],
-  },
-  {
-    project: "tooth",
-    start: new Date("July 14, 2022 07:55:12"),
-    end: new Date("July 14, 2022 12:22:25"),
+    project: "Tooth",
+    start: new Date("July 22, 2022 12:03:31"),
+    end: new Date("July 22, 2022 13:28:05"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "gaze",
-    start: new Date("July 14, 2022 03:36:00"),
-    end: new Date("July 14, 2022 06:02:13"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "biceps", "turkey dinosaurs", "chicken"],
-  },
-  {
-    project: "stitch",
-    start: new Date("July 13, 2022 23:16:48"),
-    end: new Date("July 14, 2022 02:41:35"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example"],
-  },
-  {
-    project: "careless",
-    start: new Date("July 13, 2022 18:57:36"),
-    end: new Date("July 13, 2022 19:41:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["social media"],
-  },
-  {
-    project: "rabid",
-    start: new Date("July 13, 2022 14:38:24"),
-    end: new Date("July 13, 2022 15:15:29"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken", "typing"],
-  },
-  {
-    project: "advise",
-    start: new Date("July 13, 2022 10:19:12"),
-    end: new Date("July 13, 2022 10:34:11"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["social media", "typing", "doing things for work", "writing"],
-  },
-  {
-    project: "utter",
-    start: new Date("July 13, 2022 06:00:00"),
-    end: new Date("July 13, 2022 08:13:02"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "social media", "example"],
-  },
-  {
-    project: "yellow",
-    start: new Date("July 13, 2022 01:40:48"),
-    end: new Date("July 13, 2022 02:47:59"),
+    project: "Punish",
+    start: new Date("July 22, 2022 07:44:19"),
+    end: new Date("July 22, 2022 07:45:18"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "initial discussions",
-      "test",
-      "typing",
-      "proofreading",
-      "I honeslty cannot think of something else",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "DOING THINGS FOR WORK",
+      "SOCIAL MEDIA",
     ],
   },
   {
-    project: "yellow",
-    start: new Date("July 12, 2022 21:21:36"),
-    end: new Date("July 12, 2022 22:46:22"),
+    project: "Tedious",
+    start: new Date("July 22, 2022 03:25:07"),
+    end: new Date("July 22, 2022 04:42:39"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["INITIAL DISCUSSIONS"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("July 21, 2022 23:05:55"),
+    end: new Date("July 22, 2022 00:57:35"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["PROOFREADING"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 21, 2022 18:46:43"),
+    end: new Date("July 21, 2022 19:09:52"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["MEETING", "EATING", "LEMON", "BICEPS"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 21, 2022 14:27:31"),
+    end: new Date("July 21, 2022 16:37:05"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TYPING", "CODING", "WRITING", "UPLOADING"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 21, 2022 10:08:19"),
+    end: new Date("July 21, 2022 13:34:52"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 21, 2022 05:49:07"),
+    end: new Date("July 21, 2022 09:07:29"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["BICEPS", "UPLOADING", "TEST", "EXAMPLE"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 21, 2022 01:29:55"),
+    end: new Date("July 21, 2022 01:47:13"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["INITIAL DISCUSSIONS"],
+  },
+  {
+    project: "Stitch",
+    start: new Date("July 20, 2022 21:10:43"),
+    end: new Date("July 20, 2022 23:39:21"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["PROOFREADING"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 20, 2022 16:51:31"),
+    end: new Date("July 20, 2022 19:57:19"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN", "TURKEY DINOSAURS", "CHICKEN", "DOING THINGS FOR WORK"],
+  },
+  {
+    project: "Prison",
+    start: new Date("July 20, 2022 12:32:19"),
+    end: new Date("July 20, 2022 13:52:29"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "design",
-      "turkey dinosaurs",
-      "meeting",
-      "proofreading",
-      "I honeslty cannot think of something else",
+      "INITIAL DISCUSSIONS",
+      "UPLOADING",
+      "LEGS",
+      "DOING THINGS FOR WORK",
+      "TEST",
     ],
   },
   {
-    project: "immense",
-    start: new Date("July 12, 2022 17:02:24"),
-    end: new Date("July 12, 2022 19:21:29"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "meeting"],
-  },
-  {
-    project: "advise",
-    start: new Date("July 12, 2022 12:43:12"),
-    end: new Date("July 12, 2022 16:37:27"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "proofreading", "eating", "design"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 12, 2022 08:24:00"),
-    end: new Date("July 12, 2022 08:26:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding"],
-  },
-  {
-    project: "punish",
-    start: new Date("July 12, 2022 04:04:48"),
-    end: new Date("July 12, 2022 06:55:51"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "design", "meeting"],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("July 11, 2022 23:45:36"),
-    end: new Date("July 12, 2022 00:58:33"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["meeting", "test"],
-  },
-  {
-    project: "utter",
-    start: new Date("July 11, 2022 19:26:24"),
-    end: new Date("July 11, 2022 21:54:59"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "writing", "eating"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 11, 2022 15:07:12"),
-    end: new Date("July 11, 2022 15:43:20"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["I honeslty cannot think of something else"],
-  },
-  {
-    project: "yellow",
-    start: new Date("July 11, 2022 10:48:00"),
-    end: new Date("July 11, 2022 14:35:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "design",
-      "I honeslty cannot think of something else",
-      "eating",
-      "initial discussions",
-      "meeting",
-    ],
-  },
-  {
-    project: "think",
-    start: new Date("July 11, 2022 06:28:48"),
-    end: new Date("July 11, 2022 06:51:20"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("July 11, 2022 02:09:36"),
-    end: new Date("July 11, 2022 04:58:14"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "typing", "doing things for work", "social media"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 10, 2022 21:50:24"),
-    end: new Date("July 10, 2022 23:56:34"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["turkey dinosaurs"],
-  },
-  {
-    project: "bubble",
-    start: new Date("July 10, 2022 17:31:12"),
-    end: new Date("July 10, 2022 18:50:02"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "meeting", "test", "social media"],
-  },
-  {
-    project: "bubble",
-    start: new Date("July 10, 2022 13:12:00"),
-    end: new Date("July 10, 2022 15:58:08"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "I honeslty cannot think of something else",
-      "eating",
-      "uploading",
-      "test",
-    ],
-  },
-  {
-    project: "utter",
-    start: new Date("July 10, 2022 08:52:48"),
-    end: new Date("July 10, 2022 13:31:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "initial discussions", "test"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("July 10, 2022 04:33:36"),
-    end: new Date("July 10, 2022 06:34:11"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "lemon", "writing"],
-  },
-  {
-    project: "immense",
-    start: new Date("July 10, 2022 00:14:24"),
-    end: new Date("July 10, 2022 03:41:05"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "chest"],
-  },
-  {
-    project: "bubble",
-    start: new Date("July 09, 2022 19:55:12"),
-    end: new Date("July 09, 2022 20:27:48"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "initial discussions", "design", "eating"],
-  },
-  {
-    project: "draw",
-    start: new Date("July 09, 2022 15:36:00"),
-    end: new Date("July 09, 2022 16:09:19"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "chest"],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 09, 2022 11:16:48"),
-    end: new Date("July 09, 2022 14:46:57"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "writing", "example", "initial discussions"],
-  },
-  {
-    project: "prison",
-    start: new Date("July 09, 2022 06:57:36"),
-    end: new Date("July 09, 2022 11:26:30"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "test",
-      "I honeslty cannot think of something else",
-      "writing",
-      "eating",
-      "coding",
-    ],
-  },
-  {
-    project: "stitch",
-    start: new Date("July 09, 2022 02:38:24"),
-    end: new Date("July 09, 2022 05:20:27"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test"],
-  },
-  {
-    project: "think",
-    start: new Date("July 08, 2022 22:19:12"),
-    end: new Date("July 08, 2022 23:24:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps"],
-  },
-  {
-    project: "punish",
-    start: new Date("July 08, 2022 18:00:00"),
-    end: new Date("July 08, 2022 18:31:07"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "initial discussions", "test"],
-  },
-  {
-    project: "tooth",
-    start: new Date("July 08, 2022 13:40:48"),
-    end: new Date("July 08, 2022 16:54:00"),
+    project: "Tooth",
+    start: new Date("July 20, 2022 08:13:07"),
+    end: new Date("July 20, 2022 08:57:01"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "utter",
-    start: new Date("July 08, 2022 09:21:36"),
-    end: new Date("July 08, 2022 10:41:41"),
+    project: "Yellow",
+    start: new Date("July 20, 2022 03:53:55"),
+    end: new Date("July 20, 2022 04:22:54"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["meeting", "eating", "lemon"],
+    tags: [
+      "TYPING",
+      "CHICKEN",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "LEMON",
+      "SOCIAL MEDIA",
+    ],
   },
   {
-    project: "tooth",
-    start: new Date("July 08, 2022 05:02:24"),
-    end: new Date("July 08, 2022 09:02:25"),
+    project: "Immense",
+    start: new Date("July 19, 2022 23:34:43"),
+    end: new Date("July 20, 2022 02:21:09"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["UPLOADING", "I HONESLTY CANNOT THINK OF SOMETHING ELSE"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 19, 2022 19:15:31"),
+    end: new Date("July 19, 2022 21:23:38"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "CHICKEN"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 19, 2022 14:56:19"),
+    end: new Date("July 19, 2022 17:32:42"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TEST", "SOCIAL MEDIA", "CHEST", "EXAMPLE"],
+  },
+  {
+    project: "Draw",
+    start: new Date("July 19, 2022 10:37:07"),
+    end: new Date("July 19, 2022 15:10:46"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "DOING THINGS FOR WORK"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 19, 2022 06:17:55"),
+    end: new Date("July 19, 2022 10:13:25"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "BICEPS", "MEETING"],
+  },
+  {
+    project: "Utter",
+    start: new Date("July 19, 2022 01:58:43"),
+    end: new Date("July 19, 2022 02:35:43"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHICKEN", "WRITING", "EXAMPLE"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("July 18, 2022 21:39:31"),
+    end: new Date("July 19, 2022 01:50:53"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "TURKEY DINOSAURS",
+      "DOING THINGS FOR WORK",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "EXAMPLE",
+    ],
+  },
+  {
+    project: "Tooth",
+    start: new Date("July 18, 2022 17:20:19"),
+    end: new Date("July 18, 2022 17:59:08"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "join",
-    start: new Date("July 08, 2022 00:43:12"),
-    end: new Date("July 08, 2022 04:27:24"),
+    project: "Tedious",
+    start: new Date("July 18, 2022 13:01:07"),
+    end: new Date("July 18, 2022 14:43:52"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["UPLOADING"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 18, 2022 08:41:55"),
+    end: new Date("July 18, 2022 10:21:08"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "TURKEY DINOSAURS", "CHICKEN", "TYPING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 18, 2022 04:22:43"),
+    end: new Date("July 18, 2022 07:06:57"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "EATING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "SOCIAL MEDIA",
+      "CHICKEN",
+    ],
+  },
+  {
+    project: "Utter",
+    start: new Date("July 18, 2022 00:03:31"),
+    end: new Date("July 18, 2022 00:57:34"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "MEETING", "TYPING"],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 17, 2022 19:44:19"),
+    end: new Date("July 17, 2022 23:34:39"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["MEETING"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("July 17, 2022 15:25:07"),
+    end: new Date("July 17, 2022 17:10:27"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 17, 2022 11:05:55"),
+    end: new Date("July 17, 2022 12:34:27"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "SOCIAL MEDIA", "TYPING", "BICEPS"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("July 17, 2022 06:46:43"),
+    end: new Date("July 17, 2022 09:36:54"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "SOCIAL MEDIA",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "EXAMPLE",
+      "CHEST",
+    ],
+  },
+  {
+    project: "Rabid",
+    start: new Date("July 17, 2022 02:27:31"),
+    end: new Date("July 17, 2022 05:34:20"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "LEGS"],
+  },
+  {
+    project: "Stitch",
+    start: new Date("July 16, 2022 22:08:19"),
+    end: new Date("July 17, 2022 01:04:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 16, 2022 17:49:07"),
+    end: new Date("July 16, 2022 18:24:37"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "PROOFREADING", "DESIGN"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 16, 2022 13:29:55"),
+    end: new Date("July 16, 2022 18:04:23"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHICKEN", "WRITING"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 16, 2022 09:10:43"),
+    end: new Date("July 16, 2022 12:12:34"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "CHEST", "UPLOADING"],
+  },
+  {
+    project: "Automatic",
+    start: new Date("July 16, 2022 04:51:31"),
+    end: new Date("July 16, 2022 06:04:46"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["UPLOADING", "CODING", "I HONESLTY CANNOT THINK OF SOMETHING ELSE"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 16, 2022 00:32:19"),
+    end: new Date("July 16, 2022 01:02:23"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHICKEN", "WRITING", "UPLOADING", "TYPING"],
+  },
+  {
+    project: "Yellow",
+    start: new Date("July 15, 2022 20:13:07"),
+    end: new Date("July 16, 2022 00:38:17"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST", "LEGS", "BICEPS", "TURKEY DINOSAURS", "PROOFREADING"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 15, 2022 15:53:55"),
+    end: new Date("July 15, 2022 17:39:24"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["PROOFREADING"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 15, 2022 11:34:43"),
+    end: new Date("July 15, 2022 12:05:30"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "MEETING"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 15, 2022 07:15:31"),
+    end: new Date("July 15, 2022 10:18:53"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "CHICKEN", "MEETING", "SOCIAL MEDIA"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 15, 2022 02:56:19"),
+    end: new Date("July 15, 2022 05:47:53"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CODING", "PROOFREADING", "CHEST", "BICEPS"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 14, 2022 22:37:07"),
+    end: new Date("July 15, 2022 01:14:02"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "BICEPS",
+      "CODING",
+      "MEETING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+    ],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 14, 2022 18:17:55"),
+    end: new Date("July 14, 2022 20:54:28"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 14, 2022 13:58:43"),
+    end: new Date("July 14, 2022 14:42:24"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN", "BICEPS", "WRITING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 14, 2022 09:39:31"),
+    end: new Date("July 14, 2022 14:23:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "WRITING", "EXAMPLE", "CHEST"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 14, 2022 05:20:19"),
+    end: new Date("July 14, 2022 10:05:36"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "CHEST", "DOING THINGS FOR WORK", "BICEPS"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 14, 2022 01:01:07"),
+    end: new Date("July 14, 2022 04:42:12"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "PROOFREADING"],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 13, 2022 20:41:55"),
+    end: new Date("July 14, 2022 01:23:06"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE"],
+  },
+  {
+    project: "Utter",
+    start: new Date("July 13, 2022 16:22:43"),
+    end: new Date("July 13, 2022 20:13:02"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "EATING", "LEGS"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 13, 2022 12:03:31"),
+    end: new Date("July 13, 2022 13:59:29"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TEST", "LEGS"],
+  },
+  {
+    project: "Rabid",
+    start: new Date("July 13, 2022 07:44:19"),
+    end: new Date("July 13, 2022 12:29:28"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DOING THINGS FOR WORK", "CODING"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 13, 2022 03:25:07"),
+    end: new Date("July 13, 2022 05:11:18"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST"],
+  },
+  {
+    project: "Automatic",
+    start: new Date("July 12, 2022 23:05:55"),
+    end: new Date("July 13, 2022 02:43:46"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "PROOFREADING", "DOING THINGS FOR WORK"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 12, 2022 18:46:43"),
+    end: new Date("July 12, 2022 20:22:04"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN", "CHEST", "UPLOADING"],
+  },
+  {
+    project: "Rabid",
+    start: new Date("July 12, 2022 14:27:31"),
+    end: new Date("July 12, 2022 18:06:33"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "DOING THINGS FOR WORK"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 12, 2022 10:08:19"),
+    end: new Date("July 12, 2022 10:28:08"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE", "CHICKEN"],
+  },
+  {
+    project: "Punish",
+    start: new Date("July 12, 2022 05:49:07"),
+    end: new Date("July 12, 2022 07:29:50"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CODING", "DOING THINGS FOR WORK", "EXAMPLE"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 12, 2022 01:29:55"),
+    end: new Date("July 12, 2022 06:02:09"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "UPLOADING",
+      "EXAMPLE",
+      "MEETING",
+    ],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 11, 2022 21:10:43"),
+    end: new Date("July 12, 2022 01:42:58"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EATING", "MEETING", "EXAMPLE", "CHEST"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 11, 2022 16:51:31"),
+    end: new Date("July 11, 2022 20:21:41"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DOING THINGS FOR WORK", "LEGS"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 11, 2022 12:32:19"),
+    end: new Date("July 11, 2022 17:19:26"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["PROOFREADING"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 11, 2022 08:13:07"),
+    end: new Date("July 11, 2022 10:24:30"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST"],
+  },
+  {
+    project: "Punish",
+    start: new Date("July 11, 2022 03:53:55"),
+    end: new Date("July 11, 2022 06:52:26"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING", "LEGS", "EATING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 10, 2022 23:34:43"),
+    end: new Date("July 11, 2022 01:31:25"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "TEST", "INITIAL DISCUSSIONS", "CHICKEN"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 10, 2022 19:15:31"),
+    end: new Date("July 10, 2022 20:51:05"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "DESIGN", "CHEST", "TURKEY DINOSAURS"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("July 10, 2022 14:56:19"),
+    end: new Date("July 10, 2022 17:58:13"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["BICEPS"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("July 10, 2022 10:37:07"),
+    end: new Date("July 10, 2022 12:46:23"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 10, 2022 06:17:55"),
+    end: new Date("July 10, 2022 10:27:16"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "CHEST", "PROOFREADING", "MEETING"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 10, 2022 01:58:43"),
+    end: new Date("July 10, 2022 03:50:58"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "EXAMPLE"],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 09, 2022 21:39:31"),
+    end: new Date("July 10, 2022 01:02:07"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 09, 2022 17:20:19"),
+    end: new Date("July 09, 2022 21:58:02"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "BICEPS", "CODING"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 09, 2022 13:01:07"),
+    end: new Date("July 09, 2022 17:17:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "LEMON", "DOING THINGS FOR WORK"],
+  },
+  {
+    project: "Utter",
+    start: new Date("July 09, 2022 08:41:55"),
+    end: new Date("July 09, 2022 10:36:52"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "TYPING", "TURKEY DINOSAURS"],
+  },
+  {
+    project: "Utter",
+    start: new Date("July 09, 2022 04:22:55"),
+    end: new Date("July 09, 2022 09:09:17"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EATING", "TEST", "DESIGN"],
+  },
+  {
+    project: "Stitch",
+    start: new Date("July 09, 2022 00:03:43"),
+    end: new Date("July 09, 2022 00:45:16"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS"],
+  },
+  {
+    project: "Prison",
+    start: new Date("July 08, 2022 19:44:31"),
+    end: new Date("July 08, 2022 23:08:50"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "CHEST",
+      "INITIAL DISCUSSIONS",
+      "DOING THINGS FOR WORK",
+      "MEETING",
+      "LEGS",
+    ],
+  },
+  {
+    project: "Yellow",
+    start: new Date("July 08, 2022 15:25:19"),
+    end: new Date("July 08, 2022 16:18:50"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "UPLOADING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "TYPING",
+      "CHICKEN",
+      "DESIGN",
+    ],
+  },
+  {
+    project: "Tooth",
+    start: new Date("July 08, 2022 11:06:07"),
+    end: new Date("July 08, 2022 11:40:36"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "automatic",
-    start: new Date("July 07, 2022 20:24:00"),
-    end: new Date("July 07, 2022 21:33:46"),
+    project: "Think",
+    start: new Date("July 08, 2022 06:46:55"),
+    end: new Date("July 08, 2022 07:39:04"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "biceps", "eating"],
+    tags: ["CHICKEN"],
   },
   {
-    project: "automatic",
-    start: new Date("July 07, 2022 16:04:48"),
-    end: new Date("July 07, 2022 17:48:12"),
+    project: "Yellow",
+    start: new Date("July 08, 2022 02:27:43"),
+    end: new Date("July 08, 2022 05:41:19"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "turkey dinosaurs", "typing"],
+    tags: ["WRITING", "EXAMPLE", "PROOFREADING", "TEST", "CHICKEN"],
   },
   {
-    project: "prison",
-    start: new Date("July 07, 2022 11:45:36"),
-    end: new Date("July 07, 2022 12:18:10"),
+    project: "Aberrant",
+    start: new Date("July 07, 2022 22:08:31"),
+    end: new Date("July 08, 2022 01:52:22"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["uploading", "design", "chest", "biceps", "example"],
+    tags: ["CODING", "BICEPS", "LEGS", "CHEST"],
   },
   {
-    project: "advise",
-    start: new Date("July 07, 2022 07:26:24"),
-    end: new Date("July 07, 2022 09:37:40"),
+    project: "Tedious",
+    start: new Date("July 07, 2022 17:49:19"),
+    end: new Date("July 07, 2022 19:26:52"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "lemon", "coding", "uploading"],
+    tags: ["DOING THINGS FOR WORK"],
   },
   {
-    project: "far-flung",
-    start: new Date("July 07, 2022 03:07:12"),
-    end: new Date("July 07, 2022 03:27:53"),
+    project: "Aberrant",
+    start: new Date("July 07, 2022 13:30:07"),
+    end: new Date("July 07, 2022 18:12:30"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "turkey dinosaurs", "proofreading"],
+    tags: ["LEGS", "EXAMPLE", "TEST", "TURKEY DINOSAURS"],
   },
   {
-    project: "aberrant",
-    start: new Date("July 06, 2022 22:48:00"),
-    end: new Date("July 07, 2022 00:54:07"),
+    project: "Nonchalant",
+    start: new Date("July 07, 2022 09:10:55"),
+    end: new Date("July 07, 2022 12:39:28"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE", "LEMON"],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 07, 2022 04:51:43"),
+    end: new Date("July 07, 2022 08:36:55"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE"],
+  },
+  {
+    project: "Draw",
+    start: new Date("July 07, 2022 00:32:31"),
+    end: new Date("July 07, 2022 03:28:11"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "PROOFREADING"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 06, 2022 20:13:19"),
+    end: new Date("July 06, 2022 20:52:03"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "INITIAL DISCUSSIONS", "EXAMPLE", "WRITING"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 06, 2022 15:54:07"),
+    end: new Date("July 06, 2022 15:54:15"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "LEGS"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 06, 2022 11:34:55"),
+    end: new Date("July 06, 2022 12:00:48"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE", "PROOFREADING"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 06, 2022 07:15:43"),
+    end: new Date("July 06, 2022 11:38:23"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "TYPING", "SOCIAL MEDIA"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("July 06, 2022 02:56:31"),
+    end: new Date("July 06, 2022 06:06:46"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST", "INITIAL DISCUSSIONS", "TURKEY DINOSAURS", "PROOFREADING"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 05, 2022 22:37:19"),
+    end: new Date("July 06, 2022 01:39:17"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "INITIAL DISCUSSIONS"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 05, 2022 18:18:07"),
+    end: new Date("July 05, 2022 21:11:02"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DESIGN"],
+  },
+  {
+    project: "Prison",
+    start: new Date("July 05, 2022 13:58:55"),
+    end: new Date("July 05, 2022 15:16:40"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "LEMON", "EATING", "MEETING", "CODING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 05, 2022 09:39:43"),
+    end: new Date("July 05, 2022 11:29:41"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "TYPING", "BICEPS", "PROOFREADING"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 05, 2022 05:20:31"),
+    end: new Date("July 05, 2022 05:46:38"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TEST"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("July 05, 2022 01:01:19"),
+    end: new Date("July 05, 2022 01:17:40"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "initial discussions",
-      "I honeslty cannot think of something else",
-      "doing things for work",
-      "chicken",
+      "DOING THINGS FOR WORK",
+      "MEETING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "TURKEY DINOSAURS",
     ],
   },
   {
-    project: "far-flung",
-    start: new Date("July 06, 2022 18:28:48"),
-    end: new Date("July 06, 2022 19:37:47"),
+    project: "Punish",
+    start: new Date("July 04, 2022 20:42:07"),
+    end: new Date("July 04, 2022 21:29:32"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "test", "uploading"],
+    tags: ["SOCIAL MEDIA", "CHEST", "DOING THINGS FOR WORK"],
   },
   {
-    project: "yellow",
-    start: new Date("July 06, 2022 14:09:36"),
-    end: new Date("July 06, 2022 17:09:20"),
+    project: "Yellow",
+    start: new Date("July 04, 2022 16:22:55"),
+    end: new Date("July 04, 2022 20:11:20"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "design", "typing", "lemon", "biceps"],
+    tags: ["SOCIAL MEDIA", "DESIGN", "CODING", "DOING THINGS FOR WORK", "LEGS"],
   },
   {
-    project: "punish",
-    start: new Date("July 06, 2022 09:50:24"),
-    end: new Date("July 06, 2022 12:07:44"),
+    project: "Nonchalant",
+    start: new Date("July 04, 2022 12:03:43"),
+    end: new Date("July 04, 2022 13:35:59"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["meeting", "legs", "chest"],
+    tags: ["LEMON", "UPLOADING"],
   },
   {
-    project: "tooth",
-    start: new Date("July 06, 2022 05:31:12"),
-    end: new Date("July 06, 2022 08:20:32"),
+    project: "Tedious",
+    start: new Date("July 04, 2022 07:44:31"),
+    end: new Date("July 04, 2022 11:41:22"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON"],
+  },
+  {
+    project: "Gaze",
+    start: new Date("July 04, 2022 03:25:19"),
+    end: new Date("July 04, 2022 06:03:10"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "LEGS", "TURKEY DINOSAURS", "TYPING"],
+  },
+  {
+    project: "Immense",
+    start: new Date("July 03, 2022 23:06:07"),
+    end: new Date("July 04, 2022 01:23:14"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "EATING"],
+  },
+  {
+    project: "Punish",
+    start: new Date("July 03, 2022 18:46:55"),
+    end: new Date("July 03, 2022 23:17:52"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "LEMON",
+      "TURKEY DINOSAURS",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+    ],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("July 03, 2022 14:27:43"),
+    end: new Date("July 03, 2022 16:07:05"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "DESIGN", "CHICKEN"],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 03, 2022 10:08:31"),
+    end: new Date("July 03, 2022 14:10:00"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TEST", "WRITING", "BICEPS", "DESIGN"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 03, 2022 05:49:19"),
+    end: new Date("July 03, 2022 07:20:04"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "TURKEY DINOSAURS"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("July 03, 2022 01:30:07"),
+    end: new Date("July 03, 2022 02:03:22"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "CHEST",
+      "DOING THINGS FOR WORK",
+      "CHICKEN",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+    ],
+  },
+  {
+    project: "Stitch",
+    start: new Date("July 02, 2022 21:10:55"),
+    end: new Date("July 02, 2022 21:13:54"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["WRITING"],
+  },
+  {
+    project: "Yellow",
+    start: new Date("July 02, 2022 16:51:43"),
+    end: new Date("July 02, 2022 21:24:38"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "CHEST",
+      "INITIAL DISCUSSIONS",
+      "TURKEY DINOSAURS",
+      "MEETING",
+      "EXAMPLE",
+    ],
+  },
+  {
+    project: "Advise",
+    start: new Date("July 02, 2022 12:32:31"),
+    end: new Date("July 02, 2022 16:03:43"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["INITIAL DISCUSSIONS", "EXAMPLE", "BICEPS", "CHICKEN"],
+  },
+  {
+    project: "Prison",
+    start: new Date("July 02, 2022 08:13:19"),
+    end: new Date("July 02, 2022 12:57:10"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "BICEPS",
+      "WRITING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
+      "MEETING",
+      "CHEST",
+    ],
+  },
+  {
+    project: "Think",
+    start: new Date("July 02, 2022 03:54:07"),
+    end: new Date("July 02, 2022 05:26:27"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE"],
+  },
+  {
+    project: "Think",
+    start: new Date("July 01, 2022 23:34:55"),
+    end: new Date("July 02, 2022 02:29:56"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["UPLOADING"],
+  },
+  {
+    project: "Careless",
+    start: new Date("July 01, 2022 19:15:43"),
+    end: new Date("July 01, 2022 23:41:33"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS"],
+  },
+  {
+    project: "Punish",
+    start: new Date("July 01, 2022 14:56:31"),
+    end: new Date("July 01, 2022 19:24:17"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "PROOFREADING", "EXAMPLE"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("July 01, 2022 10:37:19"),
+    end: new Date("July 01, 2022 14:42:40"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHICKEN"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("July 01, 2022 06:18:07"),
+    end: new Date("July 01, 2022 06:19:36"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["DOING THINGS FOR WORK", "BICEPS"],
+  },
+  {
+    project: "Automatic",
+    start: new Date("July 01, 2022 01:58:55"),
+    end: new Date("July 01, 2022 04:43:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TURKEY DINOSAURS", "EATING", "UPLOADING"],
+  },
+  {
+    project: "Stitch",
+    start: new Date("June 30, 2022 21:39:43"),
+    end: new Date("June 30, 2022 23:03:30"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TYPING"],
+  },
+  {
+    project: "Rabid",
+    start: new Date("June 30, 2022 17:20:31"),
+    end: new Date("June 30, 2022 18:29:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["PROOFREADING", "SOCIAL MEDIA"],
+  },
+  {
+    project: "Far-Flung",
+    start: new Date("June 30, 2022 13:01:19"),
+    end: new Date("June 30, 2022 13:02:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EATING", "BICEPS", "SOCIAL MEDIA"],
+  },
+  {
+    project: "Punish",
+    start: new Date("June 30, 2022 08:42:07"),
+    end: new Date("June 30, 2022 13:03:49"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON", "DESIGN", "UPLOADING"],
+  },
+  {
+    project: "Utter",
+    start: new Date("June 30, 2022 04:22:55"),
+    end: new Date("June 30, 2022 07:23:54"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EATING", "UPLOADING", "CHEST"],
+  },
+  {
+    project: "Yellow",
+    start: new Date("June 30, 2022 00:03:43"),
+    end: new Date("June 30, 2022 02:35:56"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE", "BICEPS", "CHICKEN", "PROOFREADING", "LEMON"],
+  },
+  {
+    project: "Tooth",
+    start: new Date("June 29, 2022 19:44:31"),
+    end: new Date("June 29, 2022 20:00:48"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "bubble",
-    start: new Date("July 06, 2022 01:12:00"),
-    end: new Date("July 06, 2022 05:10:23"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "lemon",
-      "design",
-      "I honeslty cannot think of something else",
-      "chest",
-    ],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 05, 2022 20:52:48"),
-    end: new Date("July 05, 2022 21:46:15"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["turkey dinosaurs", "legs", "typing", "test"],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 05, 2022 16:33:36"),
-    end: new Date("July 05, 2022 17:49:34"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "proofreading", "chicken", "meeting"],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("July 05, 2022 12:14:24"),
-    end: new Date("July 05, 2022 15:16:09"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "coding"],
-  },
-  {
-    project: "yellow",
-    start: new Date("July 05, 2022 07:55:12"),
-    end: new Date("July 05, 2022 10:48:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "meeting", "biceps", "legs", "eating"],
-  },
-  {
-    project: "punish",
-    start: new Date("July 05, 2022 03:36:00"),
-    end: new Date("July 05, 2022 07:15:38"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "I honeslty cannot think of something else",
-      "social media",
-      "coding",
-    ],
-  },
-  {
-    project: "tooth",
-    start: new Date("July 04, 2022 23:16:48"),
-    end: new Date("July 04, 2022 23:16:59"),
+    project: "Tooth",
+    start: new Date("June 29, 2022 15:25:19"),
+    end: new Date("June 29, 2022 20:03:36"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "aberrant",
-    start: new Date("July 04, 2022 18:57:36"),
-    end: new Date("July 04, 2022 19:20:10"),
+    project: "Automatic",
+    start: new Date("June 29, 2022 11:06:07"),
+    end: new Date("June 29, 2022 15:53:30"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "lemon", "typing", "design"],
+    tags: ["TEST", "SOCIAL MEDIA", "EATING"],
   },
   {
-    project: "draw",
-    start: new Date("July 04, 2022 14:38:24"),
-    end: new Date("July 04, 2022 15:17:10"),
+    project: "Advise",
+    start: new Date("June 29, 2022 06:46:55"),
+    end: new Date("June 29, 2022 09:27:28"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "chest"],
+    tags: ["MEETING", "PROOFREADING", "CODING", "CHICKEN"],
   },
   {
-    project: "bubble",
-    start: new Date("July 04, 2022 10:19:12"),
-    end: new Date("July 04, 2022 14:39:43"),
+    project: "Far-Flung",
+    start: new Date("June 29, 2022 02:27:43"),
+    end: new Date("June 29, 2022 03:25:35"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "doing things for work",
-      "writing",
-      "lemon",
-      "I honeslty cannot think of something else",
-    ],
+    tags: ["SOCIAL MEDIA", "BICEPS", "CODING"],
   },
   {
-    project: "stitch",
-    start: new Date("July 04, 2022 06:00:00"),
-    end: new Date("July 04, 2022 06:44:49"),
+    project: "Tedious",
+    start: new Date("June 28, 2022 22:08:31"),
+    end: new Date("June 29, 2022 02:20:05"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design"],
+    tags: ["EXAMPLE"],
   },
   {
-    project: "think",
-    start: new Date("July 04, 2022 01:40:48"),
-    end: new Date("July 04, 2022 02:29:51"),
+    project: "Yellow",
+    start: new Date("June 28, 2022 17:49:19"),
+    end: new Date("June 28, 2022 18:58:30"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work"],
+    tags: ["CODING", "LEMON", "CHEST", "DESIGN", "EATING"],
   },
   {
-    project: "think",
-    start: new Date("July 03, 2022 21:21:36"),
-    end: new Date("July 04, 2022 00:39:12"),
+    project: "Stitch",
+    start: new Date("June 28, 2022 13:30:07"),
+    end: new Date("June 28, 2022 17:04:34"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps"],
+    tags: ["DOING THINGS FOR WORK"],
   },
   {
-    project: "far-flung",
-    start: new Date("July 03, 2022 17:02:24"),
-    end: new Date("July 03, 2022 18:00:54"),
+    project: "Immense",
+    start: new Date("June 28, 2022 09:10:55"),
+    end: new Date("June 28, 2022 11:29:48"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken", "turkey dinosaurs", "social media"],
+    tags: ["LEGS", "LEMON"],
   },
   {
-    project: "punish",
-    start: new Date("July 03, 2022 12:43:12"),
-    end: new Date("July 03, 2022 15:47:17"),
+    project: "Think",
+    start: new Date("June 28, 2022 04:51:43"),
+    end: new Date("June 28, 2022 07:44:11"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "initial discussions", "legs"],
+    tags: ["EXAMPLE"],
   },
   {
-    project: "bubble",
-    start: new Date("July 03, 2022 08:24:00"),
-    end: new Date("July 03, 2022 09:30:09"),
+    project: "Automatic",
+    start: new Date("June 28, 2022 00:32:31"),
+    end: new Date("June 28, 2022 04:14:18"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "chest", "meeting", "initial discussions"],
+    tags: ["PROOFREADING", "BICEPS", "DESIGN"],
   },
   {
-    project: "tedious",
-    start: new Date("July 03, 2022 04:04:48"),
-    end: new Date("July 03, 2022 08:19:12"),
+    project: "Utter",
+    start: new Date("June 27, 2022 20:13:19"),
+    end: new Date("June 27, 2022 22:35:35"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions"],
+    tags: ["TEST", "LEMON", "DESIGN"],
   },
   {
-    project: "stitch",
-    start: new Date("July 02, 2022 23:45:36"),
-    end: new Date("July 03, 2022 02:24:24"),
+    project: "Prison",
+    start: new Date("June 27, 2022 15:54:07"),
+    end: new Date("June 27, 2022 18:03:24"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example"],
+    tags: ["DESIGN", "TYPING", "SOCIAL MEDIA", "TEST", "WRITING"],
   },
   {
-    project: "gaze",
-    start: new Date("July 02, 2022 19:26:24"),
-    end: new Date("July 02, 2022 22:38:51"),
+    project: "Punish",
+    start: new Date("June 27, 2022 11:34:55"),
+    end: new Date("June 27, 2022 11:47:21"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "writing",
-      "eating",
-      "lemon",
-      "I honeslty cannot think of something else",
-    ],
+    tags: ["PROOFREADING", "DOING THINGS FOR WORK", "LEMON"],
   },
   {
-    project: "far-flung",
-    start: new Date("July 02, 2022 15:07:12"),
-    end: new Date("July 02, 2022 19:30:41"),
+    project: "Nonchalant",
+    start: new Date("June 27, 2022 07:15:43"),
+    end: new Date("June 27, 2022 11:32:43"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "design", "writing"],
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "EXAMPLE"],
   },
   {
-    project: "punish",
-    start: new Date("July 02, 2022 10:48:00"),
-    end: new Date("July 02, 2022 14:39:29"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "legs", "example"],
-  },
-  {
-    project: "tedious",
-    start: new Date("July 02, 2022 06:28:48"),
-    end: new Date("July 02, 2022 08:48:44"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("July 02, 2022 02:09:36"),
-    end: new Date("July 02, 2022 03:52:08"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "social media", "uploading", "proofreading"],
-  },
-  {
-    project: "gaze",
-    start: new Date("July 01, 2022 21:50:24"),
-    end: new Date("July 01, 2022 22:49:31"),
+    project: "Gaze",
+    start: new Date("June 27, 2022 02:56:31"),
+    end: new Date("June 27, 2022 06:18:38"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "doing things for work",
-      "I honeslty cannot think of something else",
-      "proofreading",
-      "chicken",
+      "TURKEY DINOSAURS",
+      "CODING",
+      "TYPING",
+      "I HONESLTY CANNOT THINK OF SOMETHING ELSE",
     ],
   },
   {
-    project: "utter",
-    start: new Date("July 01, 2022 17:31:12"),
-    end: new Date("July 01, 2022 18:56:29"),
+    project: "Punish",
+    start: new Date("June 26, 2022 22:37:19"),
+    end: new Date("June 27, 2022 00:24:34"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "biceps", "legs"],
+    tags: ["PROOFREADING", "MEETING", "LEMON"],
   },
   {
-    project: "advise",
-    start: new Date("July 01, 2022 13:12:00"),
-    end: new Date("July 01, 2022 14:29:10"),
+    project: "Automatic",
+    start: new Date("June 26, 2022 18:18:07"),
+    end: new Date("June 26, 2022 21:05:27"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["MEETING", "CHEST", "DESIGN"],
+  },
+  {
+    project: "Immense",
+    start: new Date("June 26, 2022 13:58:55"),
+    end: new Date("June 26, 2022 15:10:37"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEGS", "LEMON"],
+  },
+  {
+    project: "Nonchalant",
+    start: new Date("June 26, 2022 09:39:43"),
+    end: new Date("June 26, 2022 11:06:20"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST", "EATING"],
+  },
+  {
+    project: "Yellow",
+    start: new Date("June 26, 2022 05:20:31"),
+    end: new Date("June 26, 2022 06:38:06"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TEST", "CHEST", "INITIAL DISCUSSIONS", "LEGS", "CHICKEN"],
+  },
+  {
+    project: "Immense",
+    start: new Date("June 26, 2022 01:01:19"),
+    end: new Date("June 26, 2022 01:46:16"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["I HONESLTY CANNOT THINK OF SOMETHING ELSE", "MEETING"],
+  },
+  {
+    project: "Yellow",
+    start: new Date("June 25, 2022 20:42:07"),
+    end: new Date("June 25, 2022 23:34:36"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [
-      "eating",
-      "example",
-      "uploading",
-      "I honeslty cannot think of something else",
+      "SOCIAL MEDIA",
+      "EATING",
+      "INITIAL DISCUSSIONS",
+      "TURKEY DINOSAURS",
+      "DOING THINGS FOR WORK",
     ],
   },
   {
-    project: "nonchalant",
-    start: new Date("July 01, 2022 08:52:48"),
-    end: new Date("July 01, 2022 09:04:17"),
+    project: "Tedious",
+    start: new Date("June 25, 2022 16:22:55"),
+    end: new Date("June 25, 2022 19:02:24"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["uploading", "initial discussions"],
+    tags: ["INITIAL DISCUSSIONS"],
   },
   {
-    project: "immense",
-    start: new Date("July 01, 2022 04:33:36"),
-    end: new Date("July 01, 2022 09:10:43"),
+    project: "Yellow",
+    start: new Date("June 25, 2022 12:03:43"),
+    end: new Date("June 25, 2022 15:55:31"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["turkey dinosaurs", "example"],
+    tags: [
+      "INITIAL DISCUSSIONS",
+      "SOCIAL MEDIA",
+      "EATING",
+      "TYPING",
+      "MEETING",
+    ],
   },
   {
-    project: "immense",
-    start: new Date("July 01, 2022 00:14:24"),
-    end: new Date("July 01, 2022 01:49:31"),
+    project: "Think",
+    start: new Date("June 25, 2022 07:44:31"),
+    end: new Date("June 25, 2022 11:39:55"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "lemon"],
+    tags: ["TURKEY DINOSAURS"],
   },
   {
-    project: "tooth",
-    start: new Date("June 30, 2022 19:55:12"),
-    end: new Date("June 30, 2022 22:58:26"),
+    project: "Tedious",
+    start: new Date("June 25, 2022 03:25:19"),
+    end: new Date("June 25, 2022 07:06:55"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE"],
+  },
+  {
+    project: "Advise",
+    start: new Date("June 24, 2022 23:06:07"),
+    end: new Date("June 25, 2022 03:12:20"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["INITIAL DISCUSSIONS", "MEETING", "CHEST", "CODING"],
+  },
+  {
+    project: "Tedious",
+    start: new Date("June 24, 2022 18:46:55"),
+    end: new Date("June 24, 2022 22:03:19"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["CHEST"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("June 24, 2022 14:27:43"),
+    end: new Date("June 24, 2022 15:10:04"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: [
+      "INITIAL DISCUSSIONS",
+      "DOING THINGS FOR WORK",
+      "TEST",
+      "TURKEY DINOSAURS",
+    ],
+  },
+  {
+    project: "Yellow",
+    start: new Date("June 24, 2022 10:08:31"),
+    end: new Date("June 24, 2022 11:29:20"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "TYPING", "MEETING", "WRITING", "TEST"],
+  },
+  {
+    project: "Careless",
+    start: new Date("June 24, 2022 05:49:19"),
+    end: new Date("June 24, 2022 06:25:51"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE"],
+  },
+  {
+    project: "Aberrant",
+    start: new Date("June 24, 2022 01:30:07"),
+    end: new Date("June 24, 2022 02:20:38"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["TYPING", "CHEST", "LEMON", "UPLOADING"],
+  },
+  {
+    project: "Advise",
+    start: new Date("June 23, 2022 21:10:55"),
+    end: new Date("June 23, 2022 22:58:53"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EATING", "LEMON", "EXAMPLE", "CODING"],
+  },
+  {
+    project: "Bubble",
+    start: new Date("June 23, 2022 16:51:43"),
+    end: new Date("June 23, 2022 20:54:07"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["EXAMPLE", "DESIGN", "EATING", "PROOFREADING"],
+  },
+  {
+    project: "Automatic",
+    start: new Date("June 23, 2022 12:32:31"),
+    end: new Date("June 23, 2022 14:59:43"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "DOING THINGS FOR WORK", "TYPING"],
+  },
+  {
+    project: "Careless",
+    start: new Date("June 23, 2022 08:13:19"),
+    end: new Date("June 23, 2022 08:29:38"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["LEMON"],
+  },
+  {
+    project: "Immense",
+    start: new Date("June 23, 2022 03:54:07"),
+    end: new Date("June 23, 2022 04:22:58"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["SOCIAL MEDIA", "EATING"],
+  },
+  {
+    project: "Join",
+    start: new Date("June 22, 2022 23:34:55"),
+    end: new Date("June 23, 2022 02:41:04"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "tooth",
-    start: new Date("June 30, 2022 15:36:00"),
-    end: new Date("June 30, 2022 19:29:00"),
+    project: "Tedious",
+    start: new Date("June 22, 2022 19:15:43"),
+    end: new Date("June 22, 2022 23:46:56"),
+    comment:
+      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+    tags: ["BICEPS"],
+  },
+  {
+    project: "Tooth",
+    start: new Date("June 22, 2022 14:56:31"),
+    end: new Date("June 22, 2022 16:15:17"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
     tags: [],
   },
   {
-    project: "careless",
-    start: new Date("June 30, 2022 11:16:48"),
-    end: new Date("June 30, 2022 15:37:10"),
+    project: "Stitch",
+    start: new Date("June 22, 2022 10:37:19"),
+    end: new Date("June 22, 2022 12:47:03"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions"],
+    tags: ["LEGS"],
   },
   {
-    project: "stitch",
-    start: new Date("June 30, 2022 06:57:36"),
-    end: new Date("June 30, 2022 07:25:29"),
+    project: "Gaze",
+    start: new Date("June 22, 2022 06:18:07"),
+    end: new Date("June 22, 2022 07:01:42"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing"],
+    tags: ["MEETING", "WRITING", "CODING", "TYPING"],
   },
   {
-    project: "immense",
-    start: new Date("June 30, 2022 02:38:24"),
-    end: new Date("June 30, 2022 06:39:32"),
+    project: "Gaze",
+    start: new Date("June 22, 2022 01:58:55"),
+    end: new Date("June 22, 2022 03:43:59"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken", "meeting"],
+    tags: ["SOCIAL MEDIA", "CODING", "LEGS", "WRITING"],
   },
   {
-    project: "think",
-    start: new Date("June 29, 2022 22:19:12"),
-    end: new Date("June 30, 2022 00:50:37"),
+    project: "Tedious",
+    start: new Date("June 21, 2022 21:39:43"),
+    end: new Date("June 21, 2022 23:34:38"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work"],
+    tags: ["TYPING"],
   },
   {
-    project: "immense",
-    start: new Date("June 29, 2022 18:00:00"),
-    end: new Date("June 29, 2022 18:41:10"),
+    project: "Aberrant",
+    start: new Date("June 21, 2022 17:20:31"),
+    end: new Date("June 21, 2022 18:16:01"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "initial discussions"],
+    tags: ["CODING", "SOCIAL MEDIA", "DESIGN", "CHICKEN"],
   },
   {
-    project: "immense",
-    start: new Date("June 29, 2022 13:40:48"),
-    end: new Date("June 29, 2022 14:18:20"),
+    project: "Punish",
+    start: new Date("June 21, 2022 13:01:19"),
+    end: new Date("June 21, 2022 16:55:39"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "initial discussions"],
+    tags: ["SOCIAL MEDIA", "LEGS", "EXAMPLE"],
   },
   {
-    project: "far-flung",
-    start: new Date("June 29, 2022 09:21:36"),
-    end: new Date("June 29, 2022 12:59:07"),
+    project: "Draw",
+    start: new Date("June 21, 2022 08:42:07"),
+    end: new Date("June 21, 2022 12:38:22"),
     comment:
       "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "doing things for work", "turkey dinosaurs"],
-  },
-  {
-    project: "draw",
-    start: new Date("June 29, 2022 05:02:24"),
-    end: new Date("June 29, 2022 08:27:43"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "initial discussions"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("June 29, 2022 00:43:12"),
-    end: new Date("June 29, 2022 04:50:27"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "lemon", "coding"],
-  },
-  {
-    project: "gaze",
-    start: new Date("June 28, 2022 20:24:00"),
-    end: new Date("June 29, 2022 01:00:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "uploading", "design", "biceps"],
-  },
-  {
-    project: "punish",
-    start: new Date("June 28, 2022 16:04:48"),
-    end: new Date("June 28, 2022 19:59:44"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "chest", "social media"],
-  },
-  {
-    project: "bubble",
-    start: new Date("June 28, 2022 11:45:36"),
-    end: new Date("June 28, 2022 15:07:45"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "typing", "biceps", "example"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 28, 2022 07:26:24"),
-    end: new Date("June 28, 2022 09:37:38"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "coding", "example", "chest"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 28, 2022 03:07:12"),
-    end: new Date("June 28, 2022 05:58:34"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["coding", "meeting", "test", "biceps"],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("June 27, 2022 22:48:00"),
-    end: new Date("June 28, 2022 01:17:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "coding"],
-  },
-  {
-    project: "prison",
-    start: new Date("June 27, 2022 18:28:48"),
-    end: new Date("June 27, 2022 19:19:35"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "example", "lemon", "biceps", "meeting"],
-  },
-  {
-    project: "tooth",
-    start: new Date("June 27, 2022 14:09:36"),
-    end: new Date("June 27, 2022 14:42:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "yellow",
-    start: new Date("June 27, 2022 09:50:24"),
-    end: new Date("June 27, 2022 11:48:03"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "test",
-      "lemon",
-      "I honeslty cannot think of something else",
-      "example",
-      "biceps",
-    ],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 27, 2022 05:31:12"),
-    end: new Date("June 27, 2022 09:01:38"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "chest", "social media", "legs"],
-  },
-  {
-    project: "think",
-    start: new Date("June 27, 2022 01:12:00"),
-    end: new Date("June 27, 2022 02:46:30"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["social media"],
-  },
-  {
-    project: "think",
-    start: new Date("June 26, 2022 20:52:48"),
-    end: new Date("June 27, 2022 00:55:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test"],
-  },
-  {
-    project: "tooth",
-    start: new Date("June 26, 2022 16:33:36"),
-    end: new Date("June 26, 2022 17:14:43"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("June 26, 2022 12:14:24"),
-    end: new Date("June 26, 2022 13:25:14"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "doing things for work"],
-  },
-  {
-    project: "think",
-    start: new Date("June 26, 2022 07:55:12"),
-    end: new Date("June 26, 2022 09:31:20"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions"],
-  },
-  {
-    project: "rabid",
-    start: new Date("June 26, 2022 03:36:00"),
-    end: new Date("June 26, 2022 03:53:55"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "writing"],
-  },
-  {
-    project: "immense",
-    start: new Date("June 25, 2022 23:16:48"),
-    end: new Date("June 26, 2022 03:15:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "biceps"],
-  },
-  {
-    project: "automatic",
-    start: new Date("June 25, 2022 18:57:36"),
-    end: new Date("June 25, 2022 22:41:43"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "I honeslty cannot think of something else", "meeting"],
-  },
-  {
-    project: "tedious",
-    start: new Date("June 25, 2022 14:38:24"),
-    end: new Date("June 25, 2022 18:15:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design"],
-  },
-  {
-    project: "tooth",
-    start: new Date("June 25, 2022 10:19:12"),
-    end: new Date("June 25, 2022 11:11:59"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "careless",
-    start: new Date("June 25, 2022 06:00:00"),
-    end: new Date("June 25, 2022 07:50:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chicken"],
-  },
-  {
-    project: "careless",
-    start: new Date("June 25, 2022 01:40:48"),
-    end: new Date("June 25, 2022 02:32:40"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating"],
-  },
-  {
-    project: "yellow",
-    start: new Date("June 24, 2022 21:21:36"),
-    end: new Date("June 25, 2022 00:58:40"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "typing",
-      "chicken",
-      "social media",
-      "lemon",
-      "I honeslty cannot think of something else",
-    ],
-  },
-  {
-    project: "careless",
-    start: new Date("June 24, 2022 17:02:24"),
-    end: new Date("June 24, 2022 21:37:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing"],
-  },
-  {
-    project: "punish",
-    start: new Date("June 24, 2022 12:43:12"),
-    end: new Date("June 24, 2022 15:16:23"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "biceps", "example"],
-  },
-  {
-    project: "automatic",
-    start: new Date("June 24, 2022 08:24:00"),
-    end: new Date("June 24, 2022 11:32:15"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "legs",
-      "doing things for work",
-      "I honeslty cannot think of something else",
-    ],
-  },
-  {
-    project: "join",
-    start: new Date("June 24, 2022 04:04:48"),
-    end: new Date("June 24, 2022 07:48:17"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "immense",
-    start: new Date("June 23, 2022 23:45:36"),
-    end: new Date("June 24, 2022 00:07:13"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "I honeslty cannot think of something else",
-      "doing things for work",
-    ],
-  },
-  {
-    project: "gaze",
-    start: new Date("June 23, 2022 19:26:24"),
-    end: new Date("June 23, 2022 21:44:57"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "lemon",
-      "I honeslty cannot think of something else",
-      "biceps",
-      "initial discussions",
-    ],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 23, 2022 15:07:12"),
-    end: new Date("June 23, 2022 18:33:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "meeting", "social media", "proofreading"],
-  },
-  {
-    project: "draw",
-    start: new Date("June 23, 2022 10:48:00"),
-    end: new Date("June 23, 2022 12:32:01"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "example"],
-  },
-  {
-    project: "automatic",
-    start: new Date("June 23, 2022 06:28:48"),
-    end: new Date("June 23, 2022 07:10:38"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "eating", "social media"],
-  },
-  {
-    project: "punish",
-    start: new Date("June 23, 2022 02:09:36"),
-    end: new Date("June 23, 2022 04:26:28"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["legs", "initial discussions", "typing"],
-  },
-  {
-    project: "gaze",
-    start: new Date("June 22, 2022 21:50:24"),
-    end: new Date("June 23, 2022 02:12:12"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "example", "chicken", "typing"],
-  },
-  {
-    project: "rabid",
-    start: new Date("June 22, 2022 17:31:12"),
-    end: new Date("June 22, 2022 19:24:22"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["I honeslty cannot think of something else", "eating"],
-  },
-  {
-    project: "draw",
-    start: new Date("June 22, 2022 13:12:00"),
-    end: new Date("June 22, 2022 13:52:54"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "turkey dinosaurs"],
-  },
-  {
-    project: "careless",
-    start: new Date("June 22, 2022 08:52:48"),
-    end: new Date("June 22, 2022 13:25:57"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing"],
-  },
-  {
-    project: "tooth",
-    start: new Date("June 22, 2022 04:33:36"),
-    end: new Date("June 22, 2022 07:14:50"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "utter",
-    start: new Date("June 22, 2022 00:14:24"),
-    end: new Date("June 22, 2022 04:40:46"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "eating", "meeting"],
-  },
-  {
-    project: "rabid",
-    start: new Date("June 21, 2022 19:55:12"),
-    end: new Date("June 21, 2022 21:59:37"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["initial discussions", "turkey dinosaurs"],
-  },
-  {
-    project: "think",
-    start: new Date("June 21, 2022 15:36:00"),
-    end: new Date("June 21, 2022 18:01:37"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest"],
-  },
-  {
-    project: "automatic",
-    start: new Date("June 21, 2022 11:16:48"),
-    end: new Date("June 21, 2022 13:35:39"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "chest", "example"],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("June 21, 2022 06:57:36"),
-    end: new Date("June 21, 2022 07:26:25"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "legs"],
-  },
-  {
-    project: "nonchalant",
-    start: new Date("June 21, 2022 02:38:24"),
-    end: new Date("June 21, 2022 06:27:14"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "design"],
-  },
-  {
-    project: "immense",
-    start: new Date("June 20, 2022 22:19:12"),
-    end: new Date("June 21, 2022 00:05:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["doing things for work", "proofreading"],
-  },
-  {
-    project: "advise",
-    start: new Date("June 20, 2022 18:00:00"),
-    end: new Date("June 20, 2022 18:25:58"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "initial discussions", "turkey dinosaurs", "chicken"],
-  },
-  {
-    project: "utter",
-    start: new Date("June 20, 2022 13:40:48"),
-    end: new Date("June 20, 2022 15:38:53"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "legs", "doing things for work"],
-  },
-  {
-    project: "gaze",
-    start: new Date("June 20, 2022 09:21:36"),
-    end: new Date("June 20, 2022 09:36:00"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "chicken", "uploading", "design"],
-  },
-  {
-    project: "gaze",
-    start: new Date("June 20, 2022 05:02:24"),
-    end: new Date("June 20, 2022 06:11:19"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "initial discussions", "chicken", "legs"],
-  },
-  {
-    project: "advise",
-    start: new Date("June 20, 2022 00:43:12"),
-    end: new Date("June 20, 2022 02:07:19"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "legs", "proofreading", "turkey dinosaurs"],
-  },
-  {
-    project: "immense",
-    start: new Date("June 19, 2022 20:24:00"),
-    end: new Date("June 19, 2022 23:40:44"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon", "test"],
-  },
-  {
-    project: "rabid",
-    start: new Date("June 19, 2022 16:04:48"),
-    end: new Date("June 19, 2022 19:17:10"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "writing"],
-  },
-  {
-    project: "prison",
-    start: new Date("June 19, 2022 11:45:36"),
-    end: new Date("June 19, 2022 15:27:55"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "design",
-      "legs",
-      "turkey dinosaurs",
-      "chest",
-      "I honeslty cannot think of something else",
-    ],
-  },
-  {
-    project: "far-flung",
-    start: new Date("June 19, 2022 07:26:24"),
-    end: new Date("June 19, 2022 09:43:15"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["eating", "turkey dinosaurs", "legs"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 19, 2022 03:07:12"),
-    end: new Date("June 19, 2022 06:42:23"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "meeting", "social media", "test"],
-  },
-  {
-    project: "draw",
-    start: new Date("June 18, 2022 22:48:00"),
-    end: new Date("June 18, 2022 23:35:27"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "legs"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("June 18, 2022 18:28:48"),
-    end: new Date("June 18, 2022 22:59:51"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest", "doing things for work", "typing"],
-  },
-  {
-    project: "careless",
-    start: new Date("June 18, 2022 14:09:36"),
-    end: new Date("June 18, 2022 14:22:39"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 18, 2022 09:50:24"),
-    end: new Date("June 18, 2022 13:02:20"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["test", "chicken", "uploading", "proofreading"],
-  },
-  {
-    project: "punish",
-    start: new Date("June 18, 2022 05:31:12"),
-    end: new Date("June 18, 2022 06:25:35"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["design", "chicken", "doing things for work"],
-  },
-  {
-    project: "advise",
-    start: new Date("June 18, 2022 01:12:00"),
-    end: new Date("June 18, 2022 04:25:57"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["example", "biceps", "social media", "doing things for work"],
-  },
-  {
-    project: "advise",
-    start: new Date("June 17, 2022 20:52:48"),
-    end: new Date("June 17, 2022 22:11:16"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "initial discussions", "writing", "test"],
-  },
-  {
-    project: "immense",
-    start: new Date("June 17, 2022 16:33:36"),
-    end: new Date("June 17, 2022 20:29:22"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "initial discussions"],
-  },
-  {
-    project: "rabid",
-    start: new Date("June 17, 2022 12:14:24"),
-    end: new Date("June 17, 2022 16:45:23"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "coding"],
-  },
-  {
-    project: "yellow",
-    start: new Date("June 17, 2022 07:55:12"),
-    end: new Date("June 17, 2022 07:59:52"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [
-      "initial discussions",
-      "writing",
-      "turkey dinosaurs",
-      "coding",
-      "typing",
-    ],
-  },
-  {
-    project: "yellow",
-    start: new Date("June 17, 2022 03:36:00"),
-    end: new Date("June 17, 2022 06:42:25"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "meeting", "eating", "uploading", "chicken"],
-  },
-  {
-    project: "far-flung",
-    start: new Date("June 16, 2022 23:16:48"),
-    end: new Date("June 17, 2022 03:21:17"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["meeting", "typing", "writing"],
-  },
-  {
-    project: "stitch",
-    start: new Date("June 16, 2022 18:57:36"),
-    end: new Date("June 16, 2022 23:39:40"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["chest"],
-  },
-  {
-    project: "stitch",
-    start: new Date("June 16, 2022 14:38:24"),
-    end: new Date("June 16, 2022 19:21:59"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["lemon"],
-  },
-  {
-    project: "tooth",
-    start: new Date("June 16, 2022 10:19:12"),
-    end: new Date("June 16, 2022 13:00:02"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: [],
-  },
-  {
-    project: "bubble",
-    start: new Date("June 16, 2022 06:00:00"),
-    end: new Date("June 16, 2022 09:25:08"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["writing", "legs", "social media", "chest"],
-  },
-  {
-    project: "immense",
-    start: new Date("June 16, 2022 01:40:48"),
-    end: new Date("June 16, 2022 04:10:33"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["proofreading", "coding"],
-  },
-  {
-    project: "aberrant",
-    start: new Date("June 15, 2022 21:21:36"),
-    end: new Date("June 16, 2022 02:03:04"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["biceps", "design", "chest", "uploading"],
-  },
-  {
-    project: "careless",
-    start: new Date("June 15, 2022 17:02:24"),
-    end: new Date("June 15, 2022 21:11:08"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["social media"],
-  },
-  {
-    project: "draw",
-    start: new Date("June 15, 2022 12:43:12"),
-    end: new Date("June 15, 2022 15:36:24"),
-    comment:
-      "Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
-    tags: ["typing", "test"],
+    tags: ["MEETING", "TYPING"],
   },
 ];
 
 export const projects = [
   {
-    name: "join",
+    name: "Join",
     color: "#A52A2A",
   },
   {
-    name: "tooth",
+    name: "Tooth",
     color: "#40E0D0",
   },
   {
-    name: "think",
+    name: "Think",
     color: "#32CD32",
   },
   {
-    name: "stitch",
+    name: "Stitch",
     color: "#6EB003",
   },
   {
-    name: "tedious",
+    name: "Tedious",
     color: "#C9E5EA",
   },
   {
-    name: "careless",
+    name: "Careless",
     color: "#D203D8",
   },
   {
-    name: "draw",
+    name: "Draw",
     color: "#2CF9A6",
   },
   {
-    name: "immense",
+    name: "Immense",
     color: "#9A1973",
   },
   {
-    name: "rabid",
+    name: "Rabid",
     color: "#9535E7",
   },
   {
-    name: "nonchalant",
+    name: "Nonchalant",
     color: "#A768E1",
   },
   {
-    name: "punish",
+    name: "Punish",
     color: "#B07B40",
   },
   {
-    name: "automatic",
+    name: "Automatic",
     color: "#03177E",
   },
   {
-    name: "far-flung",
+    name: "Far-flung",
     color: "#FBA61E",
   },
   {
-    name: "utter",
+    name: "Utter",
     color: "#9381D0",
   },
   {
-    name: "advise",
+    name: "Advise",
     color: "#948B73",
   },
   {
-    name: "gaze",
+    name: "Gaze",
     color: "#E23F93",
   },
   {
-    name: "bubble",
+    name: "Bubble",
     color: "#436C3D",
   },
   {
-    name: "aberrant",
+    name: "Aberrant",
     color: "#45A1D4",
   },
   {
-    name: "yellow",
+    name: "Yellow",
     color: "#1B9235",
   },
   {
-    name: "prison",
+    name: "Prison",
     color: "#D44655",
   },
 ];

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { SessionContext } from "../services/array.context";
 import { H2 } from "../infrastructure/commonStyles";
 import { SessionView } from "./SessionOverview";
@@ -8,15 +8,19 @@ import { Btn } from "../infrastructure/Btn";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { Readable } from "../functions/readableDateTime";
 import { SessionList } from "./SessionList";
+import { scale } from "../infrastructure/scale";
+import { DropdownStyled } from "../infrastructure/commonStyles";
+import { projects } from "../services/mock/array";
+import { TagsHandler } from "./TagHandler";
 
 export const SessionSearch = () => {
   const { sessions, rerender } = useContext(SessionContext);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date() - 3 * 24 * 60 * 60 * 1000);
-
   const [startPickerOpen, setStartPickerOpen] = useState(false);
   const [endPickerOpen, setEndPickerOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [projectQuery, setProjectQuery] = useState("");
+  const [tagsQuery, setTagsQuery] = useState([]);
 
   const handleSetStartTime = (value) => {
     setStartDate(value);
@@ -34,25 +38,41 @@ export const SessionSearch = () => {
     return date.start < startDate && date.start > endDate;
   });
 
-  const onChangeSearch = (query) => setSearchQuery(query);
+  // const onChangeSearch = (query) => setSearchQuery(query);
 
   const searchFilter = dateSearch.filter((query) => {
     return (
-      query.comment.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      query.project.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      query.tags?.toString().toLowerCase().includes(searchQuery.toLowerCase())
+      query.project.toLowerCase().includes(projectQuery.toLowerCase()) &&
+      tagsQuery.every((value) => {
+        return query.tags?.includes(value);
+      })
     );
   });
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, padding: 5 }}>
       <View style={{ flexShrink: 1 }}>
         <View>
-          <Input
-            onChangeText={onChangeSearch}
-            value={searchQuery}
-            defaultValue="Search for project names, categories, tags or descriptions"
-            placeholder="Search for project names, categories, tags or descriptions"
+          <DropdownStyled
+            style={{ height: scale(50) }}
+            maxHeight={scale(200)}
+            placeholder="Select a project"
+            // value={newProject}
+            data={projects}
+            labelField="name"
+            valueField="name"
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            onChange={(item) => {
+              setProjectQuery(item.name);
+            }}
+          />
+          <TagsHandler
+            editable
+            passNewTags={setTagsQuery}
+            tags={tagsQuery}
+            search
           />
         </View>
         <View style={{ flexDirection: "row" }}>
@@ -99,3 +119,12 @@ export const SessionSearch = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  placeholderStyle: {
+    fontSize: scale(11),
+  },
+  selectedTextStyle: {
+    fontSize: scale(11),
+  },
+});

@@ -17,7 +17,7 @@ const DeleteTag = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
+export const TagsHandler = ({ editable, tags = [], passNewTags, search }) => {
   const [newTag, setNewTag] = useState("");
 
   let tagsList = tags;
@@ -37,6 +37,27 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
 
   return (
     <>
+      {editable && (
+        <ScrollView
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="on-drag"
+        >
+          <View
+            style={{
+              flexDirection: "row",
+            }}
+          >
+            <Input
+              placeholder={search ? "Search for tags" : "Enter new tags"}
+              multiline={false}
+              value={newTag}
+              onChangeText={(value) => setNewTag(value)}
+              blurOnSubmit={false}
+            />
+            <Btn type="add" onPress={handleAddTag} />
+          </View>
+        </ScrollView>
+      )}
       <TagsContainer>
         {tagsList.map((i, v) => (
           <TagsView key={v.toString()}>
@@ -53,27 +74,6 @@ export const TagsHandler = ({ editable, tags = [], passNewTags }) => {
           </TagsView>
         ))}
       </TagsContainer>
-      {editable && (
-        <ScrollView
-          keyboardShouldPersistTaps="always"
-          keyboardDismissMode="on-drag"
-        >
-          <View
-            style={{
-              flexDirection: "row",
-            }}
-          >
-            <Input
-              placeholder="Enter new tags"
-              multiline={false}
-              value={newTag}
-              onChangeText={(value) => setNewTag(value)}
-              blurOnSubmit={false}
-            />
-            <Btn type="add" onPress={handleAddTag} />
-          </View>
-        </ScrollView>
-      )}
     </>
   );
 };
