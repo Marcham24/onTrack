@@ -54,6 +54,8 @@ export const DashboardScreen = ({ navigation, route }) => {
 
   const [scrollY] = useState(new Animated.Value(0));
 
+  // ! To try and resolve loosing timer, create state here and pass the information up and down through add button to the screen (this way, can have a timing notifcation)
+
   return (
     <>
       <ScrollView

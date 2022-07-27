@@ -133,6 +133,7 @@ export default function App() {
                     ),
                   })}
                 />
+
                 <Stack.Screen
                   name="Add a session"
                   component={AddSessionScreen}
